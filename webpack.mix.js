@@ -11,5 +11,12 @@ const mix = require('laravel-mix')
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css')
+mix.js('resources/js/contact.js', 'public/js')
+
+if (mix.inProduction()) {
+    mix.version()
+    mix.copyDirectory('resources/seo', 'public')
+    mix.disableNotifications()
+}
+
+mix.browserSync('127.0.0.1:8000')
