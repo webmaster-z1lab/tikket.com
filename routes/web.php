@@ -1,27 +1,33 @@
 <?php
 
-Route::get('/', function () {
+Route::get('', function () {
     Meta::set('title', 'A sua plataforma de eventos, inscrições e ingressos');
 
     return view('home.index');
 })->name('home');
 
 Route::get('login', function () {
-    Meta::set('title', 'Entrar na conta Tikket');
+    Meta::set('title', 'Acessar sua conta');
 
-    return view('coming-soon');
+    return view('auth.login');
 })->name('login');
 
 Route::get('registro', function () {
-    Meta::set('title', 'Criar uma conta Tikket');
+    Meta::set('title', 'Criar uma conta');
 
-    return view('coming-soon');
+    return view('auth.register');
 })->name('register');
+
+Route::get('recuperar-conta', function () {
+    Meta::set('title', 'Recuperar sua conta');
+
+    return view('auth.account-recovery');
+})->name('account-recovery');
 
 Route::get('quem-somos', function () {
     Meta::set('title', 'Sobre o Tikket');
 
-    return view('coming-soon');
+    return view('about.we-are');
 })->name('about');
 
 Route::get('facilidades', function () {
@@ -33,13 +39,13 @@ Route::get('facilidades', function () {
 Route::get('termos-de-uso', function () {
     Meta::set('title', 'Termos de uso');
 
-    return view('coming-soon');
+    return view('about.terms');
 })->name('terms');
 
 Route::get('privacidade-e-cookies', function () {
     Meta::set('title', 'Privacidade e cookies');
 
-    return view('coming-soon');
+    return view('about.privacy');
 })->name('privacy');
 
 Route::get('contato', function () {

@@ -2,7 +2,7 @@
 
 @section('title', '405 - Método não permitido')
 @section('body-class', 'bg-img-hero-fixed')
-@section('body-style', 'background-image: url(' . getenv('AWS_CDN_ENDPOINT') . '/images/undraw/undraw_be_the_hero_ssr2.svg);')
+@section('body-style', 'background-image: url(' . getenv('AWS_CDN_ENDPOINT') . '/images/undraw/purple/undraw_be_the_hero.svg);')
 
 @section('content')
     <div class="d-lg-flex">

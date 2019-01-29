@@ -17,7 +17,7 @@
                         <h1 class="h2 font-weight-normal">Nós estamos realizando alguns ajustes</h1>
 
                         <p>
-                            Pedimos desculpas pela inconveniência mas o <strong>quantofica.com</strong> está passando por uma manuntenção programada.
+                            Pedimos desculpas pela inconveniência mas o <strong>Tikket</strong> está passando por uma manuntenção programada.
                         </p>
 
                         <p class="lead text-uppercase">

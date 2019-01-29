@@ -1,0 +1,116 @@
+<template>
+    <div>
+        <loading-component :is-loading="isLoading"></loading-component>
+
+        <div class="js-scrollbar u-sidebar__body">
+            <header class="d-flex align-items-center u-sidebar--account__holder mt-3">
+                <div class="position-relative">
+                    <img class="u-sidebar--account__holder-img" :src="user.avatar" :alt="`Foto de ${user.name}`">
+                    <span class="u-badge u-badge--xs u-badge-border-success u-badge-pos rounded-circle"></span>
+                </div>
+
+                <div class="ml-3">
+                    <strong>{{ user.name }}</strong>
+                </div>
+            </header>
+
+            <div class="u-sidebar__content--account">
+                <ul class="list-unstyled u-sidebar--account__list">
+                    <li class="u-sidebar--account__list-item">
+                        <a class="u-sidebar--account__list-link" href="/user/my-profile">
+                            <span class="far fa-user-circle u-sidebar--account__list-icon text-primary mr-2"></span>
+                            Meu perfil
+                        </a>
+                    </li>
+
+                    <li class="u-sidebar--account__list-item">
+                        <a class="u-sidebar--account__list-link" href="#" @click="logoutSubmit">
+                            <span class="fas fa-sign-out-alt u-sidebar--account__list-icon text-danger mr-2"></span>
+                            Sair
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="u-sidebar--account__list-divider"></div>
+
+                <ul class="list-unstyled u-sidebar--account__list">
+                    <li class="u-sidebar--account__list-item">
+                        <a class="u-sidebar--account__list-link" href="/user/edit-profile">
+                            <span class="far fa-address-book u-sidebar--account__list-icon text-primary mr-2"></span>
+                            Atualizar meu perfil
+                        </a>
+                    </li>
+
+                    <li class="u-sidebar--account__list-item">
+                        <a class="u-sidebar--account__list-link" href="/user/address">
+                            <span class="fas fa-map-marked-alt u-sidebar--account__list-icon text-primary mr-2"></span>
+                            Meus endereços
+                        </a>
+                    </li>
+
+                    <li class="u-sidebar--account__list-item">
+                        <a class="u-sidebar--account__list-link" href="/user/change-password">
+                            <span class="fas fa-key u-sidebar--account__list-icon text-primary mr-2"></span>
+                            Trocar minha senha
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="u-sidebar--account__list-divider"></div>
+
+                <ul class="list-unstyled u-sidebar--account__list">
+                    <li class="u-sidebar--account__list-item">
+                        <a class="u-sidebar--account__list-link" href="/user/my-subscriptions">
+                            <span class="far fa-credit-card u-sidebar--account__list-icon text-warning mr-2"></span>
+                            Minhas assinaturas
+                        </a>
+                    </li>
+
+                    <li class="u-sidebar--account__list-item">
+                        <a class="u-sidebar--account__list-link" href="/user/my-companies">
+                            <span class="fas fa-industry u-sidebar--account__list-icon text-success mr-2"></span>
+                            Minhas Empresas
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    import {sendCommon} from "../../../vendor/common";
+
+    import LoadingComponent from '../../../components/loadingComponent'
+
+    export default {
+        name: "Dashboard",
+        components: {
+            LoadingComponent
+        },
+        props: {
+            user: {
+                type: Object
+            }
+        },
+        data: () => ({
+            isLoading: false
+        }),
+        methods: {
+            async logoutSubmit() {
+                Pace.start()
+                this.isLoading = true
+
+                await sendCommon(route('logout'), {}, 'POST').then(
+                    response => window.location.reload()
+                ).catch(
+                    error => {
+                        Pace.stop()
+                        this.isLoading = false
+                        console.dir(error)
+                    }
+                )
+            }
+        }
+    }
+</script>

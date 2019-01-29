@@ -45,11 +45,13 @@
                             <a class="nav-link u-header__nav-link" href="{{ route('features') }}">Facilidades</a>
                         </li>
 
-                        <li class="nav-item u-header__nav-last-item">
-                            <a class="btn btn-sm btn-primary transition-3d-hover" href="{{ route('login') }}" target="_blank">
-                                Acessar
-                            </a>
-                        </li>
+                        @auth
+                            @include('layouts.components.header.auth')
+                        @endauth
+
+                        @guest
+                            @include('layouts.components.header.guest')
+                        @endguest
                     </ul>
                 </div>
             </nav>

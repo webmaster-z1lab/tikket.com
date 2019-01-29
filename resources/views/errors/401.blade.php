@@ -2,7 +2,7 @@
 
 @section('title', '401 - Não autorizado')
 @section('body-class', 'bg-img-hero-fixed')
-@section('body-style', 'background-image: url(' . getenv('AWS_CDN_ENDPOINT') . '/images/undraw/undraw_security_o890.svg);')
+@section('body-style', 'background-image: url(' . getenv('AWS_CDN_ENDPOINT') . '/images/undraw/purple/undraw_security.svg);')
 
 @section('content')
     <div class="d-lg-flex">
