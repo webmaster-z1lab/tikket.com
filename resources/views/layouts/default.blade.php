@@ -33,7 +33,7 @@
 
     @stack('defer-scripts')
 
-    {{--<script defer src="{{ mix('js/sidebar/main.js') }}"></script>--}}
+    <script defer src="{{ mix('js/sidebar/main.js') }}"></script>
     {{--<script defer src="{{ mix('js/search-unfold.js') }}"></script>--}}
 </head>
 <body>
@@ -72,8 +72,8 @@
 
 @routes()
 
-{{--<script src="{{ mix('js/manifest.js') }}"></script>
-<script src="{{ mix('js/vendor.js') }}"></script>--}}
+<script src="{{ mix('js/manifest.js') }}"></script>
+<script src="{{ mix('js/vendor.js') }}"></script>
 
 @stack('scripts')
 

@@ -1,5 +1,9 @@
 <?php
 
 return [
-    'whitelist' => [],
+    'whitelist' => [
+        'logout',
+        'openid.user',
+        'openid.refresh',
+    ],
 ];

@@ -2,7 +2,7 @@
 
 @section('title', '500 - Falha do servidor')
 @section('body-class', 'bg-img-hero-fixed')
-@section('body-style', 'background-image: url(' . getenv('AWS_CDN_ENDPOINT') . '/images/undraw/undraw_may_the_force_bgdm.svg);')
+@section('body-style', 'background-image: url(' . getenv('AWS_CDN_ENDPOINT') . '/images/undraw/purple/undraw_may_the_force.svg);')
 
 @section('content')
     <div class="d-lg-flex">
