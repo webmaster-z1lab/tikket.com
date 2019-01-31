@@ -63,7 +63,19 @@ Route::get('criar-evento', function () {
 Route::get('eventos/{type?}', function () {
     Meta::set('title', 'Eventos');
 
-    return view('coming-soon');
+    return view('event.index');
 })->name('events');
+
+Route::get('evento', function () {
+    Meta::set('title', 'Evento');
+
+    return view('event.show');
+})->name('event');
+
+Route::post('evento', function (\Illuminate\Http\Request $request) {
+   return response()->json($request->all());
+})->name('event.test');
+
+
 
 Route::view('user/{vue?}', 'user.index')->name('user')->where('vue', '.*')->middleware('auth');

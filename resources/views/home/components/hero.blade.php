@@ -6,7 +6,7 @@
                 <p>Tikket é uma plataforma digital completa para <strong class="text-primary">festas, shows e workshops.</strong></p>
             </div>
 
-            <form class="w-md-75 w-xl-60 mx-md-auto mb-4">
+            <form class="w-md-75 w-xl-60 mx-md-auto mb-4" action="{{ route('events') }}" method="GET">
                 <label class="sr-only" for="signupSrEmail">Evento, cidade, estado...</label>
                 <div class="input-group">
                     <input type="text" class="form-control" name="search" id="search" placeholder="Evento, cidade, estado..." aria-label="Evento, cidade, estado..." required>

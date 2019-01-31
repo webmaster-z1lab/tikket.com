@@ -10,6 +10,6 @@
        data-unfold-animation-in="fadeInRight"
        data-unfold-animation-out="fadeOutRight"
        data-unfold-duration="500">
-        User
+        <i class="fas fa-user-circle mr-1"></i>{{ explode(' ', Auth::user()->name)[0] }}
     </a>
 </li>
