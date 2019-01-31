@@ -72,12 +72,6 @@ Route::get('evento', function () {
     return view('event.show');
 })->name('event');
 
-Route::post('evento', function (\Illuminate\Http\Request $request) {
-   return response()->json($request->all());
-})->name('event.test');
-
-
-
 Route::view('user/{vue?}', 'user.index')->name('user')->where('vue', '.*')->middleware('auth');
 
 Route::get('cart/{vue?}', function () {

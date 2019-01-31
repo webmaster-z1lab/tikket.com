@@ -1,9 +1,6 @@
 <div class="container space-2">
-    <form action="{{ route('event.test') }}" method="post" id="shop">
-        @csrf
-        @method('POST')
-
-        <input type="hidden" name="event" value="{{ str_random(24) }}">
+    <form id="shop">
+        <input type="hidden" name="event" value="5c53523de7a6cd1b30006c52">
         <input type="hidden" name="callback" value="test">
 
         <div class="d-none d-sm-block mb-4 border-bottom">
@@ -28,10 +25,10 @@
                         <button class="btn btn-outline-primary" type="button"><i class="fas fa-minus"></i></button>
                     </div>
 
-                    <input type="hidden" name="tickets[0][lot]" value="1">
-                    <input type="hidden" name="tickets[0][entrance]" value="{{ str_random(24) }}">
+                    <input type="hidden" class="js-lot" value="1">
+                    <input type="hidden" class="js-entrance" value="5c5353d5e7a6cd1b30006c53">
 
-                    <input readonly type="number" class="form-control" value="0" data-max="5" data-price="55.00" name="tickets[0][quantity]">
+                    <input readonly type="number" class="form-control js-quantity" value="0" data-max="5" data-price="55.00" name="tickets[0][quantity]">
 
                     <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="button"><i class="fas fa-plus"></i></button>
@@ -54,10 +51,10 @@
                         <button class="btn btn-outline-primary" type="button"><i class="fas fa-minus"></i></button>
                     </div>
 
-                    <input type="hidden" name="tickets[1][lot]" value="1">
-                    <input type="hidden" name="tickets[1][entrance]" value="{{ str_random(24) }}">
+                    <input type="hidden" class="js-lot" value="1">
+                    <input type="hidden" class="js-entrance" value="5c53548de7a6cd1b30006c54">
 
-                    <input readonly type="number" class="form-control" value="0" data-max="1" data-price="27.50" name="tickets[1][quantity]">
+                    <input readonly type="number" class="form-control js-quantity" value="0" data-max="1" data-price="27.50">
 
                     <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="button"><i class="fas fa-plus"></i></button>

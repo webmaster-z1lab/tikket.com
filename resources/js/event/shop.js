@@ -15,7 +15,7 @@ function init() {
         let input, value, max;
 
         for (let i = 0; i < entrance.children.length; i++) {
-            if (entrance.children[i].tagName === 'INPUT') {
+            if (entrance.children[i].classList.contains('js-quantity')) {
                 input = entrance.children[i]
                 value = parseInt(input.value)
                 max = parseInt(input.dataset.max)
@@ -53,16 +53,13 @@ function init() {
             response => {
                 toast({
                     type: 'success',
-                    title: 'Senha alterada com sucesso!'
+                    title: 'ok'
                 })
             }
         ).catch(
             error => {
                 if (_.isObject(error.response.data)) {
-                    toast({
-                        type: 'error',
-                        title: error.response.data.errors.detail
-                    })
+                    console.log(error.response.data.errors.detail)
                 } else {
                     console.dir(error)
                 }
@@ -75,6 +72,7 @@ function init() {
 }
 
 /**
+ * Change
  *
  * @param value
  * @param max
@@ -99,6 +97,9 @@ function checkButton(value, max, btnMinus, btnPlus) {
     }
 }
 
+/**
+ * Change submit form button state
+ */
 function checkAction() {
     if (amount === 0) {
         btnAction.disabled = true
@@ -148,15 +149,41 @@ function formatMoney(amount, decimalCount = 2, decimal = ",", thousands = ".") {
     }
 }
 
-function submit(form, headers = {}) {
+/**
+ *
+ * @param form
+ * @returns {Promise<any>}
+ */
+function submit(form) {
     let data = new FormData(form)
+    let tickets = [];
+
+    for (let entrance of entrances) {
+        let quantity = parseInt(entrance.getElementsByClassName('js-quantity')[0].value)
+
+        if (quantity > 0) {
+            let lot = entrance.getElementsByClassName('js-lot')[0].value
+            let entrance_id = entrance.getElementsByClassName('js-entrance')[0].value
+
+            tickets.push({
+                'lot': lot,
+                'entrance': entrance_id,
+                'quantity': quantity
+            })
+        }
+    }
+
+    for (let i = 0; i < tickets.length; i++) {
+        data.set(`tickets[${i}][lot]`, tickets[i].lot)
+        data.set(`tickets[${i}][entrance]`, tickets[i].entrance)
+        data.set(`tickets[${i}][quantity]`, tickets[i].quantity)
+    }
 
     return new Promise((resolve, reject) => {
         HTTP({
             method: 'POST',
-            url: form.action,
-            data: data,
-            headers: headers
+            url: `http://127.0.0.2:8000/api/v1/carts`,
+            data: data
         }).then(
             response => {
                 resolve(response.data)
