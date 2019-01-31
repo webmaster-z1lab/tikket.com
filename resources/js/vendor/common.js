@@ -16,7 +16,6 @@ export function searchID() {
  * @returns {Promise<any>}
  */
 export async function toSeek(url, params = null) {
-
     if(params !== null) url = url + '?' + httpBuildQuery(params)
 
     return await new Promise((resolve, reject) => {

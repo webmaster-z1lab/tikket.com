@@ -25,7 +25,7 @@
             },
             color: {
                 type: String,
-                default: '#377dff'
+                default: '#6000a7'
             },
             loader: {
                 type: String,

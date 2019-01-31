@@ -1,5 +1,3 @@
-import swal from 'sweetalert2'
-
 window._ = require('lodash');
 window.collect = require('collect.js');
 
@@ -15,13 +13,6 @@ if (token) {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
-window.toast = swal.mixin({
-    toast: true,
-    position: 'bottom',
-    showConfirmButton: false,
-    timer: 3000
-});
-
 if (_.isEmpty(getCookie('id_token'))) {
     window.axios.defaults.headers.common['Authorization'] = `Bearer ${getCookie('client_token')}`
 } else {
@@ -31,17 +22,25 @@ if (_.isEmpty(getCookie('id_token'))) {
 
 export const HTTP = axios.create();
 
+/**
+ * @param cname
+ * @returns {string}
+ */
 export function getCookie(cname) {
-    let name = cname + "=";
-    let ca = document.cookie.split(';');
+    let name = cname + "=",
+        ca = document.cookie.split(';');
+
     for(let i = 0; i < ca.length; i++) {
         let c = ca[i];
+
         while (c.charAt(0) == ' ') {
             c = c.substring(1);
         }
+
         if (c.indexOf(name) == 0) {
             return c.substring(name.length, c.length);
         }
     }
+
     return "";
 }

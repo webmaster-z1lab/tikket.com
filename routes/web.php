@@ -65,3 +65,9 @@ Route::get('eventos/{type?}', function () {
 
     return view('coming-soon');
 })->name('events');
+
+Route::get('cart/{vue?}', function () {
+    Meta::set('title', 'Carrinho');
+
+    return view('cart.index');
+})->name('cart')->where('vue', '.*');

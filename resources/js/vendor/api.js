@@ -1,3 +1,6 @@
+/**
+ * @returns {string}
+ */
 export function searchID() {
     let path = window.location.pathname;
     let arr = path.split('/');

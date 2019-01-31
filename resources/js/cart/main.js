@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueCurrencyFilter from 'vue-currency-filter'
 
 /* Configs */
 import VueMain from './main.vue'
@@ -15,16 +16,27 @@ require('../forms/config/validator')
 /* Route */
 Vue.use(VueRouter)
 
+/* Money */
+Vue.use(VueCurrencyFilter,
+    {
+        symbol : 'R$',
+        thousandsSeparator: '.',
+        fractionCount: 2,
+        fractionSeparator: ',',
+        symbolPosition: 'front',
+        symbolSpacing: true
+    })
+
 const router = new VueRouter({
     mode: 'history',
-    base: '/user',
-    suppressTransitionError: true,
+    base: '/cart',
+    //suppressTransitionError: true,
     routes
 });
 
 new Vue({
-    el: '#vue-user',
-    name: 'VueUser',
+    el: '#vue-cart',
+    name: 'VueCart',
     render: h => h(VueMain),
     store,
     router

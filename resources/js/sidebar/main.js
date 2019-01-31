@@ -4,7 +4,7 @@ import Vue from 'vue'
 import VeeValidate from 'vee-validate'
 Vue.use(VeeValidate)
 
-require('../vendor/validator')
+require('../forms/config/validator')
 
 /* Components */
 import Sidebar from './main.vue'
