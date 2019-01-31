@@ -6,7 +6,7 @@ import AlertVue from '../components/alertComponent'
 import VeeValidate from 'vee-validate'
 Vue.use(VeeValidate)
 
-require('../vendor/validator')
+require('../forms/config/validator')
 
 import LoadingComponent from '../components/loadingComponent'
 

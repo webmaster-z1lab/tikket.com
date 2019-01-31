@@ -4,7 +4,7 @@ import Vue from 'vue'
 import VeeValidate from 'vee-validate'
 Vue.use(VeeValidate, { inject: false })
 
-require('../vendor/validator')
+require('./config/validator')
 
 /* Components */
 import FormVue from './forms-vue'

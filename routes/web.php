@@ -79,3 +79,9 @@ Route::post('evento', function (\Illuminate\Http\Request $request) {
 
 
 Route::view('user/{vue?}', 'user.index')->name('user')->where('vue', '.*')->middleware('auth');
+
+Route::get('cart/{vue?}', function () {
+    Meta::set('title', 'Carrinho');
+
+    return view('cart.index');
+})->name('cart')->where('vue', '.*');

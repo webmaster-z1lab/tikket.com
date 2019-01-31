@@ -1,4 +1,4 @@
-import { getCEP } from "./api";
+import { getCEP } from "../../vendor/api";
 import { Validator } from "vee-validate"
 import pt_BR from 'vee-validate/dist/locale/pt_BR'
 
