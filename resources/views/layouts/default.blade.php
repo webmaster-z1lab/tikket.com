@@ -16,6 +16,9 @@
 
     <link rel="shortcut icon" href="{{ getenv('AWS_CDN_ENDPOINT') }}/images/tikket/ticket_gradient.png">
 
+    <script defer src="{{ getenv('AWS_CDN_ENDPOINT') }}/vendor/pace/1.0.2/pace.min.js"></script>
+    <link href="{{ getenv('AWS_CDN_ENDPOINT') }}/vendor/pace/1.0.2/pace-theme-flash.css" rel="stylesheet">
+
     <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"

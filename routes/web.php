@@ -66,6 +66,8 @@ Route::get('eventos/{type?}', function () {
     return view('coming-soon');
 })->name('events');
 
+Route::view('user/{vue?}', 'user.index')->name('user')->where('vue', '.*')->middleware('auth');
+
 Route::get('cart/{vue?}', function () {
     Meta::set('title', 'Carrinho');
 
