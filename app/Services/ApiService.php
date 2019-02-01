@@ -78,7 +78,6 @@ class ApiService
      * @param array  $params
      *
      * @return $this
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function find(string $param = '', array $params = [])
     {
@@ -86,7 +85,7 @@ class ApiService
             $result = $this->client->request($this->method, "{$this->api}{$this->resource}/{$param}", $params);
 
             $this->response = json_decode($result->getBody());
-        } catch (\Exception $e) {
+        } catch (\GuzzleHttp\Exception\GuzzleException $e) {
             abort(400, $e->getMessage());
         }
 

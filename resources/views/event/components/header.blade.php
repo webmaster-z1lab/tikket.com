@@ -1,7 +1,8 @@
 <div class="container space-top-2 space-top-md-4 space-top-lg-3">
     <div class="row">
+        <h1 class="sr-only">{{ $event->name }}</h1>
         <div class="col-12">
-            <img class="img-fluid" src="https://via.placeholder.com/1600x838.png/6000A7/fff" alt="Evento">
+            <img class="img-fluid" src="{{ $event->cover }}" alt="{{ $event->name }}" title="{{ $event->name }}">
         </div>
     </div>
 </div>
