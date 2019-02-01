@@ -1,12 +1,19 @@
 'use strict'
 
-import {HTTP} from "../bootstrap";
+import {HTTP} from "../bootstrap"
+import LocalStorage from "../vendor/storage"
 
 const entrances = document.querySelectorAll('.entrance')
 const btnAction = document.querySelector('.js-action')
-let total = 0;
-let amount = 0;
 
+let total = 0
+let amount = 0
+
+/**
+ * Init function
+ *
+ * Add buttons and form listeners and events
+ */
 function init() {
     for (let entrance of entrances) {
         let btnMinus = entrance.firstElementChild.firstElementChild
@@ -30,6 +37,7 @@ function init() {
                 amount -= 1
                 calcTotal(input.dataset.price, 'minus')
             }
+
             checkButton(value, max, btnMinus, btnPlus)
             checkAction()
         })
@@ -51,10 +59,8 @@ function init() {
     btnAction.addEventListener('click', function () {
         submit(form).then(
             response => {
-                toast({
-                    type: 'success',
-                    title: 'ok'
-                })
+                new LocalStorage('cart__').setItem('user', response.data, response.data.attributes.expires_at)
+                window.location.href = process.env.MIX_APP_URL + '/cart'
             }
         ).catch(
             error => {
@@ -72,7 +78,7 @@ function init() {
 }
 
 /**
- * Change
+ * Change the disabled status from minus and plus buttons
  *
  * @param value
  * @param max
@@ -182,7 +188,7 @@ function submit(form) {
     return new Promise((resolve, reject) => {
         HTTP({
             method: 'POST',
-            url: `http://127.0.0.2:8000/api/v1/carts`,
+            url: process.env.MIX_API_VERSION_ENDPOINT + '/carts',
             data: data
         }).then(
             response => {

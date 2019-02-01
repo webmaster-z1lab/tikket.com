@@ -25,10 +25,12 @@
                         <button class="btn btn-outline-primary" type="button"><i class="fas fa-minus"></i></button>
                     </div>
 
+                    <label for="5c5353d5e7a6cd1b30006c53" class="sr-only">Número de entradas Inteira</label>
+
                     <input type="hidden" class="js-lot" value="1">
                     <input type="hidden" class="js-entrance" value="5c5353d5e7a6cd1b30006c53">
 
-                    <input readonly type="number" class="form-control js-quantity" value="0" data-max="5" data-price="55.00" name="tickets[0][quantity]">
+                    <input readonly type="text" class="form-control js-quantity" value="0" data-max="5" data-price="55.00" id="5c5353d5e7a6cd1b30006c53">
 
                     <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="button"><i class="fas fa-plus"></i></button>
@@ -51,10 +53,11 @@
                         <button class="btn btn-outline-primary" type="button"><i class="fas fa-minus"></i></button>
                     </div>
 
+                    <label for="5c53548de7a6cd1b30006c54" class="sr-only">Número de entradas "Inteira"</label>
+
                     <input type="hidden" class="js-lot" value="1">
                     <input type="hidden" class="js-entrance" value="5c53548de7a6cd1b30006c54">
-
-                    <input readonly type="number" class="form-control js-quantity" value="0" data-max="1" data-price="27.50">
+                    <input readonly type="text" class="form-control js-quantity" value="0" data-max="1" data-price="27.50" id="5c53548de7a6cd1b30006c54">
 
                     <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="button"><i class="fas fa-plus"></i></button>
