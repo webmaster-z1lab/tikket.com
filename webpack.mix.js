@@ -25,7 +25,7 @@ let vendors = [
 ]
 
 mix.js('resources/js/contact.js', 'public/js')
-mix.js('resources/js/event/shop.js', 'public/js')
+    .js('resources/js/event/shop.js', 'public/js')
     .js('resources/js/auth/login.js', 'public/js/auth')
     .js('resources/js/auth/register.js', 'public/js/auth')
     .js('resources/js/auth/account-recovery.js', 'public/js/auth')

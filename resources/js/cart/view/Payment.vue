@@ -1,5 +1,7 @@
 <template>
     <form>
+        <loading-component :is-loading="isLoading"></loading-component>
+
         <div class="mb-3">
             <h2 class="h5 mb-0">Informações de Pagamento</h2>
         </div>
@@ -26,17 +28,20 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="js-form-message mb-6" :class="errors.has('card_holder') ? 'u-has-error' : ''">
+                <div class="js-form-message mb-6" :class="errors.has('installment') ? 'u-has-error' : ''">
                     <label class="form-label">
-                        Nome do Titular <span class="text-danger">*</span>
+                        Opções de pagamento <span class="text-danger">*</span>
                     </label>
 
-                    <input type="text" class="form-control" name="card_holder" placeholder="Jack Wayley"
-                           v-model="card_holder"
-                           v-validate="'required'" data-vv-as="'Nome do Titular'">
+                    <select class="custom-select" aria-invalid="false" name="installment" v-model="installment" v-validate="'required'" :data-vv-as="'Opções de pagamento'">
+                        <option value="" selected="">Selecione uma das opções de pagamento</option>
+                        <option v-for="option in installments" :value="option">
+                            {{`${option.quantity}x de R$ ${option.installmentAmount}`}}
+                        </option>
+                    </select>
 
-                    <div v-show="errors.has('card_holder')" class="invalid-feedback" style="display: block">
-                        {{ errors.first('card_holder') }}
+                    <div v-show="errors.has('installment')" class="invalid-feedback" style="display: block">
+                        {{ errors.first('installment') }}
                     </div>
                 </div>
             </div>
@@ -63,7 +68,7 @@
             <div class="col-md-3">
                 <div class="js-form-message mb-6" :class="errors.has('card_cvv') ? 'u-has-error' : ''">
                     <label class="form-label">
-                        CVV
+                        CVV <span class="text-danger">*</span>
                     </label>
 
                     <input type="text" class="form-control" name="card_cvv" placeholder="***" v-model="card_cvv"
@@ -97,19 +102,19 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="js-form-message mb-3" :class="errors.has('cpf') ? 'u-has-error' : ''">
+                <div class="js-form-message mb-3" :class="errors.has('document') ? 'u-has-error' : ''">
                     <label class="form-label">
                         CPF <span class="text-danger">*</span>
                     </label>
 
-                    <the-mask class="form-control u-form__input" type="text" name="cpf" id="cpf"
+                    <the-mask class="form-control u-form__input" type="text" name="document" id="document"
                               placeholder="000.000.000-00"
                               v-validate="'required|cpf'" data-vv-as="'CPF'"
-                              mask="###.###.###-##" v-model="cpf">
+                              mask="###.###.###-##" v-model="document">
                     </the-mask>
 
-                    <div v-show="errors.has('cpf')" class="invalid-feedback" style="display: block">
-                        {{ errors.first('cpf') }}
+                    <div v-show="errors.has('document')" class="invalid-feedback" style="display: block">
+                        {{ errors.first('document') }}
                     </div>
                 </div>
             </div>
@@ -173,7 +178,7 @@
             </div>
         </div>
 
-        <div class="row ml-1" v-if="completeAddress">
+        <div class="row" v-if="completeAddress">
             <div class="col-md-9">
                 <div class="js-form-message mb-3" :class="errors.has('street') ? 'u-has-error' : ''">
                     <label class="form-label">
@@ -258,20 +263,26 @@
             <router-link :to="{name: 'information'}">
                 <span class="fas fa-angle-left mr-2"></span> Voltar
             </router-link>
-            <router-link :to="{name: 'payment'}" class="btn btn-primary transition-3d-hover">
-                Continuar
-            </router-link>
+            <button type="button" @click="submitForm" class="btn btn-primary transition-3d-hover">Concluir</button>
         </div>
     </form>
 </template>
 
 <script>
+    import flatpickr from "flatpickr"
+    import swal from 'sweetalert2'
     import LoadingComponent from '../../components/loadingComponent'
+    import LocalStorage from "../../vendor/storage"
 
     import {TheMask} from 'vue-the-mask'
-    import {mapState, mapActions} from 'vuex'
-    import {getBrand, createCardHash, createCardToken} from "../../vendor/api";
-    import {toSeek, sendAPIPOST} from "../../vendor/common";
+    import {createCardHash, createCardToken, getBrand, getCEP, getInstallment} from "../../vendor/api";
+    import {mapActions, mapState} from 'vuex'
+    import {sendAPIPOST, toSeek} from "../../vendor/common";
+
+    require('flatpickr/dist/flatpickr.min.css');
+
+    const Portuguese = require("flatpickr/dist/l10n/pt.js").default.pt;
+    flatpickr.localize(Portuguese);
 
     export default {
         name: "Payment",
@@ -283,9 +294,8 @@
             LoadingComponent
         },
         data: () => ({
-            amount: 0,
-            plan: '',
-            additional_name: [],
+            installments: {},
+            installment: {},
             brand: '',
             card_number: '',
             card_holder: '',
@@ -293,131 +303,188 @@
             card_cvv: '',
             isLoading: false,
             hash: null,
-            token: null
+            token: null,
+            birth_date: '',
+            document: '',
+            phone: '',
+            street: '',
+            number: '',
+            district: '',
+            cep: '',
+            state: '',
+            city: '',
+            complement: '',
+            ibge_id: '',
+            completeAddress: false,
         }),
-        // computed: {
-        //     ...mapState({
-        //         user: state => state.user.data.attributes,
-        //         cart: state => state.cart,
-        //         plans: state => state.cart.relationships.plans,
-        //         additional: state => state.cart.relationships.additional
-        //     }),
-        //     imgBrand() {
-        //         return `https://stc.pagseguro.uol.com.br/public/img/payment-methods-flags/68x30/${this.brand}.png`
-        //     },
-        //     checkRoute() {
-        //         return this.$route.name !== 'confirmation'
-        //     }
-        // },
-        // watch: {
-        //     async card_number(value) {
-        //         this.brand = ''
-        //
-        //         if (value.length === 16) {
-        //             await getBrand(value).then((response) => this.brand = response.brand.name).catch((error) => this.setError('Número de cartão não reconhecido.'))
-        //         }
-        //     },
-        //     plan(value) {
-        //         this.setAmount()
-        //     },
-        //     additional_name(value) {
-        //         this.setAmount()
-        //     }
-        // },
-        // methods: {
-        //     ...mapActions(['changeCart']),
-        //     submitForm() {
-        //         this.$validator.validateAll().then(
-        //             async res => {
-        //                 if (res) {
-        //                     Pace.start()
-        //                     this.isLoading = true
-        //
-        //                     await createCardToken(this.card_number, this.brand, this.card_cvv, this.card_expiration_date).then(
-        //                         (response) => {
-        //                             this.token = response.card.token
-        //                         }
-        //                     ).catch(
-        //                         (error) => {
-        //                             let erro = collect(error.errors).first()
-        //
-        //                             this.setError(erro)
-        //                         }
-        //                     )
-        //
-        //                     if (_.isNull(this.token) || _.isNull(this.hash)) return
-        //
-        //                     let data = {
-        //                         plan_id: this.plan,
-        //                         callback: this.cart.attributes.callback === 'confirmation' ? 'confirmation' : 'data_payment',
-        //                         card: {
-        //                             name: this.card_holder,
-        //                             number: this.card_number.substr(-4),
-        //                             brand: this.brand,
-        //                             token: this.token
-        //                         },
-        //                         hash: this.hash,
-        //                         additional: this.additional_name,
-        //                         _method: 'PUT'
-        //                     }
-        //
-        //                     await sendAPIPOST(`${process.env.MIX_API_VERSION_ENDPOINT}/carts/${this.cart.id}`, data).then(
-        //                         async result => {
-        //                             await this.changeCart(result.data.data)
-        //                             if (this.$route.name !== 'confirmation') this.$router.push({name: 'data_payment'})
-        //                         }
-        //                     ).catch(
-        //                         (error) => {
-        //                             if (_.isObject(error.response)) {
-        //                                 toast({
-        //                                     type: 'error',
-        //                                     title: error.response.data.errors.detail
-        //                                 })
-        //                             } else {
-        //                                 console.dir(error)
-        //                             }
-        //                         }
-        //                     ).finally(
-        //                         () => {
-        //                             Pace.stop()
-        //                             this.isLoading = false
-        //                         }
-        //                     )
-        //                 }
-        //             }
-        //         )
-        //     },
-        //     setError(error) {
-        //         Pace.stop()
-        //         this.isLoading = false
-        //
-        //         toast({
-        //             type: 'error',
-        //             title: error
-        //         })
-        //     },
-        //     setAmount() {
-        //         let plan = _.find(this.plans, ['id', this.plan])
-        //
-        //         if (_.isEmpty(this.additional_name)) {
-        //             this.amount = plan.attributes.values.final
-        //         } else {
-        //             let additional = _.find(this.additional, ['attributes._id', _.head(this.additional_name)])
-        //
-        //             this.amount = plan.attributes.values.final + additional.attributes.value
-        //         }
-        //     }
-        // },
-        // mounted() {
-        //     toSeek(`${process.env.MIX_API_PAYMENT}/api/session`).then(
-        //         async response => {
-        //             await PagSeguroDirectPayment.setSessionId(response.session)
-        //             await createCardHash().then((response) => this.hash = response).catch((error) => this.setError(error))
-        //             this.plan = this.cart.attributes.plan_id
-        //             this.additional_name = this.cart.attributes.additional
-        //             this.isLoading = false
-        //         }
-        //     )
-        // }
+        computed: {
+            ...mapState({
+                cart: state => state.cart
+            }),
+            imgBrand() {
+                return `https://stc.pagseguro.uol.com.br/public/img/payment-methods-flags/68x30/${this.brand}.png`
+            }
+        },
+        watch: {
+            async card_number(value) {
+                this.brand = ''
+
+                if (value.length === 16) {
+                    await getBrand(value).then((response) => {
+                        let amount = ((this.cart.attributes.amount + this.cart.attributes.fee - this.cart.attributes.discount) / 100)
+
+                        this.brand = response.brand.name
+
+                        getInstallment(response.brand.name, amount, 12).then((response) => {
+                            this.installments = response.installments[this.brand]
+                        }).catch((error) => {
+                            this.setError(error.errors)
+                        })
+                    }).catch((error) => this.setError('Número de cartão não reconhecido.'))
+                }
+            },
+            async cep(value) {
+                this.completeAddress = false
+
+                if (value.length === 8) {
+                    Pace.start()
+                    this.isLoading = true
+
+                    await getCEP(value).then(
+                        response => {
+                            if (_.isUndefined(response.data.erro)) {
+                                let cep = response.data
+
+                                this.completeAddress = true
+
+                                this.state = cep.uf
+                                this.district = cep.bairro
+                                this.city = cep.localidade
+                                this.street = cep.logradouro
+                                this.ibge_id = cep.ibge
+                            }
+                        }
+                    ).catch(
+                        error => this.completeAddress = false
+                    ).finally(() => {
+                        Pace.stop()
+                        this.isLoading = false
+                    })
+                }
+            }
+        },
+        methods: {
+            ...mapActions(['changeCart']),
+            submitForm() {
+                this.$validator.validateAll().then(
+                    async res => {
+                        if (res) {
+                            Pace.start()
+                            this.isLoading = true
+
+                            await createCardToken(this.card_number, this.brand, this.card_cvv, this.card_expiration_date).then(
+                                (response) => {
+                                    this.token = response.card.token
+                                }
+                            ).catch(
+                                (error) => {
+                                    let erro = collect(error.errors).first()
+
+                                    this.setError(erro)
+                                }
+                            )
+
+                            if (_.isNull(this.token) || _.isNull(this.hash)) return
+
+                            let data = {
+                                callback: 'conclusion',
+                                hash: this.hash,
+                                card: {
+                                    brand: this.brand,
+                                    number: this.card_number.substr(-4),
+                                    token: this.token,
+                                    installments: this.installment.quantity,
+                                    parcel: this.installment.installmentAmount,
+                                    holder: {
+                                        phone: this.phone,
+                                        name: this.card_holder,
+                                        document: this.document,
+                                        birth_date: this.birth_date,
+                                        address: {
+                                            street: this.street,
+                                            number: this.number,
+                                            complement: this.complement,
+                                            district: this.district,
+                                            postal_code: this.cep,
+                                            city: this.city,
+                                            state: this.state
+                                        }
+                                    }
+                                },
+                                _method: 'PATCH'
+                            }
+
+                            await sendAPIPOST(`${process.env.MIX_API_VERSION_ENDPOINT}/carts/${this.cart.id}/card`, data).then(
+                                async response => {
+                                    await this.changeCart(response.data.data)
+
+                                    new LocalStorage('cart__').setItem('user', response.data.data, response.data.data.attributes.expires_at)
+
+                                    this.$router.push({name: 'conclusion'})
+                                }
+                            ).catch(
+                                (error) => {
+                                    if (_.isObject(error.response)) {
+                                        swal({
+                                            type: 'error',
+                                            title: 'Ops, algo deu errado!',
+                                            text: error.response.data.errors.detail
+                                        })
+                                    } else {
+                                        console.dir(error)
+                                    }
+                                }
+                            ).finally(
+                                () => {
+                                    Pace.stop()
+                                    this.isLoading = false
+                                }
+                            )
+                        }
+                    }
+                )
+            },
+            setError(error) {
+                Pace.stop()
+                this.isLoading = false
+
+                swal.mixin({
+                    type: 'error',
+                    toast: true,
+                    position: 'bottom',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    title: error
+                });
+            }
+        },
+        mounted() {
+            flatpickr('#birth_date', {
+                minDate: '1900-01-01',
+                maxDate: 'today',
+                time_24hr: true,
+                altInput: true,
+                enableTime: false,
+                dateFormat: 'Y-m-d'
+            });
+
+            toSeek(`${process.env.MIX_API_PAYMENT}/api/session`).then(
+                async response => {
+                    await PagSeguroDirectPayment.setSessionId(response.session)
+                    await createCardHash().then((response) => this.hash = response).catch((error) => this.setError(error))
+                    this.isLoading = false
+                }
+            )
+        }
     }
 </script>

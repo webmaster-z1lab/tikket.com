@@ -130,6 +130,28 @@ export async function getBrand(cardBin) {
 }
 
 /**
+ * @param brand
+ * @param amount
+ * @param maxInstallment
+ * @returns {Promise<any>}
+ */
+export async function getInstallment(brand, amount, maxInstallment) {
+    return await new Promise((resolve, reject) => {
+        PagSeguroDirectPayment.getInstallments({
+            amount: amount,
+            maxInstallmentNoInterest: maxInstallment,
+            brand: brand,
+            success: function(response){
+                resolve(response)
+            },
+            error: function(error) {
+                reject(error)
+            }
+        })
+    });
+}
+
+/**
  * @param cardNumber
  * @param cardBrand
  * @param cardCVV

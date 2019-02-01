@@ -19,11 +19,11 @@
                                     <span class="badge badge-sm badge-primary badge-pos rounded-circle">{{ticket.length}}</span>
                                 </div>
                                 <div class="media-body">
-                                    <h2 class="h6 mb-0">{{ticket[0].input}}</h2>
-                                    <small class="d-block text-secondary">{{ticket[0].lot ? `Lote - ${ticket[0].lot}` : '' }}</small>
+                                    <h2 class="h6 mb-0">{{ticket[0].entrance}}</h2>
+                                    <small class="d-block text-secondary">{{ticket[0].lot ? `Lote - ${ticket[0].lot}` : '' }} (+ {{(ticket[0].fee / 100) | currency}} taxa)</small>
                                 </div>
                                 <div class="media-body text-right">
-                                    <span>{{(ticket[0].value / 100) | currency}}</span>
+                                    <span>{{(ticket[0].price / 100) | currency}}</span>
                                 </div>
                             </div>
 
@@ -44,14 +44,14 @@
                             <div class="media align-items-center">
                                 <h3 class="h6 text-secondary mr-3">Subtotal</h3>
                                 <div class="media-body text-right">
-                                    <span>{{(cart.value / 100) | currency}}</span>
+                                    <span>{{((cart.attributes.amount + cart.attributes.fee) / 100) | currency}}</span>
                                 </div>
                             </div>
 
                             <div class="media align-items-center">
                                 <h3 class="h6 text-secondary mr-3">Desconto</h3>
                                 <div class="media-body text-right">
-                                    <span>-{{(cart.coupon.total_discount / 100) | currency}}</span>
+                                    <span>-{{(cart.attributes.discount / 100) | currency}}</span>
                                 </div>
                             </div>
 
@@ -60,7 +60,7 @@
                             <div class="media align-items-center">
                                 <h3 class="h6 text-secondary mr-3">Total</h3>
                                 <div class="media-body text-right">
-                                    <span class="font-weight-semi-bold">{{(cart.amount / 100) | currency}}</span>
+                                    <span class="font-weight-semi-bold">{{((cart.attributes.amount + cart.attributes.fee - cart.attributes.discount) / 100) | currency}}</span>
                                 </div>
                             </div>
                         </div>
@@ -102,6 +102,7 @@
 
 <script>
     import LoadingComponent from '../components/loadingComponent'
+    import LocalStorage from "../vendor/storage"
 
     import {mapActions, mapState} from 'vuex'
     import {toSeek} from "../vendor/common";
@@ -112,14 +113,14 @@
             LoadingComponent
         },
         watch: {
-            //'$route': 'fetchData'
+            '$route': 'fetchData'
         },
         computed: {
             ...mapState({
                 cart: state => state.cart
             }),
-            groupTickets(){
-                return _.groupBy(this.cart.tickets, 'id')
+            groupTickets() {
+                return _.groupBy(this.cart.attributes.tickets, 'id')
             }
         },
         data: () => ({
@@ -145,23 +146,28 @@
             this.fetchData()
         },
         methods: {
-            ...mapActions(['setCart', 'setUser']),
+            ...mapActions(['changeCart']),
             fetchData () {
-                console.log('test main')
                 if (this.$route.name !== 'page_not_found'){
-                    //toSeek(route('openid.user')).then(async response => this.setUser(response));
+                    let cartLS = new LocalStorage('cart__').getItem('user')
 
-                    // toSeek(`${process.env.MIX_API_VERSION_ENDPOINT}/carts/actions/search`).then( async response => {
-                    //     if (!_.isEmpty(response.data)) {
-                    //         await this.setCart(response.data)
-                    //
-                    //         this.isLoading = false
-                    //         this.$router.push({name: response.data.attributes.callback})
-                    //     } else {
-                    //         this.isLoading = false
-                    //         this.$router.push({name: 'place'})
-                    //     }
-                    // })
+                    if (cartLS) {
+                        this.changeCart(cartLS)
+                    } else {
+                        toSeek(`${process.env.MIX_API_VERSION_ENDPOINT}/carts`).then( async response => {
+                            if (!_.isEmpty(response.data)) {
+                                await this.changeCart(response.data)
+                                new LocalStorage('cart__').setItem('user', response.data, response.data.attributes.expires_at)
+
+                                this.isLoading = false
+                                this.$router.push({name: response.data.attributes.callback})
+                            } else {
+                                this.isLoading = false
+                                this.$router.push({name: 'information'})
+                            }
+                        })
+                    }
+
                     this.isLoading = false
                 } else {
                     this.pageError = true

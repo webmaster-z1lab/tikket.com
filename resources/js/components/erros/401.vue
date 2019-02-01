@@ -4,12 +4,12 @@
         <div class="container">
             <div class="w-lg-60 w-xl-50">
                 <div class="mb-5">
-                    <h1 class="text-primary font-weight-normal">Page not <span class="font-weight-bold">found</span></h1>
-                    <p class="mb-0">Oops! Looks like you followed a bad link.</p>
-                    <p>If you think this is a problem with us, please <a href="#">tell us</a>.</p>
+                    <h1 class="text-primary font-weight-normal">401 - Acesso não <span class="font-weight-semi-bold">permitido</span></h1>
+                    <p class="mb-0 text-dark">Oops! Você precisa estar autenticado para acessar esse recurso.</p>
+                    <p class="text-dark">Se você acredita que isso é um erro, por favor <a class="text-dark" href="https://tawk.to/chat/5b789d4dafc2c34e96e7b2ec/default" target="_blank">nos avise</a>.</p>
                 </div>
 
-                <a class="btn btn-primary btn-wide transition-3d-hover" href="/">Go Back</a>
+                <a class="btn btn-primary btn-wide transition-3d-hover" href="/">Voltar a Home</a>
             </div>
         </div>
     </div>
