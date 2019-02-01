@@ -13,8 +13,4 @@ Route::get('evento/{url}', 'EventController@show')->name('event');
 
 Route::view('user/{vue?}', 'user.index')->name('user')->where('vue', '.*')->middleware('auth');
 
-Route::get('cart/{vue?}', function () {
-    Meta::set('title', 'Carrinho');
-
-    return view('cart.index');
-})->name('cart')->where('vue', '.*')->middleware('auth');
+Route::get('cart/{vue?}', 'HomeController@cart')->name('cart')->where('vue', '.*')->middleware('auth');
