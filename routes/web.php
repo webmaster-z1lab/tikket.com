@@ -78,4 +78,4 @@ Route::get('cart/{vue?}', function () {
     Meta::set('title', 'Carrinho');
 
     return view('cart.index');
-})->name('cart')->where('vue', '.*');
+})->name('cart')->where('vue', '.*')->middleware('auth');

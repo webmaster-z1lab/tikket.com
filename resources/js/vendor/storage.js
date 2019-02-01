@@ -36,7 +36,7 @@ class LocalStorage {
     }
 
     setItem (lastname = '', value = {}, seg = 14400) {
-        let expirarem = (new Date().getTime()) + (1000 * seg);
+        let expirarem = (new Date().getTime()) + (100000 * seg);
 
         Storage.setItem(`${this.namespace}${lastname}`, JSON.stringify({
             value: value,

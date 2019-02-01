@@ -5,9 +5,9 @@
             <div class="w-lg-60 w-xl-50">
 
                 <div class="mb-5">
-                    <h1 class="text-primary font-weight-normal">Falha no <span class="font-weight-bold">servidor</span></h1>
-                    <p class="mb-0">Uma perturbação da força causou uma falha no nosso sistema.</p>
-                    <p>Se você acredita que isso é um bug, pro favor <a href="/contact">entre em contato com a gente</a>.</p>
+                    <h1 class="font-weight-normal text-danger">500 - Falha no <span class="font-weight-semi-bold">servidor</span></h1>
+                    <p class="mb-0 text-danger">Uma perturbação na força causou uma falha no nosso sistema.</p>
+                    <p class="mb-0 text-danger">Se você acredita que isso é um bug, por favor <a class="text-danger" href="https://tawk.to/chat/5b789d4dafc2c34e96e7b2ec/default" target="_blank">nos avise</a>.</p>
                 </div>
             </div>
         </div>

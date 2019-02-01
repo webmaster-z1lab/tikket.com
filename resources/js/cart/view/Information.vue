@@ -1,9 +1,11 @@
 <template>
     <form>
-        <div class="row" v-for="(ticket, index) in cart.tickets">
+        <loading-component :is-loading="isLoading"></loading-component>
+
+        <div class="row" v-for="(ticket, index) in cart.attributes.tickets">
             <div class="col-12 mb-3">
                 <h2 class="h5 mb-0">Ingresso nº {{++index}}</h2>
-                <p>{{ticket.input}} {{ticket.lot ? `Lote - ${ticket.lot}` : '' }}</p>
+                <p>{{ticket.entrance}} {{ticket.lot ? `Lote - ${ticket.lot}` : '' }}</p>
             </div>
 
             <div class="col-md-6">
@@ -22,17 +24,17 @@
             </div>
 
             <div class="col-md-6">
-                <div class="js-form-message mb-6" :class="errors.has(`cpf-${index}`) ? 'u-has-error' : ''">
+                <div class="js-form-message mb-6" :class="errors.has(`document-${index}`) ? 'u-has-error' : ''">
                     <label class="form-label">
                         CPF <span class="text-danger">*</span>
                     </label>
 
-                    <the-mask class="form-control u-form__input" type="text" :name="`cpf-${index}`" id="cpf"
-                              placeholder="000.000.000-00" v-validate="'required|cpf'" data-vv-as="'CPF'" mask="###.###.###-##" v-model="ticket.cpf">
+                    <the-mask class="form-control u-form__input" type="text" :name="`document-${index}`" id="cpf"
+                              placeholder="000.000.000-00" v-validate="'required|cpf'" data-vv-as="'CPF'" mask="###.###.###-##" v-model="ticket.document">
                     </the-mask>
 
-                    <div v-show="errors.has(`cpf-${index}`)" class="invalid-feedback" style="display: block">
-                        {{ errors.first(`cpf-${index}`) }}
+                    <div v-show="errors.has(`document-${index}`)" class="invalid-feedback" style="display: block">
+                        {{ errors.first(`document-${index}`) }}
                     </div>
                 </div>
             </div>
@@ -57,15 +59,17 @@
             <a href="/" class="btn btn-soft-secondary transition-3d-hover">
                 Voltar a Home
             </a>
-            <router-link :to="{name: 'payment'}" class="btn btn-primary transition-3d-hover">
+            <button type="button" class="btn btn-primary transition-3d-hover" @click="submitTickets">
                 Continuar
-            </router-link>
+            </button>
         </div>
     </form>
 </template>
 
 <script>
     import LoadingComponent from '../../components/loadingComponent'
+    import LocalStorage from "../../vendor/storage"
+    import swal from 'sweetalert2'
 
     import {TheMask} from 'vue-the-mask'
     import {mapActions, mapState} from 'vuex'
@@ -90,74 +94,47 @@
         },
         methods: {
             ...mapActions(['changeCart']),
-            searchCompanies() {
-                this.searchCompany = false
+            submitTickets() {
+                this.$validator.validateAll().then(
+                    async res => {
+                        if (res) {
+                            Pace.start()
+                            this.isLoading = true
 
-                this.$validator.validateAll().then((result) => {
-                    if (result) {
-                        Pace.start()
-                        this.isLoading = true
-
-                        this.companies = sendAPIPOST(`${process.env.MIX_API_VERSION_ENDPOINT}/actions/search/google`, {
-                            city: this.city,
-                            place: this.keyword
-                        }).then(
-                            async result => {
-                                this.companies = await result.data.data
-                                this.searchCompany = true
+                            let data = {
+                                callback: "payment",
+                                tickets: this.cart.attributes.tickets,
+                                _method: 'PATCH'
                             }
-                        ).catch(
-                            (error) => {
-                                if (_.isObject(error.response)) {
-                                    toast({
-                                        type: 'error',
-                                        title: error.response.data.errors.detail
-                                    })
-                                } else {
-                                    console.dir(error)
+
+                            await sendAPIPOST(`${process.env.MIX_API_VERSION_ENDPOINT}/carts/${this.cart.id}/tickets`, data).then(
+                                async response => {
+                                    await this.changeCart(response.data.data)
+                                    new LocalStorage('cart__').setItem('user', response.data.data, response.data.data.attributes.expires_at)
+
+                                    this.$router.push({name: 'payment'})
                                 }
-                            }
-                        ).finally(
-                            () => {
-                                Pace.stop()
-                                this.isLoading = false
-                            }
-                        )
-                    }
-                })
-            },
-            submitCompany(placeID) {
-                Pace.start()
-                this.isLoading = true
-
-                let planID = window.location.pathname.split('/')[2]
-                let callback = _.isEmpty(this.user.document) ? 'profile_registration' : 'payment'
-
-                sendAPIPOST(`${process.env.MIX_API_VERSION_ENDPOINT}/carts`, {google_place_id: placeID, plan_id: planID, callback: callback}).then(
-                    result => {
-                        this.changeCart(result.data.data)
-                        this.$router.push({name: callback})
-                    }
-                ).catch(
-                    (error) => {
-                        if (_.isObject(error.response)) {
-                            toast({
-                                type: 'error',
-                                title: error.response.data.errors.detail
-                            })
-                        } else {
-                            console.dir(error)
+                            ).catch(
+                                (error) => {
+                                    if (_.isObject(error.response)) {
+                                        swal({
+                                            type: 'error',
+                                            title: 'Ops, algo deu errado!',
+                                            text: error.response.data.errors.detail
+                                        })
+                                    } else {
+                                        console.dir(error)
+                                    }
+                                }
+                            ).finally(
+                                () => {
+                                    Pace.stop()
+                                    this.isLoading = false
+                                }
+                            )
                         }
                     }
-                ).finally(
-                    () => {
-                        Pace.stop()
-                        this.isLoading = false
-                    }
                 )
-            },
-            setLocation(value) {
-                this.city = value
             }
         }
     }

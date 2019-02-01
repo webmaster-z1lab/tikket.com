@@ -1,7 +1,7 @@
 <div class="container space-2">
     <form id="shop">
         <input type="hidden" name="event" value="5c53523de7a6cd1b30006c52">
-        <input type="hidden" name="callback" value="test">
+        <input type="hidden" name="callback" value="information">
 
         <div class="d-none d-sm-block mb-4 border-bottom">
             <div class="row">
