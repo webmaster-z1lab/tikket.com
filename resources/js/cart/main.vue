@@ -146,10 +146,16 @@
             this.fetchData()
         },
         methods: {
-            ...mapActions(['changeCart']),
+            ...mapActions(['changeCart', 'setUser']),
             fetchData () {
                 if (this.$route.name !== 'page_not_found'){
                     let cartLS = new LocalStorage('cart__').getItem('user')
+
+                    toSeek(route('openid.user')).then(
+                        async response => {
+                            await this.setUser(response.data)
+                        }
+                    );
 
                     if (cartLS) {
                         this.changeCart(cartLS)

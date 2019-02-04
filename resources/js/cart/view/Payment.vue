@@ -2,6 +2,8 @@
     <form>
         <loading-component :is-loading="isLoading"></loading-component>
 
+        <input type="hidden" class="form-control" name="date_base" :value="date_base">
+
         <div class="mb-3">
             <h2 class="h5 mb-0">Informações de Pagamento</h2>
         </div>
@@ -81,6 +83,50 @@
             </div>
         </div>
 
+        <div v-if="checkDocument" class="mb-3">
+            <div class="mb-3">
+                <h2 class="h5 mb-0">Dados do Comprador</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="js-form-message mb-3" :class="errors.has('document_costumer') ? 'u-has-error' : ''">
+                        <label class="form-label">
+                            CPF <span class="text-danger">*</span>
+                        </label>
+
+                        <the-mask class="form-control u-form__input" type="text" name="document_costumer" id="document_costumer"
+                                  placeholder="000.000.000-00"
+                                  v-validate="'required|cpf'" data-vv-as="'CPF'"
+                                  mask="###.###.###-##" v-model="document_costumer">
+                        </the-mask>
+
+                        <div v-show="errors.has('document_costumer')" class="invalid-feedback" style="display: block">
+                            {{ errors.first('document_costumer') }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="js-form-message mb-3" :class="errors.has('phone_costumer') ? 'u-has-error' : ''">
+                        <label class="form-label">
+                            Telefone <span class="text-danger">*</span>
+                        </label>
+
+                        <the-mask class="form-control u-form__input" type="text" name="phone_costumer" id="phone_costumer"
+                                  placeholder="(00) 00000-0000 ou (00) 0000-0000"
+                                  v-validate="'required|phone'" data-vv-as="'Telefone'"
+                                  :mask="['(##) ####-####', '(##) #####-####']" v-model="phone_costumer">
+                        </the-mask>
+
+                        <div v-show="errors.has('phone_costumer')" class="invalid-feedback" style="display: block">
+                            {{ errors.first('phone_costumer') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="mb-3">
             <h2 class="h5 mb-0">Dados do titular do cartão</h2>
         </div>
@@ -143,7 +189,11 @@
                         Data de Nascimento <span class="text-danger">*</span>
                     </label>
 
-                    <input class="form-control" name="birth_date" id="birth_date" v-validate="'required'" data-vv-as="Data de Nascimento" v-model.lazy="birth_date"/>
+                    <the-mask class="form-control u-form__input" type="text" name="birth_date" id="birth_date"
+                              placeholder="##/##/####" v-validate="'required|date_format:DD/MM/YYYY'" data-vv-as="Data de Nascimento" :masked="true"
+                              :mask="'##/##/####'" v-model="birth_date">
+                    </the-mask>
+
                     <div v-show="errors.has('birth_date')" class="invalid-feedback" style="display: block">
                         {{ errors.first('birth_date') }}
                     </div>
@@ -269,7 +319,7 @@
 </template>
 
 <script>
-    import flatpickr from "flatpickr"
+    import moment from 'moment'
     import swal from 'sweetalert2'
     import LoadingComponent from '../../components/loadingComponent'
     import LocalStorage from "../../vendor/storage"
@@ -278,11 +328,6 @@
     import {createCardHash, createCardToken, getBrand, getCEP, getInstallment} from "../../vendor/api";
     import {mapActions, mapState} from 'vuex'
     import {sendAPIPOST, toSeek} from "../../vendor/common";
-
-    require('flatpickr/dist/flatpickr.min.css');
-
-    const Portuguese = require("flatpickr/dist/l10n/pt.js").default.pt;
-    flatpickr.localize(Portuguese);
 
     export default {
         name: "Payment",
@@ -294,6 +339,7 @@
             LoadingComponent
         },
         data: () => ({
+            date_base: moment().endOf('day').subtract(18, 'years').format('DD/MM/YYYY'),
             installments: {},
             installment: {},
             brand: '',
@@ -316,13 +362,19 @@
             complement: '',
             ibge_id: '',
             completeAddress: false,
+            phone_costumer: '',
+            document_costumer: ''
         }),
         computed: {
             ...mapState({
-                cart: state => state.cart
+                cart: state => state.cart,
+                user: state => state.user.attributes
             }),
             imgBrand() {
                 return `https://stc.pagseguro.uol.com.br/public/img/payment-methods-flags/68x30/${this.brand}.png`
+            },
+            checkDocument() {
+                return !this.user.document
             }
         },
         watch: {
@@ -335,7 +387,7 @@
 
                         this.brand = response.brand.name
 
-                        getInstallment(response.brand.name, amount, 12).then((response) => {
+                        getInstallment(response.brand.name, amount).then((response) => {
                             this.installments = response.installments[this.brand]
                         }).catch((error) => {
                             this.setError(error.errors)
@@ -399,6 +451,10 @@
                             let data = {
                                 callback: 'conclusion',
                                 hash: this.hash,
+                                costumer: {
+                                    document: this.document_costumer,
+                                    phone: this.phone_costumer
+                                },
                                 card: {
                                     brand: this.brand,
                                     number: this.card_number.substr(-4),
@@ -409,7 +465,7 @@
                                         phone: this.phone,
                                         name: this.card_holder,
                                         document: this.document,
-                                        birth_date: this.birth_date,
+                                        birth_date: moment(this.birth_date, 'DD/MM/YYYY').format('YYYY-MM-DD'),
                                         address: {
                                             street: this.street,
                                             number: this.number,
@@ -422,6 +478,10 @@
                                     }
                                 },
                                 _method: 'PATCH'
+                            }
+
+                            if (this.user.document) {
+                                delete data.costumer
                             }
 
                             await sendAPIPOST(`${process.env.MIX_API_VERSION_ENDPOINT}/carts/${this.cart.id}/card`, data).then(
@@ -469,15 +529,6 @@
             }
         },
         mounted() {
-            flatpickr('#birth_date', {
-                minDate: '1900-01-01',
-                maxDate: 'today',
-                time_24hr: true,
-                altInput: true,
-                enableTime: false,
-                dateFormat: 'Y-m-d'
-            });
-
             toSeek(`${process.env.MIX_API_PAYMENT}/api/session`).then(
                 async response => {
                     await PagSeguroDirectPayment.setSessionId(response.session)

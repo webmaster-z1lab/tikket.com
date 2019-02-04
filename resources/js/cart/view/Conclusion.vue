@@ -156,7 +156,7 @@
             }
         },
         mounted() {
-            sendAPIPOST(`${process.env.MIX_API_VERSION_ENDPOINT}/orders`, {cart_id: this.cart.id, _method: 'POST'}).then(
+            sendAPIPOST(`${process.env.MIX_API_VERSION_ENDPOINT}/orders`, {cart: this.cart.id, _method: 'POST'}).then(
                 async response => {
                     this.order = response.data.data
                 }

@@ -132,14 +132,13 @@ export async function getBrand(cardBin) {
 /**
  * @param brand
  * @param amount
- * @param maxInstallment
  * @returns {Promise<any>}
  */
-export async function getInstallment(brand, amount, maxInstallment) {
+export async function getInstallment(brand, amount/*, maxInstallment*/) {
     return await new Promise((resolve, reject) => {
         PagSeguroDirectPayment.getInstallments({
             amount: amount,
-            maxInstallmentNoInterest: maxInstallment,
+            //maxInstallmentNoInterest: maxInstallment,
             brand: brand,
             success: function(response){
                 resolve(response)
