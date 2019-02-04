@@ -25,6 +25,15 @@ function init() {
             if (entrance.children[i].classList.contains('js-quantity')) {
                 input = entrance.children[i]
                 value = parseInt(input.value)
+
+                !isNaN(value) ? amount += value : input.value = value = 0
+
+                if (value > 0) {
+                    for (let j = 0; j < value; j++) {
+                        calcTotal(input.dataset.price, 'plus')
+                    }
+                }
+
                 max = parseInt(input.dataset.max)
                 checkButton(value, max, btnMinus, btnPlus)
                 checkAction()
