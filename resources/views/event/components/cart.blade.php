@@ -43,8 +43,7 @@
                         <input type="hidden" class="js-entrance" value="{{ $entrance->id }}">
 
                         <input readonly type="text" class="form-control js-quantity" value="0" data-max="{{ $entrance->attributes->max_buy }}"
-                               data-price="{{ $entrance->attributes->lot->price/100 }}"
-                               id="{{ $entrance->id }}">
+                               data-price="{{ $entrance->attributes->lot->price/100 }}" id="{{ $entrance->id }}">
 
                         <div class="input-group-append">
                             <button class="btn btn-outline-primary" type="button"><i class="fas fa-plus"></i></button>

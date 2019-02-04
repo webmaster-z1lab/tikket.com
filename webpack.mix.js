@@ -36,7 +36,7 @@ mix.js('resources/js/contact.js', 'public/js')
     .extract(vendors)
 
 if (mix.inProduction()) {
-    mix.version()
+    mix.sourceMaps().version()
     mix.copyDirectory('resources/seo', 'public')
     mix.disableNotifications()
 }
