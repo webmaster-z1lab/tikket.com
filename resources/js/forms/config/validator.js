@@ -1,6 +1,7 @@
 import { getCEP } from "../../vendor/api";
 import { Validator } from "vee-validate"
 import pt_BR from 'vee-validate/dist/locale/pt_BR'
+import moment from 'moment'
 
 Validator.localize('pt_BR', pt_BR)
 
@@ -56,8 +57,18 @@ const document = {
     }
 };
 
+const ofage = {
+    getMessage(field, args, data) {
+        return (data && data.message) || `O valor do campo ${field} não é válido. Precisa ser Maior de 18 anos`;
+    },
+    validate(value, args) {
+        return value < moment().endOf('day').subtract(18, 'years').format('DD/MM/YYYY')
+    }
+};
+
 Validator.extend('phone', phone);
 Validator.extend('cep', cep);
 Validator.extend('cnpj', cnpj);
 Validator.extend('cpf', cpf);
 Validator.extend('document', document);
+Validator.extend('ofage', ofage);

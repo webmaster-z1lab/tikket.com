@@ -4,6 +4,11 @@
 
         <div class="container space-3" v-if="!pageError">
             <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-warning mb-5" role="alert">
+                        <strong class="h5 font-weight-bold mr-3">{{timer}}</strong> <small>Por favor, complete o formulário abaixo no prazo máximo estabelecido ao lado. Depois deste período sua reserva será liberada para venda novamente.</small>
+                    </div>
+                </div>
                 <div class="col-lg-4 order-lg-2 mb-9 mb-lg-0">
                     <div class="mb-4">
                         <h2 class="h5">Dados da Compra</h2>
@@ -103,6 +108,7 @@
 <script>
     import LoadingComponent from '../components/loadingComponent'
     import LocalStorage from "../vendor/storage"
+    import swal from 'sweetalert2'
 
     import {mapActions, mapState} from 'vuex'
     import {toSeek} from "../vendor/common";
@@ -113,7 +119,27 @@
             LoadingComponent
         },
         watch: {
-            '$route': 'fetchData'
+            '$route': 'fetchData',
+            seconds(value) {
+                if (value <= 0) {
+                    swal({
+                        title: 'O tempo para a compra expirou',
+                        text: 'Isso é necessário para que uma reserva não fique presa e possa estar disponível para compra novamente.',
+                        type: 'error',
+                        showCancelButton: true,
+                        confirmButtonColor: '#6000a7',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Comprar novamente',
+                        cancelButtonText: 'Voltar a home'
+                    }).then((result) => {
+                        if (result.value) {
+                            window.location.href = route('event', this.cart.relationships.event.attributes.url)
+                        } else {
+                            window.location.href = route('home')
+                        }
+                    })
+                }
+            }
         },
         computed: {
             ...mapState({
@@ -124,6 +150,10 @@
             }
         },
         data: () => ({
+            stopTime: true,
+            timer: '00:00',
+            seconds: 0,
+            time_begin: '',
             isLoading: true,
             pageError: false,
             key_active: null,
@@ -174,6 +204,9 @@
                         })
                     }
 
+                    this.seconds = this.cart.attributes.expires_at
+
+                    this.stopTime = false
                     this.isLoading = false
                 } else {
                     this.pageError = true
@@ -191,6 +224,23 @@
 
                 return key < this.key_active ? 'confirm' : ''
             }
+        },
+        mounted() {
+            const timeDurationToString = (duration) => {
+                return duration > 9
+                    ? duration
+                    : '0' + duration
+            }
+
+            const tick = () => {
+                if (this.stopTime || this.seconds <= 0) return
+                this.seconds -= 1
+                const minutesLeft = Math.floor(this.seconds / 60)
+                const secondsLeft = this.seconds % 60
+                this.timer = `${timeDurationToString(minutesLeft)}:${timeDurationToString(secondsLeft)}`
+            }
+
+            setInterval(tick, 1000)
         }
     }
 </script>

@@ -1,5 +1,8 @@
 export default {
-    cart: {},
+    cart: {
+        attributes: {},
+        relationships: {}
+    },
     user: {
         attributes: {},
         relationships: {}

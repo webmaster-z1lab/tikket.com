@@ -5,5 +5,7 @@ return [
         'logout',
         'openid.user',
         'openid.refresh',
+        'home',
+        'event'
     ],
 ];

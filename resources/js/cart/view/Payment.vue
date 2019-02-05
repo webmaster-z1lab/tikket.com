@@ -2,7 +2,59 @@
     <form>
         <loading-component :is-loading="isLoading"></loading-component>
 
-        <input type="hidden" class="form-control" name="date_base" :value="date_base">
+        <div v-if="checkDocument" class="mb-3">
+            <div class="alert alert-warning" role="alert">
+                <p class="alert-text" style="font-size: .9375rem">
+                    Verificamos que você ainda não preencheu suas informações básicas de usuário <i class="fas fa-user-circle"></i>! <br>
+                    Por isso vamos pedir apenas oque é necessario para efetuar sua compra. <br>
+                    Esses dados não serão pedidos em comprar futuras!
+                </p>
+            </div>
+
+            <div class="mb-3">
+                <h2 class="h5 mb-0">Dados Básicos do Comprador <i class="fas fa-user-circle"></i></h2>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="js-form-message mb-3" :class="errors.has('document_costumer') ? 'u-has-error' : ''">
+                        <label class="form-label">
+                            CPF <span class="text-danger">*</span>
+                        </label>
+
+                        <the-mask class="form-control u-form__input" type="text" name="document_costumer" id="document_costumer"
+                                  placeholder="000.000.000-00"
+                                  v-validate="'required|cpf'" data-vv-as="'CPF'"
+                                  mask="###.###.###-##" v-model="document_costumer">
+                        </the-mask>
+
+                        <div v-show="errors.has('document_costumer')" class="invalid-feedback" style="display: block">
+                            {{ errors.first('document_costumer') }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="js-form-message mb-3" :class="errors.has('phone_costumer') ? 'u-has-error' : ''">
+                        <label class="form-label">
+                            Telefone <span class="text-danger">*</span>
+                        </label>
+
+                        <the-mask class="form-control u-form__input" type="text" name="phone_costumer" id="phone_costumer"
+                                  placeholder="(00) 00000-0000 ou (00) 0000-0000"
+                                  v-validate="'required|phone'" data-vv-as="'Telefone'"
+                                  :mask="['(##) ####-####', '(##) #####-####']" v-model="phone_costumer">
+                        </the-mask>
+
+                        <div v-show="errors.has('phone_costumer')" class="invalid-feedback" style="display: block">
+                            {{ errors.first('phone_costumer') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+        </div>
 
         <div class="mb-3">
             <h2 class="h5 mb-0">Informações de Pagamento</h2>
@@ -38,7 +90,7 @@
                     <select class="custom-select" aria-invalid="false" name="installment" v-model="installment" v-validate="'required'" :data-vv-as="'Opções de pagamento'">
                         <option value="" selected="">Selecione uma das opções de pagamento</option>
                         <option v-for="option in installments" :value="option">
-                            {{`${option.quantity}x de R$ ${option.installmentAmount}`}}
+                            {{`${option.quantity}x de `}} {{option.installmentAmount | currency}}
                         </option>
                     </select>
 
@@ -78,50 +130,6 @@
 
                     <div v-show="errors.has('card_cvv')" class="invalid-feedback" style="display: block">
                         {{ errors.first('card_cvv') }}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div v-if="checkDocument" class="mb-3">
-            <div class="mb-3">
-                <h2 class="h5 mb-0">Dados do Comprador</h2>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="js-form-message mb-3" :class="errors.has('document_costumer') ? 'u-has-error' : ''">
-                        <label class="form-label">
-                            CPF <span class="text-danger">*</span>
-                        </label>
-
-                        <the-mask class="form-control u-form__input" type="text" name="document_costumer" id="document_costumer"
-                                  placeholder="000.000.000-00"
-                                  v-validate="'required|cpf'" data-vv-as="'CPF'"
-                                  mask="###.###.###-##" v-model="document_costumer">
-                        </the-mask>
-
-                        <div v-show="errors.has('document_costumer')" class="invalid-feedback" style="display: block">
-                            {{ errors.first('document_costumer') }}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="js-form-message mb-3" :class="errors.has('phone_costumer') ? 'u-has-error' : ''">
-                        <label class="form-label">
-                            Telefone <span class="text-danger">*</span>
-                        </label>
-
-                        <the-mask class="form-control u-form__input" type="text" name="phone_costumer" id="phone_costumer"
-                                  placeholder="(00) 00000-0000 ou (00) 0000-0000"
-                                  v-validate="'required|phone'" data-vv-as="'Telefone'"
-                                  :mask="['(##) ####-####', '(##) #####-####']" v-model="phone_costumer">
-                        </the-mask>
-
-                        <div v-show="errors.has('phone_costumer')" class="invalid-feedback" style="display: block">
-                            {{ errors.first('phone_costumer') }}
-                        </div>
                     </div>
                 </div>
             </div>
@@ -190,7 +198,7 @@
                     </label>
 
                     <the-mask class="form-control u-form__input" type="text" name="birth_date" id="birth_date"
-                              placeholder="##/##/####" v-validate="'required|date_format:DD/MM/YYYY'" data-vv-as="Data de Nascimento" :masked="true"
+                              placeholder="##/##/####" v-validate="'required|date_format:DD/MM/YYYY|ofage'" data-vv-as="Data de Nascimento" :masked="true"
                               :mask="'##/##/####'" v-model="birth_date">
                     </the-mask>
 
