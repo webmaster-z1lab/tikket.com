@@ -57,12 +57,12 @@ const document = {
     }
 };
 
-const ofage = {
+const legalAge = {
     getMessage(field, args, data) {
-        return (data && data.message) || `O valor do campo ${field} não é válido. Precisa ser Maior de 18 anos`;
+        return (data && data.message) || `Oops, você precisa ter 18 anos ou mais para comprar em nosso site.`;
     },
     validate(value, args) {
-        return value < moment().endOf('day').subtract(18, 'years').format('DD/MM/YYYY')
+        return moment().diff(moment(value, "DD/MM/YYYY"), "years") >= 18
     }
 };
 
@@ -71,4 +71,4 @@ Validator.extend('cep', cep);
 Validator.extend('cnpj', cnpj);
 Validator.extend('cpf', cpf);
 Validator.extend('document', document);
-Validator.extend('ofage', ofage);
+Validator.extend('legalAge', legalAge);

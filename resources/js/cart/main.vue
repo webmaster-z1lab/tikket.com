@@ -2,13 +2,24 @@
     <div class="d-lg-flex">
         <loading-component :is-loading="isLoading"></loading-component>
 
-        <div class="container space-3" v-if="!pageError">
+        <div class="container space-1 space-sm-3" v-if="!pageError">
             <div class="row">
                 <div class="col-12">
-                    <div class="alert alert-warning mb-5" role="alert">
-                        <strong class="h5 font-weight-bold mr-3">{{timer}}</strong> <small>Por favor, complete o formulário abaixo no prazo máximo estabelecido ao lado. Depois deste período sua reserva será liberada para venda novamente.</small>
+                    <div class="alert alert-primary text-center" role="alert">
+                        <p class="h6">Tempo para finalizar a compra:</p>
+                        <p class="h5">{{ timer }}</p>
+
+                        <div class="progress" style="height: 5px;">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                 role="progressbar" aria-valuemin="0"
+                                 aria-valuemax="100"
+                                 :style="{width: percent + '%'}"
+                                 :class=percent_class
+                                 :aria-valuenow="percent"></div>
+                        </div>
                     </div>
                 </div>
+
                 <div class="col-lg-4 order-lg-2 mb-9 mb-lg-0">
                     <div class="mb-4">
                         <h2 class="h5">Dados da Compra</h2>
@@ -18,7 +29,7 @@
                         <div class="card-body p-5">
                             <div class="media align-items-center mb-5" v-for="ticket in groupTickets">
                                 <div class="u-avatar position-relative mr-3">
-                                    <button type="button" class="btn btn-icon btn-soft-primary rounded-circle transition-3d-hover mb-1">
+                                    <button type="button" class="btn btn-icon btn-soft-primary rounded-circle mb-1">
                                         <span class="fas fa-ticket-alt"></span>
                                     </button>
                                     <span class="badge badge-sm badge-primary badge-pos rounded-circle">{{ticket.length}}</span>
@@ -37,7 +48,8 @@
                             <form class="js-validate" novalidate="novalidate">
                                 <label class="sr-only" for="discountSrEmail">Cupom</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="name" id="discountSrEmail" placeholder="Cupom" aria-label="Discount" aria-describedby="discountEmailButton">
+                                    <input type="text" class="form-control" name="name" id="discountSrEmail" placeholder="Cupom" aria-label="Discount"
+                                           aria-describedby="discountEmailButton">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-primary" id="discountEmailButton">Aplicar</button>
                                     </div>
@@ -79,7 +91,7 @@
                             <a href="javascript:;" class="nav-item u-checked"
                                v-for="(item, key, index) in menu_form" :class="classActive(key, index)">
                                 <span class="nav-icon-action" v-html="item.icon"></span>
-                                {{key}}
+                                {{ item.label }}
                             </a>
                         </nav>
                     </form>
@@ -96,12 +108,12 @@
 
 <style>
     .nav-icon .nav-item.confirm {
-        color: #00c9a7;
+        color : #00C9A7;
     }
 
     .nav-icon .nav-item.confirm .nav-icon-action {
-        color: #fff;
-        background-color: #00c9a7;
+        color            : #FFFFFF;
+        background-color : #00C9A7;
     }
 </style>
 
@@ -109,6 +121,7 @@
     import LoadingComponent from '../components/loadingComponent'
     import LocalStorage from "../vendor/storage"
     import swal from 'sweetalert2'
+    import moment from 'moment'
 
     import {mapActions, mapState} from 'vuex'
     import {toSeek} from "../vendor/common";
@@ -151,34 +164,39 @@
         },
         data: () => ({
             stopTime: true,
-            timer: '00:00',
+            timer: '15:00',
+            percent: 100,
+            percent_class: '',
             seconds: 0,
             time_begin: '',
             isLoading: true,
             pageError: false,
             key_active: null,
             menu_form: {
-                'Informações': {
+                'information': {
+                    label: 'Informações',
                     icon: '<span class="fas fa-file-signature nav-icon-action-inner" style="padding-left: 5px"></span>',
                     routes: ['information']
                 },
-                'Pagamento': {
+                'payment': {
+                    label: 'Pagamento',
                     icon: '<span class="fas fa-money-bill-alt nav-icon-action-inner"></span>',
                     routes: ['payment']
                 },
-                'Concluído': {
+                'conclusion': {
+                    label: 'Concluído',
                     icon: '<span class="fas fa-check-circle nav-icon-action-inner"></span>',
                     routes: ['conclusion']
                 }
             }
         }),
-        created () {
+        created() {
             this.fetchData()
         },
         methods: {
             ...mapActions(['changeCart', 'setUser']),
-            fetchData () {
-                if (this.$route.name !== 'page_not_found'){
+            fetchData() {
+                if (this.$route.name !== 'page_not_found') {
                     let cartLS = new LocalStorage('cart__').getItem('user')
 
                     toSeek(route('openid.user')).then(
@@ -190,7 +208,7 @@
                     if (cartLS) {
                         this.changeCart(cartLS)
                     } else {
-                        toSeek(`${process.env.MIX_API_VERSION_ENDPOINT}/carts`).then( async response => {
+                        toSeek(`${process.env.MIX_API_VERSION_ENDPOINT}/carts`).then(async response => {
                             if (!_.isEmpty(response.data)) {
                                 await this.changeCart(response.data)
                                 new LocalStorage('cart__').setItem('user', response.data, response.data.attributes.expires_at)
@@ -204,7 +222,7 @@
                         })
                     }
 
-                    this.seconds = this.cart.attributes.expires_at
+                    this.seconds = moment(this.cart.attributes.expires_at).diff(moment(),'seconds')
 
                     this.stopTime = false
                     this.isLoading = false
@@ -227,9 +245,7 @@
         },
         mounted() {
             const timeDurationToString = (duration) => {
-                return duration > 9
-                    ? duration
-                    : '0' + duration
+                return duration > 9 ? duration : '0' + duration
             }
 
             const tick = () => {
@@ -238,6 +254,14 @@
                 const minutesLeft = Math.floor(this.seconds / 60)
                 const secondsLeft = this.seconds % 60
                 this.timer = `${timeDurationToString(minutesLeft)}:${timeDurationToString(secondsLeft)}`
+
+                this.percent = this.seconds * 100 / (15 * 60)
+
+                if (this.percent <= 50 && this.percent > 25) {
+                    this.percent_class = 'warning'
+                } else if (this.percent <= 25) {
+                    this.percent_class = 'danger'
+                }
             }
 
             setInterval(tick, 1000)

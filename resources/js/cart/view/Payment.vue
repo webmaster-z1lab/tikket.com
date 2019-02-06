@@ -198,7 +198,7 @@
                     </label>
 
                     <the-mask class="form-control u-form__input" type="text" name="birth_date" id="birth_date"
-                              placeholder="##/##/####" v-validate="'required|date_format:DD/MM/YYYY|ofage'" data-vv-as="Data de Nascimento" :masked="true"
+                              placeholder="DD/MM/AAAA" v-validate="'required|date_format:DD/MM/YYYY|legalAge'" data-vv-as="Data de Nascimento" :masked="true"
                               :mask="'##/##/####'" v-model="birth_date">
                     </the-mask>
 
@@ -211,7 +211,7 @@
 
         <div class="mb-3">
             <h2 class="h6 mb-0">Endereço</h2>
-            <small>Insira seu CEP para pesquisarmos seu endereço.
+            <small>Insira seu CEP para pesquisarmos o endereço.
                 <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank">
                     <i class="fas fa-external-link-alt"></i> Não sei o meu CEP
                 </a>

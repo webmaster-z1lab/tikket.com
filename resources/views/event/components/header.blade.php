@@ -1,4 +1,4 @@
-<div class="container space-top-2 space-top-md-4 space-top-lg-3">
+<div class="container space-top-2 space-top-sm-3">
     <div class="row">
         <h1 class="sr-only">{{ $event->name }}</h1>
         <div class="col-12">
