@@ -11,11 +11,11 @@
                 <div class="mb-4">
                     <h1 class="h4"><strong>Nenhum endereço encontrado.</strong></h1>
 
-                    <p>Adicione um endereço. O endereço é um dado muito importante para plena navegação e utilização do nosso site de forma mais ágil.</p>
+                    <p>Adicione um endereço válido. Ele é extremamente importante para a segurança das suas compras e eventuais envios de ingressos.</p>
                 </div>
 
                 <button type="button" class="btn btn-sm u-btn-primary--air u-btn-wide transition-3d-hover" @click="addAddress">
-                    Add Endereço
+                    Novo endereço
                     <span class="fa fa-angle-right ml-2"></span>
                 </button>
             </div>
@@ -41,7 +41,7 @@
                         <div class="d-sm-flex">
                             <div class="text-center">
                                 <figure>
-                                    <img class="w-50 d-none d-sm-block" src="/theme/svg/icons/icon-8.svg" alt="SVG">
+                                    <img class="w-50 d-none d-sm-block" src="https://s3.us-east-2.amazonaws.com/cdn-z1lab/template/front/2.1.1/svg/icons/icon-8.svg" alt="Address">
                                 </figure>
                             </div>
 

@@ -6,16 +6,38 @@
                     <span class="u-header__navbar-brand-text"><i class="fas fa-ticket-alt mr-1"></i>Tikket</span>
                 </a>
 
-                <button type="button" class="navbar-toggler btn u-hamburger"
-                        aria-label="Toggle navigation"
-                        aria-expanded="false"
-                        aria-controls="navBar"
-                        data-toggle="collapse"
-                        data-target="#navBar">
+                <div>
+                    <button class="btn btn-xs btn-primary ml-0 d-inline d-sm-none mr-2 mr-sm-2"
+                            aria-controls="sidebarContent"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            data-unfold-event="click"
+                            data-unfold-hide-on-scroll="false"
+                            data-unfold-target="#sidebarContent"
+                            data-unfold-type="css-animation"
+                            data-unfold-animation-in="fadeInRight"
+                            data-unfold-animation-out="fadeOutRight"
+                            data-unfold-duration="500">
+                        @auth
+                            <i class="fas fa-user-circle mr-1"></i>{{ explode(' ', Auth::user()->name)[0] }}
+                        @endauth
+
+                        @guest
+                            <i class="fas fa-sign-in-alt mr-1"></i>Acessar
+                        @endguest
+                    </button>
+
+                    <button type="button" class="navbar-toggler btn u-hamburger"
+                            aria-label="Toggle navigation"
+                            aria-expanded="false"
+                            aria-controls="navBar"
+                            data-toggle="collapse"
+                            data-target="#navBar">
                         <span id="hamburgerTrigger" class="u-hamburger__box">
                             <span class="u-hamburger__inner"></span>
                         </span>
-                </button>
+                    </button>
+                </div>
 
                 <div id="navBar" class="collapse navbar-collapse u-header__navbar-collapse">
                     <ul class="navbar-nav u-header__navbar-nav">

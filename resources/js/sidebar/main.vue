@@ -28,20 +28,6 @@
                 </div>
 
                 <footer class="u-sidebar__footer u-sidebar__footer--account bg-primary">
-                    <!--<ul class="list-inline mb-0">
-                        <li class="list-inline-item pr-3">
-                            <a class="u-sidebar__footer&#45;&#45;account__text" href="/privacidade-e-cookies">Privacidade</a>
-                        </li>
-                        <li class="list-inline-item pr-3">
-                            <a class="u-sidebar__footer&#45;&#45;account__text" href="/termos-de-uso">Termos</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="u-sidebar__footer&#45;&#45;account__text" href="/quem-somos">
-                                <i class="fas fa-info-circle"></i>
-                            </a>
-                        </li>
-                    </ul>-->
-
                     <div class="position-absolute right-0 bottom-0 left-0">
                         <img src="https://s3.us-east-2.amazonaws.com/cdn-z1lab/template/front/2.0.1/svg/components/wave-bottom-with-dots.svg" alt="Sidebar footer">
                     </div>

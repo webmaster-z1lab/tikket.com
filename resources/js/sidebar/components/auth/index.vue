@@ -17,14 +17,28 @@
             <div class="u-sidebar__content--account">
                 <ul class="list-unstyled u-sidebar--account__list">
                     <li class="u-sidebar--account__list-item">
-                        <a class="u-sidebar--account__list-link" href="/user/my-profile">
+                        <a class="u-sidebar--account__list-link" href="/usuario/perfil">
                             <span class="far fa-user-circle u-sidebar--account__list-icon text-primary mr-2"></span>
                             Meu perfil
                         </a>
                     </li>
 
                     <li class="u-sidebar--account__list-item">
-                        <a class="u-sidebar--account__list-link" href="#" @click="logoutSubmit">
+                        <a class="u-sidebar--account__list-link" href="#">
+                            <span class="fas fa-ticket-alt u-sidebar--account__list-icon text-warning mr-2"></span>
+                            Meus ingressos
+                        </a>
+                    </li>
+
+                    <li class="u-sidebar--account__list-item">
+                        <a class="u-sidebar--account__list-link" href="#">
+                            <span class="fas fa-rocket u-sidebar--account__list-icon text-success mr-2"></span>
+                            Meus eventos
+                        </a>
+                    </li>
+
+                    <li class="u-sidebar--account__list-item">
+                        <a class="u-sidebar--account__list-link" href="javascript:;" @click="logoutSubmit">
                             <span class="fas fa-sign-out-alt u-sidebar--account__list-icon text-danger mr-2"></span>
                             Sair
                         </a>
@@ -35,21 +49,21 @@
 
                 <ul class="list-unstyled u-sidebar--account__list">
                     <li class="u-sidebar--account__list-item">
-                        <a class="u-sidebar--account__list-link" href="/user/edit-profile">
+                        <a class="u-sidebar--account__list-link" href="/usuario/editar-perfil">
                             <span class="far fa-address-book u-sidebar--account__list-icon text-primary mr-2"></span>
                             Atualizar meu perfil
                         </a>
                     </li>
 
                     <li class="u-sidebar--account__list-item">
-                        <a class="u-sidebar--account__list-link" href="/user/address">
+                        <a class="u-sidebar--account__list-link" href="/usuario/endereco">
                             <span class="fas fa-map-marked-alt u-sidebar--account__list-icon text-primary mr-2"></span>
                             Meus endereços
                         </a>
                     </li>
 
                     <li class="u-sidebar--account__list-item">
-                        <a class="u-sidebar--account__list-link" href="/user/change-password">
+                        <a class="u-sidebar--account__list-link" href="/usuario/trocar-senha">
                             <span class="fas fa-key u-sidebar--account__list-icon text-primary mr-2"></span>
                             Trocar minha senha
                         </a>
@@ -59,19 +73,7 @@
                 <div class="u-sidebar--account__list-divider"></div>
 
                 <ul class="list-unstyled u-sidebar--account__list">
-                    <li class="u-sidebar--account__list-item">
-                        <a class="u-sidebar--account__list-link" href="/user/my-subscriptions">
-                            <span class="far fa-credit-card u-sidebar--account__list-icon text-warning mr-2"></span>
-                            Minhas assinaturas
-                        </a>
-                    </li>
 
-                    <li class="u-sidebar--account__list-item">
-                        <a class="u-sidebar--account__list-link" href="/user/my-companies">
-                            <span class="fas fa-industry u-sidebar--account__list-icon text-success mr-2"></span>
-                            Minhas Empresas
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>

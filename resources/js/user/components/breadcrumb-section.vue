@@ -7,7 +7,7 @@
                         <ol class="breadcrumb breadcrumb-white breadcrumb-no-gutter mb-0">
                             <li class="breadcrumb-item" v-for="route in routeBreadcrumb" :class="route.route.name !== route_current ? 'active' : ''">
                                 <router-link class="breadcrumb-link" :to="route.route" v-if="route.route.name !== route_current">{{route.name}}</router-link>
-                                <span  class="breadcrumb-item active" aria-current="page" v-else>{{route.name}}</span>
+                                <span class="breadcrumb-item active" aria-current="page" v-else>{{route.name}}</span>
                             </li>
                         </ol>
 
@@ -65,44 +65,21 @@
                                         </router-link>
                                     </li>
 
-                                    <li class="nav-item hs-has-sub-menu u-header__nav-item"
-                                        data-event="hover"
-                                        data-animation-in="slideInUp"
-                                        data-animation-out="fadeOut">
-                                        <a id="generalDropdown" class="nav-link u-header__nav-link u-header__nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="generalDropdownMenu">
-                                            Configurações da Conta
-                                        </a>
-
-                                        <ul id="generalDropdownMenu" class="hs-sub-menu u-header__sub-menu u-header__sub-menu--spacer" style="min-width: 230px;" aria-labelledby="generalDropdown">
-                                            <li>
-                                                <router-link :to="{name: 'edit_profile'}"
-                                                             class="nav-link u-header__sub-menu-nav-link">
-                                                    Editar Perfil
-                                                </router-link>
-                                            </li>
-                                            <li>
-                                                <router-link :to="{name: 'address'}"
-                                                             class="nav-link u-header__sub-menu-nav-link">
-                                                    Endereço
-                                                </router-link>
-                                            </li>
-                                            <li>
-                                                <router-link :to="{name: 'change_password'}"
-                                                             class="nav-link u-header__sub-menu-nav-link">
-                                                    Mudar Senha
-                                                </router-link>
-                                            </li>
-                                        </ul>
-                                    </li>
-
                                     <li class="nav-item u-header__nav-item">
-                                        <router-link :to="{name: 'my_companies'}" class="nav-link u-header__nav-link">
-                                            Minhas Empresas
+                                        <router-link :to="{name: 'edit_profile'}" class="nav-link u-header__nav-link">
+                                            Editar Perfil
                                         </router-link>
                                     </li>
+
                                     <li class="nav-item u-header__nav-item">
-                                        <router-link :to="{name: 'my_subscriptions'}" class="nav-link u-header__nav-link">
-                                            Minhas Assinaturas
+                                        <router-link :to="{name: 'address'}" class="nav-link u-header__nav-link">
+                                            Endereço
+                                        </router-link>
+                                    </li>
+
+                                    <li class="nav-item u-header__nav-item">
+                                        <router-link :to="{name: 'change_password'}" class="nav-link u-header__nav-link">
+                                            Mudar Senha
                                         </router-link>
                                     </li>
                                 </ul>
@@ -117,8 +94,8 @@
 
 <style>
     .img-fluid, .img-thumbnail {
-        max-width: 80px;
-        max-height: 80px;
+        max-width  : 80px;
+        max-height : 80px;
     }
 </style>
 
