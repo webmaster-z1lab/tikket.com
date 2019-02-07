@@ -10,11 +10,10 @@
                         <p class="h5">{{ timer }}</p>
 
                         <div class="progress" style="height: 5px;">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated"
+                            <div :class=percent_class class="progress-bar progress-bar-striped progress-bar-animated"
                                  role="progressbar" aria-valuemin="0"
                                  aria-valuemax="100"
                                  :style="{width: percent + '%'}"
-                                 :class=percent_class
                                  :aria-valuenow="percent"></div>
                         </div>
                     </div>
@@ -36,10 +35,11 @@
                                 </div>
                                 <div class="media-body">
                                     <h2 class="h6 mb-0">{{ticket[0].entrance}}</h2>
-                                    <small class="d-block text-secondary">{{ticket[0].lot ? `Lote - ${ticket[0].lot}` : '' }} (+ {{(ticket[0].fee / 100) | currency}} taxa)</small>
+                                    <small class="d-block text-secondary">{{ticket[0].lot ? `Lote ${ticket[0].lot}` : '' }}</small>
                                 </div>
                                 <div class="media-body text-right">
-                                    <span>{{(ticket[0].price / 100) | currency}}</span>
+                                    <span v-if="cart.attributes.fee_is_hidden">{{(ticket[0].price / 100) | currency}}</span>
+                                    <span v-else>{{(ticket[0].value / 100) | currency}}</span>
                                 </div>
                             </div>
 
@@ -58,26 +58,37 @@
 
                             <hr class="my-5">
 
-                            <div class="media align-items-center">
+                            <div class="media align-items-center mb-2">
                                 <h3 class="h6 text-secondary mr-3">Subtotal</h3>
                                 <div class="media-body text-right">
-                                    <span>{{((cart.attributes.amount + cart.attributes.fee) / 100) | currency}}</span>
+                                    <span v-if="cart.attributes.fee_is_hidden">{{ ((cart.attributes.amount + cart.attributes.fee) / 100) | currency }}</span>
+                                    <span v-else>{{cart.attributes.amount / 100 | currency}}</span>
                                 </div>
                             </div>
 
-                            <div class="media align-items-center">
-                                <h3 class="h6 text-secondary mr-3">Desconto</h3>
+                            <div class="media align-items-center mb-2" v-if="!cart.attributes.fee_is_hidden">
+                                <h3 class="h6 text-secondary mr-3">Taxa Adm. ({{ cart.attributes.fee_percentage }}%)</h3>
                                 <div class="media-body text-right">
-                                    <span>-{{(cart.attributes.discount / 100) | currency}}</span>
+                                    <span>{{ cart.attributes.fee / 100 | currency }}</span>
+                                </div>
+                            </div>
+
+                            <div class="media align-items-center mb-2">
+                                <h3 class="h6 text-secondary mr-3">Descontos</h3>
+                                <div class="media-body text-right">
+                                    <span class="text-danger" v-if="cart.attributes.discount > 0">- {{(cart.attributes.discount / 100) | currency}}</span>
+                                    <span v-else>{{0 | currency}}</span>
                                 </div>
                             </div>
 
                             <hr class="my-5">
 
                             <div class="media align-items-center">
-                                <h3 class="h6 text-secondary mr-3">Total</h3>
+                                <h3 class="h5 text-primary mr-3">Total</h3>
                                 <div class="media-body text-right">
-                                    <span class="font-weight-semi-bold">{{((cart.attributes.amount + cart.attributes.fee - cart.attributes.discount) / 100) | currency}}</span>
+                                    <span class="font-weight-semi-bold text-primary h5">
+                                        {{((cart.attributes.amount + cart.attributes.fee - cart.attributes.discount) / 100) | currency}}
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -86,8 +97,7 @@
 
                 <div class="col-lg-8 order-lg-1">
                     <form class="js-step-form">
-                        <nav id="progressStepForm"
-                             class="js-step-progress nav nav-icon nav-justified text-center">
+                        <nav id="progressStepForm" class="js-step-progress nav nav-icon nav-justified text-center">
                             <a href="javascript:;" class="nav-item u-checked"
                                v-for="(item, key, index) in menu_form" :class="classActive(key, index)">
                                 <span class="nav-icon-action" v-html="item.icon"></span>
@@ -95,6 +105,7 @@
                             </a>
                         </nav>
                     </form>
+
                     <hr class="my-5">
 
                     <router-view v-if="!isLoading"></router-view>
@@ -159,7 +170,7 @@
                 cart: state => state.cart
             }),
             groupTickets() {
-                return _.groupBy(this.cart.attributes.tickets, 'id')
+                return _.groupBy(this.cart.attributes.tickets, 'entrance_id')
             }
         },
         data: () => ({
@@ -222,7 +233,7 @@
                         })
                     }
 
-                    this.seconds = moment(this.cart.attributes.expires_at).diff(moment(),'seconds')
+                    this.seconds = moment(this.cart.attributes.expires_at).diff(moment(), 'seconds')
 
                     this.stopTime = false
                     this.isLoading = false
@@ -255,12 +266,12 @@
                 const secondsLeft = this.seconds % 60
                 this.timer = `${timeDurationToString(minutesLeft)}:${timeDurationToString(secondsLeft)}`
 
-                this.percent = this.seconds * 100 / (15 * 60)
+                const percent = this.percent = this.seconds * 100 / (15 * 60)
 
-                if (this.percent <= 50 && this.percent > 25) {
-                    this.percent_class = 'warning'
-                } else if (this.percent <= 25) {
-                    this.percent_class = 'danger'
+                if (percent <= 50 && percent > 25) {
+                    this.percent_class = 'bg-warning'
+                } else if (percent <= 25) {
+                    this.percent_class = 'bg-danger'
                 }
             }
 

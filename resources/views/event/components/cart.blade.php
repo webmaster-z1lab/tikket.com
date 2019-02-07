@@ -89,12 +89,12 @@
 
         <div class="row">
             <div class="col-sm-8 col-lg-9">
-                <h3 class="h5 mb-0">Total: <span class="text-warning">R$ <span class="js-total">0,00</span></span></h3>
+                <h3 class="h5 mb-0 text-primary">Total: <span>R$ <span class="js-total">0,00</span></span></h3>
                 <p class="small">Tem um cupom de desconto? Você pode adicioná-lo no próximo passo.</p>
             </div>
 
             <div class="col-sm-4 col-lg-3">
-                <button type="button" class="btn btn-primary btn-block transition-3d-hover js-action">
+                <button type="submit" class="btn btn-primary btn-block transition-3d-hover js-action">
                     <i class="fas fa-cart-plus mr-1"></i>Finalizar Compra
                 </button>
             </div>

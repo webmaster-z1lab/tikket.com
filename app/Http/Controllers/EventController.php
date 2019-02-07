@@ -42,7 +42,7 @@ class EventController extends Controller
         \Meta::set('description', $event->attributes->description);
 
         $address = $event->attributes->address;
-        $producer = $event->attributes->producer;
+        $producer = $event->relationships->producer->attributes;
 
         unset($event->attributes->address);
         unset($event->attributes->producer);

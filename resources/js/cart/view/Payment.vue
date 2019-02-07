@@ -3,7 +3,7 @@
         <loading-component :is-loading="isLoading"></loading-component>
 
         <div v-if="checkDocument" class="mb-3">
-            <div class="alert alert-warning" role="alert">
+            <div class="alert alert-primary" role="alert">
                 <p class="alert-text" style="font-size: .9375rem">
                     Verificamos que você ainda não preencheu suas informações básicas de usuário <i class="fas fa-user-circle"></i>! <br>
                     Por isso vamos pedir apenas oque é necessario para efetuar sua compra. <br>
@@ -56,7 +56,83 @@
             <hr>
         </div>
 
-        <div class="mb-3">
+        <div class="card card-frame card-frame-highlighted mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Informações de Pagamento</h5>
+
+                <div class="row">
+                    <div class="col-12 mb-2" :class="errors.has('card_number') ? 'u-has-error' : ''">
+                        <label class="form-label">
+                            Número do Cartão <span class="text-danger">*</span>
+                        </label>
+
+                        <div class="input-group">
+                            <the-mask type="text" class="form-control" name="card_number" placeholder="**** **** **** ****"
+                                      v-model.lazy="card_number"
+                                      v-validate="'required|credit_card'" data-vv-as="'Número do Cartão'"
+                                      mask="#### #### #### ####"></the-mask>
+                            <div class="input-group-append" v-if="brand !== ''">
+                                <span class="input-group-text">
+                                    <img :src="imgBrand" width="42" height="20" :alt="brand"/>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div v-show="errors.has('card_number')" class="invalid-feedback" style="display: block">
+                            {{ errors.first('card_number') }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2" :class="errors.has('installment') ? 'u-has-error' : ''">
+                        <label for="installment" class="form-label">
+                            Opções de pagamento <span class="text-danger">*</span>
+                        </label>
+
+                        <select id="installment" class="custom-select" aria-invalid="false" name="installment" v-model="installment" v-validate="'required'" :data-vv-as="'Opções de pagamento'">
+                            <option value="" selected="">Selecione uma das opções de pagamento</option>
+                            <option v-for="option in installments" :value="option">
+                                {{`${option.quantity}x de `}} {{option.installmentAmount | currency}}
+                            </option>
+                        </select>
+
+                        <div v-show="errors.has('installment')" class="invalid-feedback" style="display: block">
+                            {{ errors.first('installment') }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-2" :class="errors.has('card_expiration_date') ? 'u-has-error' : ''">
+                        <label class="form-label">
+                            Data de Expiração <span class="text-danger">*</span>
+                        </label>
+
+                        <the-mask type="text" class="form-control" name="card_expiration_date" placeholder="MM/YYYY"
+                                  v-model="card_expiration_date"
+                                  v-validate="'required'" data-vv-as="'Data de Expiração'" mask="##/####"
+                                  :masked="true"></the-mask>
+
+                        <div v-show="errors.has('card_expiration_date')" class="invalid-feedback"
+                             style="display: block">
+                            {{ errors.first('card_expiration_date') }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-2" :class="errors.has('card_cvv') ? 'u-has-error' : ''">
+                        <label class="form-label">
+                            CVV <span class="text-danger">*</span>
+                        </label>
+
+                        <input type="text" class="form-control" name="card_cvv" placeholder="***" v-model="card_cvv"
+                               v-validate="'required|numeric|length:3'" data-vv-as="'CVV'">
+
+                        <div v-show="errors.has('card_cvv')" class="invalid-feedback" style="display: block">
+                            {{ errors.first('card_cvv') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="mb-3">
             <h2 class="h5 mb-0">Informações de Pagamento</h2>
         </div>
         <div class="js-focus-state mb-3" :class="errors.has('card_number') ? 'u-has-error' : ''">
@@ -133,195 +209,185 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
 
-        <div class="mb-3">
-            <h2 class="h5 mb-0">Dados do titular do cartão</h2>
-        </div>
+        <div class="card card-frame card-frame-highlighted mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Dados do titular do cartão</h5>
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="js-form-message mb-3" :class="errors.has('card_holder') ? 'u-has-error' : ''">
-                    <label class="form-label">
-                        Nome do Titular <span class="text-danger">*</span>
-                    </label>
+                <div class="row">
+                    <div class="col-md-6 mb-2" :class="errors.has('card_holder') ? 'u-has-error' : ''">
+                        <label class="form-label">
+                            Nome do Titular <span class="text-danger">*</span>
+                        </label>
 
-                    <input type="text" class="form-control" name="card_holder" placeholder="Jack Wayley"
-                           v-model="card_holder"
-                           v-validate="'required'" data-vv-as="'Nome do Titular'">
+                        <input type="text" class="form-control" name="card_holder" placeholder="Jack Wayley"
+                               v-model="card_holder"
+                               v-validate="'required'" data-vv-as="'Nome do Titular'">
 
-                    <div v-show="errors.has('card_holder')" class="invalid-feedback" style="display: block">
-                        {{ errors.first('card_holder') }}
+                        <div v-show="errors.has('card_holder')" class="invalid-feedback" style="display: block">
+                            {{ errors.first('card_holder') }}
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="js-form-message mb-3" :class="errors.has('document') ? 'u-has-error' : ''">
-                    <label class="form-label">
-                        CPF <span class="text-danger">*</span>
-                    </label>
 
-                    <the-mask class="form-control u-form__input" type="text" name="document" id="document"
-                              placeholder="000.000.000-00"
-                              v-validate="'required|cpf'" data-vv-as="'CPF'"
-                              mask="###.###.###-##" v-model="document">
-                    </the-mask>
+                    <div class="col-md-6 mb-2" :class="errors.has('document') ? 'u-has-error' : ''">
+                        <label class="form-label">
+                            CPF <span class="text-danger">*</span>
+                        </label>
 
-                    <div v-show="errors.has('document')" class="invalid-feedback" style="display: block">
-                        {{ errors.first('document') }}
+                        <the-mask class="form-control u-form__input" type="text" name="document" id="document"
+                                  placeholder="000.000.000-00"
+                                  v-validate="'required|cpf'" data-vv-as="'CPF'"
+                                  mask="###.###.###-##" v-model="document">
+                        </the-mask>
+
+                        <div v-show="errors.has('document')" class="invalid-feedback" style="display: block">
+                            {{ errors.first('document') }}
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="col-md-6">
-                <div class="js-form-message mb-3" :class="errors.has('phone') ? 'u-has-error' : ''">
-                    <label class="form-label">
-                        Telefone <span class="text-danger">*</span>
-                    </label>
+                    <div class="col-md-6 mb-2" :class="errors.has('phone') ? 'u-has-error' : ''">
+                        <label class="form-label">
+                            Telefone <span class="text-danger">*</span>
+                        </label>
 
-                    <the-mask class="form-control u-form__input" type="text" name="phone" id="phone"
-                              placeholder="(00) 00000-0000 ou (00) 0000-0000"
-                              v-validate="'required|phone'" data-vv-as="'Telefone'"
-                              :mask="['(##) ####-####', '(##) #####-####']" v-model="phone">
-                    </the-mask>
+                        <the-mask class="form-control u-form__input" type="text" name="phone" id="phone"
+                                  placeholder="(00) 00000-0000 ou (00) 0000-0000"
+                                  v-validate="'required|phone'" data-vv-as="'Telefone'"
+                                  :mask="['(##) ####-####', '(##) #####-####']" v-model="phone">
+                        </the-mask>
 
-                    <div v-show="errors.has('phone')" class="invalid-feedback" style="display: block">
-                        {{ errors.first('phone') }}
+                        <div v-show="errors.has('phone')" class="invalid-feedback" style="display: block">
+                            {{ errors.first('phone') }}
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="col-md-6">
-                <div class="js-form-message mb-3" :class="errors.has('birth_date') ? 'u-has-error' : ''">
-                    <label class="form-label">
-                        Data de Nascimento <span class="text-danger">*</span>
-                    </label>
+                    <div class="col-md-6 mb-2" :class="errors.has('birth_date') ? 'u-has-error' : ''">
+                        <label class="form-label">
+                            Data de Nascimento <span class="text-danger">*</span>
+                        </label>
 
-                    <the-mask class="form-control u-form__input" type="text" name="birth_date" id="birth_date"
-                              placeholder="DD/MM/AAAA" v-validate="'required|date_format:DD/MM/YYYY|legalAge'" data-vv-as="Data de Nascimento" :masked="true"
-                              :mask="'##/##/####'" v-model="birth_date">
-                    </the-mask>
+                        <the-mask class="form-control u-form__input" type="text" name="birth_date" id="birth_date"
+                                  placeholder="DD/MM/AAAA" v-validate="'required|date_format:DD/MM/YYYY|legalAge'" data-vv-as="Data de Nascimento" :masked="true"
+                                  :mask="'##/##/####'" v-model="birth_date">
+                        </the-mask>
 
-                    <div v-show="errors.has('birth_date')" class="invalid-feedback" style="display: block">
-                        {{ errors.first('birth_date') }}
+                        <div v-show="errors.has('birth_date')" class="invalid-feedback" style="display: block">
+                            {{ errors.first('birth_date') }}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="mb-3">
-            <h2 class="h6 mb-0">Endereço</h2>
-            <small>Insira seu CEP para pesquisarmos o endereço.
-                <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> Não sei o meu CEP
-                </a>
-            </small>
-        </div>
+        <div class="card card-frame card-frame-highlighted mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Endereço de cobrança</h5>
 
-        <div class="row">
-            <div class="col-md-4">
-                <div class="js-form-message mb-3" :class="errors.has('cep') ? 'u-has-error' : ''">
-                    <label class="form-label">
-                        CEP <span class="text-danger">*</span>
-                    </label>
+                <h6 class="card-subtitle mb-2">
+                    Insira seu CEP para pesquisarmos o endereço.
+                    <a class="text-primary" href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Não sei o meu CEP
+                    </a>
+                </h6>
 
-                    <the-mask class="form-control u-form__input" type="text" name="cep" id="cep"
-                              placeholder="00000-000"
-                              v-validate="'required|cep'" data-vv-as="'CEP'" mask="#####-###" v-model.lazy="cep">
-                    </the-mask>
-                    <div v-show="errors.has('cep')" class="invalid-feedback" style="display: block">
-                        {{errors.first('cep') }}
+                <div class="row">
+                    <div class="col-md-4 mb-2" :class="errors.has('cep') ? 'u-has-error' : ''">
+                        <label class="form-label">
+                            CEP <span class="text-danger">*</span>
+                        </label>
+
+                        <the-mask class="form-control u-form__input" type="text" name="cep" id="cep"
+                                  placeholder="00000-000"
+                                  v-validate="'required|cep'" data-vv-as="'CEP'" mask="#####-###" v-model.lazy="cep">
+                        </the-mask>
+                        <div v-show="errors.has('cep')" class="invalid-feedback" style="display: block">
+                            {{errors.first('cep') }}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="row" v-if="completeAddress">
-            <div class="col-md-9">
-                <div class="js-form-message mb-3" :class="errors.has('street') ? 'u-has-error' : ''">
-                    <label class="form-label">
-                        Logradouro <span class="text-danger">*</span>
-                    </label>
+                <div class="row" v-if="completeAddress">
+                    <div class="col-md-9 mb-2" :class="errors.has('street') ? 'u-has-error' : ''">
+                        <label class="form-label">
+                            Logradouro <span class="text-danger">*</span>
+                        </label>
 
-                    <input class="form-control" type="text" name="street" id="street"
-                           placeholder="Nome da rua"
-                           v-model="street" data-vv-as="'Logradouro'" v-validate="'required'">
+                        <input class="form-control" type="text" name="street" id="street"
+                               placeholder="Nome da rua"
+                               v-model="street" data-vv-as="'Logradouro'" v-validate="'required'">
 
-                    <div v-show="errors.has('street')" class="invalid-feedback" style="display: block">
-                        {{ errors.first('street') }}
+                        <div v-show="errors.has('street')" class="invalid-feedback" style="display: block">
+                            {{ errors.first('street') }}
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="col-md-3">
-                <div class="js-form-message mb-3" :class="errors.has('number') ? 'u-has-error' : ''">
-                    <label class="form-label">
-                        Número <span class="text-danger">*</span>
-                    </label>
+                    <div class="col-md-3 mb-2" :class="errors.has('number') ? 'u-has-error' : ''">
+                        <label class="form-label">
+                            Número <span class="text-danger">*</span>
+                        </label>
 
-                    <input class="form-control" type="number" name="number" placeholder="Ex: 55"
-                           v-model="number" data-vv-as="'Número'" v-validate="'required'">
+                        <input class="form-control" type="number" name="number" placeholder="Ex: 55"
+                               v-model="number" data-vv-as="'Número'" v-validate="'required'">
 
-                    <div v-show="errors.has('number')" class="invalid-feedback" style="display: block">
-                        {{ errors.first('number') }}
+                        <div v-show="errors.has('number')" class="invalid-feedback" style="display: block">
+                            {{ errors.first('number') }}
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="col-md-6">
-                <div class="js-form-message mb-3" :class="errors.has('district') ? 'u-has-error' : ''">
-                    <label class="form-label">
-                        Bairro <span class="text-danger">*</span>
-                    </label>
+                    <div class="col-md-6 mb-2" :class="errors.has('district') ? 'u-has-error' : ''">
+                        <label class="form-label">
+                            Bairro <span class="text-danger">*</span>
+                        </label>
 
-                    <input class="form-control" type="text" name="district" id="district"
-                           placeholder="Nome do Bairro"
-                           v-model="district" data-vv-as="'Bairro'" v-validate="'required'">
+                        <input class="form-control" type="text" name="district" id="district"
+                               placeholder="Nome do Bairro"
+                               v-model="district" data-vv-as="'Bairro'" v-validate="'required'">
 
-                    <div v-show="errors.has('district')" class="invalid-feedback" style="display: block">
-                        {{ errors.first('district') }}
+                        <div v-show="errors.has('district')" class="invalid-feedback" style="display: block">
+                            {{ errors.first('district') }}
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="col-md-6">
-                <div class="js-form-message mb-3" :class="errors.has('complement') ? 'u-has-error' : ''">
-                    <label class="form-label">
-                        Complemento
-                    </label>
+                    <div class="col-md-6 mb-2" :class="errors.has('complement') ? 'u-has-error' : ''">
+                        <label class="form-label">
+                            Complemento
+                        </label>
 
-                    <input class="form-control" type="text" name="complement" id="complement" placeholder="Ex: Casa, Loja 01..." v-model="complement">
+                        <input class="form-control" type="text" name="complement" id="complement" placeholder="Ex: Casa, Loja 01..." v-model="complement">
 
-                    <div v-show="errors.has('complement')" class="invalid-feedback" style="display: block">
-                        {{ errors.first('complement') }}
+                        <div v-show="errors.has('complement')" class="invalid-feedback" style="display: block">
+                            {{ errors.first('complement') }}
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="col-md-6">
-                <div class="js-form-message mb-3">
-                    <label class="form-label">
-                        Estado <span class="text-danger">*</span>
-                    </label>
-                    <input type="text" class="form-control u-form__input disabled" id="state" readonly disabled name="state" v-model="state">
-                </div>
-            </div>
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label" for="state">
+                            Estado <span class="text-danger">*</span>
+                        </label>
 
-            <div class="col-md-6">
-                <div class="js-form-message mb-3">
-                    <label class="form-label">
-                        Cidade <span class="text-danger">*</span>
-                    </label>
-                    <input type="text" class="form-control u-form__input disabled" id="city" readonly disabled name="city" v-model="city">
+                        <input type="text" class="form-control u-form__input disabled" id="state" readonly disabled name="state" v-model="state">
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label" for="city">
+                            Cidade <span class="text-danger">*</span>
+                        </label>
+
+                        <input type="text" class="form-control u-form__input disabled" id="city" readonly disabled name="city" v-model="city">
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="d-flex justify-content-between align-items-center">
-            <router-link :to="{name: 'information'}">
-                <span class="fas fa-angle-left mr-2"></span> Voltar
+            <router-link class="btn btn-secondary btn-wide transition-3d-hover" :to="{name: 'information'}">
+                <span class="fas fa-file-signature mr-1"></span> Voltar
             </router-link>
-            <button type="button" @click="submitForm" class="btn btn-primary transition-3d-hover">Concluir</button>
+
+            <button type="button" @click="submitForm" class="btn btn-primary btn-wide transition-3d-hover">
+                Concluir <i class="fas fa-check-circle ml-1"></i>
+            </button>
         </div>
     </form>
 </template>

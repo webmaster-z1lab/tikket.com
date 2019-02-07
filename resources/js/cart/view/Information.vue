@@ -2,65 +2,75 @@
     <form>
         <loading-component :is-loading="isLoading"></loading-component>
 
-        <div class="row" v-for="(ticket, index) in cart.attributes.tickets">
-            <div class="col-12 mb-3">
-                <h2 class="h5 mb-0">Ingresso nº {{++index}}</h2>
-                <p>{{ticket.entrance}} {{ticket.lot ? `Lote - ${ticket.lot}` : '' }}</p>
-            </div>
+        <div class="alert alert-primary" role="alert">
+            <h4 class="alert-heading">Defina para cada ingresso os dados de seu titular</h4>
+            <hr class="bg-primary">
+            <p class="alert-text mb-0">
+                Esses informações serão conferidas na portaria do evento e são exigidas para garantir a segurança e autenticidade dos seus ingressos.
+            </p>
+        </div>
 
-            <div class="col-md-6">
-                <div class="js-form-message mb-6" :class="errors.has(`name-${index}`) ? 'u-has-error' : ''">
-                    <label class="form-label">
-                        Nome <span class="text-danger">*</span>
-                    </label>
+        <div class="card card-frame card-frame-highlighted mb-4" v-for="(ticket, index) in cart.attributes.tickets">
+            <div class="card-body">
+                <h5 class="card-title">Ingresso nº {{ index + 1 }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ ticket.entrance }} - {{ ticket.lot ? `Lote ${ticket.lot}` : '' }}</h6>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <div class="js-form-message" :class="errors.has(`name-${index}`) ? 'u-has-error' : ''">
+                            <label class="form-label">
+                                Titular <span class="text-danger">*</span>
+                            </label>
 
-                    <input type="text" class="form-control" :name="`name-${index}`" placeholder="Nome no Ingresso" v-model="ticket.name"
-                           v-validate="'required'" data-vv-as="'Nome'">
+                            <input type="text" class="form-control" :name="`name-${index}`" placeholder="Nome no Ingresso" v-model="ticket.name"
+                                   v-validate="'required'" data-vv-as="'Nome'">
 
-                    <div v-show="errors.has(`name-${index}`)" class="invalid-feedback" style="display: block">
-                        {{ errors.first(`name-${index}`) }}
+                            <div v-show="errors.has(`name-${index}`)" class="invalid-feedback" style="display: block">
+                                {{ errors.first(`name-${index}`) }}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="col-md-6">
-                <div class="js-form-message mb-6" :class="errors.has(`document-${index}`) ? 'u-has-error' : ''">
-                    <label class="form-label">
-                        CPF <span class="text-danger">*</span>
-                    </label>
+                    <div class="col-md-6 mb-2">
+                        <div class="js-form-message" :class="errors.has(`document-${index}`) ? 'u-has-error' : ''">
+                            <label class="form-label">
+                                CPF <span class="text-danger">*</span>
+                            </label>
 
-                    <the-mask class="form-control u-form__input" type="text" :name="`document-${index}`" id="cpf"
-                              placeholder="000.000.000-00" v-validate="'required|cpf'" data-vv-as="'CPF'" mask="###.###.###-##" v-model="ticket.document">
-                    </the-mask>
+                            <the-mask class="form-control u-form__input" type="text" :name="`document-${index}`" id="cpf"
+                                      placeholder="000.000.000-00" v-validate="'required|cpf'" data-vv-as="'CPF'" mask="###.###.###-##" v-model="ticket.document">
+                            </the-mask>
 
-                    <div v-show="errors.has(`document-${index}`)" class="invalid-feedback" style="display: block">
-                        {{ errors.first(`document-${index}`) }}
+                            <div v-show="errors.has(`document-${index}`)" class="invalid-feedback" style="display: block">
+                                {{ errors.first(`document-${index}`) }}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="col-md-12">
-                <div class="js-form-message mb-6" :class="errors.has(`email-${index}`) ? 'u-has-error' : ''">
-                    <label class="form-label">
-                        Email <span class="text-danger">*</span>
-                    </label>
+                    <div class="col-12">
+                        <div class="js-form-message" :class="errors.has(`email-${index}`) ? 'u-has-error' : ''">
+                            <label class="form-label">
+                                Email <span class="text-danger">*</span>
+                            </label>
 
-                    <input type="email" class="form-control" :name="`email-${index}`" placeholder="jackwayley@gmail.com"
-                           v-model="ticket.email" v-validate="'required|email'" data-vv-as="'Email'">
+                            <input type="email" class="form-control" :name="`email-${index}`" placeholder="jackwayley@gmail.com"
+                                   v-model="ticket.email" v-validate="'required|email'" data-vv-as="'Email'">
 
-                    <div v-show="errors.has(`email-${index}`)" class="invalid-feedback" style="display: block">
-                        {{ errors.first(`email-${index}`) }}
+                            <div v-show="errors.has(`email-${index}`)" class="invalid-feedback" style="display: block">
+                                {{ errors.first(`email-${index}`) }}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="d-flex justify-content-between align-items-center">
-            <a href="/" class="btn btn-soft-secondary transition-3d-hover">
-                Voltar a Home
+            <a href="/" class="btn btn-secondary btn-wide transition-3d-hover">
+                <i class="fas fa-home mr-1"></i> Cancelar
             </a>
-            <button type="button" class="btn btn-primary transition-3d-hover" @click="submitTickets">
-                Continuar
+            <button type="button" class="btn btn-primary btn-wide transition-3d-hover" @click="submitTickets">
+                Continuar <i class="fas fa-money-bill-alt ml-1"></i>
             </button>
         </div>
     </form>

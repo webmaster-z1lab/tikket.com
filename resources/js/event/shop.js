@@ -2,6 +2,7 @@
 
 import {HTTP} from "../bootstrap"
 import LocalStorage from "../vendor/storage"
+import moment from 'moment'
 
 const entrances = document.querySelectorAll('.entrance')
 const btnAction = document.querySelector('.js-action')
@@ -65,19 +66,28 @@ function init() {
 
     let form = document.getElementById('shop')
 
-    btnAction.addEventListener('click', function () {
+    form.addEventListener('submit', function (e) {
+        e.preventDefault()
+        btnAction.disabled = true
+        btnAction.classList.add('disabled')
+
         submit(form).then(
             response => {
-                new LocalStorage('cart__').setItem('user', response.data, response.data.attributes.expires_at)
+                new LocalStorage('cart__').setItem('user', response.data, moment(response.data.attributes.expires_at).diff(moment(), 'seconds'))
                 window.location.href = process.env.MIX_APP_URL + '/cart'
             }
         ).catch(
             error => {
+                btnAction.disabled = false
+                btnAction.classList.remove('disabled')
+
                 if (_.isObject(error.response.data)) {
                     console.log(error.response.data.errors.detail)
                 } else {
                     console.dir(error)
                 }
+
+
             }
         ).finally(() => {
                 Pace.stop()
