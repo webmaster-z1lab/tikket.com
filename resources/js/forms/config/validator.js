@@ -59,10 +59,12 @@ const document = {
 
 const legalAge = {
     getMessage(field, args, data) {
-        return (data && data.message) || `Oops, você precisa ter 18 anos ou mais para comprar em nosso site.`;
+        return (data && data.message) || `Oops, você precisa ter entre 18 e 120 anos para comprar em nosso site.`;
     },
     validate(value, args) {
-        return moment().diff(moment(value, "DD/MM/YYYY"), "years") >= 18
+        const age = moment().diff(moment(value, "DD/MM/YYYY"), "years")
+
+        return (age >= 18 && age <= 120)
     }
 };
 

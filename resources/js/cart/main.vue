@@ -33,13 +33,15 @@
                                     </button>
                                     <span class="badge badge-sm badge-primary badge-pos rounded-circle">{{ticket.length}}</span>
                                 </div>
+
                                 <div class="media-body">
-                                    <h2 class="h6 mb-0">{{ticket[0].entrance}}</h2>
-                                    <small class="d-block text-secondary">{{ticket[0].lot ? `Lote ${ticket[0].lot}` : '' }}</small>
-                                </div>
-                                <div class="media-body text-right">
-                                    <span v-if="cart.attributes.fee_is_hidden">{{(ticket[0].price / 100) | currency}}</span>
-                                    <span v-else>{{(ticket[0].value / 100) | currency}}</span>
+                                    <h2 class="h6 mb-0">{{ticket[0].entrance}} - {{ticket[0].lot ? `Lote ${ticket[0].lot}` : '' }}</h2>
+                                    <small class="d-block text-secondary">
+                                        <span v-if="cart.attributes.fee_is_hidden">{{(ticket[0].price / 100) | currency}}</span>
+                                        <span v-else>
+                                            {{(ticket[0].value / 100) | currency}} (+ {{(ticket[0].fee / 100) | currency}} de taxa adm.)
+                                        </span>
+                                    </small>
                                 </div>
                             </div>
 
@@ -63,13 +65,6 @@
                                 <div class="media-body text-right">
                                     <span v-if="cart.attributes.fee_is_hidden">{{ ((cart.attributes.amount + cart.attributes.fee) / 100) | currency }}</span>
                                     <span v-else>{{cart.attributes.amount / 100 | currency}}</span>
-                                </div>
-                            </div>
-
-                            <div class="media align-items-center mb-2" v-if="!cart.attributes.fee_is_hidden">
-                                <h3 class="h6 text-secondary mr-3">Taxa Adm. ({{ cart.attributes.fee_percentage }}%)</h3>
-                                <div class="media-body text-right">
-                                    <span>{{ cart.attributes.fee / 100 | currency }}</span>
                                 </div>
                             </div>
 
