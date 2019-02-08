@@ -31,7 +31,7 @@
                     </li>
 
                     <li class="u-sidebar--account__list-item">
-                        <a class="u-sidebar--account__list-link" href="#">
+                        <a class="u-sidebar--account__list-link" href="javascript:;" @click="link()">
                             <span class="fas fa-rocket u-sidebar--account__list-icon text-success mr-2"></span>
                             Meus eventos
                         </a>
@@ -81,7 +81,7 @@
 </template>
 
 <script>
-    import {sendCommon} from "../../../vendor/common";
+    import {sendCommon, toSeek} from "../../../vendor/common";
 
     import LoadingComponent from '../../../components/loadingComponent'
 
@@ -112,6 +112,11 @@
                         console.dir(error)
                     }
                 )
+            },
+            link(route = '/') {
+                toSeek(`http://127.0.0.5:8000${route}`)
+                    .then(response => console.log(response)/*window.location.href = `http://127.0.0.5:8000${route}`*/)
+                    .catch(error => console.dir(error))
             }
         }
     }
