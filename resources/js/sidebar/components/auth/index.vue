@@ -81,9 +81,11 @@
 </template>
 
 <script>
-    import {sendCommon, toSeek} from "../../../vendor/common";
+    import {sendCommon} from "../../../vendor/common";
 
     import LoadingComponent from '../../../components/loadingComponent'
+
+    import {getCookie} from "../../../bootstrap"
 
     export default {
         name: "Dashboard",
@@ -114,9 +116,7 @@
                 )
             },
             link(route = '/') {
-                toSeek(`http://127.0.0.5:8000${route}`)
-                    .then(response => console.log(response)/*window.location.href = `http://127.0.0.5:8000${route}`*/)
-                    .catch(error => console.dir(error))
+                window.location.href = `http://127.0.0.5:8000${route}?token=` + getCookie('auth_token')
             }
         }
     }
