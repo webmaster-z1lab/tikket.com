@@ -170,7 +170,7 @@
         },
         data: () => ({
             stopTime: true,
-            timer: '15:00',
+            timer: '14:00',
             percent: 100,
             percent_class: '',
             seconds: 0,
@@ -261,7 +261,7 @@
                 const secondsLeft = this.seconds % 60
                 this.timer = `${timeDurationToString(minutesLeft)}:${timeDurationToString(secondsLeft)}`
 
-                const percent = this.percent = this.seconds * 100 / (15 * 60)
+                const percent = this.percent = this.seconds * 100 / (14 * 60)
 
                 if (percent <= 50 && percent > 25) {
                     this.percent_class = 'bg-warning'
