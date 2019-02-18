@@ -3,8 +3,8 @@
         <loading-component :is-loading="isLoading"></loading-component>
 
         <div class="alert alert-primary" role="alert">
-            <h4 class="alert-heading">Defina para cada ingresso os dados de seu titular</h4>
-            <hr class="bg-primary">
+            <h5 class="alert-heading">Defina para cada ingresso os dados de seu titular</h5>
+            <hr>
             <p class="alert-text mb-0">
                 Esses informações serão conferidas na portaria do evento e são exigidas para garantir a segurança e autenticidade dos seus ingressos.
             </p>
@@ -18,9 +18,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-2">
                         <div class="js-form-message" :class="errors.has(`name-${index}`) ? 'u-has-error' : ''">
-                            <label class="form-label">
-                                Titular <span class="text-danger">*</span>
-                            </label>
+                            <label class="form-label required">Titular</label>
 
                             <input type="text" class="form-control" :name="`name-${index}`" placeholder="Nome no Ingresso" v-model="ticket.name"
                                    v-validate="'required'" data-vv-as="'Nome'">
@@ -33,9 +31,7 @@
 
                     <div class="col-md-6 mb-2">
                         <div class="js-form-message" :class="errors.has(`document-${index}`) ? 'u-has-error' : ''">
-                            <label class="form-label">
-                                CPF <span class="text-danger">*</span>
-                            </label>
+                            <label class="form-label required">CPF</label>
 
                             <the-mask class="form-control u-form__input" type="text" :name="`document-${index}`" id="cpf"
                                       placeholder="000.000.000-00" v-validate="'required|cpf'" data-vv-as="'CPF'" mask="###.###.###-##" v-model="ticket.document">
@@ -49,9 +45,7 @@
 
                     <div class="col-12">
                         <div class="js-form-message" :class="errors.has(`email-${index}`) ? 'u-has-error' : ''">
-                            <label class="form-label">
-                                Email <span class="text-danger">*</span>
-                            </label>
+                            <label class="form-label required">Email</label>
 
                             <input type="email" class="form-control" :name="`email-${index}`" placeholder="jackwayley@gmail.com"
                                    v-model="ticket.email" v-validate="'required|email'" data-vv-as="'Email'">

@@ -95,7 +95,7 @@
 
             <div class="col-sm-4 col-lg-3">
                 <button type="submit" class="btn btn-primary btn-block transition-3d-hover js-action">
-                    <i class="fas fa-cart-plus mr-1"></i>Finalizar Compra
+                    <i class="fas fa-cart-plus mr-1"></i>Realizar compra
                 </button>
             </div>
         </div>
