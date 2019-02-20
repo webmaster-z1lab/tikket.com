@@ -43,6 +43,7 @@ class EventController extends Controller
 
         $address = $event->attributes->address;
         $producer = $event->relationships->producer->attributes;
+        $image = $event->relationships->image->attributes;
 
         unset($event->attributes->address);
         unset($event->attributes->producer);
@@ -51,6 +52,7 @@ class EventController extends Controller
             ->with('id', $event->id)
             ->with('address', $address)
             ->with('producer', $producer)
+            ->with('image', $image)
             ->with('entrances', $event->relationships->entrances)
             ->with('event', $event->attributes);
     }
