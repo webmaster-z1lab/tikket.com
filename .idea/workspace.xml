@@ -280,13 +280,13 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="npm.watch" />
-      <item itemvalue="PHP Built-in Web Server.tikket.com.br" />
+      <item itemvalue="PHPUnit.phpunit.xml" />
+      <item itemvalue="PHP Built-in Web Server.admin.tikket.com.br" />
+      <item itemvalue="PHP Built-in Web Server.api.tikket.com.br" />
       <item itemvalue="PHP Built-in Web Server.oauth.tikket.com.br" />
       <item itemvalue="PHP Built-in Web Server.payment.tikket.com.br" />
-      <item itemvalue="PHP Built-in Web Server.api.tikket.com.br" />
-      <item itemvalue="PHP Built-in Web Server.admin.tikket.com.br" />
-      <item itemvalue="PHPUnit.phpunit.xml" />
+      <item itemvalue="PHP Built-in Web Server.tikket.com.br" />
+      <item itemvalue="npm.watch" />
     </list>
     <recent_temporary>
       <list>
