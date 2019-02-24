@@ -119,12 +119,12 @@
 </style>
 
 <script>
-    import LoadingComponent from '../../components/loadingComponent'
+    import LoadingComponent from '../../../components/loadingComponent'
     import moment from 'moment'
     moment.locale('pt-br');
 
     import {mapState} from 'vuex'
-    import {sendAPIPOST} from "../../vendor/common";
+    import {sendAPIPOST} from "../../../vendor/common";
 
     export default {
         name: "Conclusion",

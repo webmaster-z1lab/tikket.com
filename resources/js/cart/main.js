@@ -27,6 +27,7 @@ Vue.use(VueCurrencyFilter,
         symbolSpacing: true
     })
 
+/* Route */
 const router = new VueRouter({
     mode: 'history',
     base: '/cart',

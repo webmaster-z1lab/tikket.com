@@ -71,13 +71,13 @@
 </template>
 
 <script>
-    import LoadingComponent from '../../components/loadingComponent'
-    import LocalStorage from "../../vendor/storage"
+    import LoadingComponent from '../../../components/loadingComponent'
+    import LocalStorage from "../../../vendor/storage"
     import swal from 'sweetalert2'
 
     import {TheMask} from 'vue-the-mask'
     import {mapActions, mapState} from 'vuex'
-    import {sendAPIPOST} from "../../vendor/common";
+    import {sendAPIPOST} from "../../../vendor/common";
 
     export default {
         name: "Information",

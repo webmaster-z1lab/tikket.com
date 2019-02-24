@@ -73,4 +73,4 @@ Validator.extend('cep', cep);
 Validator.extend('cnpj', cnpj);
 Validator.extend('cpf', cpf);
 Validator.extend('document', document);
-Validator.extend('legalAge', legalAge);
+Validator.extend('legal_age', legalAge);

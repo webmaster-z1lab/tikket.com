@@ -276,13 +276,13 @@
 <script>
     import moment from 'moment'
     import swal from 'sweetalert2'
-    import LoadingComponent from '../../components/loadingComponent'
-    import LocalStorage from "../../vendor/storage"
+    import LoadingComponent from '../../../components/loadingComponent'
+    import LocalStorage from "../../../vendor/storage"
 
     import {TheMask} from 'vue-the-mask'
-    import {createCardHash, createCardToken, getBrand, getCEP, getInstallment} from "../../vendor/api";
+    import {createCardHash, createCardToken, getBrand, getCEP, getInstallment} from "../../../vendor/api";
     import {mapActions, mapState} from 'vuex'
-    import {sendAPIPOST, toSeek} from "../../vendor/common";
+    import {sendAPIPOST, toSeek} from "../../../vendor/common";
 
     export default {
         name: "Payment",
