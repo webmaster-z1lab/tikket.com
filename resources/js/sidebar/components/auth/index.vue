@@ -70,6 +70,8 @@
                     </li>
                 </ul>
 
+                <img src="http://127.0.0.5:8000/logout" style="display:none !important;" v-if="logout">
+
                 <div class="u-sidebar--account__list-divider"></div>
 
                 <ul class="list-unstyled u-sidebar--account__list">
@@ -98,6 +100,7 @@
             }
         },
         data: () => ({
+            logout: false,
             isLoading: false
         }),
         methods: {
@@ -105,8 +108,10 @@
                 Pace.start()
                 this.isLoading = true
 
+                this.logout = true
+
                 await sendCommon(route('logout'), {}, 'POST').then(
-                    response => window.location.reload()
+                    response => setTimeout(() => window.location.reload(), 1000)
                 ).catch(
                     error => {
                         Pace.stop()
