@@ -93,6 +93,26 @@ class ApiService
     }
 
     /**
+     * @param string $param
+     * @param string $relationship
+     * @param array  $params
+     *
+     * @return $this
+     */
+    public function findRelationship(string $param, string $relationship, array $params = [])
+    {
+        try {
+            $result = $this->client->request($this->method, "{$this->api}{$this->resource}/$param/$relationship", $params);
+
+            $this->response = json_decode($result->getBody());
+        } catch (\GuzzleHttp\Exception\GuzzleException $e) {
+            abort(400, $e->getMessage());
+        }
+
+        return $this;
+    }
+
+    /**
      * @return mixed
      */
     public function attributes()

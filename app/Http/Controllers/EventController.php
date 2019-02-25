@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\ApiService;
+use Carbon\Carbon;
 use Illuminate\View\View;
 
 class EventController extends Controller
@@ -45,15 +46,11 @@ class EventController extends Controller
         $producer = $event->relationships->producer->attributes;
         $image = $event->relationships->image->attributes;
 
-        unset($event->attributes->address);
-        unset($event->attributes->producer);
-
         return View('event.show')
             ->with('id', $event->id)
+            ->with('image', $image)
             ->with('address', $address)
             ->with('producer', $producer)
-            ->with('image', $image)
-            ->with('entrances', $event->relationships->entrances)
             ->with('event', $event->attributes);
     }
 
