@@ -1,10 +1,9 @@
 <template>
-    <div class="d-flex align-items-center bg-img-hero space-4 min-height-100vh--lg"
-         style="background-image: url(https://s3.us-east-2.amazonaws.com/cdn-z1lab/template/front/2.0.1/svg/illustrations/error-404.svg); width: 100%">
+    <div class="d-flex align-items-center bg-img-hero space-4 min-height-100vh--lg">
         <div class="container">
             <div class="w-lg-60 w-xl-50">
-
-                <div class="mb-5" v-html="errorMessage.title">
+                <div class="mb-5">
+                    <div v-html="errorMessage.title"></div>
                     <p class="mb-0">{{errorMessage.message}}</p>
                     <p>Se você acredita que isso é um erro, por favor <a :href="errorMessage.redirect" target="_blank">nos avise</a>.</p>
                 </div>
@@ -14,6 +13,13 @@
         </div>
     </div>
 </template>
+
+<style>
+    body {
+        background: url('https://s3.us-east-2.amazonaws.com/cdn-z1lab/template/front/2.0.1/svg/illustrations/error-404.svg') no-repeat 0 0;
+        background-size: 100% auto;
+    }
+</style>
 
 <script>
     export default {
@@ -42,6 +48,9 @@
 
                 return code[this.code]
             }
+        },
+        mounted() {
+            document.getElementById('list-footer').style.display = 'none'
         }
     }
 </script>

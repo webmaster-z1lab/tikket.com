@@ -3,7 +3,7 @@
         <loading-component :is-loading="isLoading"></loading-component>
 
         <component :is="layout" @loading="loading">
-            <router-view @loading="loading" :is-loading="!isLoading"/>
+            <router-view @loading="loading" v-if="!isLoading"/>
         </component>
     </div>
 </template>
@@ -15,8 +15,7 @@
     import LayoutDefault from "./components/layouts/default"
     import LayoutError from "./components/layouts/error"
 
-    import swal from 'sweetalert2'
-    import moment from 'moment'
+    import moment from "moment"
 
     import {mapActions} from 'vuex'
     import {toSeek} from "../vendor/common";
@@ -29,27 +28,7 @@
             LayoutError
         },
         watch: {
-            '$route': 'fetchData',
-            seconds(value) {
-                if (value <= 0) {
-                    swal({
-                        title: 'O tempo para a compra expirou',
-                        text: 'Isso é necessário para que uma reserva não fique presa e possa estar disponível para compra novamente.',
-                        type: 'error',
-                        showCancelButton: true,
-                        confirmButtonColor: '#6000a7',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Comprar novamente',
-                        cancelButtonText: 'Voltar a home'
-                    }).then((result) => {
-                        if (result.value) {
-                            window.location.href = route('event', this.cart.relationships.event.attributes.url)
-                        } else {
-                            window.location.href = route('home')
-                        }
-                    })
-                }
-            }
+            '$route': 'fetchData'
         },
         computed: {
             layout() {
@@ -65,44 +44,43 @@
         methods: {
             ...mapActions(['changeCart', 'setUser']),
             fetchData() {
-                if (this.$route.name !== 'page_not_found') {
-                    let cartLS = new LocalStorage('cart__').getItem('user')
+                if (this.$route.meta.layout === "error") {
+                    this.loading(false)
 
-                    toSeek(route('openid.user')).then(
-                        async response => {
-                            await this.setUser(response.data)
-                        }
-                    );
+                    return;
+                }
 
-                    if (cartLS) {
-                        this.changeCart(cartLS)
-                    } else {
-                        toSeek(`${process.env.MIX_API_VERSION_ENDPOINT}/carts`).then(async response => {
-                            if (!_.isEmpty(response.data)) {
-                                await this.changeCart(response.data)
-                                new LocalStorage('cart__').setItem('user', response.data, response.data.attributes.expires_at)
+                let cartLS = new LocalStorage('cart__').getItem('user')
 
-                                this.isLoading = false
-                                this.$router.push({name: response.data.attributes.callback})
-                            } else {
-                                this.isLoading = false
-                                this.$router.push({name: 'information'})
-                            }
-                        })
+                toSeek(route('openid.user')).then(
+                    async response => {
+                        await this.setUser(response.data)
                     }
+                );
 
-                    this.seconds = moment(this.cart.attributes.expires_at).diff(moment(), 'seconds')
+                if (cartLS) {
+                    this.changeCart(cartLS)
 
-                    this.stopTime = false
-                    this.isLoading = false
+                    this.loading(false)
                 } else {
-                    this.pageError = true
-                    this.isLoading = false
+                    toSeek(`${process.env.MIX_API_VERSION_ENDPOINT}/carts`).then(async response => {
+                        if (!_.isEmpty(response.data)) {
+                            await this.changeCart(response.data)
+                            new LocalStorage('cart__').setItem('user', response.data, moment(response.data.attributes.expires_at).diff(moment(), 'seconds'))
+
+                            this.loading(false)
+                            this.$router.push({name: response.data.attributes.callback})
+                        } else {
+                            this.loading(false)
+                            this.$router.push({name: 'information'})
+                        }
+                    }).catch((error) => {
+                        this.$router.push({name: "error", params: {code: error.response.status}})
+                    })
                 }
             },
             loading(value) {
                 this.isLoading = value
-                value ? Pace.start() : Pace.stop()
             }
         }
     }

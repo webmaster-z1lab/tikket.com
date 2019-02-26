@@ -4,12 +4,12 @@ import Conclusion from './components/view/Conclusion'
 import ErrorComponent from '../components/errorComponent'
 
 const routes = [
-    {path: '/', name: 'home', redirect: 'information'},
+    {path: '/', name: 'home', redirect: {name: 'information'}},
     {path: '/information', name: 'information', component: Information},
     {path: '/payment', name: 'payment', component: Payment},
     {path: '/conclusion', name: 'conclusion', component: Conclusion, meta: { requiresFinishOrder: true }},
     {path: '/error/:code', name: 'error', component: ErrorComponent, meta: {layout: 'error'}, props: true},
-    {path: '*', name: 'page_not_found', component: ErrorComponent}
+    {path: '*', name: 'page_not_found', component: ErrorComponent, meta: {layout: 'error'}, props: {code: '404'}}
 ];
 
 export default routes

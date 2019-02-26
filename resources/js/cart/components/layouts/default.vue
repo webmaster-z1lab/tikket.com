@@ -118,10 +118,37 @@
 </style>
 
 <script>
+    import swal from "sweetalert2"
+    import moment from "moment"
+
     import {mapState} from 'vuex'
 
     export default {
         name: 'LayoutDefault',
+        watch: {
+            seconds(value) {
+                if (value <= 0) {
+                    swal({
+                        title: 'O tempo para a compra expirou',
+                        text: 'Isso é necessário para que uma reserva não fique presa e possa estar disponível para compra novamente.',
+                        type: 'error',
+                        showCancelButton: true,
+                        confirmButtonColor: '#6000a7',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Comprar novamente',
+                        cancelButtonText: 'Voltar a home'
+                    }).then((result) => {
+                        this.$emit('loading', true)
+
+                        if (result.value) {
+                            window.location.href = route('event', this.cart.relationships.event.attributes.url)
+                        } else {
+                            window.location.href = route('home')
+                        }
+                    })
+                }
+            }
+        },
         data: () => ({
             stopTime: true,
             timer: '14:00',
@@ -170,6 +197,9 @@
             }
         },
         mounted() {
+            this.seconds = moment(this.cart.attributes.expires_at).diff(moment(), 'seconds')
+            this.stopTime = false
+
             const timeDurationToString = (duration) => {
                 return duration > 9 ? duration : '0' + duration
             }

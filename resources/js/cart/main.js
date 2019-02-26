@@ -31,7 +31,6 @@ Vue.use(VueCurrencyFilter,
 const router = new VueRouter({
     mode: 'history',
     base: '/cart',
-    //suppressTransitionError: true,
     routes
 });
 
