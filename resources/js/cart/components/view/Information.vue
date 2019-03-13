@@ -1,7 +1,5 @@
 <template>
     <form>
-        <loading-component :is-loading="isLoading"></loading-component>
-
         <div class="alert alert-primary" role="alert">
             <h5 class="alert-heading">Defina para cada ingresso os dados de seu titular</h5>
             <hr>
@@ -71,9 +69,9 @@
 </template>
 
 <script>
-    import LoadingComponent from '../../../components/loadingComponent'
     import LocalStorage from "../../../vendor/storage"
     import swal from 'sweetalert2'
+    import moment from 'moment'
 
     import {TheMask} from 'vue-the-mask'
     import {mapActions, mapState} from 'vuex'
@@ -85,25 +83,20 @@
             validator: 'new'
         },
         components: {
-            LoadingComponent,
             TheMask
         },
-        data: () => ({
-            isLoading: false
-        }),
         computed: {
             ...mapState({
                 cart: state => state.cart
             })
         },
         methods: {
-            ...mapActions(['changeCart']),
+            ...mapActions(['changeCart', 'changeLoading']),
             submitTickets() {
                 this.$validator.validateAll().then(
                     async res => {
                         if (res) {
-                            Pace.start()
-                            this.isLoading = true
+                            this.changeLoading(true)
 
                             let data = {
                                 callback: "payment",
@@ -113,13 +106,17 @@
 
                             await sendAPIPOST(`${process.env.MIX_API_VERSION_ENDPOINT}/carts/${this.cart.id}/tickets`, data).then(
                                 async response => {
+                                    this.changeLoading(false)
+
                                     await this.changeCart(response.data.data)
-                                    new LocalStorage('cart__').setItem('user', response.data.data, response.data.data.attributes.expires_at)
+                                    new LocalStorage('cart__').setItem('user', response.data.data, moment(response.data.data.attributes.expires_at).diff(moment(), 'seconds'))
 
                                     this.$router.push({name: 'payment'})
                                 }
                             ).catch(
                                 (error) => {
+                                    this.changeLoading(false)
+
                                     if (_.isObject(error.response)) {
                                         swal({
                                             type: 'error',
@@ -129,11 +126,6 @@
                                     } else {
                                         console.dir(error)
                                     }
-                                }
-                            ).finally(
-                                () => {
-                                    Pace.stop()
-                                    this.isLoading = false
                                 }
                             )
                         }

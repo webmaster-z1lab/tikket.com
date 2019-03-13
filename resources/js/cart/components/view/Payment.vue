@@ -1,7 +1,5 @@
 <template>
     <form>
-        <loading-component :is-loading="isLoading"></loading-component>
-
         <div v-if="checkDocument" class="mb-3">
             <div class="alert alert-primary" role="alert">
                 <h5 class="alert-heading">Precisamos dos seus dados básicos</h5>
@@ -80,7 +78,7 @@
                                 :data-vv-as="'Opções de pagamento'">
                             <option value="" selected="">Selecione uma das opções de pagamento</option>
                             <option v-for="option in installments" :value="option">
-                                {{`${option.quantity}x de `}} {{option.installmentAmount | currency}}
+                                {{`${option.quantity}x de `}} {{option.installmentAmount | currency}} ({{option.totalAmount | currency}})
                             </option>
                         </select>
 
@@ -165,7 +163,7 @@
                         <label class="form-label required">Data de Nascimento</label>
 
                         <the-mask class="form-control" type="text" name="birth_date" id="birth_date"
-                                  placeholder="DD/MM/AAAA" v-validate="'required|date_format:DD/MM/YYYY|legalAge'" data-vv-as="Data de Nascimento" :masked="true"
+                                  placeholder="DD/MM/AAAA" v-validate="'required|date_format:DD/MM/YYYY|legal_age'" data-vv-as="Data de Nascimento" :masked="true"
                                   :mask="'##/##/####'" v-model="birth_date">
                         </the-mask>
 
@@ -276,7 +274,6 @@
 <script>
     import moment from 'moment'
     import swal from 'sweetalert2'
-    import LoadingComponent from '../../../components/loadingComponent'
     import LocalStorage from "../../../vendor/storage"
 
     import {TheMask} from 'vue-the-mask'
@@ -290,8 +287,7 @@
             validator: 'new'
         },
         components: {
-            TheMask,
-            LoadingComponent
+            TheMask
         },
         data: () => ({
             date_base: moment().endOf('day').subtract(18, 'years').format('DD/MM/YYYY'),
@@ -302,7 +298,6 @@
             card_holder: '',
             card_expiration_date: '',
             card_cvv: '',
-            isLoading: false,
             hash: null,
             token: null,
             birth_date: '',
@@ -333,6 +328,9 @@
             }
         },
         watch: {
+            installment(value) {
+                this.setInstallment(value)
+            },
             async card_number(value) {
                 this.brand = ''
 
@@ -381,13 +379,12 @@
             }
         },
         methods: {
-            ...mapActions(['changeCart']),
+            ...mapActions(['changeCart', 'changeLoading', 'setInstallment']),
             submitForm() {
                 this.$validator.validateAll().then(
                     async res => {
                         if (res) {
-                            Pace.start()
-                            this.isLoading = true
+                            this.changeLoading(true)
 
                             await createCardToken(this.card_number, this.brand, this.card_cvv, this.card_expiration_date).then(
                                 (response) => {
@@ -432,7 +429,6 @@
                                         }
                                     }
                                 },
-                                sent_at: moment().format('YY-mm-dd H:i:s'),
                                 _method: 'PATCH'
                             }
 
@@ -444,12 +440,14 @@
                                 async response => {
                                     await this.changeCart(response.data.data)
 
-                                    new LocalStorage('cart__').setItem('user', response.data.data, response.data.data.attributes.expires_at)
+                                    new LocalStorage('cart__').setItem('user', response.data.data, moment(response.data.data.attributes.expires_at).diff(moment(), 'seconds'))
 
-                                    this.$router.push({name: 'conclusion'})
+                                    this.conclusion()
                                 }
                             ).catch(
                                 (error) => {
+                                    this.changeLoading(false)
+
                                     if (_.isObject(error.response)) {
                                         swal({
                                             type: 'error',
@@ -460,19 +458,30 @@
                                         console.dir(error)
                                     }
                                 }
-                            ).finally(
-                                () => {
-                                    Pace.stop()
-                                    this.isLoading = false
-                                }
                             )
                         }
                     }
                 )
             },
+            conclusion(){
+                sendAPIPOST(`${process.env.MIX_API_VERSION_ENDPOINT}/orders`, {cart: this.cart.id, _method: 'POST', sent_at: moment().format('YYYY-MM-DD HH:mm:ss')}).then(
+                    response => {
+                        this.changeLoading(false)
+
+                        new LocalStorage('order__').setItem('user', response.data.data)
+
+                        this.$router.push({name: 'conclusion'})
+                    }
+                ).catch(
+                    (error) => {
+                        this.changeLoading(false)
+
+                        this.$router.push({name: "error", params: {code: error.response.status}})
+                    }
+                )
+            },
             setError(error) {
-                Pace.stop()
-                this.isLoading = false
+                this.changeLoading(false)
 
                 swal.mixin({
                     type: 'error',

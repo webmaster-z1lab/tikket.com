@@ -201,6 +201,19 @@ export async function sendAPIPOST(url, params) {
 
 /**
  * @param url
+ * @param params
+ * @returns {Promise<any>}
+ */
+export async function sendAPIPATCH(url, params) {
+    let promise = new Promise((resolve, reject) => {
+        HTTP.patch(url, params).then(result => resolve(result)).catch((error) => reject(error))
+    });
+
+    return await promise
+}
+
+/**
+ * @param url
  * @param config
  * @returns {Promise<any>}
  */

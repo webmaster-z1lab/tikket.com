@@ -14,13 +14,6 @@
     </div>
 </template>
 
-<style>
-    body {
-        background: url('https://s3.us-east-2.amazonaws.com/cdn-z1lab/template/front/2.0.1/svg/illustrations/error-404.svg') no-repeat 0 0;
-        background-size: 100% auto;
-    }
-</style>
-
 <script>
     export default {
         name: "VueError",
@@ -35,12 +28,14 @@
                     422: {
                         title: 'Entidade improcessável',
                         message: '',
+                        background: 'https://s3.us-east-2.amazonaws.com/cdn-z1lab/template/front/2.0.1/svg/illustrations/error-404.svg',
                         icon: 'undraw_warning_cyit.svg',
                         redirect: 'https://tawk.to/chat/5b789d4dafc2c34e96e7b2ec/default'
                     },
                     404: {
                         title: '<h1 class="text-primary font-weight-normal">Página não <span class="font-weight-bold">encontrada</span></h1>',
                         message: 'Oops! Você está em um link que não existe.',
+                        background: 'https://s3.us-east-2.amazonaws.com/cdn-z1lab/template/front/2.0.1/svg/illustrations/error-404.svg',
                         icon: 'undraw_page_not_found_su7k.svg',
                         redirect: 'https://tawk.to/chat/5b789d4dafc2c34e96e7b2ec/default'
                     }
@@ -49,7 +44,9 @@
                 return code[this.code]
             }
         },
-        mounted() {
+        created() {
+            document.body.style.background = `url(${this.errorMessage.background}) no-repeat 0 0`
+            document.body.style.backgroundSize = "100% auto"
             document.getElementById('list-footer').style.display = 'none'
         }
     }

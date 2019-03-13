@@ -68,9 +68,41 @@ const legalAge = {
     }
 };
 
+const today = {
+    getMessage(field, args, data) {
+        return (data && data.message) || `O valor do campo ${field} deve ser maior que o momento atual.`;
+    },
+    validate(value, args) {
+        const date = moment(value, 'DD/MM/YYYY HH:mm')
+
+        return moment() < date
+    }
+};
+
+const dateAfter = {
+    getMessage(field, args, data) {
+        return (data && data.message) || `O valor do campo ${field} deve ser maior que ${args}.`;
+    },
+    validate(value, args) {
+        return moment(value, 'DD/MM/YYYY HH:mm') > moment(args, 'DD/MM/YYYY HH:mm')
+    }
+};
+
+const dateBefore = {
+    getMessage(field, args, data) {
+        return (data && data.message) || `O valor do campo ${field} deve ser menor que ${args}.`;
+    },
+    validate(value, args) {
+        return moment(value, 'DD/MM/YYYY HH:mm') < moment(args, 'DD/MM/YYYY HH:mm')
+    }
+};
+
 Validator.extend('phone', phone);
 Validator.extend('cep', cep);
 Validator.extend('cnpj', cnpj);
 Validator.extend('cpf', cpf);
 Validator.extend('document', document);
 Validator.extend('legal_age', legalAge);
+Validator.extend('today', today);
+Validator.extend('date_after', dateAfter);
+Validator.extend('date_before', dateBefore);

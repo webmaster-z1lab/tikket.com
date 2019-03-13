@@ -47,10 +47,9 @@
                         <form class="js-validate" novalidate="novalidate">
                             <label class="sr-only" for="discountSrEmail">Cupom</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" name="name" id="discountSrEmail" placeholder="Cupom" aria-label="Discount"
-                                       aria-describedby="discountEmailButton">
+                                <input type="text" class="form-control" name="coupon" id="discountSrEmail" placeholder="Cupom" v-model="coupon">
                                 <div class="input-group-append">
-                                    <button type="submit" class="btn btn-primary" id="discountEmailButton">Aplicar</button>
+                                    <button type="button" class="btn btn-primary" id="discountEmailButton" @click="applyCoupon">Aplicar</button>
                                 </div>
                             </div>
                         </form>
@@ -78,9 +77,9 @@
                         <div class="media align-items-center">
                             <h3 class="h5 text-primary mr-3">Total</h3>
                             <div class="media-body text-right">
-                                    <span class="font-weight-semi-bold text-primary h5">
-                                        {{((cart.attributes.amount + cart.attributes.fee - cart.attributes.discount) / 100) | currency}}
-                                    </span>
+                                <span class="font-weight-semi-bold text-primary h5">
+                                    {{amount() | currency}}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -120,8 +119,10 @@
 <script>
     import swal from "sweetalert2"
     import moment from "moment"
+    import LocalStorage from "../../../vendor/storage"
 
-    import {mapState} from 'vuex'
+    import {mapActions, mapState} from 'vuex'
+    import {sendAPIPATCH} from "../../../vendor/common";
 
     export default {
         name: 'LayoutDefault',
@@ -138,7 +139,7 @@
                         confirmButtonText: 'Comprar novamente',
                         cancelButtonText: 'Voltar a home'
                     }).then((result) => {
-                        this.$emit('loading', true)
+                        this.changeLoading(true)
 
                         if (result.value) {
                             window.location.href = route('event', this.cart.relationships.event.attributes.url)
@@ -150,6 +151,7 @@
             }
         },
         data: () => ({
+            coupon: '',
             stopTime: true,
             timer: '14:00',
             percent: 100,
@@ -177,13 +179,26 @@
         }),
         computed: {
             ...mapState({
-                cart: state => state.cart
+                cart: state => state.cart,
+                installment: state => state.installment
             }),
             groupTickets() {
                 return _.groupBy(this.cart.attributes.tickets, 'entrance_id')
             },
         },
         methods: {
+            ...mapActions(['changeCart', 'changeLoading']),
+            amount(){
+                let amount = 0
+
+                if (_.isEmpty(this.installment)){
+                    amount = ((this.cart.attributes.amount + this.cart.attributes.fee - this.cart.attributes.discount) / 100)
+                } else {
+                    amount = this.installment.totalAmount
+                }
+
+                return amount
+            },
             classActive(name, key) {
                 let active = collect(this.menu_form[name].routes).filter((value, key) => value === this.$route.name).all()
 
@@ -194,6 +209,41 @@
                 }
 
                 return key < this.key_active ? 'confirm' : ''
+            },
+            applyCoupon() {
+                if (_.isEmpty(this.coupon)){
+                    toast({
+                        type: 'error',
+                        title: 'Adicione um cupom válido para continuar.'
+                    })
+
+                    return;
+                }
+
+                this.changeLoading(true)
+
+                sendAPIPATCH(`${process.env.MIX_API_VERSION_ENDPOINT}/carts/${this.cart.id}/coupon`, {coupon: this.coupon}).then(
+                    response => {
+                        this.changeCart(response.data.data)
+                        new LocalStorage('cart__').setItem('user', response.data.data, moment(response.data.data.attributes.expires_at).diff(moment(), 'seconds'))
+
+                        this.changeLoading(false)
+                    }
+                ).catch(
+                    (error) => {
+                        this.changeLoading(false)
+
+                        if (_.isObject(error.response)) {
+                            swal({
+                                type: 'error',
+                                title: 'Ops, algo deu errado!',
+                                text: error.response.data.errors.detail
+                            })
+                        } else {
+                            console.dir(error)
+                        }
+                    }
+                )
             }
         },
         mounted() {

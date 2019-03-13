@@ -7,7 +7,7 @@ const routes = [
     {path: '/', name: 'home', redirect: {name: 'information'}},
     {path: '/information', name: 'information', component: Information},
     {path: '/payment', name: 'payment', component: Payment},
-    {path: '/conclusion', name: 'conclusion', component: Conclusion, meta: { requiresFinishOrder: true }},
+    {path: '/conclusion', name: 'conclusion', component: Conclusion, meta: { layout: 'invoice' }},
     {path: '/error/:code', name: 'error', component: ErrorComponent, meta: {layout: 'error'}, props: true},
     {path: '*', name: 'page_not_found', component: ErrorComponent, meta: {layout: 'error'}, props: {code: '404'}}
 ];

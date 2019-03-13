@@ -18,7 +18,7 @@ window.axios.defaults.headers.common['Content-Type'] = 'application/json';
 
 window.toast = swal.mixin({
     toast: true,
-    position: 'bottom',
+    position: 'top-end',
     showConfirmButton: false,
     timer: 3000
 });
