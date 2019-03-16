@@ -1,5 +1,5 @@
 <template>
-    <div class="container px-md-7 px-lg-11" id="printable">
+    <div class="container space-1 space-sm-3" id="printable">
         <div class="card bg-img-hero" style="background-image: url(https://s3.us-east-2.amazonaws.com/cdn-z1lab/template/front/2.0.1/svg/components/bg-elements-6.svg);">
             <slot />
         </div>

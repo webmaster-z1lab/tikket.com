@@ -62,7 +62,8 @@
                 <i class="fas fa-home mr-1"></i> Cancelar
             </a>
             <button type="button" class="btn btn-primary btn-wide transition-3d-hover" @click="submitTickets">
-                Continuar <i class="fas fa-money-bill-alt ml-1"></i>
+                <span v-if="!cart.is_free">Continuar <i class="fas fa-money-bill-alt ml-1"></i></span>
+                <span v-else>Concluir <i class="fas fa-check-circle ml-1"></i></span>
             </button>
         </div>
     </form>
@@ -111,7 +112,11 @@
                                     await this.changeCart(response.data.data)
                                     new LocalStorage('cart__').setItem('user', response.data.data, moment(response.data.data.attributes.expires_at).diff(moment(), 'seconds'))
 
-                                    this.$router.push({name: 'payment'})
+                                    if (this.cart.is_free) {
+                                        this.$router.push({name: 'conclusion'})
+                                    } else {
+                                        this.$router.push({name: 'payment'})
+                                    }
                                 }
                             ).catch(
                                 (error) => {
