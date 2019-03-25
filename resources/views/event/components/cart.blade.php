@@ -1,4 +1,4 @@
-<div class="container space-2">
+<div class="container space-bottom-2">
     <form id="shop">
         <input type="hidden" name="event" value="{{ $id }}">
         <input type="hidden" name="callback" value="{{ route('cart') }}">
