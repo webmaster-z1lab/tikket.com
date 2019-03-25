@@ -9,12 +9,29 @@
             </div>
 
             <div class="col-sm-6 col-lg-6 order-sm-1">
-                <img class="mb-2" src="https://s3.us-east-2.amazonaws.com/cdn-z1lab/images/quantofica/logo_full.svg" alt="Logo quantofica.com" width="250px">
+                <h1 class="text-primary"><strong>Tikket</strong></h1>
                 <address>
-                    Viçosa - MG, Brasil
+                    Minas Gerais, Brasil
                 </address>
                 <small class="d-block text-muted">Tel: (31) 99715-0447</small>
             </div>
+        </div>
+
+        <div class="row justify-content-md-between mb-4">
+            <h4>Obrigado!</h4>
+            <p class="lead text-dark">
+                O seu pedido está sendo processado pela operadora de cartão e em breve você receberá e-mails com as informações de acompanhamento e atualizações da sua compra.
+            </p>
+
+            <p class="lead text-dark">
+                Você também pode acompanhar suas compras acessando o link <a href="#" class="link-muted text-uppercase text-primary">Meus pedidos</a>.
+            </p>
+
+            <p class="lead text-dark">
+                Caso tenha alguma dúvida ou precise de suporte é só entrar em contato com a gente utilizando um de nossos <a href="/contato"
+                                                                                                                             class="link-muted text-uppercase text-primary">canais
+                de atendimento</a>.
+            </p>
         </div>
 
         <div class="row justify-content-md-between mb-7">
@@ -59,12 +76,7 @@
         </table>
 
         <div class="row justify-content-lg-between">
-            <div class="col-md-8 col-lg-7 order-md-2 mb-5 mb-md-0">
-                <h4 class="h6">Obrigado!</h4>
-                <p class="font-size-1">Em breve entraremos em contato por email com mais informações sobre a a sua
-                    assinatura. Caso tenha alguma dúvida ou precise de suporte é só entrar em contato com a gente
-                    utilizando um de nossos <a href="/contato">canais de contato</a>.</p>
-
+            <div class="col-md-12">
                 <span class="d-block">
                     <small class="font-weight-medium">Email:</small>
                     <small class="text-muted">contato@z1lab.com.br</small>
@@ -74,7 +86,7 @@
                 <small class="text-muted">(31) 99715-0447</small>
             </div>
 
-            <div class="col-md-4 col-lg-3 order-md-1 align-self-end">
+            <div class="col-md-12">
                 <p class="small text-muted mb-0">© tikket.com. Z1lab {{year}}</p>
             </div>
         </div>
@@ -84,15 +96,17 @@
 <style>
     @media print {
         body * {
-            visibility: hidden;
+            visibility : hidden;
         }
+
         #printable, #printable * {
-            visibility: visible;
+            visibility : visible;
         }
+
         #printable {
-            position: fixed;
-            top: 6rem;
-            left: 2rem;
+            position : fixed;
+            top      : 6rem;
+            left     : 2rem;
         }
     }
 </style>
@@ -100,9 +114,9 @@
 <script>
     import LocalStorage from "../../../vendor/storage"
     import moment from 'moment'
-    moment.locale('pt-br');
-
     import {mapActions} from 'vuex'
+
+    moment.locale('pt-br');
 
     export default {
         name: "Conclusion",
@@ -119,7 +133,7 @@
             amount() {
                 let amount = this.conclusion.relationships.plan.attributes.values.final
 
-                for (let additional in this.conclusion.relationships.additional){
+                for (let additional in this.conclusion.relationships.additional) {
                     amount += this.conclusion.relationships.additional[additional].attributes.value
                 }
 
