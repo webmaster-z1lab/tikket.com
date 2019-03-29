@@ -70,7 +70,7 @@
                     </li>
                 </ul>
 
-                <img src="http://127.0.0.5:8000/logout" style="display:none !important;" v-if="logout">
+                <img :src="`${urlAdmin}/logout`" style="display:none !important;" v-if="logout">
 
                 <div class="u-sidebar--account__list-divider"></div>
 
@@ -101,7 +101,8 @@
         },
         data: () => ({
             logout: false,
-            isLoading: false
+            isLoading: false,
+            urlAdmin: process.env.MIX_ADMIN_URL
         }),
         methods: {
             async logoutSubmit() {
@@ -120,8 +121,8 @@
                     }
                 )
             },
-            link(route = '/') {
-                window.location.href = `http://127.0.0.5:8000${route}?token=` + getCookie('auth_token')
+            link(route = '/evento/meus-eventos/') {
+                window.location.href = `${this.urlAdmin}${route}?token=` + getCookie('auth_token')
             }
         }
     }

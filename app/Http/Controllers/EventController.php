@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Services\ApiService;
-use Carbon\Carbon;
 use Illuminate\View\View;
 
 class EventController extends Controller
