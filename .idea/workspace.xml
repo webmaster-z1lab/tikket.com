@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="Finalized event page;">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/sidebar/components/auth/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/sidebar/components/auth/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/cart/components/view/Payment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/cart/components/view/Payment.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/akaunting/money/" />
@@ -31,6 +30,7 @@
       <find>installment</find>
       <find>icon</find>
       <find>validate</find>
+      <find>YYYY</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -56,13 +56,13 @@
         <option value="$PROJECT_DIR$/resources/js/cart/components/view/Information.vue" />
         <option value="$PROJECT_DIR$/resources/js/cart/main.js" />
         <option value="$PROJECT_DIR$/resources/js/cart/components/layouts/invoice.vue" />
-        <option value="$PROJECT_DIR$/resources/js/cart/components/view/Payment.vue" />
         <option value="$PROJECT_DIR$/resources/views/event/components/description.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/event/components/cart.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/event/components/header.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/cart/components/view/Conclusion.vue" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/resources/js/sidebar/components/auth/index.vue" />
+        <option value="$PROJECT_DIR$/resources/js/cart/components/view/Payment.vue" />
       </list>
     </option>
   </component>
@@ -74,114 +74,114 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.1">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
-      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
-      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
-      <path value="$PROJECT_DIR$/vendor/symfony/process" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
-      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
-      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
-      <path value="$PROJECT_DIR$/vendor/symfony/contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/symfony/console" />
-      <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
-      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
-      <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
-      <path value="$PROJECT_DIR$/vendor/opis/closure" />
-      <path value="$PROJECT_DIR$/vendor/filp/whoops" />
       <path value="$PROJECT_DIR$/vendor/psy/psysh" />
-      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
-      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
-      <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
-      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
-      <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
-      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
-      <path value="$PROJECT_DIR$/vendor/erusev/parsedown" />
-      <path value="$PROJECT_DIR$/vendor/z1lab/laravel-meta-tags" />
-      <path value="$PROJECT_DIR$/vendor/z1lab/openid-client" />
-      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
+      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
       <path value="$PROJECT_DIR$/vendor/nexmo/client" />
-      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
-      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
-      <path value="$PROJECT_DIR$/vendor/laravel/slack-notification-channel" />
-      <path value="$PROJECT_DIR$/vendor/laravel/nexmo-notification-channel" />
-      <path value="$PROJECT_DIR$/vendor/laravel/framework" />
-      <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
-      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/z1lab/openid-client" />
+      <path value="$PROJECT_DIR$/vendor/z1lab/laravel-meta-tags" />
+      <path value="$PROJECT_DIR$/vendor/erusev/parsedown" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
-      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
-      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
-      <path value="$PROJECT_DIR$/vendor/php-http/guzzle6-adapter" />
-      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
-      <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-ide-helper" />
-      <path value="$PROJECT_DIR$/vendor/barryvdh/reflection-docblock" />
-      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
-      <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
-      <path value="$PROJECT_DIR$/vendor/arcanedev/support" />
-      <path value="$PROJECT_DIR$/vendor/arcanedev/log-viewer" />
-      <path value="$PROJECT_DIR$/vendor/akaunting/money" />
-      <path value="$PROJECT_DIR$/vendor/php-http/promise" />
-      <path value="$PROJECT_DIR$/vendor/php-http/httplug" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
-      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
-      <path value="$PROJECT_DIR$/vendor/beyondcode/laravel-dump-server" />
-      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
-      <path value="$PROJECT_DIR$/vendor/tightenco/ziggy" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
-      <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-color" />
-      <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-highlighter" />
-      <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
-      <path value="$PROJECT_DIR$/vendor/jacobbennett/laravel-http2serverpush" />
-      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
-      <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
-      <path value="$PROJECT_DIR$/vendor/zendframework/zend-diactoros" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
-      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/vendor/laravel/nexmo-notification-channel" />
+      <path value="$PROJECT_DIR$/vendor/laravel/slack-notification-channel" />
+      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-ide-helper" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/php-http/guzzle6-adapter" />
+      <path value="$PROJECT_DIR$/vendor/php-http/httplug" />
+      <path value="$PROJECT_DIR$/vendor/php-http/promise" />
+      <path value="$PROJECT_DIR$/vendor/arcanedev/log-viewer" />
+      <path value="$PROJECT_DIR$/vendor/arcanedev/support" />
+      <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/tightenco/ziggy" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/beyondcode/laravel-dump-server" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/jacobbennett/laravel-http2serverpush" />
+      <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-highlighter" />
+      <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-color" />
+      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-diactoros" />
+      <path value="$PROJECT_DIR$/vendor/akaunting/money" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
-    <option name="y" value="32" />
+    <option name="y" value="22" />
     <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -202,36 +202,6 @@
               <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="sidebar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="sidebar" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="sidebar" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -280,7 +250,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHP Built-in Web Server.payment.tikket.com.br">
+  <component name="RunManager" selected="Laravel.site">
     <configuration name="site" type="LaravelStorm_run_conf_serve" factoryName="Laravel">
       <option name="host" value="127.0.0.2" />
       <option name="port" value="8000" />
@@ -320,13 +290,13 @@
     </configuration>
     <list>
       <item itemvalue="Laravel.site" />
-      <item itemvalue="PHPUnit.phpunit.xml" />
+      <item itemvalue="npm.watch" />
       <item itemvalue="PHP Built-in Web Server.admin.tikket.com.br" />
       <item itemvalue="PHP Built-in Web Server.api.tikket.com.br" />
       <item itemvalue="PHP Built-in Web Server.oauth.tikket.com.br" />
       <item itemvalue="PHP Built-in Web Server.payment.tikket.com.br" />
       <item itemvalue="PHP Built-in Web Server.tikket.com.br" />
-      <item itemvalue="npm.watch" />
+      <item itemvalue="PHPUnit.phpunit.xml" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -394,12 +364,12 @@
       <option name="project" value="LOCAL" />
       <updated>1553554209928</updated>
     </task>
-    <task id="LOCAL-00005" summary="continuing in the cart">
-      <created>1549052627324</created>
+    <task id="LOCAL-00005" summary="bug fixes">
+      <created>1553890448239</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1549052627324</updated>
+      <updated>1553890448239</updated>
     </task>
     <task id="LOCAL-00006" summary="correcting visual bugs and adding time to the cart">
       <created>1549374860522</created>
@@ -415,11 +385,11 @@
       <option name="project" value="LOCAL" />
       <updated>1549628976328</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73277000" />
+    <option name="totallyTimeSpent" value="76805000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1936" height="1066" extended-state="6" />
@@ -430,7 +400,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49840087" weight="0.32719395" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49840087" weight="0.32637364" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -439,7 +409,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32827735" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50159913" side_tool="true" weight="0.32747254" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49802372" weight="0.43878657" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49802372" weight="0.43846154" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -536,16 +506,10 @@
     <MESSAGE value="Dependence update;" />
     <MESSAGE value="Finalized event page;" />
     <MESSAGE value="Revert: Dependence update;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Revert: Dependence update;" />
+    <MESSAGE value="bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixes" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/erros/404.vue" />
     <entry file="file://$PROJECT_DIR$/resources/js/user/router.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -570,11 +534,6 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Authenticate.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/user/view/Address.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3827" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/auth/register.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -591,18 +550,6 @@
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/user/view/EditProfile.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="55" column="30" lean-forward="true" selection-start-line="52" selection-start-column="28" selection-end-line="55" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/user/view/MyProfile.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-817" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/bootstrap.js">
@@ -641,13 +588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
           <caret line="4" column="121" lean-forward="true" selection-start-line="4" selection-start-column="80" selection-end-line="4" selection-end-column="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/cart/components/layouts/error.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -727,67 +667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/cart/components/layouts/invoice.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/cart/components/view/Information.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/cart/main.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1036">
-          <caret line="74" column="53" lean-forward="true" selection-start-line="74" selection-start-column="53" selection-end-line="74" selection-end-column="53" />
-          <folding>
-            <element signature="e#248#309#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/cart/components/layouts/default.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="1" column="44" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="44" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/cart/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="48" column="16" lean-forward="true" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/cart/components/view/Payment.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="351" column="10" lean-forward="true" selection-start-line="351" selection-start-column="10" selection-end-line="351" selection-end-column="10" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#form#0;n#template#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#form#0;n#template#0;n#!!top" />
-            <element signature="n#div#2;n#div#0;n#form#0;n#template#0;n#!!top" />
-            <element signature="n#div#3;n#div#0;n#form#0;n#template#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/event/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -856,23 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/cart/components/view/Conclusion.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="55" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
-          <folding>
-            <element signature="e#4440#4490#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="64" column="14" selection-start-line="64" selection-end-line="64" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env.example">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="731">
@@ -880,16 +742,121 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/cart/main.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="899">
+          <caret line="74" column="53" lean-forward="true" selection-start-line="74" selection-start-column="53" selection-end-line="74" selection-end-column="53" />
+          <folding>
+            <element signature="e#248#309#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/cart/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="49" column="63" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/sidebar/components/auth/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="98" column="28" lean-forward="true" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="28" />
+        <state relative-caret-position="-649">
+          <caret line="27" column="58" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="58" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="e#3891#3941#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/sidebar/main.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="826">
+          <caret line="59" column="19" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+          <folding>
+            <element signature="e#1862#1909#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/cart/components/layouts/default.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="1" column="44" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="44" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/cart/components/layouts/invoice.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/cart/components/layouts/error.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/cart/components/view/Conclusion.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="19" column="55" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/cart/components/view/Payment.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="93" column="119" selection-start-line="93" selection-start-column="115" selection-end-line="93" selection-end-column="119" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#form#0;n#template#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#form#0;n#template#0;n#!!top" />
+            <element signature="n#div#3;n#div#0;n#form#0;n#template#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/cart/components/view/Information.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/user/view/EditProfile.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="55" column="30" lean-forward="true" selection-start-line="52" selection-start-column="28" selection-end-line="55" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/user/view/MyProfile.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/user/view/Address.vue">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

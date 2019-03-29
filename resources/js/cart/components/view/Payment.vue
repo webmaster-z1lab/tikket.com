@@ -164,7 +164,7 @@
                             <label class="form-label required">Data de Nascimento</label>
 
                             <the-mask class="form-control" type="text" name="birth_date" id="birth_date"
-                                      placeholder="DD/MM/AAAA" v-validate="'required|date_format:DD/MM/YYYY|legal_age'" data-vv-as="Data de Nascimento" :masked="true"
+                                      placeholder="DD/MM/AAAA" v-validate="'required|date_format:dd/MM/yyyy|legal_age'" data-vv-as="Data de Nascimento" :masked="true"
                                       :mask="'##/##/####'" v-model="birth_date">
                             </the-mask>
 
