@@ -102,7 +102,7 @@
         data: () => ({
             logout: false,
             isLoading: false,
-            urlAdmin: process.env.MIX_ADMIN_URL
+            urlAdmin: process.env.MIX_ADMIN_SITE
         }),
         methods: {
             async logoutSubmit() {
