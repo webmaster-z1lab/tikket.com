@@ -3,8 +3,8 @@
         <div class="container d-md-flex align-items-md-center space-top-2 space-bottom-4 space-md-4 space-lg-0 height-md-60vh">
             <div class="text-center space-top-2 w-lg-60 mx-auto">
                 <div class="mb-7">
-                    <h1 class="display-3 font-size-md-down-5 text-primary font-weight-semi-bold">Quanto fica?</h1>
-                    <p class="lead">Sinta-se em casa, num ambiente que oferece segurança em informações, comodidade nos contatos e facilidade de navegação.</p>
+                    <h1 class="display-3 font-size-md-down-5 text-primary font-weight-semi-bold">Tikket.com.br</h1>
+                    <p class="lead">Sinta-se em casa, num ambiente que oferece comodidade e segurança para compra e venda de ingressos.</p>
                 </div>
             </div>
         </div>

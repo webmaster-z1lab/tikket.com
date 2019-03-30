@@ -63,9 +63,9 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item u-header__nav-item">
+                        {{--<li class="nav-item u-header__nav-item">
                             <a class="nav-link u-header__nav-link" href="{{ route('features') }}">Facilidades</a>
-                        </li>
+                        </li>--}}
 
                         @auth
                             @include('layouts.components.header.auth')

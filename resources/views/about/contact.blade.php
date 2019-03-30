@@ -52,7 +52,7 @@
                     </figure>
 
                     <h2 class="h6 mb-0">Endereço</h2>
-                    <p class="mb-0">Rua Olinda Martins D'Antonino, <br>360, Apto 201, Liberdade, Viçosa, MG</p>
+                    <p class="mb-0">Av. Santa Rita, 481, Apto. 201,<br>Centro, Viçosa, MG</p>
                 </div>
 
             </div>
@@ -66,7 +66,7 @@
                     <h3 class="h6 mb-0">E-mail</h3>
 
                     <a href="mailto:contato@quantofica.com">
-                        <p class="mb-0">contato@z1lab.com.br</p>
+                        <p class="mb-0">contato@tikket.com.br</p>
                     </a>
                 </div>
 

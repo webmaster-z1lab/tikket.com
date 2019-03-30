@@ -17,7 +17,7 @@
 
                 <ul class="list-group list-group-flush list-group-borderless mb-0">
                     <li><a class="list-group-item list-group-item-action" href="{{ route('about') }}">Quem somos</a></li>
-                    <li><a class="list-group-item list-group-item-action" href="{{ route('features') }}">Facilidades</a></li>
+                    {{--<li><a class="list-group-item list-group-item-action" href="{{ route('features') }}">Facilidades</a></li>--}}
                     <li><a class="list-group-item list-group-item-action" href="{{ route('contact') }}">Contato</a></li>
                 </ul>
             </div>
@@ -44,7 +44,7 @@
             <div class="col-lg-5 text-right">
                 <span class="h2 font-weight-semi-bold">Fale com a gente</span>
                 <small class="d-block font-weight-medium">WhatsApp e tel: <span class="text-secondary font-weight-normal">(31) 99715-0447</span></small>
-                <small class="d-block font-weight-medium">E-mail: <a class="font-weight-normal" href="mailto:contato@z1lab.com.br">contato@z1lab.com.br</a></small>
+                <small class="d-block font-weight-medium">E-mail: <a class="font-weight-normal" href="mailto:contato@z1lab.com.br">contato@tikket.com.br</a></small>
             </div>
         </div>
     </div>
