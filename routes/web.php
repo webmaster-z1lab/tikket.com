@@ -1,6 +1,6 @@
 <?php
 
-Route::get('', 'HomeController@index')->name('home');
+Route::get('', 'HomeController@index')->name('home')->middleware('cors');
 Route::get('quem-somos', 'HomeController@about')->name('about');
 Route::get('facilidades', 'HomeController@features')->name('features');
 Route::get('termos-de-uso', 'HomeController@terms')->name('terms');
