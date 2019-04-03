@@ -8,7 +8,7 @@ const routes = [
     {path: '/information', name: 'information', component: Information},
     {path: '/payment', name: 'payment', component: Payment},
     {path: '/conclusion', name: 'conclusion', component: Conclusion, meta: { layout: 'invoice', conclusionCart: true }},
-    {path: '/error/:code', name: 'error', component: ErrorComponent, meta: {layout: 'error'}, props: true},
+    {path: '/error/:code/:title?/:message?', name: 'error', component: ErrorComponent, meta: {layout: 'error'}, props: true},
     {path: '*', name: 'page_not_found', component: ErrorComponent, meta: {layout: 'error'}, props: {code: '404'}}
 ];
 

@@ -58,7 +58,7 @@
                     async response => {
                         await this.setUser(response.data)
                     }
-                );
+                )
 
                 if (cartLS) {
                     this.changeCart(cartLS)
@@ -76,7 +76,10 @@
                             this.$router.push({name: 'information'})
                         }
                     }).catch((error) => {
-                        this.$router.push({name: "error", params: {code: error.response.status}})
+                        let title = error.response.data.errors ? error.response.data.errors.title : '',
+                            message = error.response.data.errors ? error.response.data.errors.detail : error.response.data.message
+
+                        this.$router.push({name: "error", params: {code: error.response.status, title: title, message: message}})
                     })
                 }
             }

@@ -56,7 +56,10 @@ router.beforeEach((to, from, next) => {
                     })
                 .catch(
                     (error) => {
-                        next({name: "error", params: {code: error.response.status}})
+                        let title = error.response.data.errors ? error.response.data.errors.title : '',
+                            message = error.response.data.errors ? error.response.data.errors.detail : error.response.data.message
+
+                        next({name: "error", params: {code: error.response.status, title: title, message: message}})
                     }
                 )
         }
