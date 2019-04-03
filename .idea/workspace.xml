@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/TicketController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/order/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/order/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/ticket/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/ticket/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/sidebar/components/auth/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/sidebar/components/auth/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/akaunting/money/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/cart/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -47,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/cart/main.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="790">
-              <caret line="74" column="53" lean-forward="true" selection-start-line="74" selection-start-column="53" selection-end-line="74" selection-end-column="53" />
+            <state relative-caret-position="1088">
+              <caret line="74" column="53" selection-start-line="74" selection-start-column="53" selection-end-line="74" selection-end-column="53" />
               <folding>
                 <element signature="e#248#309#0" expanded="true" />
               </folding>
@@ -59,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/cart/components/view/Payment.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="461" column="113" selection-start-line="461" selection-start-column="109" selection-end-line="461" selection-end-column="113" />
+            <state relative-caret-position="351">
+              <caret line="471" column="61" lean-forward="true" selection-start-line="471" selection-start-column="61" selection-end-line="471" selection-end-column="61" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#form#0;n#template#0;n#!!top" />
                 <element signature="n#div#2;n#div#0;n#form#0;n#template#0;n#!!top" />
@@ -281,46 +270,6 @@
               <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="cart" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="cart" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="cart" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -392,13 +341,13 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="npm.watch" />
+      <item itemvalue="PHPUnit.phpunit.xml" />
       <item itemvalue="PHP Built-in Web Server.admin.tikket.com.br" />
       <item itemvalue="PHP Built-in Web Server.api.tikket.com.br" />
       <item itemvalue="PHP Built-in Web Server.oauth.tikket.com.br" />
       <item itemvalue="PHP Built-in Web Server.payment.tikket.com.br" />
       <item itemvalue="PHP Built-in Web Server.tikket.com.br" />
-      <item itemvalue="PHPUnit.phpunit.xml" />
+      <item itemvalue="npm.watch" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -485,18 +434,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553984345993</updated>
     </task>
-    <task id="LOCAL-00007" summary="auth site/admin">
-      <created>1549628976328</created>
+    <task id="LOCAL-00007" summary="Bug fix in Cart init;">
+      <created>1554317481077</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1549628976328</updated>
+      <updated>1554317481077</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91338000" />
+    <option name="totallyTimeSpent" value="91355000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
@@ -513,7 +462,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32827735" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32827735" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50159913" side_tool="true" weight="0.32719395" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49802372" weight="0.43770313" />
@@ -946,14 +895,14 @@
     <entry file="file://$PROJECT_DIR$/resources/views/cart/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/cart/main.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="790">
-          <caret line="74" column="53" lean-forward="true" selection-start-line="74" selection-start-column="53" selection-end-line="74" selection-end-column="53" />
+        <state relative-caret-position="1088">
+          <caret line="74" column="53" selection-start-line="74" selection-start-column="53" selection-end-line="74" selection-end-column="53" />
           <folding>
             <element signature="e#248#309#0" expanded="true" />
           </folding>
@@ -972,8 +921,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/cart/components/view/Payment.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="461" column="113" selection-start-line="461" selection-start-column="109" selection-end-line="461" selection-end-column="113" />
+        <state relative-caret-position="351">
+          <caret line="471" column="61" lean-forward="true" selection-start-line="471" selection-start-column="61" selection-end-line="471" selection-end-column="61" />
           <folding>
             <element signature="n#div#0;n#div#0;n#form#0;n#template#0;n#!!top" />
             <element signature="n#div#2;n#div#0;n#form#0;n#template#0;n#!!top" />
