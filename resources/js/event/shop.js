@@ -71,6 +71,8 @@ function init() {
         btnAction.disabled = true
         btnAction.classList.add('disabled')
 
+        new LocalStorage().clear()
+
         submit(form).then(
             response => {
                 new LocalStorage('cart__').setItem('user', response.data, moment(response.data.attributes.expires_at).diff(moment(), 'seconds'))
@@ -86,8 +88,6 @@ function init() {
                 } else {
                     console.dir(error)
                 }
-
-
             }
         ).finally(() => {
                 Pace.stop()

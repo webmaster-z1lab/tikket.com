@@ -31,9 +31,15 @@
             </div>
 
             <div class="col-sm-4 col-lg-3">
-                <button type="submit" class="btn btn-primary btn-block transition-3d-hover js-action">
-                    <i class="fas fa-cart-plus mr-1"></i>Realizar compra
-                </button>
+                @if(\Auth::check())
+                    <button type="submit" class="btn btn-primary btn-block transition-3d-hover js-action">
+                        <i class="fas fa-cart-plus mr-1"></i>Realizar compra
+                    </button>
+                @else
+                    <a href="{{ route('login') }}" class="btn btn-primary btn-block transition-3d-hover">
+                        <i class="fas fa-cart-plus mr-1"></i>Faça login para comprar
+                    </a>
+                @endif
             </div>
         </div>
     </form>
