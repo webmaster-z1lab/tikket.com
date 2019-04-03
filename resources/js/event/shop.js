@@ -75,6 +75,8 @@ function init() {
 
         submit(form).then(
             response => {
+                new LocalStorage().clear()
+
                 new LocalStorage('cart__').setItem('user', response.data, moment(response.data.attributes.expires_at).diff(moment(), 'seconds'))
                 window.location.href = process.env.MIX_APP_URL + '/cart'
             }
