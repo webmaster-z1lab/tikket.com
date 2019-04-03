@@ -24,9 +24,16 @@
                     </li>
 
                     <li class="u-sidebar--account__list-item">
-                        <a class="u-sidebar--account__list-link" href="#">
+                        <a class="u-sidebar--account__list-link" href="/meus-ingressos">
                             <span class="fas fa-ticket-alt u-sidebar--account__list-icon text-warning mr-2"></span>
                             Meus ingressos
+                        </a>
+                    </li>
+
+                    <li class="u-sidebar--account__list-item">
+                        <a class="u-sidebar--account__list-link" href="/meus-pedidos">
+                            <span class="fas fa-ticket-alt u-sidebar--account__list-icon text-warning mr-2"></span>
+                            Meus pedidos
                         </a>
                     </li>
 

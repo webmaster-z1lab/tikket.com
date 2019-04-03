@@ -12,3 +12,12 @@ Route::get('evento/{url}', 'EventController@show')->name('event');
 Route::get('cart/{vue?}', 'HomeController@cart')->name('cart')->where('vue', '.*')->middleware('auth');
 
 Route::view('usuario/{vue?}', 'user.index')->name('user')->where('vue', '.*')->middleware('auth');
+
+Route::middleware('auth')
+    ->prefix('meus-ingressos')
+    ->group(function () {
+        Route::get('/', 'TicketController@index')->name('tickets');
+        Route::get('evento/{event}', 'TicketController@show')->name('tickets.event');
+    });
+
+
