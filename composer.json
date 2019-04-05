@@ -17,6 +17,7 @@
         "jacobbennett/laravel-http2serverpush": "^2.0",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
+        "milon/barcode": "^5.3",
         "tightenco/ziggy": "^0.6.6",
         "z1lab/laravel-meta-tags": "^3.1",
         "z1lab/openid-client": "1.0.*"

@@ -17,7 +17,14 @@ Route::middleware('auth')
     ->prefix('meus-ingressos')
     ->group(function () {
         Route::get('/', 'TicketController@index')->name('tickets');
-        Route::get('evento/{event}', 'TicketController@show')->name('tickets.event');
+        Route::get('{ticket}', 'TicketController@show')->name('tickets.show');
+    });
+
+Route::middleware('auth')
+    ->prefix('meus-pedidos')
+    ->group(function () {
+        Route::get('/', 'OrderController@index')->name('orders');
+        Route::get('{event}', 'OrderController@show')->name('orders.show');
     });
 
 

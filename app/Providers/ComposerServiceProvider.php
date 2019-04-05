@@ -15,6 +15,8 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('event.components.cart', 'App\Http\View\Composers\Event\CartComposer');
+        View::composer('user.ticket.index', 'App\Http\View\Composers\Ticket\TicketsComposer');
+        View::composer('user.ticket.show', 'App\Http\View\Composers\Ticket\TicketComposer');
     }
 
     /**
