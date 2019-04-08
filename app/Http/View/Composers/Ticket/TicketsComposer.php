@@ -24,27 +24,18 @@ class TicketsComposer
     {
         $tickets = (new ApiService('tickets', 'GET'))->find()->collect();
 
-        $view->with('tickets', $this->instantiate($tickets));
-        $view->with('status', $this->ticketStatus());
-    }
-
-    /**
-     * @param $tickets
-     *
-     * @return \Illuminate\Support\Collection
-     */
-    private function instantiate($tickets)
-    {
         $collection = collect();
 
         foreach ($tickets as $ticket) {
-            $ticket = \Cache::remember("ticket-{$ticket->id}", 2, function () use ($ticket) {
+            $aux = \Cache::remember("ticket-{$ticket->id}", 1, function () use ($ticket) {
                 return $this->makeTicket($ticket);
             });
 
-            $collection->push($ticket);
+            $collection->push($aux);
         }
 
-        return $collection;
+        $view->with('tickets', $collection->where('status', $this->ticketStatus()->valid));
+        $view->with('others', $collection->whereNotIn('status', $this->ticketStatus()->valid));
+        $view->with('status', $this->ticketStatus());
     }
 }

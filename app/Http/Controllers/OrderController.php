@@ -11,6 +11,6 @@ class OrderController extends Controller
 
     public function show(string $order)
     {
-        return View('user.order.show');
+        return View('user.order.show')->with('id', $order);
     }
 }

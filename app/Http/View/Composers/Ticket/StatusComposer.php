@@ -2,34 +2,24 @@
 /**
  * Created by Olimar Ferraz
  * webmaster@z1lab.com.br
- * Date: 05/04/2019
- * Time: 10:39
+ * Date: 08/04/2019
+ * Time: 15:18
  */
 
 namespace App\Http\View\Composers\Ticket;
 
-use App\Services\ApiService;
 use App\Traits\TicketComposeTrait;
 use Illuminate\View\View;
 
-class TicketComposer
+class StatusComposer
 {
     use TicketComposeTrait;
 
     /**
      * @param  \Illuminate\View\View  $view
-     *
-     * @return void
      */
     public function compose(View $view)
     {
-        $id = $view->getData()['id'];
-
-        $ticket = (\Cache::has("ticket-$id"))
-            ? \Cache::get("ticket-$id")
-            : $this->makeTicket((new ApiService('tickets', 'GET'))->find($id)->collect());
-
-        $view->with('ticket', $ticket);
         $view->with('status', $this->ticketStatus());
     }
 }
