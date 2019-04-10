@@ -4,27 +4,23 @@
             <div class="col-sm-6 col-lg-6 order-sm-2 text-sm-right mb-5 mb-sm-0 text-right">
                 <h2 class="h2 font-weight-medium mb-0">
                     Pedido
-                    <small class="d-block text-uppercase">{{order.id}}</small>
+                    <small class="d-block text-uppercase">REF: {{order.attributes.code}}</small>
                 </h2>
             </div>
 
             <div class="col-sm-6 col-lg-6 order-sm-1">
-                <h1 class="text-primary"><strong>Tikket</strong></h1>
-                <address>
-                    Minas Gerais, Brasil
-                </address>
-                <small class="d-block text-muted">Tel: (31) 99715-0447</small>
+                <h1 class="text-primary"><strong>{{order.attributes.event.name}}</strong></h1>
             </div>
         </div>
 
         <div class="row justify-content-md-between mb-4">
-            <h4>Obrigado!</h4>
+            <h4>Obrigado por comprar seu ingresso no Tikket!</h4>
             <p class="lead text-dark">
                 O seu pedido está sendo processado pela operadora de cartão e em breve você receberá e-mails com as informações de acompanhamento e atualizações da sua compra.
             </p>
 
             <p class="lead text-dark">
-                Você também pode acompanhar suas compras acessando o link <a href="#" class="link-muted text-uppercase text-primary">Meus pedidos</a>.
+                Você também pode acompanhar suas compras acessando o link <a href="/meus-pedidos" class="link-muted text-uppercase text-primary">Meus pedidos</a>.
             </p>
 
             <p class="lead text-dark">
@@ -36,44 +32,26 @@
 
         <div class="row justify-content-md-between mb-7">
             <div class="col-md-5 col-lg-4">
-                <h3 class="h5">Dados do comprador:</h3>
+                <h3 class="h5">Comprador:</h3>
                 <span class="d-block">{{order.attributes.costumer.name}}</span>
-                <span class="text-secondary mb-0">
-                    {{order.attributes.costumer.document}}
-                </span>
-                <span class="text-secondary mb-0">
-                    {{order.attributes.costumer.email}}
-                </span>
+                <span class="text-secondary mb-0">{{order.attributes.costumer.document}}</span>
+                <span class="text-secondary text-truncate mb-0">{{order.attributes.costumer.email}}</span>
+                <span class="text-secondary mb-0">{{order.attributes.costumer.phone.formatted}}</span>
             </div>
 
-            <div class="col-md-5 col-lg-6 mt-6 text-right">
-                <dl class="row mb-0">
-                    <dt class="col-5 col-md-6 font-weight-normal text-secondary">Data da pedido:</dt>
-                    <dd class="col-7 col-md-6 font-weight-medium">{{now}}</dd>
-                </dl>
+            <div class="col-md-5 col-lg-4 mt-4 mt-sm-0">
+                <h3 class="h5">Forma de pagamento:</h3>
+
+                <span class="d-block text-uppercase">CC {{ order.attributes.card.brand }}</span>
+                <span class="d-block text-uppercase">**** **** **** {{ order.attributes.card.number }}</span>
+                <span class="text-secondary mb-0 d-block">{{ order.attributes.card.holder.name }}</span>
+                <span class="text-secondary mb-0 d-block">{{ order.attributes.card.installments }}x de {{(order.attributes.card.parcel / 100) | currency }}</span>
             </div>
         </div>
 
-        <table class="table table-heighlighted font-size-1 mb-9">
-            <thead>
-            <tr class="text-uppercase text-secondary">
-                <th scope="col" class="font-weight-medium">Ingresso</th>
-                <th scope="col" class="font-weight-medium text-right">Valor</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="ticket in order.attributes.tickets">
-                <th scope="row" class="font-weight-normal">{{ticket.entrance}}</th>
-                <td class="text-right">{{(ticket.price / 100) | currency}}</td>
-            </tr>
-            </tbody>
-            <tfoot>
-            <tr class="h6">
-                <td scope="row">Valor Total</td>
-                <td colspan="3" class="text-right">{{(order.attributes.card.parcel * order.attributes.card.installments / 100) | currency}}</td>
-            </tr>
-            </tfoot>
-        </table>
+        <div class="text-center mb-4">
+            <a :href="`/meus-pedidos/${order.id}`" class="btn btn-primary btn-wide btn-lg">Acompanhar Pedido</a>
+        </div>
 
         <div class="row justify-content-lg-between">
             <div class="col-md-12">

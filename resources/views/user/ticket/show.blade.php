@@ -51,7 +51,8 @@
             </div>
         </div>
 
-        <h4 class="text-truncate">Ingresso # <span class="text-uppercase">{{ $ticket->id }}</span></h4>
+        <h1 class="h4 text-truncate">Ingresso # <span class="text-uppercase">{{ $ticket->id }}</span></h1>
+        <h2 class="h4 text-truncate text-uppercase d-print-none"><i class="fas fa-rocket mr-1"></i>{{ $ticket->event->name }}</h2>
 
         <hr>
 

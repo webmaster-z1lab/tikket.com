@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-8 mb-4 mb-sm-0">
                 <h3 class="h6">
-                    <a class="text-primary text-uppercase" href="{{ route('orders.show', $order->id) }}">REF: {{ $order->id }}</a>
+                    <a class="text-primary text-uppercase" href="{{ route('orders.show', $order->id) }}">REF: {{ $order->code }}</a>
                 </h3>
 
                 <div class="font-size-1">

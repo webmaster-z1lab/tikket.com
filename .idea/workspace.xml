@@ -2,27 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/View/Composers/Order/OrderComposer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/View/Composers/Order/OrdersComposer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/View/Composers/Order/StatusComposer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/View/Composers/Ticket/StatusComposer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Traits/OrderComposeTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/pt-BR/status.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/components/empty/active-tickets.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/components/empty/new-orders.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/components/empty/other-tickets.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/components/order-card.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/components/status/order.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/components/status/ticket.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/components/credit-card.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/View/Composers/Ticket/TicketComposer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/View/Composers/Ticket/TicketComposer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/View/Composers/Ticket/TicketsComposer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/View/Composers/Ticket/TicketsComposer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/ComposerServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/ComposerServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Traits/TicketComposeTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/TicketComposeTrait.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/components/ticket-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/components/ticket-card.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/order/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/ticket/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/ticket/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/View/Composers/Order/OrderComposer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/View/Composers/Order/OrderComposer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Traits/OrderComposeTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/OrderComposeTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/cart/components/view/Conclusion.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/cart/components/view/Conclusion.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/sidebar/components/auth/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/sidebar/components/auth/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/components/order-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/components/order-card.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/components/status/order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/components/status/order.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/order/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/ticket/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/ticket/show.blade.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
@@ -53,25 +42,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/user/ticket/show.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/js/sidebar/components/auth/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="74" column="26" lean-forward="true" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
-              <folding>
-                <element signature="e#1386#1425#0#HTML" expanded="true" />
-                <element signature="e#2236#2321#0#HTML" expanded="true" />
-                <element signature="e#2521#2606#0#HTML" expanded="true" />
-                <element signature="e#8158#8237#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+            <state relative-caret-position="578">
+              <caret line="34" column="96" selection-start-line="34" selection-start-column="96" selection-end-line="34" selection-end-column="96" />
             </state>
           </provider>
         </entry>
@@ -104,7 +78,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/js/bootstrap.js" />
         <option value="$PROJECT_DIR$/resources/js/vendor/common.js" />
         <option value="$PROJECT_DIR$/resources/js/cart/store/state.js" />
         <option value="$PROJECT_DIR$/resources/js/cart/store/actions.js" />
@@ -116,16 +89,13 @@
         <option value="$PROJECT_DIR$/resources/views/event/components/description.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/event/components/cart.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/event/components/header.blade.php" />
-        <option value="$PROJECT_DIR$/resources/js/cart/components/view/Conclusion.vue" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/resources/js/sidebar/components/auth/index.vue" />
         <option value="$PROJECT_DIR$/resources/js/cart/components/view/Payment.vue" />
         <option value="$PROJECT_DIR$/resources/js/event/shop.js" />
         <option value="$PROJECT_DIR$/resources/js/cart/router.js" />
         <option value="$PROJECT_DIR$/resources/js/components/errorComponent.vue" />
         <option value="$PROJECT_DIR$/resources/js/cart/main.vue" />
         <option value="$PROJECT_DIR$/resources/js/cart/main.js" />
-        <option value="$PROJECT_DIR$/resources/views/user/order/show.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/TicketController.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
@@ -133,17 +103,11 @@
         <option value="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/default.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/user/components/breadcrumb-section.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" />
         <option value="$PROJECT_DIR$/app/Http/View/Composers/Ticket/TicketComposer.php" />
-        <option value="$PROJECT_DIR$/app/Http/View/Composers/Order/OrderComposer.php" />
-        <option value="$PROJECT_DIR$/app/Traits/OrderComposeTrait.php" />
-        <option value="$PROJECT_DIR$/app/Http/View/Composers/Order/OrdersComposer.php" />
         <option value="$PROJECT_DIR$/resources/views/user/components/empty-new-orders.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/user/components/empty/active-tickets.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/user/components/empty/new-orders.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/View/Composers/Order/StatusComposer.php" />
-        <option value="$PROJECT_DIR$/resources/views/user/components/status/order.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/user/components/order-card.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/user/order/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/View/Composers/Ticket/StatusComposer.php" />
         <option value="$PROJECT_DIR$/app/Providers/ComposerServiceProvider.php" />
@@ -154,7 +118,17 @@
         <option value="$PROJECT_DIR$/resources/views/user/components/empty/other-tickets.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/user/ticket/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Traits/TicketComposeTrait.php" />
+        <option value="$PROJECT_DIR$/app/Http/View/Composers/Order/OrdersComposer.php" />
         <option value="$PROJECT_DIR$/resources/views/user/ticket/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" />
+        <option value="$PROJECT_DIR$/resources/views/user/components/status/order.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/user/components/credit-card.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/View/Composers/Order/OrderComposer.php" />
+        <option value="$PROJECT_DIR$/resources/views/user/components/order-card.blade.php" />
+        <option value="$PROJECT_DIR$/app/Traits/OrderComposeTrait.php" />
+        <option value="$PROJECT_DIR$/resources/views/user/order/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/cart/components/view/Conclusion.vue" />
+        <option value="$PROJECT_DIR$/resources/js/sidebar/components/auth/index.vue" />
       </list>
     </option>
   </component>
@@ -294,111 +268,50 @@
             <path>
               <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Middleware" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="Composers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="Composers" type="462c0819:PsiDirectoryNode" />
-              <item name="Order" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="Composers" type="462c0819:PsiDirectoryNode" />
-              <item name="Ticket" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Providers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Traits" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="pt-BR" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="sidebar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="sidebar" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="sidebar" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
@@ -437,7 +350,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/View/Composers/Ticket" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel-vue-form" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -470,7 +383,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHP Built-in Web Server.payment.tikket.com.br">
+  <component name="RunManager" selected="Laravel.site">
     <configuration name="site" type="LaravelStorm_run_conf_serve" factoryName="Laravel">
       <option name="host" value="127.0.0.1" />
       <option name="port" value="8000" />
@@ -559,7 +472,9 @@
       <workItem from="1554471029138" duration="20990000" />
       <workItem from="1554500838126" duration="477000" />
       <workItem from="1554724198997" duration="247000" />
-      <workItem from="1554724461576" duration="24985000" />
+      <workItem from="1554724461576" duration="25727000" />
+      <workItem from="1554815447354" duration="11259000" />
+      <workItem from="1554897884561" duration="15524000" />
     </task>
     <task id="LOCAL-00001" summary="update cart functions like coupons and ux of the parcilamento">
       <created>1552500338580</created>
@@ -617,16 +532,24 @@
       <option name="project" value="LOCAL" />
       <updated>1554496275913</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Created user Orders pages;">
+      <created>1554765981718</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1554765981718</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156980000" />
+    <option name="totallyTimeSpent" value="184505000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4983871" visible="true" weight="0.16257995" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4983871" visible="true" weight="0.16577825" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.5016129" side_tool="true" weight="0.19829424" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -740,36 +663,10 @@
     <MESSAGE value="Revert: Dependence update;" />
     <MESSAGE value="bug fixes" />
     <MESSAGE value="Created user tickets pages; Added barcode php library;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created user tickets pages; Added barcode php library;" />
+    <MESSAGE value="Created user Orders pages;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created user Orders pages;" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/js/cart/components/layouts/error.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/cart/components/layouts/default.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="18" column="58" lean-forward="true" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/cart/components/view/Conclusion.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="33" column="16" lean-forward="true" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
-          <folding>
-            <element signature="e#4456#4506#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/vendor/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
@@ -854,13 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/user/order/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="81" selection-start-line="4" selection-start-column="81" selection-end-line="4" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/lang/pt-BR/pages.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -933,23 +823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrderController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/View/Composers/Order/OrderComposer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
-          <folding>
-            <element signature="e#146#174#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/user/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -984,36 +857,6 @@
     <entry file="file://$PROJECT_DIR$/resources/views/user/components/empty/new-orders.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/View/Composers/Order/StatusComposer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-          <folding>
-            <element signature="e#146#179#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/View/Composers/Order/OrdersComposer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-          <folding>
-            <element signature="e#146#174#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Traits/OrderComposeTrait.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="46" column="35" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="35" />
-          <caret line="47" column="29" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="29" />
-          <caret line="48" column="37" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="37" />
-          <caret line="49" column="37" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/user/components/status/ticket.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1025,13 +868,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/user/components/status/order.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="41" lean-forward="true" selection-end-line="10" />
         </state>
       </provider>
     </entry>
@@ -1066,13 +902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/user/order/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="9" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/View/Composers/Ticket/TicketsComposer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -1097,37 +926,123 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/user/components/status/order.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="22" />
+        <state relative-caret-position="153">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Traits/TicketComposeTrait.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+        <state relative-caret-position="476">
+          <caret line="93" column="5" selection-start-line="71" selection-start-column="4" selection-end-line="93" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/user/components/order-card.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/View/Composers/Order/OrderComposer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+          <folding>
+            <element signature="e#146#174#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrderController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/user/components/credit-card.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="31" lean-forward="true" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+          <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/user/order/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="36" column="50" lean-forward="true" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/View/Composers/Order/StatusComposer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+          <folding>
+            <element signature="e#146#179#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/View/Composers/Order/OrdersComposer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding>
+            <element signature="e#146#174#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/user/ticket/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="74" column="26" lean-forward="true" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+        <state relative-caret-position="629">
+          <caret line="37" column="78" lean-forward="true" selection-start-line="37" selection-start-column="78" selection-end-line="37" selection-end-column="78" />
           <folding>
-            <element signature="e#1386#1425#0#HTML" expanded="true" />
-            <element signature="e#2236#2321#0#HTML" expanded="true" />
-            <element signature="e#2521#2606#0#HTML" expanded="true" />
-            <element signature="e#8158#8237#0#HTML" expanded="true" />
+            <element signature="e#1393#1432#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/user/components/order-card.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="125" selection-start-line="5" selection-start-column="125" selection-end-line="5" selection-end-column="125" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/cart/components/view/Conclusion.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#4456#4506#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Traits/OrderComposeTrait.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="40" column="112" selection-start-line="40" selection-start-column="112" selection-end-line="40" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/user/order/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="47" column="117" selection-start-line="47" selection-start-column="117" selection-end-line="47" selection-end-column="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/sidebar/components/auth/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="96" selection-start-line="34" selection-start-column="96" selection-end-line="34" selection-end-column="96" />
         </state>
       </provider>
     </entry>

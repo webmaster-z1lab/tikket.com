@@ -27,7 +27,7 @@ class OrderComposer
             ? \Cache::get("order-$id")
             : $this->makeOrder((new ApiService('orders', 'GET'))->find($view->getData()['id'])->collect());
 
-        $view->with('orders', $order);
+        $view->with('order', $order);
         $view->with('status', $this->orderStatus());
         $view->with('channel', $this->orderChannel());
     }
