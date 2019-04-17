@@ -39,7 +39,7 @@ export async function getCEP(parameter) {
                         delete headers.common['Authorization']
                         delete headers.common['ID-TOKEN']
                         return data
-                    },
+                    }
                 ]
             })
 
@@ -66,6 +66,7 @@ export async function getStates() {
                         delete headers.common['X-CSRF-TOKEN']
                         delete headers.common['Authorization']
                         delete headers.common['ID-TOKEN']
+                        delete headers.common['X-Requested-With']
                         return data
                     },
                 ]
@@ -83,6 +84,35 @@ export async function getStates() {
 }
 
 /**
+ * @returns {Promise<any>}
+ */
+export async function getCounties() {
+    try {
+        let promise = new Promise((resolve, reject) => {
+            let instance = axios.create({
+                transformRequest: [
+                    (data, headers) => {
+                        delete headers.common['X-CSRF-TOKEN']
+                        delete headers.common['Authorization']
+                        delete headers.common['ID-TOKEN']
+                        delete headers.common['X-Requested-With']
+                        return data
+                    }
+                ]
+            })
+
+            instance.get('https://servicodados.ibge.gov.br/api/v1/localidades/municipios').then(result => {
+                resolve(result);
+            })
+        });
+
+        return await promise
+    } catch (error) {
+        console.dir(error);
+    }
+}
+
+/**
  * @param parameter
  * @returns {Promise<any>}
  */
@@ -95,6 +125,7 @@ export async function getCities(parameter) {
                         delete headers.common['X-CSRF-TOKEN']
                         delete headers.common['Authorization']
                         delete headers.common['ID-TOKEN']
+                        delete headers.common['X-Requested-With']
                         return data
                     },
                 ]
@@ -108,6 +139,34 @@ export async function getCities(parameter) {
         return await promise
     } catch (error) {
         console.error(error);
+    }
+}
+
+/**
+ * @returns {Promise<any>}
+ */
+export async function getGeoIP() {
+    try {
+        let promise = new Promise((resolve, reject) => {
+            let instance = axios.create({
+                transformRequest: [
+                    (data, headers) => {
+                        delete headers.common['X-CSRF-TOKEN']
+                        delete headers.common['Authorization']
+                        delete headers.common['ID-TOKEN']
+                        return data
+                    }
+                ]
+            })
+
+            instance.get('http://ip-api.com/json').then(result => {
+                resolve(result);
+            })
+        });
+
+        return await promise
+    } catch (error) {
+        console.dir(error);
     }
 }
 

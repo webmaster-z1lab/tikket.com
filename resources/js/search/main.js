@@ -2,12 +2,12 @@ import Vue from 'vue'
 
 // /* Validate */
 import VeeValidate from 'vee-validate'
-Vue.use(VeeValidate)
+Vue.use(VeeValidate, { inject: false })
 
 require('../forms/config/validator')
 
 /* Components */
-import Sidebar from './main.vue'
+import MainVue from './main.vue'
 
 /* Filter */
 Vue.filter('aws_url', function (value) {
@@ -18,6 +18,6 @@ Vue.filter('aws_url', function (value) {
 
 new Vue({
     name: 'Main',
-    el: '#vue-sidebar',
-    render: h => h(Sidebar)
+    el: '#vue-search',
+    render: h => h(MainVue)
 });

@@ -20,13 +20,13 @@
             </p>
 
             <p class="lead text-dark">
-                Você também pode acompanhar suas compras acessando o link <a href="/meus-pedidos" class="link-muted text-uppercase text-primary">Meus pedidos</a>.
+                Você também pode acompanhar suas compras acessando o link
+                <a :href="formattedRoute('orders')" class="link-muted text-uppercase text-primary">Meus pedidos</a>.
             </p>
 
             <p class="lead text-dark">
-                Caso tenha alguma dúvida ou precise de suporte é só entrar em contato com a gente utilizando um de nossos <a href="/contato"
-                                                                                                                             class="link-muted text-uppercase text-primary">canais
-                de atendimento</a>.
+                Caso tenha alguma dúvida ou precise de suporte é só entrar em contato com a gente utilizando um de nossos
+                <a :href="formattedRoute('contact')" class="link-muted text-uppercase text-primary">canais de atendimento</a>.
             </p>
         </div>
 
@@ -50,7 +50,7 @@
         </div>
 
         <div class="text-center mb-4">
-            <a :href="`/meus-pedidos/${order.id}`" class="btn btn-primary btn-wide btn-lg">Acompanhar Pedido</a>
+            <a :href="formattedRoute('orders.show', order.id)" class="btn btn-primary btn-wide btn-lg">Acompanhar Pedido</a>
         </div>
 
         <div class="row justify-content-lg-between">
@@ -120,6 +120,13 @@
         },
         methods: {
             ...mapActions(['changeLoading']),
+            formattedRoute(name, value = null) {
+                if (value) {
+                    return route(name, value)
+                } else {
+                    return route(name)
+                }
+            }
         },
         mounted() {
             this.changeLoading(false)

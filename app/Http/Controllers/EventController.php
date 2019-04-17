@@ -8,11 +8,9 @@ use Illuminate\View\View;
 class EventController extends Controller
 {
     /**
-     * @param string $type
-     *
-     * @return \Illuminate\View\View
+     * @return View
      */
-    public function index(string $type = ''): View
+    public function index(): View
     {
         \Meta::set('title', 'Eventos');
 

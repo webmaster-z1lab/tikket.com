@@ -2,8 +2,14 @@
 
 @section('content')
     <div id="homeSection"></div>
-    @include('home.components.hero')
-    @include('home.components.categories')
-    @include('home.components.features')
-    @include('home.components.cta')
+    <div id="vue-home">
+        @include('home.components.hero')
+        @include('home.components.categories')
+        @include('home.components.features')
+        @include('home.components.cta')
+    </div>
 @endsection
+
+@push('scripts')
+    <script src="{{ mix('js/home/main.js') }}"></script>
+@endpush

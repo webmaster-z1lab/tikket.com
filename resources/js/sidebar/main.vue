@@ -29,7 +29,7 @@
 
                 <footer class="u-sidebar__footer u-sidebar__footer--account bg-primary">
                     <div class="position-absolute right-0 bottom-0 left-0">
-                        <img src="https://s3.us-east-2.amazonaws.com/cdn-z1lab/template/front/2.0.1/svg/components/wave-bottom-with-dots.svg" alt="Sidebar footer">
+                        <img :src="'template/front/2.0.1/svg/components/wave-bottom-with-dots.svg' | aws_url" alt="Sidebar footer">
                     </div>
                 </footer>
             </div>

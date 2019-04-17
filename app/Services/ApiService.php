@@ -113,6 +113,23 @@ class ApiService
     }
 
     /**
+     * @param array $query
+     * @return $this
+     */
+    public function findQuery(array $query = [])
+    {
+        try {
+            $result = $this->client->request($this->method, "{$this->api}{$this->resource}?" . http_build_query($query));
+
+            $this->response = json_decode($result->getBody());
+        } catch (\GuzzleHttp\Exception\GuzzleException $e) {
+            abort(400, $e->getMessage());
+        }
+
+        return $this;
+    }
+
+    /**
      * @return mixed
      */
     public function attributes()

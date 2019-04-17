@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="text-center m-9" v-if="!addressCheck && !newAddress">
                 <figure id="icon8" class="w-25 mx-auto mb-4">
-                    <img src="https://s3.us-east-2.amazonaws.com/cdn-z1lab/template/front/2.0.1/svg/icons/icon-8.svg" alt="SVG" data-parent="#icon8">
+                    <img :src="'template/front/2.0.1/svg/icons/icon-8.svg' | aws_url" alt="SVG" data-parent="#icon8">
                 </figure>
 
                 <div class="mb-4">
@@ -41,7 +41,7 @@
                         <div class="d-sm-flex">
                             <div class="text-center">
                                 <figure>
-                                    <img class="w-50 d-none d-sm-block" src="https://s3.us-east-2.amazonaws.com/cdn-z1lab/template/front/2.1.1/svg/icons/icon-8.svg" alt="Address">
+                                    <img class="w-50 d-none d-sm-block" :src="'template/front/2.1.1/svg/icons/icon-8.svg' | aws_url" alt="Address">
                                 </figure>
                             </div>
 

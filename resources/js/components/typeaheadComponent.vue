@@ -1,24 +1,24 @@
 <template>
-    <div class="js-focus-state input-group u-form u-form--no-addon-brd">
-        <input :class="classInput" type="text" autocomplete="off" :placeholder="placeholder" name="typeahead" :aria-label="ariaLabel"
-               :data-vv-as="ariaError || ariaLabel" v-validate="validate"
-               v-model="query"
-               @keydown.down="down"
-               @keydown.up="up"
-               @keyup.enter="hit"
-               @keydown.esc="resetFull"
-               @input="update">
+    <div>
+        <div class="js-focus-state input-group u-form u-form--no-addon-brd">
+            <input type="text" name="typeahead"  :class="classInput" :placeholder="placeholder" v-validate="validate" v-model="query"
+                   @keydown.down="down"
+                   @keydown.up="up"
+                   @keyup.enter="hit"
+                   @blur="reset"
+                   @keydown.esc="resetFull">
 
-        <div class="input-group-append u-form__append">
+            <div class="input-group-append u-form__append">
             <span class="input-group-text u-form__text">
                 <span class="u-form__text-inner" :class="iconInput"></span>
             </span>
+            </div>
         </div>
 
-        <ul id="ul-typeaheader" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" v-show="hasItems">
+        <ul id="ul-typeaheader" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" v-show="hasItems" style="">
             <li class="ui-menu-item item_text" v-for="(item, key) in items" @mousedown="hit"
                 @mousemove="setActive(key)" :class="activeClass(key)">
-                <span class="hd-doc-search__label" v-html="highlight(`${item.name} - ${item.state}`)"></span>
+                <span class="hd-doc-search__label" v-html="highlight(`${item.nome} - ${item.microrregiao.mesorregiao.UF.sigla}`)"></span>
             </li>
         </ul>
     </div>
@@ -33,6 +33,8 @@
         width: 100%;
         list-style-type: none;
         margin-bottom: 1px;
+        position: absolute;
+        background-color: white;
     }
 
     ul li, ol li, p, table {
@@ -79,7 +81,6 @@
 
     .ui-widget.ui-widget-content {
         border: thin solid #e7eaf3;
-        border-radius: .125rem;
         box-shadow: 0 2px 16px 3px rgba(140, 152, 164, 0.135);
     }
 
@@ -92,7 +93,6 @@
     .ui-autocomplete .ui-menu-item:hover .ui-menu-item-wrapper {
         background-color: #377dff;
         border-color: transparent;
-        border-radius: .125rem;
     }
 
     .ui-autocomplete-category {
@@ -118,7 +118,7 @@
 </style>
 
 <script>
-    import {toSeek} from "../vendor/common";
+    import {getCounties} from "../vendor/api";
 
     export default {
         name: "Typeahead",
@@ -138,19 +138,11 @@
                 default: 'fa fa-map-marker-alt',
                 type: String
             },
-            ariaError: {
-                default: '',
-                type: String
-            },
             validate: {
                 default: '',
                 type: String
             },
             placeholder: {
-                default: '',
-                type: String
-            },
-            ariaLabel: {
                 default: '',
                 type: String
             },
@@ -160,6 +152,16 @@
             }
         },
         watch: {
+            query(value) {
+                if (!_.isEmpty(value)) {
+                    let collection = collect(this.data)
+
+                    this.items = collection.filter((value, key) => value.nome.search(new RegExp(this.query, "i")) !== -1).all()
+                    this.current = -1
+                } else {
+                    this.items = []
+                }
+            },
             value(value) {
                 if (!_.isEmpty(value)) {
                     this.query = value
@@ -190,16 +192,6 @@
             }
         },
         methods: {
-            update() {
-                if (!_.isEmpty(this.query)) {
-                    let collection = collect(this.data)
-
-                    this.items = collection.filter((value, key) => value.name.search(new RegExp(this.query, "i")) !== -1).all()
-                    this.current = -1
-                } else {
-                    this.items = []
-                }
-            },
             resetFull() {
                 this.current = -1
                 this.items = []
@@ -220,7 +212,7 @@
             hit() {
                 if (this.current !== -1) {
                     let item = this.items[this.current]
-                    this.query = `${item.name} - ${item.state}`
+                    this.query = `${item.nome} - ${item.microrregiao.mesorregiao.UF.sigla}`
                     this.reset()
 
                     this.$emit('value', this.query)
@@ -249,9 +241,7 @@
                 this.$emit('value', this.query)
             }
 
-            toSeek(process.env.MIX_API_VERSION_ENDPOINT + '/actions/list/cities').then(
-                (response) => this.data = response.attributes
-            )
+            getCounties().then(response => this.data = response.data)
         }
     }
 

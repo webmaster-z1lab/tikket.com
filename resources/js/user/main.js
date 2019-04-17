@@ -22,6 +22,14 @@ const router = new VueRouter({
     routes
 });
 
+/* Filter */
+Vue.filter('aws_url', function (value) {
+    if (!value) return ''
+
+    return `${process.env.MIX_AWS_CDN_ENDPOINT}/${value}`
+})
+
+
 new Vue({
     el: '#vue-user',
     name: 'VueUser',

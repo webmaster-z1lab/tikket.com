@@ -1,7 +1,5 @@
 @extends('layouts.default')
 
-
-
 @section('content')
     @include('event.components.header')
     @include('event.components.cart')

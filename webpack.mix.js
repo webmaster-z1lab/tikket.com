@@ -32,6 +32,8 @@ mix.js('resources/js/contact.js', 'public/js')
     .js('resources/js/sidebar/main.js', 'public/js/sidebar')
     .js('resources/js/cart/main.js', 'public/js/cart')
     .js('resources/js/user/main.js', 'public/js/user')
+    .js('resources/js/search/main.js', 'public/js/search')
+    .js('resources/js/home/main.js', 'public/js/home')
     .js('resources/js/login.js', 'public/js')
     .extract(vendors)
 

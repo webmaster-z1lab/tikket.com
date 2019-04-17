@@ -6,6 +6,10 @@ return [
         'openid.user',
         'openid.refresh',
         'home',
-        'event'
+        'event',
+        'events',
+        'contact',
+        'orders',
+        'orders.show'
     ],
 ];
