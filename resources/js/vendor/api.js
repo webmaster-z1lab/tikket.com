@@ -159,7 +159,7 @@ export async function getGeoIP() {
                 ]
             })
 
-            instance.get('http://ip-api.com/json').then(result => {
+            instance.get(`${process.env.MIX_API_VERSION_ENDPOINT}/actions/user_ip`).then(result => {
                 resolve(result);
             })
         });
