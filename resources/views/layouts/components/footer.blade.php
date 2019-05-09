@@ -69,7 +69,7 @@
 
         <div class="col-sm-4 text-sm-right">
             <a class="d-inline-flex align-items-center" href="//z1lab.com.br" aria-label="Z1Lab Soluções Digitais" target="_blank">
-                <img src="https://s3.us-east-2.amazonaws.com/cdn-z1lab/images/z1lab/logo/powered_by_black.svg" alt="Z1Lab Soluções Digitais" style="width: 180px;">
+                <img src="{{ config('theme.cdn_url') }}images/z1lab/logo/powered_by_black.svg" alt="Z1Lab Soluções Digitais" style="width: 180px;">
             </a>
         </div>
     </div>

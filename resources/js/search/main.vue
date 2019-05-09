@@ -84,7 +84,7 @@
                                             <div class="card-footer text-center py-0">
                                                 <div class="text-center">
                                                     <div class="my-2">
-                                                        <a :href="urlFormat('event.attributes.url')" class="mb-0 h6">{{event.attributes.name}}</a>
+                                                        <a :href="urlFormat(event.attributes.url)" class="mb-0 h6">{{event.attributes.name}}</a>
                                                     </div>
                                                 </div>
                                                 <hr class="mt-0 mb-2">
