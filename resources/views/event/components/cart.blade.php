@@ -24,6 +24,24 @@
 
         <hr class="my-4">
 
+        <div class="row d-none" id="error-alert">
+            <div class="col-12">
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Oops! Sua compra não pode ser concluída.</h4>
+                    <p class="alert-text" id="error-text"></p>
+
+                    <hr>
+
+                    <p class="alert-text">
+                        <i class="far fa-comments"></i> Para obter ajuda fale com a gente utilizando um dos nossos <a class="text-danger" href="{{ route('contact') }}">canais de contato.</a>
+                    </p>
+
+                    <h6>DETALHES DO ERRO</h6>
+                    <ul id="error-details"></ul>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-sm-8 col-lg-9">
                 <h3 class="h5 mb-0 text-primary">Total: <span>R$ <span class="js-total">0,00</span></span></h3>

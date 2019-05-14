@@ -9,6 +9,7 @@ const btnAction = document.querySelector('.js-action')
 
 let total = 0
 let amount = 0
+let submited = 0
 
 /**
  * Init function
@@ -82,11 +83,31 @@ function init() {
             }
         ).catch(
             error => {
-                btnAction.disabled = false
-                btnAction.classList.remove('disabled')
+                let errorAlert = document.getElementById('error-alert')
+                let errorText = document.getElementById('error-text')
+                let errorDetails = document.getElementById('error-details')
+
+                if(5 > ++submited) {
+                    btnAction.disabled = false
+                    btnAction.classList.remove('disabled')
+                }
+
+                console.log(submited)
 
                 if (_.isObject(error.response.data)) {
-                    console.log(error.response.data.errors.detail)
+                    let id = document.createElement('li')
+                    id.innerHTML = `ID: ${error.response.data.errors.id}`
+
+                    let code = document.createElement('li')
+                    code.innerHTML = `Código: ${error.response.data.errors.code}`
+
+                    let message = document.createElement('li')
+                    message.innerHTML = `Mensagem: ${error.response.data.errors.detail}`
+
+                    errorDetails.innerHTML = ''
+                    errorDetails.appendChild(id).appendChild(code).appendChild(message)
+                    errorText.innerHTML = error.response.data.errors.detail
+                    errorAlert.classList.remove('d-none')
                 } else {
                     console.dir(error)
                 }
