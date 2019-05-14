@@ -3,7 +3,7 @@
         <div class="w-100 mt-5">
             <div class="mb-5">
                 <h1 class="display-4 font-size-md-down-5 font-weight-semi-bold">Seu próximo evento está aqui</h1>
-                <p>Tikket é uma plataforma digital completa para <strong class="text-primary">festas, shows e workshops.</strong></p>
+                <p>O Tikket é uma plataforma digital completa para <strong class="text-primary">festas, shows e workshops.</strong></p>
             </div>
 
             <form method="post" class="js-validate">

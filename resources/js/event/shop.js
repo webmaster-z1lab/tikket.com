@@ -87,12 +87,14 @@ function init() {
                 let errorText = document.getElementById('error-text')
                 let errorDetails = document.getElementById('error-details')
 
+                errorDetails.innerHTML = ''
+
                 if(5 > ++submited) {
                     btnAction.disabled = false
                     btnAction.classList.remove('disabled')
                 }
 
-                if (error.status) {
+                if (error.request.status) {
                     if (_.isObject(error.response.data)) {
                         let id = document.createElement('li')
                         id.innerHTML = `ID: ${error.response.data.errors.id}`
@@ -103,7 +105,6 @@ function init() {
                         let message = document.createElement('li')
                         message.innerHTML = `Mensagem: ${error.response.data.errors.detail}`
 
-                        errorDetails.innerHTML = ''
                         errorDetails.appendChild(id).appendChild(code).appendChild(message)
                         errorText.innerHTML = error.response.data.errors.detail
                     } else {
