@@ -92,25 +92,28 @@ function init() {
                     btnAction.classList.remove('disabled')
                 }
 
-                console.log(submited)
+                if (error.status) {
+                    if (_.isObject(error.response.data)) {
+                        let id = document.createElement('li')
+                        id.innerHTML = `ID: ${error.response.data.errors.id}`
 
-                if (_.isObject(error.response.data)) {
-                    let id = document.createElement('li')
-                    id.innerHTML = `ID: ${error.response.data.errors.id}`
+                        let code = document.createElement('li')
+                        code.innerHTML = `Código: ${error.response.data.errors.code}`
 
-                    let code = document.createElement('li')
-                    code.innerHTML = `Código: ${error.response.data.errors.code}`
+                        let message = document.createElement('li')
+                        message.innerHTML = `Mensagem: ${error.response.data.errors.detail}`
 
-                    let message = document.createElement('li')
-                    message.innerHTML = `Mensagem: ${error.response.data.errors.detail}`
-
-                    errorDetails.innerHTML = ''
-                    errorDetails.appendChild(id).appendChild(code).appendChild(message)
-                    errorText.innerHTML = error.response.data.errors.detail
-                    errorAlert.classList.remove('d-none')
+                        errorDetails.innerHTML = ''
+                        errorDetails.appendChild(id).appendChild(code).appendChild(message)
+                        errorText.innerHTML = error.response.data.errors.detail
+                    } else {
+                        console.dir(error)
+                    }
                 } else {
-                    console.dir(error)
+                    errorText.innerHTML = 'Encontramos um erro ao tentar conectar ao nosso servidor. Verifique sua conexão com a internet ou tente novamente em alguns minutos.'
                 }
+
+                errorAlert.classList.remove('d-none')
             }
         ).finally(() => {
                 Pace.stop()
