@@ -3,7 +3,7 @@
         <div id="logoAndNav" class="container">
             <nav class="js-mega-menu navbar navbar-expand-md u-header__navbar u-header__navbar--no-space">
                 <a class="navbar-brand u-header__navbar-brand u-header__navbar-brand-center" href="{{ route('home') }}" aria-label="Front">
-                    <span class="u-header__navbar-brand-text"><i class="fas fa-ticket-alt mr-1"></i>Tikket</span>
+                    <img src="{{ config('theme.cdn_url') }}images/tikket/logo.svg" alt="Logo Tikket">
                 </a>
 
                 <div>

@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="mr-4">
-                        <a class="btn btn-primary btn-sm" href="{{ route('tickets.show', $order->id) }}">
+                        <a class="btn btn-primary btn-sm" href="{{ route('orders.show', $order->id) }}">
                             <i class="far fa-list-alt mr-1"></i>Detalhes
                         </a>
                     </div>

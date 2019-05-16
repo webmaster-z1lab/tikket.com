@@ -8,7 +8,7 @@
         <div class="d-none d-print-block">
             <div class="row">
                 <div class="col-sm-6">
-                    <h2 class="text-primary font-weight-bold"><i class="fas fa-ticket-alt mr-1"></i>Tikket</h2>
+                    <img src="{{ config('theme.cdn_url') }}images/tikket/logo.svg" alt="Logo Tikket" width="150px">
                     <p>A sua plataforma de eventos!</p>
                 </div>
 

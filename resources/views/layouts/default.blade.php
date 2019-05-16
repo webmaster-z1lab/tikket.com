@@ -14,7 +14,7 @@
     {!! \Meta::tags() !!}
     {!! \Meta::tag('csrf-token', csrf_token()) !!}
 
-    <link rel="shortcut icon" href="{{ config('theme.cdn_url') }}images/tikket/ticket_gradient.png">
+    <link rel="shortcut icon" href="{{ config('theme.cdn_url') }}images/tikket/icon-xs.png">
 
     <script defer src="{{ config('theme.cdn_url') }}vendor/pace/1.0.2/pace.min.js"></script>
     <link href="{{ config('theme.cdn_url') }}vendor/pace/1.0.2/pace-theme-flash.css" rel="stylesheet">
@@ -36,7 +36,6 @@
     @stack('defer-scripts')
 
     <script defer src="{{ mix('js/sidebar/main.js') }}"></script>
-    {{--<script defer src="{{ mix('js/search-unfold.js') }}"></script>--}}
 </head>
 <body>
 
