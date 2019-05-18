@@ -2,7 +2,7 @@
 
 @section('title', '404 - Página não encontrada')
 @section('body-class', 'bg-img-hero-fixed')
-@section('body-style', 'background-image: url(' . getenv('AWS_CDN_ENDPOINT') . '/template/front/2.0.1/svg/illustrations/error-404.svg);')
+@section('body-style', 'background-image: url(' . {{ config('theme.cdn_url') }} . '/template/front/2.0.1/svg/illustrations/error-404.svg);')
 
 @section('content')
     <div class="d-lg-flex">

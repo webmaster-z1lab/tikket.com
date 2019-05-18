@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about/terms.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about/terms.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/components/cta.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/components/cta.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/components/hero.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/components/hero.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/akaunting/money/" />
@@ -68,7 +61,16 @@
       <find>{{ getenv('AWS_CDN_ENDPOINT') }}</find>
       <find>{{ config('app.cdn') }}</find>
       <find>{{ getenv('AWS_CDN_ENDPOINT') }}/</find>
+      <find>getenv(</find>
     </findStrings>
+    <replaceStrings>
+      <replace>{{ config('theme.cdn_url') }}</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\Developer\www\tikket.com\resources\views</dir>
+      <dir>C:\Developer\www\tikket.com\app</dir>
+      <dir>C:\Developer\www\tikket.com\vendor</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
@@ -271,44 +273,6 @@
               <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="about" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tikket.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tikket.com" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -476,7 +440,7 @@
       <workItem from="1557446392003" duration="14000" />
       <workItem from="1557840451933" duration="18216000" />
       <workItem from="1558029994365" duration="5296000" />
-      <workItem from="1558197528471" duration="681000" />
+      <workItem from="1558197528471" duration="2292000" />
     </task>
     <task id="LOCAL-00001" summary="update cart functions like coupons and ux of the parcilamento">
       <created>1552500338580</created>
@@ -583,16 +547,30 @@
       <option name="project" value="LOCAL" />
       <updated>1558038261810</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Changed route create event to point to admin server;">
+      <created>1558198279823</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1558198279823</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Removed getenv() from project files;">
+      <created>1558200124640</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1558200124640</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="297017000" />
+    <option name="totallyTimeSpent" value="298628000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4983871" visible="true" weight="0.19616205" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4983871" visible="true" weight="0.19616205" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.5016129" side_tool="true" weight="0.19829424" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -713,7 +691,9 @@
     <MESSAGE value="Added error messages to buy area in event page;" />
     <MESSAGE value="Minor visual adjusts;" />
     <MESSAGE value="Changed tikket logo;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed tikket logo;" />
+    <MESSAGE value="Changed route create event to point to admin server;" />
+    <MESSAGE value="Removed getenv() from project files;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed getenv() from project files;" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/resources/js/sidebar/main.vue">
