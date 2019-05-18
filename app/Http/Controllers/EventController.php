@@ -18,16 +18,6 @@ class EventController extends Controller
     }
 
     /**
-     * @return \Illuminate\View\View
-     */
-    public function create(): View
-    {
-        \Meta::set('title', 'Criar evento');
-
-        return View('coming-soon');
-    }
-
-    /**
      * @param string $url
      *
      * @return \Illuminate\View\View

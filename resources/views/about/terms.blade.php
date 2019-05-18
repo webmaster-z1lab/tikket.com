@@ -18,7 +18,7 @@
 
         <div class="d-none d-lg-block w-lg-40 content-centered-y right-0 z-index-n1 ml-9">
             <figure class="ie-bg-elements-2">
-                <img src="{{ getenv('AWS_CDN_ENDPOINT') }}/template/front/2.0.1/svg/components/bg-elements-2.svg" alt="Image Description">
+                <img src="{{ config('theme.cdn_url') }}template/front/2.0.1/svg/components/bg-elements-2.svg" alt="Image Description">
             </figure>
         </div>
     </div>
@@ -94,8 +94,8 @@
 @endsection
 
 @push('scripts')
-    <script async src="{{ getenv('AWS_CDN_ENDPOINT') }}/template/front/2.0.2/js/components/hs.sticky-block.js"></script>
-    <script async src="{{ getenv('AWS_CDN_ENDPOINT') }}/template/front/2.0.2/js/components/hs.scroll-nav.js"></script>
+    <script async src="{{ config('theme.cdn_url') }}template/front/2.0.2/js/components/hs.sticky-block.js"></script>
+    <script async src="{{ config('theme.cdn_url') }}template/front/2.0.2/js/components/hs.scroll-nav.js"></script>
 
     <script>
         $(window).on('load', function () {

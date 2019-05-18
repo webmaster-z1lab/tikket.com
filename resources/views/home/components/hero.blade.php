@@ -21,7 +21,7 @@
 
             <div class="small">
                 <span class="font-weight-medium">Você também pode:</span>
-                <a class="link-muted mx-2" href="{{ getenv('ADMIN_SITE') }}/evento/novo-evento">
+                <a class="link-muted mx-2" href="{{ config('app.domains.admin') }}/evento/novo-evento">
                     <i class="fas fa-rocket text-primary mr-1"></i>criar seu próprio evento
                 </a>
             </div>
