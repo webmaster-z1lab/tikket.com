@@ -14,7 +14,7 @@
     {!! \Meta::tags() !!}
     {!! \Meta::tag('csrf-token', csrf_token()) !!}
 
-    <link rel="shortcut icon" href="{{ getenv('AWS_CDN_ENDPOINT') }}/images/tikket/ticket_gradient.png">
+    <link rel="shortcut icon" href="{{ config('theme.cdn_url') }}images/tikket/ticket_gradient.png">
 
     <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
 
@@ -48,7 +48,7 @@
             <div class="row align-items-lg-center w-100 mt-lg-9">
                 <div class="col-lg-6 mb-7 mb-lg-0">
                     <figure class="ie-virtual-reality">
-                        <img src="{{ getenv('AWS_CDN_ENDPOINT') }}/images/undraw/purple/undraw_developer_activity.svg" alt="Image Description" width="100%">
+                        <img src="{{ config('theme.cdn_url') }}images/undraw/purple/undraw_developer_activity.svg" alt="Image Description" width="100%">
                     </figure>
                 </div>
 
@@ -123,8 +123,8 @@
     <script src="{{ config('theme.cdn_url') . config('theme.prod.namespace') . config('theme.prod.version') . "/$value" }}"></script>
 @endforeach
 
-<script src="{{ getenv('AWS_CDN_ENDPOINT') }}/template/front/2.1.1/vendor/jquery.countdown.min.js"></script>
-<script src="{{ getenv('AWS_CDN_ENDPOINT') }}/template/front/2.1.1/js/components/hs.countdown.js"></script>
+<script src="{{ config('theme.cdn_url') }}template/front/2.1.1/vendor/jquery.countdown.min.js"></script>
+<script src="{{ config('theme.cdn_url') }}template/front/2.1.1/js/components/hs.countdown.js"></script>
 
 <script>
     $(document).on('ready', function () {

@@ -11,7 +11,7 @@
                 </div>
 
                 <figure class="w-50 position-absolute right-0 bottom-0 mr-7">
-                    <img src="{{ getenv('AWS_CDN_ENDPOINT') }}/template/front/2.0.1/svg/illustrations/building-site.svg" alt="SVG Illustration">
+                    <img src="{{ config('theme.cdn_url') }}template/front/2.0.1/svg/illustrations/building-site.svg" alt="SVG Illustration">
                 </figure>
             </div>
 
@@ -25,7 +25,7 @@
                 </div>
 
                 <figure class="w-50 position-absolute right-0 bottom-0">
-                    <img src="{{ getenv('AWS_CDN_ENDPOINT') }}/template/front/2.0.1/svg/illustrations/pushing-boundaries.svg" alt="SVG Illustration">
+                    <img src="{{ config('theme.cdn_url') }}template/front/2.0.1/svg/illustrations/pushing-boundaries.svg" alt="SVG Illustration">
                 </figure>
             </div>
         </div>

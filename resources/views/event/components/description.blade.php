@@ -26,7 +26,7 @@
                          data-zoom="15"
                          data-title="{{ $address->name }}"
                          data-pin="true"
-                         data-pin-icon="{{ getenv('AWS_CDN_ENDPOINT') }}/template/front/2.0.1/img/map-markers/map-marker6.png"
+                         data-pin-icon="{{ config('theme.cdn_url') }}template/front/2.0.1/img/map-markers/map-marker6.png"
                          >
                     </div>
                 </div>
@@ -46,6 +46,6 @@
             $.HSCore.components.HSGMap.init('.js-g-map')
         }
     </script>
-    <script src="{{ getenv('AWS_CDN_ENDPOINT') }}/template/front/2.0.2/vendor/gmaps/gmaps.min.js"></script>
+    <script src="{{ config('theme.cdn_url') }}template/front/2.0.2/vendor/gmaps/gmaps.min.js"></script>
     <script src="//maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_API_KEY') }}&callback=initMap" async defer></script>
 @endpush

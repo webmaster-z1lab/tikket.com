@@ -30,7 +30,7 @@
 
     <div class="d-none d-lg-block content-centered-y left-0 w-100 max-width-40 z-index-n1">
         <figure class="ie-abstract-shapes-1">
-            <img src="{{ getenv('AWS_CDN_ENDPOINT') }}/template/front/2.0.1/svg/components/abstract-shapes-9.svg" alt="Image Description">
+            <img src="{{ config('theme.cdn_url') }}template/front/2.0.1/svg/components/abstract-shapes-9.svg" alt="Image Description">
         </figure>
     </div>
     <!-- End SVG Component -->
@@ -38,7 +38,7 @@
     <!-- SVG Component -->
     <div class="d-none d-lg-block content-centered-y right-0 w-100 max-width-35 z-index-n1">
         <figure class="ie-abstract-shapes-10">
-            <img src="{{ getenv('AWS_CDN_ENDPOINT') }}/template/front/2.0.1/svg/components/abstract-shapes-10.svg" alt="Image Description">
+            <img src="{{ config('theme.cdn_url') }}template/front/2.0.1/svg/components/abstract-shapes-10.svg" alt="Image Description">
         </figure>
     </div>
 </div>

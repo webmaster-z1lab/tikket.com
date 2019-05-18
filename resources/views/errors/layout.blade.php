@@ -12,11 +12,11 @@
     <meta name="site_name" content="tikket.com">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="{{ getenv('AWS_CDN_ENDPOINT') }}/images/tikket/ticket_gradient.png">
+    <link rel="shortcut icon" href="{{ config('theme.cdn_url') }}images/tikket/ticket_gradient.png">
     <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ getenv('AWS_CDN_ENDPOINT') }}/template/front/2.1.1/css/theme-purple.min.css">
+    <link rel="stylesheet" href="{{ config('theme.cdn_url') }}template/front/2.1.1/css/theme-purple.min.css">
 </head>
 
 <body class="@yield('body-class')" style="@yield('body-style')">
@@ -31,7 +31,7 @@
 
                 <div class="ml-auto">
                     <a href="//z1lab.com.br" target="_blank">
-                        <img src="{{ getenv('AWS_CDN_ENDPOINT') }}/images/z1lab/logo/powered_by_black.svg" alt="Z1Lab" width="175px">
+                        <img src="{{ config('theme.cdn_url') }}images/z1lab/logo/powered_by_black.svg" alt="Z1Lab" width="175px">
                     </a>
                 </div>
             </nav>

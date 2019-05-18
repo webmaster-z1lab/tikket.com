@@ -10,7 +10,7 @@
                     <p class="text-white-70">Última modificação: 28 de fevereiro de 2019</p>
 
                     <figure class="position-absolute right-0 bottom-0 left-0">
-                        <img src="{{ getenv('AWS_CDN_ENDPOINT') }}/template/front/2.0.1/svg/components/wave-1-bottom-sm.svg" alt="Image Description" width="100%" height="140px">
+                        <img src="{{ config('theme.cdn_url') }}template/front/2.0.1/svg/components/wave-1-bottom-sm.svg" alt="Image Description" width="100%" height="140px">
                     </figure>
                 </div>
 
@@ -92,19 +92,19 @@
 
     <div class="w-25 content-centered-y left-0 z-index-n1 mt-9">
         <figure class="ie-circle-1">
-            <img src="{{ getenv('AWS_CDN_ENDPOINT') }}/template/front/2.0.1/svg/components/circle-1.svg" alt="Background image">
+            <img src="{{ config('theme.cdn_url') }}template/front/2.0.1/svg/components/circle-1.svg" alt="Background image">
         </figure>
     </div>
 
     <div class="w-35 content-centered-y right-0 z-index-n1 mt-n9">
         <figure class="ie-bg-elements-4">
-            <img src="{{ getenv('AWS_CDN_ENDPOINT') }}/template/front/2.0.1/svg/components/bg-elements-4.svg" alt="Background image">
+            <img src="{{ config('theme.cdn_url') }}template/front/2.0.1/svg/components/bg-elements-4.svg" alt="Background image">
         </figure>
     </div>
 
     <div class="position-absolute right-0 bottom-0 left-0 z-index-n1">
         <figure class="ie-bg-elements-3">
-            <img src="{{ getenv('AWS_CDN_ENDPOINT') }}/template/front/2.0.1/svg/components/bg-elements-3.svg" alt="Background image">
+            <img src="{{ config('theme.cdn_url') }}template/front/2.0.1/svg/components/bg-elements-3.svg" alt="Background image">
         </figure>
     </div>
 @endsection

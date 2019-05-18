@@ -9,7 +9,7 @@
         <div class="container d-lg-flex align-items-lg-center min-height-lg-100vh space-top-4 space-bottom-2 space-lg-0">
             <div class="w-100 mx-auto">
                 <figure class="mb-5 ie-maintenance-mode">
-                    <img src="{{ getenv('AWS_CDN_ENDPOINT') }}/template/front/2.0.1/svg/illustrations/maintenance-mode.svg" alt="Image Description">
+                    <img src="{{ config('theme.cdn_url') }}template/front/2.0.1/svg/illustrations/maintenance-mode.svg" alt="Image Description">
                 </figure>
 
                 <div class="w-md-80 w-lg-50 text-center mx-md-auto">
