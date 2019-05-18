@@ -2,7 +2,7 @@
 
 @section('title', '405 - Método não permitido')
 @section('body-class', 'bg-img-hero-fixed')
-@section('body-style', 'background-image: url(' . {{ config('theme.cdn_url') }} . '/images/undraw/purple/undraw_be_the_hero.svg);')
+@section('body-style', 'background-image: url(' . config('theme.cdn_url') . 'images/undraw/purple/undraw_be_the_hero.svg);')
 
 @section('content')
     <div class="d-lg-flex">

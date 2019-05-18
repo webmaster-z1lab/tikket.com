@@ -12,7 +12,7 @@
     <meta name="site_name" content="tikket.com">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="{{ config('theme.cdn_url') }}images/tikket/ticket_gradient.png">
+    <link rel="shortcut icon" href="{{ config('theme.cdn_url') }}images/tikket/icon.png">
     <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
           crossorigin="anonymous">
@@ -26,7 +26,7 @@
         <div id="logoAndNav" class="container">
             <nav class="navbar navbar-expand u-header__navbar">
                 <a class="navbar-brand u-header__navbar-brand u-header__navbar-brand-center" href="{{ route('home') }}" aria-label="Front">
-                    <span class="u-header__navbar-brand-text"><i class="fas fa-ticket-alt mr-1"></i>Tikket</span>
+                    <img src="{{ config('theme.cdn_url') }}images/tikket/logo.svg" alt="Logo Tikket">
                 </a>
 
                 <div class="ml-auto">

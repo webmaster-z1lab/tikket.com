@@ -2,7 +2,7 @@
 
 @section('title', '500 - Falha do servidor')
 @section('body-class', 'bg-img-hero-fixed')
-@section('body-style', 'background-image: url(' . {{ config('theme.cdn_url') }} . '/images/undraw/purple/undraw_may_the_force.svg);')
+@section('body-style', 'background-image: url(' . config('theme.cdn_url') . 'images/undraw/purple/undraw_may_the_force.svg);')
 
 @section('content')
     <div class="d-lg-flex">
