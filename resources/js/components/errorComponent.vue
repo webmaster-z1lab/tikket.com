@@ -35,49 +35,49 @@
                         title: '401 - Acesso não <span class="font-weight-semi-bold">permitido</span>',
                         class_title: 'font-weight-normal text-dark',
                         message: 'Oops! Você precisa estar autenticado para acessar esse recurso.',
-                        background: 'https://s3.us-east-2.amazonaws.com/cdn-z1lab/images/undraw/purple/undraw_security.svg',
+                        background: `${process.env.MIX_AWS_CDN_ENDPOINT}/images/undraw/purple/undraw_security.svg`,
                         redirect: 'https://tawk.to/chat/5b789d4dafc2c34e96e7b2ec/default'
                     },
                     403: {
                         title: '403 - Acesso <span class="font-weight-semi-bold">negado</span>',
                         class_title: 'font-weight-normal text-dark"',
                         message: 'Oops! Você não possui as credenciais necessárias para acessar esse recurso.',
-                        background: 'https://s3.us-east-2.amazonaws.com/cdn-z1lab/images/undraw/purple/undraw_security.svg',
+                        background: `${process.env.MIX_AWS_CDN_ENDPOINT}/images/undraw/purple/undraw_security.svg`,
                         redirect: 'https://tawk.to/chat/5b789d4dafc2c34e96e7b2ec/default'
                     },
                     404: {
                         title: 'Página não <span class="font-weight-bold">encontrada</span>',
                         class_title: 'text-primary font-weight-normal',
                         message: 'Oops! Você está em um link que não existe.',
-                        background: 'https://s3.us-east-2.amazonaws.com/cdn-z1lab/template/front/2.0.1/svg/illustrations/error-404.svg',
+                        background: `${process.env.MIX_AWS_CDN_ENDPOINT}/images/undraw/undraw_page_not_found_su7k.svg`,
                         redirect: 'https://tawk.to/chat/5b789d4dafc2c34e96e7b2ec/default'
                     },
                     405: {
                         title: '405 - Método não <span class="font-weight-semi-bold">permitido</span>',
                         class_title: 'text-primary font-weight-normal',
                         message: 'Oops! Essa recurso não pode ser acessado utilizando o método atual.',
-                        background: 'https://s3.us-east-2.amazonaws.com/cdn-z1lab/images/undraw/purple/undraw_be_the_hero.svg',
+                        background: `${process.env.MIX_AWS_CDN_ENDPOINT}/undraw/purple/undraw_be_the_hero.svg`,
                         redirect: 'https://tawk.to/chat/5b789d4dafc2c34e96e7b2ec/default'
                     },
                     422: {
                         title: 'Entidade <span class="font-weight-bold">improcessável</span>',
                         class_title: 'text-primary font-weight-normal',
                         message: 'Oops! Essa recurso não pode ser utilizando no momento atual.',
-                        background: 'https://s3.us-east-2.amazonaws.com/cdn-z1lab/template/front/2.0.1/svg/illustrations/error-404.svg',
+                        background: `${process.env.MIX_AWS_CDN_ENDPOINT}/images/undraw/undraw_warning_cyit.svg`,
                         redirect: 'https://tawk.to/chat/5b789d4dafc2c34e96e7b2ec/default'
                     },
                     500: {
                         title: '500 - Falha no <span class="font-weight-semi-bold">servidor</span>',
                         class_title: 'font-weight-normal text-danger',
                         message: 'Uma perturbação na força causou uma falha no nosso sistema.',
-                        background: 'https://s3.us-east-2.amazonaws.com/cdn-z1lab/images/undraw/purple/undraw_may_the_force.svg',
+                        background: `${process.env.MIX_AWS_CDN_ENDPOINT}/images/undraw/purple/undraw_may_the_force.svg`,
                         redirect: 'https://tawk.to/chat/5b789d4dafc2c34e96e7b2ec/default'
                     },
                     503: {
                         title: '503 - Nós estamos realizando alguns <span class="font-weight-semi-bold">ajustes</span>',
                         class_title: 'font-weight-normal text-danger',
                         message: 'Pedimos desculpas pela inconveniência mas o <strong>Tikket</strong> está passando por uma manuntenção programada.',
-                        background: 'https://s3.us-east-2.amazonaws.com/cdn-z1lab/template/front/2.0.1/svg/illustrations/maintenance-mode.svg',
+                        background: `${process.env.MIX_AWS_CDN_ENDPOINT}/template/front/2.0.1/svg/illustrations/maintenance-mode.svg`,
                         redirect: 'https://tawk.to/chat/5b789d4dafc2c34e96e7b2ec/default'
                     }
                 }

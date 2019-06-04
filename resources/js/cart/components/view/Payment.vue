@@ -1,260 +1,407 @@
 <template>
     <form>
         <div v-if="!cart.is_free">
-            <div v-if="checkDocument" class="mb-3">
-                <div class="alert alert-primary" role="alert">
-                    <h5 class="alert-heading">Precisamos dos seus dados básicos</h5>
-                    <hr>
-                    <p class="alert-text">
-                        São informações que irão completar seu perfil de usuário e são necessárias para completar o processo de compra. Não será necessário fornecê-los em compras futuras!
-                    </p>
-                </div>
+            <div class="row">
+                <div class="col-12">
+                    <div v-if="checkDocument" class="mb-3">
+                        <div class="alert alert-primary" role="alert">
+                            <h5 class="alert-heading">Precisamos dos seus dados básicos</h5>
+                            <hr>
+                            <p class="alert-text">
+                                São informações que irão completar seu perfil de usuário e são necessárias para completar o processo de compra. Não será necessário fornecê-los em compras futuras!
+                            </p>
+                        </div>
 
-                <div class="card card-frame card-frame-highlighted mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Dados básicos do comprador</h5>
+                        <div class="card card-frame card-frame-highlighted mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Dados básicos do comprador</h5>
 
-                        <div class="row">
-                            <div class="col-md-6 mb-2" :class="errors.has('document_costumer') ? 'u-has-error' : ''">
-                                <label class="form-label required">CPF</label>
+                                <div class="row">
+                                    <div class="col-md-6 mb-2" :class="errors.has('document_costumer') ? 'u-has-error' : ''">
+                                        <label class="form-label required">CPF</label>
 
-                                <the-mask class="form-control" type="text" name="document_costumer" id="document_costumer"
-                                          placeholder="000.000.000-00"
-                                          v-validate="'required|cpf'" data-vv-as="'CPF'"
-                                          mask="###.###.###-##" v-model="document_costumer">
-                                </the-mask>
+                                        <the-mask class="form-control" type="text" name="document_costumer" id="document_costumer"
+                                                  placeholder="000.000.000-00"
+                                                  v-validate="'required|cpf'" data-vv-as="'CPF'"
+                                                  mask="###.###.###-##" v-model="document_costumer">
+                                        </the-mask>
 
-                                <div v-show="errors.has('document_costumer')" class="invalid-feedback" style="display: block">
-                                    {{ errors.first('document_costumer') }}
-                                </div>
-                            </div>
+                                        <div v-show="errors.has('document_costumer')" class="invalid-feedback" style="display: block">
+                                            {{ errors.first('document_costumer') }}
+                                        </div>
+                                    </div>
 
-                            <div class="col-md-6 mb-2" :class="errors.has('phone_costumer') ? 'u-has-error' : ''">
-                                <label class="form-label required">Telefone</label>
+                                    <div class="col-md-6 mb-2" :class="errors.has('phone_costumer') ? 'u-has-error' : ''">
+                                        <label class="form-label required">Telefone</label>
 
-                                <the-mask class="form-control" type="text" name="phone_costumer" id="phone_costumer"
-                                          placeholder="(00) 00000-0000 ou (00) 0000-0000"
-                                          v-validate="'required|phone'" data-vv-as="'Telefone'"
-                                          :mask="['(##) ####-####', '(##) #####-####']" v-model="phone_costumer">
-                                </the-mask>
+                                        <the-mask class="form-control" type="text" name="phone_costumer" id="phone_costumer"
+                                                  placeholder="(00) 00000-0000 ou (00) 0000-0000"
+                                                  v-validate="'required|phone'" data-vv-as="'Telefone'"
+                                                  :mask="['(##) ####-####', '(##) #####-####']" v-model="phone_costumer">
+                                        </the-mask>
 
-                                <div v-show="errors.has('phone_costumer')" class="invalid-feedback" style="display: block">
-                                    {{ errors.first('phone_costumer') }}
+                                        <div v-show="errors.has('phone_costumer')" class="invalid-feedback" style="display: block">
+                                            {{ errors.first('phone_costumer') }}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div class="col-6">
+                    <div class="card card-frame card-frame-highlighted mb-4">
+                        <div class="card-body">
+                            <div class="card border-0">
+                                <div class="card-body p-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-10">
+                                            <div class="custom-control custom-radio d-flex align-items-center small">
+                                                <input type="radio" class="custom-control-input" id="credit-card" name="credit-card" value="credit_card" v-model="form_payment">
+                                                <label class="custom-control-label ml-1" for="credit-card">
+                                                    <span class="d-block font-size-1 font-weight-medium mb-1">Cartão de Crédito</span>
+                                                    <span class="d-block text-muted">Shipment may take 5-6 business days.</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 text-muted">
+                                            <i class="far fa-credit-card fa-2x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card card-frame card-frame-highlighted mb-4">
+                        <div class="card-body">
+                            <div class="card border-0">
+                                <div class="card-body p-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-10">
+                                            <div class="custom-control custom-radio d-flex align-items-center small">
+                                                <input type="radio" class="custom-control-input" id="boleto" name="boleto" value="boleto" v-model="form_payment">
+                                                <label class="custom-control-label ml-1" for="boleto">
+                                                    <span class="d-block font-size-1 font-weight-medium mb-1">Boleto</span>
+                                                    <span class="d-block text-muted">Shipment may take 5-6 business days.</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 text-muted">
+                                            <i class="fas fa-barcode fa-2x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12" v-if="form_payment === 'credit_card'">
+                    <div class="card card-frame card-frame-highlighted mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Pagamento por Cartão de Crédito</h5>
 
-            <div class="card card-frame card-frame-highlighted mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">Informações de pagamento</h5>
+                            <h6 class="card-title mt-4">Informações do cartão</h6>
 
-                    <div class="row">
-                        <div class="col-12 mb-2" :class="errors.has('card_number') ? 'u-has-error' : ''">
-                            <label class="form-label required">Número do Cartão</label>
+                            <div class="row">
+                                <div class="col-12 mb-2" :class="errors.has('card_number') ? 'u-has-error' : ''">
+                                    <label class="form-label required">Número do Cartão</label>
 
-                            <div class="input-group">
-                                <the-mask type="text" class="form-control" name="card_number" placeholder="**** **** **** ****"
-                                          v-model.lazy="card_number"
-                                          v-validate="'required|credit_card'" data-vv-as="'Número do Cartão'"
-                                          mask="#### #### #### ####"></the-mask>
-                                <div class="input-group-append" v-if="brand !== ''">
+                                    <div class="input-group">
+                                        <the-mask type="text" class="form-control" name="card_number" placeholder="**** **** **** ****"
+                                                  v-model.lazy="card_number"
+                                                  v-validate="'required|credit_card'" data-vv-as="'Número do Cartão'"
+                                                  mask="#### #### #### ####"></the-mask>
+                                        <div class="input-group-append" v-if="brand !== ''">
                                 <span class="input-group-text">
                                     <img :src="imgBrand" width="42" height="20" :alt="brand"/>
                                 </span>
+                                        </div>
+                                    </div>
+
+                                    <div v-show="errors.has('card_number')" class="invalid-feedback" style="display: block">
+                                        {{ errors.first('card_number') }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-2" :class="errors.has('installment') ? 'u-has-error' : ''">
+                                    <label for="installment" class="form-label required">Opções de pagamento</label>
+
+                                    <select id="installment" class="custom-select" aria-invalid="false" name="installment" v-model="installment" v-validate="'required'"
+                                            :data-vv-as="'Opções de pagamento'">
+                                        <option value="" selected="">Selecione uma das opções de pagamento</option>
+                                        <option v-for="option in installments" :value="option">
+                                            {{`${option.quantity}x de `}} {{option.installmentAmount | currency}} ({{option.totalAmount | currency}})
+                                        </option>
+                                    </select>
+
+                                    <div v-show="errors.has('installment')" class="invalid-feedback" style="display: block">
+                                        {{ errors.first('installment') }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 mb-2" :class="errors.has('card_expiration_date') ? 'u-has-error' : ''">
+                                    <label class="form-label required">Data de Expiração</label>
+
+                                    <the-mask type="text" class="form-control" name="card_expiration_date" placeholder="MM/YYYY"
+                                              v-model="card_expiration_date"
+                                              v-validate="'required'" data-vv-as="'Data de Expiração'" mask="##/####"
+                                              :masked="true"></the-mask>
+
+                                    <div v-show="errors.has('card_expiration_date')" class="invalid-feedback"
+                                         style="display: block">
+                                        {{ errors.first('card_expiration_date') }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 mb-2" :class="errors.has('card_cvv') ? 'u-has-error' : ''">
+                                    <label class="form-label required">CVV</label>
+
+                                    <input type="text" class="form-control" name="card_cvv" placeholder="***" v-model="card_cvv"
+                                           v-validate="'required|numeric|length:3'" data-vv-as="'CVV'">
+
+                                    <div v-show="errors.has('card_cvv')" class="invalid-feedback" style="display: block">
+                                        {{ errors.first('card_cvv') }}
+                                    </div>
                                 </div>
                             </div>
 
-                            <div v-show="errors.has('card_number')" class="invalid-feedback" style="display: block">
-                                {{ errors.first('card_number') }}
+                            <h6 class="card-title mt-4">Informações do titular</h6>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-2" :class="errors.has('card_holder') ? 'u-has-error' : ''">
+                                    <label class="form-label required">Nome do Titular</label>
+
+                                    <input type="text" class="form-control" name="card_holder" placeholder="Jack Wayley"
+                                           v-model="card_holder" v-validate="'required'" data-vv-as="'Nome do Titular'">
+
+                                    <div v-show="errors.has('card_holder')" class="invalid-feedback" style="display: block">
+                                        {{ errors.first('card_holder') }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-2" :class="errors.has('document') ? 'u-has-error' : ''">
+                                    <label class="form-label required">CPF</label>
+
+                                    <the-mask class="form-control" type="text" name="document" id="document"
+                                              placeholder="000.000.000-00"
+                                              v-validate="'required|cpf'" data-vv-as="'CPF'"
+                                              mask="###.###.###-##" v-model="document">
+                                    </the-mask>
+
+                                    <div v-show="errors.has('document')" class="invalid-feedback" style="display: block">
+                                        {{ errors.first('document') }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-2" :class="errors.has('phone') ? 'u-has-error' : ''">
+                                    <label class="form-label required">Telefone</label>
+
+                                    <the-mask class="form-control" type="text" name="phone" id="phone"
+                                              placeholder="(00) 00000-0000 ou (00) 0000-0000"
+                                              v-validate="'required|phone'" data-vv-as="'Telefone'"
+                                              :mask="['(##) ####-####', '(##) #####-####']" v-model="phone">
+                                    </the-mask>
+
+                                    <div v-show="errors.has('phone')" class="invalid-feedback" style="display: block">
+                                        {{ errors.first('phone') }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-2" :class="errors.has('birth_date') ? 'u-has-error' : ''">
+                                    <label class="form-label required">Data de Nascimento</label>
+
+                                    <the-mask class="form-control" type="text" name="birth_date" id="birth_date"
+                                              placeholder="DD/MM/AAAA" v-validate="'required|date_format:dd/MM/yyyy|legal_age'" data-vv-as="Data de Nascimento" :masked="true"
+                                              :mask="'##/##/####'" v-model="birth_date">
+                                    </the-mask>
+
+                                    <div v-show="errors.has('birth_date')" class="invalid-feedback" style="display: block">
+                                        {{ errors.first('birth_date') }}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-md-6 mb-2" :class="errors.has('installment') ? 'u-has-error' : ''">
-                            <label for="installment" class="form-label required">Opções de pagamento</label>
+                            <h6 class="card-title mt-4 mb-0">Endereço de cobrança</h6>
 
-                            <select id="installment" class="custom-select" aria-invalid="false" name="installment" v-model="installment" v-validate="'required'"
-                                    :data-vv-as="'Opções de pagamento'">
-                                <option value="" selected="">Selecione uma das opções de pagamento</option>
-                                <option v-for="option in installments" :value="option">
-                                    {{`${option.quantity}x de `}} {{option.installmentAmount | currency}} ({{option.totalAmount | currency}})
-                                </option>
-                            </select>
+                            <p class="mb-2">
+                                <small>
+                                    Insira seu CEP para pesquisarmos o endereço.
+                                    <a class="text-primary" href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank">
+                                        <i class="fas fa-external-link-alt"></i> Não sei o meu CEP
+                                    </a>
+                                </small>
+                            </p>
 
-                            <div v-show="errors.has('installment')" class="invalid-feedback" style="display: block">
-                                {{ errors.first('installment') }}
+                            <div class="row">
+                                <div class="col-md-4 mb-2" :class="errors.has('cep') ? 'u-has-error' : ''">
+                                    <label class="form-label required">CEP</label>
+
+                                    <the-mask class="form-control" type="text" name="cep" id="cep"
+                                              placeholder="00000-000"
+                                              v-validate="'required|cep'" data-vv-as="'CEP'" mask="#####-###" v-model.lazy="cep">
+                                    </the-mask>
+                                    <div v-show="errors.has('cep')" class="invalid-feedback" style="display: block">
+                                        {{errors.first('cep') }}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-md-3 mb-2" :class="errors.has('card_expiration_date') ? 'u-has-error' : ''">
-                            <label class="form-label required">Data de Expiração</label>
+                            <div class="row" v-if="completeAddress">
+                                <div class="col-md-9 mb-2" :class="errors.has('street') ? 'u-has-error' : ''">
+                                    <label class="form-label required">Logradouro</label>
 
-                            <the-mask type="text" class="form-control" name="card_expiration_date" placeholder="MM/YYYY"
-                                      v-model="card_expiration_date"
-                                      v-validate="'required'" data-vv-as="'Data de Expiração'" mask="##/####"
-                                      :masked="true"></the-mask>
+                                    <input class="form-control" type="text" name="street" id="street"
+                                           placeholder="Nome da rua"
+                                           v-model="street" data-vv-as="'Logradouro'" v-validate="'required'">
 
-                            <div v-show="errors.has('card_expiration_date')" class="invalid-feedback"
-                                 style="display: block">
-                                {{ errors.first('card_expiration_date') }}
-                            </div>
-                        </div>
+                                    <div v-show="errors.has('street')" class="invalid-feedback" style="display: block">
+                                        {{ errors.first('street') }}
+                                    </div>
+                                </div>
 
-                        <div class="col-md-3 mb-2" :class="errors.has('card_cvv') ? 'u-has-error' : ''">
-                            <label class="form-label required">CVV</label>
+                                <div class="col-md-3 mb-2" :class="errors.has('number') ? 'u-has-error' : ''">
+                                    <label class="form-label required">Número</label>
 
-                            <input type="text" class="form-control" name="card_cvv" placeholder="***" v-model="card_cvv"
-                                   v-validate="'required|numeric|length:3'" data-vv-as="'CVV'">
+                                    <input class="form-control" type="number" name="number" placeholder="Ex: 55"
+                                           v-model="number" data-vv-as="'Número'" v-validate="'required'">
 
-                            <div v-show="errors.has('card_cvv')" class="invalid-feedback" style="display: block">
-                                {{ errors.first('card_cvv') }}
+                                    <div v-show="errors.has('number')" class="invalid-feedback" style="display: block">
+                                        {{ errors.first('number') }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-2" :class="errors.has('district') ? 'u-has-error' : ''">
+                                    <label class="form-label required">Bairro</label>
+
+                                    <input class="form-control" type="text" name="district" id="district"
+                                           placeholder="Nome do Bairro"
+                                           v-model="district" data-vv-as="'Bairro'" v-validate="'required'">
+
+                                    <div v-show="errors.has('district')" class="invalid-feedback" style="display: block">
+                                        {{ errors.first('district') }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-2" :class="errors.has('complement') ? 'u-has-error' : ''">
+                                    <label class="form-label">Complemento</label>
+
+                                    <input class="form-control" type="text" name="complement" id="complement" placeholder="Ex: Casa, Loja 01..." v-model="complement">
+
+                                    <div v-show="errors.has('complement')" class="invalid-feedback" style="display: block">
+                                        {{ errors.first('complement') }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-2">
+                                    <label class="form-label required" for="state">Estado</label>
+                                    <input type="text" class="form-control disabled" id="state" readonly disabled name="state" v-model="state">
+                                </div>
+
+                                <div class="col-md-6 mb-2">
+                                    <label class="form-label required" for="city">Cidade</label>
+                                    <input type="text" class="form-control disabled" id="city" readonly disabled name="city" v-model="city">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div class="col-12" v-if="form_payment === 'boleto'">
+                    <div class="card card-frame card-frame-highlighted mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Pagamento por Boleto</h5>
 
-            <div class="card card-frame card-frame-highlighted mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">Dados do titular do cartão</h5>
-
-                    <div class="row">
-                        <div class="col-md-6 mb-2" :class="errors.has('card_holder') ? 'u-has-error' : ''">
-                            <label class="form-label required">Nome do Titular</label>
-
-                            <input type="text" class="form-control" name="card_holder" placeholder="Jack Wayley"
-                                   v-model="card_holder" v-validate="'required'" data-vv-as="'Nome do Titular'">
-
-                            <div v-show="errors.has('card_holder')" class="invalid-feedback" style="display: block">
-                                {{ errors.first('card_holder') }}
+                            <div class="alert alert-success" role="alert">
+                                <h4 class="alert-heading">Informações sobre o Boleto</h4>
+                                <p class="alert-text">Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                                <hr />
+                                <p class="alert-text mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
                             </div>
-                        </div>
 
-                        <div class="col-md-6 mb-2" :class="errors.has('document') ? 'u-has-error' : ''">
-                            <label class="form-label required">CPF</label>
+                            <div v-if="checkAddress">
+                                <h6 class="card-title mt-4 mb-0">Endereço de cobrança</h6>
 
-                            <the-mask class="form-control" type="text" name="document" id="document"
-                                      placeholder="000.000.000-00"
-                                      v-validate="'required|cpf'" data-vv-as="'CPF'"
-                                      mask="###.###.###-##" v-model="document">
-                            </the-mask>
+                                <p class="mb-2">
+                                    <small>
+                                        Insira seu CEP para pesquisarmos o endereço.
+                                        <a class="text-primary" href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i> Não sei o meu CEP
+                                        </a>
+                                    </small>
+                                </p>
 
-                            <div v-show="errors.has('document')" class="invalid-feedback" style="display: block">
-                                {{ errors.first('document') }}
+                                <div class="row">
+                                    <div class="col-md-4 mb-2" :class="errors.has('cep') ? 'u-has-error' : ''">
+                                        <label class="form-label required">CEP</label>
+
+                                        <the-mask class="form-control" type="text" name="cep" id="cep"
+                                                  placeholder="00000-000"
+                                                  v-validate="'required|cep'" data-vv-as="'CEP'" mask="#####-###" v-model.lazy="cep">
+                                        </the-mask>
+                                        <div v-show="errors.has('cep')" class="invalid-feedback" style="display: block">
+                                            {{errors.first('cep') }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" v-if="completeAddress">
+                                    <div class="col-md-9 mb-2" :class="errors.has('street') ? 'u-has-error' : ''">
+                                        <label class="form-label required">Logradouro</label>
+
+                                        <input class="form-control" type="text" name="street" id="street"
+                                               placeholder="Nome da rua"
+                                               v-model="street" data-vv-as="'Logradouro'" v-validate="'required'">
+
+                                        <div v-show="errors.has('street')" class="invalid-feedback" style="display: block">
+                                            {{ errors.first('street') }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 mb-2" :class="errors.has('number') ? 'u-has-error' : ''">
+                                        <label class="form-label required">Número</label>
+
+                                        <input class="form-control" type="number" name="number" placeholder="Ex: 55"
+                                               v-model="number" data-vv-as="'Número'" v-validate="'required'">
+
+                                        <div v-show="errors.has('number')" class="invalid-feedback" style="display: block">
+                                            {{ errors.first('number') }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-2" :class="errors.has('district') ? 'u-has-error' : ''">
+                                        <label class="form-label required">Bairro</label>
+
+                                        <input class="form-control" type="text" name="district" id="district"
+                                               placeholder="Nome do Bairro"
+                                               v-model="district" data-vv-as="'Bairro'" v-validate="'required'">
+
+                                        <div v-show="errors.has('district')" class="invalid-feedback" style="display: block">
+                                            {{ errors.first('district') }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-2" :class="errors.has('complement') ? 'u-has-error' : ''">
+                                        <label class="form-label">Complemento</label>
+
+                                        <input class="form-control" type="text" name="complement" id="complement" placeholder="Ex: Casa, Loja 01..." v-model="complement">
+
+                                        <div v-show="errors.has('complement')" class="invalid-feedback" style="display: block">
+                                            {{ errors.first('complement') }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label required" for="state">Estado</label>
+                                        <input type="text" class="form-control disabled" id="state" readonly disabled name="state" v-model="state">
+                                    </div>
+
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label required" for="city">Cidade</label>
+                                        <input type="text" class="form-control disabled" id="city" readonly disabled name="city" v-model="city">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-md-6 mb-2" :class="errors.has('phone') ? 'u-has-error' : ''">
-                            <label class="form-label required">Telefone</label>
-
-                            <the-mask class="form-control" type="text" name="phone" id="phone"
-                                      placeholder="(00) 00000-0000 ou (00) 0000-0000"
-                                      v-validate="'required|phone'" data-vv-as="'Telefone'"
-                                      :mask="['(##) ####-####', '(##) #####-####']" v-model="phone">
-                            </the-mask>
-
-                            <div v-show="errors.has('phone')" class="invalid-feedback" style="display: block">
-                                {{ errors.first('phone') }}
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mb-2" :class="errors.has('birth_date') ? 'u-has-error' : ''">
-                            <label class="form-label required">Data de Nascimento</label>
-
-                            <the-mask class="form-control" type="text" name="birth_date" id="birth_date"
-                                      placeholder="DD/MM/AAAA" v-validate="'required|date_format:dd/MM/yyyy|legal_age'" data-vv-as="Data de Nascimento" :masked="true"
-                                      :mask="'##/##/####'" v-model="birth_date">
-                            </the-mask>
-
-                            <div v-show="errors.has('birth_date')" class="invalid-feedback" style="display: block">
-                                {{ errors.first('birth_date') }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-frame card-frame-highlighted mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">Endereço de cobrança</h5>
-
-                    <h6 class="card-subtitle mb-2">
-                        Insira seu CEP para pesquisarmos o endereço.
-                        <a class="text-primary" href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Não sei o meu CEP
-                        </a>
-                    </h6>
-
-                    <div class="row">
-                        <div class="col-md-4 mb-2" :class="errors.has('cep') ? 'u-has-error' : ''">
-                            <label class="form-label required">CEP</label>
-
-                            <the-mask class="form-control" type="text" name="cep" id="cep"
-                                      placeholder="00000-000"
-                                      v-validate="'required|cep'" data-vv-as="'CEP'" mask="#####-###" v-model.lazy="cep">
-                            </the-mask>
-                            <div v-show="errors.has('cep')" class="invalid-feedback" style="display: block">
-                                {{errors.first('cep') }}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row" v-if="completeAddress">
-                        <div class="col-md-9 mb-2" :class="errors.has('street') ? 'u-has-error' : ''">
-                            <label class="form-label required">Logradouro</label>
-
-                            <input class="form-control" type="text" name="street" id="street"
-                                   placeholder="Nome da rua"
-                                   v-model="street" data-vv-as="'Logradouro'" v-validate="'required'">
-
-                            <div v-show="errors.has('street')" class="invalid-feedback" style="display: block">
-                                {{ errors.first('street') }}
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mb-2" :class="errors.has('number') ? 'u-has-error' : ''">
-                            <label class="form-label required">Número</label>
-
-                            <input class="form-control" type="number" name="number" placeholder="Ex: 55"
-                                   v-model="number" data-vv-as="'Número'" v-validate="'required'">
-
-                            <div v-show="errors.has('number')" class="invalid-feedback" style="display: block">
-                                {{ errors.first('number') }}
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mb-2" :class="errors.has('district') ? 'u-has-error' : ''">
-                            <label class="form-label required">Bairro</label>
-
-                            <input class="form-control" type="text" name="district" id="district"
-                                   placeholder="Nome do Bairro"
-                                   v-model="district" data-vv-as="'Bairro'" v-validate="'required'">
-
-                            <div v-show="errors.has('district')" class="invalid-feedback" style="display: block">
-                                {{ errors.first('district') }}
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mb-2" :class="errors.has('complement') ? 'u-has-error' : ''">
-                            <label class="form-label">Complemento</label>
-
-                            <input class="form-control" type="text" name="complement" id="complement" placeholder="Ex: Casa, Loja 01..." v-model="complement">
-
-                            <div v-show="errors.has('complement')" class="invalid-feedback" style="display: block">
-                                {{ errors.first('complement') }}
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mb-2">
-                            <label class="form-label required" for="state">Estado</label>
-                            <input type="text" class="form-control disabled" id="state" readonly disabled name="state" v-model="state">
-                        </div>
-
-                        <div class="col-md-6 mb-2">
-                            <label class="form-label required" for="city">Cidade</label>
-                            <input type="text" class="form-control disabled" id="city" readonly disabled name="city" v-model="city">
                         </div>
                     </div>
                 </div>
@@ -314,6 +461,7 @@
         },
         data: () => ({
             date_base: moment().endOf('day').subtract(18, 'years').format('DD/MM/YYYY'),
+            form_payment: 'credit_card',
             installments: {},
             installment: {},
             brand: '',
@@ -348,6 +496,9 @@
             },
             checkDocument() {
                 return _.isEmpty(this.user.document)
+            },
+            checkAddress() {
+                return _.isEmpty(this.user.address)
             }
         },
         watch: {
@@ -407,6 +558,8 @@
                 this.$validator.validateAll().then(
                     async res => {
                         if (res) {
+                            let data = {}
+
                             this.changeLoading(true)
 
                             await createCardToken(this.card_number, this.brand, this.card_cvv, this.card_expiration_date).then(
@@ -423,43 +576,66 @@
 
                             if (_.isNull(this.token) || _.isNull(this.hash)) return
 
-                            let data = {
-                                callback: 'conclusion',
-                                hash: this.hash,
-                                costumer: {
-                                    document: this.document_costumer,
-                                    phone: this.phone_costumer
-                                },
-                                card: {
-                                    brand: this.brand,
-                                    number: this.card_number.substr(-4),
-                                    token: this.token,
-                                    installments: this.installment.quantity,
-                                    parcel: this.installment.installmentAmount,
-                                    holder: {
-                                        phone: this.phone,
-                                        name: this.card_holder,
-                                        document: this.document,
-                                        birth_date: moment(this.birth_date, 'DD/MM/YYYY').format('YYYY-MM-DD'),
-                                        address: {
-                                            street: this.street,
-                                            number: this.number,
-                                            complement: this.complement,
-                                            district: this.district,
-                                            postal_code: this.cep,
-                                            city: this.city,
-                                            state: this.state
+                            if (this.form_payment === 'credit_card') {
+                                data = {
+                                    callback: 'conclusion',
+                                    hash: this.hash,
+                                    type: this.form_payment,
+                                    costumer: {
+                                        document: this.document_costumer,
+                                        phone: this.phone_costumer
+                                    },
+                                    address: {
+                                        street: this.street,
+                                        number: this.number,
+                                        complement: this.complement,
+                                        district: this.district,
+                                        postal_code: this.cep,
+                                        city: this.city,
+                                        state: this.state
+                                    },
+                                    card: {
+                                        brand: this.brand,
+                                        number: this.card_number.substr(-4),
+                                        token: this.token,
+                                        installments: this.installment.quantity,
+                                        parcel: this.installment.installmentAmount,
+                                        holder: {
+                                            phone: this.phone,
+                                            name: this.card_holder,
+                                            document: this.document,
+                                            birth_date: moment(this.birth_date, 'DD/MM/YYYY').format('YYYY-MM-DD')
                                         }
-                                    }
-                                },
-                                _method: 'PATCH'
+                                    },
+                                    _method: 'PATCH'
+                                }
+                            } else if (this.form_payment === 'boleto') {
+                                data = {
+                                    callback: 'conclusion',
+                                    hash: this.hash,
+                                    type: this.form_payment,
+                                    costumer: {
+                                        document: this.document_costumer,
+                                        phone: this.phone_costumer
+                                    },
+                                    address: {
+                                        street: this.street,
+                                        number: this.number,
+                                        complement: this.complement,
+                                        district: this.district,
+                                        postal_code: this.cep,
+                                        city: this.city,
+                                        state: this.state
+                                    },
+                                    _method: 'PATCH'
+                                }
                             }
 
                             if (this.user.document) {
                                 delete data.costumer
                             }
 
-                            await sendAPIPOST(`${process.env.MIX_API_VERSION_ENDPOINT}/carts/${this.cart.id}/card`, data).then(
+                            await sendAPIPOST(`${process.env.MIX_API_VERSION_ENDPOINT}/carts/${this.cart.id}/payment`, data).then(
                                 async response => {
                                     await this.changeCart(response.data.data)
 
