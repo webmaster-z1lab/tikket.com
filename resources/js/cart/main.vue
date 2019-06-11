@@ -3,7 +3,7 @@
         <loading-component :is-loading="isLoading"></loading-component>
 
         <component :is="layout">
-            <router-view v-if="!isLoading"/>
+            <router-view/>
         </component>
     </div>
 </template>
@@ -69,6 +69,7 @@
                             await this.changeCart(response.data)
                             new LocalStorage('cart__').setItem('user', response.data, moment(response.data.attributes.expires_at).diff(moment(), 'seconds'))
 
+                            console.log(response.data.attributes.callback)
                             this.changeLoading(false)
                             this.$router.push({name: response.data.attributes.callback})
                         } else {

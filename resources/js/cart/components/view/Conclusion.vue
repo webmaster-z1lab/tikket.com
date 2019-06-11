@@ -33,20 +33,20 @@
         <div class="row justify-content-md-between mb-7">
             <div class="col-md-5 col-lg-4">
                 <h3 class="h5">Comprador:</h3>
-                <span class="d-block">{{order.attributes.costumer.name}}</span>
-                <span class="text-secondary mb-0">{{order.attributes.costumer.document}}</span>
-                <span class="text-secondary text-truncate mb-0">{{order.attributes.costumer.email}}</span>
-                <span class="text-secondary mb-0">{{order.attributes.costumer.phone.formatted}}</span>
+                <span class="d-block">{{order.attributes.customer.name}}</span>
+                <span class="text-secondary mb-0">{{order.attributes.customer.document}}</span>
+                <span class="text-secondary text-truncate mb-0">{{order.attributes.customer.email}}</span>
+                <span class="text-secondary mb-0">{{order.attributes.customer.phone.formatted}}</span>
             </div>
 
-            <div class="col-md-5 col-lg-4 mt-4 mt-sm-0">
-                <h3 class="h5">Forma de pagamento:</h3>
+            <!--<div class="col-md-5 col-lg-4 mt-4 mt-sm-0">-->
+                <!--<h3 class="h5">Forma de pagamento:</h3>-->
 
-                <span class="d-block text-uppercase">CC {{ order.attributes.card.brand }}</span>
-                <span class="d-block text-uppercase">**** **** **** {{ order.attributes.card.number }}</span>
-                <span class="text-secondary mb-0 d-block">{{ order.attributes.card.holder.name }}</span>
-                <span class="text-secondary mb-0 d-block">{{ order.attributes.card.installments }}x de {{(order.attributes.card.parcel / 100) | currency }}</span>
-            </div>
+                <!--<span class="d-block text-uppercase">CC {{ order.attributes.card.brand }}</span>-->
+                <!--<span class="d-block text-uppercase">**** **** **** {{ order.attributes.card.number }}</span>-->
+                <!--<span class="text-secondary mb-0 d-block">{{ order.attributes.card.holder.name }}</span>-->
+                <!--<span class="text-secondary mb-0 d-block">{{ order.attributes.card.installments }}x de {{(order.attributes.card.parcel / 100) | currency }}</span>-->
+            <!--</div>-->
         </div>
 
         <div class="text-center mb-4">
@@ -99,7 +99,20 @@
     export default {
         name: "Conclusion",
         data: () => ({
-            order: {}
+            order: {
+                id: '1',
+                types: '',
+                attributes: {
+                    event: {},
+                    customer: {
+                        phone: {}
+                    },
+                    tickets: {},
+                    boleto: {},
+                    card: {}
+                },
+                relationships: []
+            }
         }),
         computed: {
             now() {
@@ -132,6 +145,11 @@
             this.changeLoading(false)
 
             this.order = new LocalStorage('order__').getItem('user')
+
+            Echo.private(`orders.${this.order.id}`)
+                .listen('.Modules\\Order\\Events\\ReadyBoleto', ($order) => {
+                    console.log($order)
+                });
         }
     }
 </script>

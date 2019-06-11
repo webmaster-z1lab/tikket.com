@@ -1,6 +1,6 @@
 <template>
     <div class="container space-1 space-sm-3" id="printable">
-        <div class="card bg-img-hero" :style="`background-image: url(${'template/front/2.0.1/svg/components/bg-elements-6.svg' | aws_url});`">
+        <div class="card bg-img-hero" :style="`background-image: url(${urlImg});`">
             <slot />
         </div>
 
@@ -35,6 +35,11 @@
 
 <script>
     export default {
-        name: 'LayoutInvoice'
+        name: 'LayoutInvoice',
+        computed: {
+            urlImg() {
+                return `${process.env.MIX_AWS_CDN_ENDPOINT}/template/front/2.0.1/svg/components/bg-elements-6.svg`
+            }
+        }
     }
 </script>

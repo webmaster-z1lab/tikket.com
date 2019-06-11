@@ -49,7 +49,7 @@
                         title: 'Página não <span class="font-weight-bold">encontrada</span>',
                         class_title: 'text-primary font-weight-normal',
                         message: 'Oops! Você está em um link que não existe.',
-                        background: `${process.env.MIX_AWS_CDN_ENDPOINT}/images/undraw/undraw_page_not_found_su7k.svg`,
+                        background: `${process.env.MIX_AWS_CDN_ENDPOINT}/template/front/2.0.1/svg/illustrations/error-404.svg`,
                         redirect: 'https://tawk.to/chat/5b789d4dafc2c34e96e7b2ec/default'
                     },
                     405: {

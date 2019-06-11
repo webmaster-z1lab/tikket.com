@@ -7,8 +7,5 @@ export default {
     },
     setUser(context, payload) {
         context.commit('SET_USER', payload)
-    },
-    setInstallment(context, payload) {
-        context.commit('SET_INSTALLMENT', payload)
     }
 }

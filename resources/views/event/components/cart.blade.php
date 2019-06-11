@@ -1,7 +1,7 @@
 <div class="container space-bottom-2">
     <form id="shop">
         <input type="hidden" name="event" value="{{ $id }}">
-        <input type="hidden" name="callback" value="{{ route('cart') }}">
+        <input type="hidden" name="callback" value="information">
 
         <div class="d-none d-sm-block mb-4 border-bottom">
             <div class="row">
@@ -33,7 +33,8 @@
                     <hr>
 
                     <p class="alert-text">
-                        <i class="far fa-comments"></i> Para obter ajuda fale com a gente utilizando um dos nossos <a class="text-danger" href="{{ route('contact') }}">canais de contato.</a>
+                        <i class="far fa-comments"></i> Para obter ajuda fale com a gente utilizando um dos nossos
+                        <a class="text-danger" href="{{ route('contact') }}">canais de contato.</a>
                     </p>
 
                     <h6>DETALHES DO ERRO</h6>
