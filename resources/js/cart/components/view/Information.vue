@@ -58,7 +58,7 @@
         </div>
 
         <div class="d-flex justify-content-between align-items-center">
-            <a :href="'evento/' + cart.relationships.event.attributes.url" class="btn btn-secondary btn-wide transition-3d-hover">
+            <a :href="'/evento/' + cart.relationships.event.attributes.url" class="btn btn-secondary btn-wide transition-3d-hover">
                 <i class="fas fa-home mr-1"></i> Cancelar
             </a>
             <button type="button" class="btn btn-primary btn-wide transition-3d-hover" @click="submitTickets">

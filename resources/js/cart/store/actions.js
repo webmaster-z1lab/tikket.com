@@ -7,5 +7,8 @@ export default {
     },
     setUser(context, payload) {
         context.commit('SET_USER', payload)
-    }
+    },
+    changeBill(context, payload) {
+        context.commit('CHANGE_BILL', payload)
+    },
 }

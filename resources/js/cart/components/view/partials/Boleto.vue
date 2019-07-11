@@ -5,10 +5,10 @@
                 <h5 class="card-title">Pagamento por Boleto</h5>
 
                 <div class="alert alert-success" role="alert">
-                    <h4 class="alert-heading">Informações sobre o Boleto</h4>
-                    <p class="alert-text">Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                    <h4 class="alert-heading">Informações sobre o boleto</h4>
+                    <p class="alert-text">As compras realizadas por boleto recebem um <strong>acréscimo de de R$ 1,00 (um real)</strong>. Esse adicional corresponde a taxa de gestão de risco do meio de pagamento cobrada pelo PagSeguro que é atualmente nosso provedor de pagamentos. Essa taxa não é reembolsável.</p>
                     <hr />
-                    <p class="alert-text mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                    <p class="alert-text mb-0">Caso tenha dúvidas sobre como realizamos o extorno das nossas transações <a href="/politica-de-reembolso">consulte nossa política de reembolso</a>.</p>
                 </div>
 
                 <data-address :data="address" v-if="checkAddress"/>

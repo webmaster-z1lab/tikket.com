@@ -2,7 +2,7 @@
     <form>
         <div v-if="cart.is_free">
             <div class="alert alert-primary" role="alert">
-                <h5 class="alert-heading">Carrinho Grátis</h5>
+                <h5 class="alert-heading">Compra Gratuita</h5>
                 <hr>
                 <p class="alert-text">
                     Verificamos que os items em seu carrinho são gratuitos ou você adicionou um cupom com um desconto muito especial!
@@ -36,10 +36,11 @@
                                                 <input type="radio" class="custom-control-input" id="credit-card" name="credit-card" value="credit_card" v-model="form_payment">
                                                 <label class="custom-control-label ml-1" for="credit-card">
                                                     <span class="d-block font-size-1 font-weight-medium mb-1">Cartão de Crédito</span>
-                                                    <span class="d-block text-muted">Shipment may take 5-6 business days.</span>
+                                                    <span class="d-block text-muted">Confirmação do pagamento em algumas horas.</span>
                                                 </label>
                                             </div>
                                         </div>
+
                                         <div class="col-2 text-muted">
                                             <i class="far fa-credit-card fa-2x"></i>
                                         </div>
@@ -61,7 +62,7 @@
                                                 <input type="radio" class="custom-control-input" id="boleto" name="boleto" value="boleto" v-model="form_payment">
                                                 <label class="custom-control-label ml-1" for="boleto">
                                                     <span class="d-block font-size-1 font-weight-medium mb-1">Boleto</span>
-                                                    <span class="d-block text-muted">Shipment may take 5-6 business days.</span>
+                                                    <span class="d-block text-muted">Confirmação do pagamento em até 3 dias úteis.</span>
                                                 </label>
                                             </div>
                                         </div>
@@ -121,6 +122,7 @@
                     boleto: 'boleto'
                 }
 
+                this.changeBill(0)
                 this.component = arr[value]
             }
         },
@@ -134,7 +136,7 @@
             }
         },
         methods: {
-            ...mapActions(['changeLoading', 'changeCart']),
+            ...mapActions(['changeLoading', 'changeCart', 'changeBill']),
             conclusionCart() {
                 this.changeLoading(true)
 

@@ -7,5 +7,6 @@ export default {
     user: {
         attributes: {},
         relationships: {}
-    }
+    },
+    bill: 0
 }

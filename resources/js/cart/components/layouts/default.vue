@@ -59,7 +59,7 @@
                         <div class="media align-items-center mb-2">
                             <h3 class="h6 text-secondary mr-3">Subtotal</h3>
                             <div class="media-body text-right">
-                                <span v-if="cart.attributes.fee_is_hidden">{{ ((cart.attributes.amount + cart.attributes.fee) / 100) | currency }}</span>
+                                <span v-if="cart.attributes.fee_is_hidden">{{ ((cart.attributes.amount) / 100) | currency }}</span>
                                 <span v-else>{{cart.attributes.amount / 100 | currency}}</span>
                             </div>
                         </div>
@@ -69,6 +69,13 @@
                             <div class="media-body text-right">
                                 <span class="text-danger" v-if="cart.attributes.discount > 0">- {{(cart.attributes.discount / 100) | currency}}</span>
                                 <span v-else>{{0 | currency}}</span>
+                            </div>
+                        </div>
+
+                        <div class="media align-items-center mb-2" v-if="getExtraAmount() > 0">
+                            <h3 class="h6 text-secondary mr-3">Acréscimos</h3>
+                            <div class="media-body text-right">
+                                <span class="text-danger">+ {{(getExtraAmount() / 100) | currency}}</span>
                             </div>
                         </div>
 
@@ -180,7 +187,7 @@
         computed: {
             ...mapState({
                 cart: state => state.cart,
-                installment: state => state.installment
+                bill: state => state.bill
             }),
             groupTickets() {
                 return _.groupBy(this.cart.attributes.tickets, 'entrance_id')
@@ -189,15 +196,16 @@
         methods: {
             ...mapActions(['changeCart', 'changeLoading']),
             amount(){
-                let amount = 0
-
-                if (_.isEmpty(this.installment)){
-                    amount = ((this.cart.attributes.amount + this.cart.attributes.fee - this.cart.attributes.discount) / 100)
-                } else {
-                    amount = this.installment.totalAmount
+                if (this.bill === 0){
+                    return ((this.cart.attributes.amount - this.cart.attributes.discount) / 100)
                 }
 
-                return amount
+                return this.bill
+            },
+            getExtraAmount() {
+                if (this.bill === 0) return 0
+
+                return Math.floor(this.bill * 100) - this.cart.attributes.amount - this.cart.attributes.discount
             },
             classActive(name, key) {
                 let active = collect(this.menu_form[name].routes).filter((value, key) => value === this.$route.name).all()
