@@ -73,9 +73,12 @@
                         </div>
 
                         <div class="media align-items-center mb-2" v-if="getExtraAmount() > 0">
-                            <h3 class="h6 text-secondary mr-3">Acréscimos</h3>
+                            <h3 class="h6 text-secondary mr-3">
+                                Acréscimos<br>
+                                <small>(Parcelamento: + 2,99% a/m)</small>
+                            </h3>
                             <div class="media-body text-right">
-                                <span class="text-danger">+ {{(getExtraAmount() / 100) | currency}}</span>
+                                <span class="text-primary">+ {{(getExtraAmount() / 100) | currency}}</span>
                             </div>
                         </div>
 

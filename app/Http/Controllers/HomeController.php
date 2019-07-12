@@ -71,7 +71,7 @@ class HomeController extends Controller
      */
     public function cart(): View
     {
-        \Meta::set('title', 'Carrinho');
+        \Meta::set('title', 'Carrinho de compras');
 
         return view('cart.index');
     }

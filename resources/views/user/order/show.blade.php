@@ -30,22 +30,31 @@
         <div class="card card-frame-highlighted">
             <div class="card-body">
                 <div class="row justify-content-md-between mb-7">
-                    <div class="col-md-5 col-lg-4">
+                    <div class="col-md-6">
                         <h3 class="h5">Comprador:</h3>
-                        <span class="d-block">{{ $order->costumer->name }}</span>
-                        <span class="text-secondary mb-0 d-block">{{ $order->costumer->email }}</span>
-                        <span class="text-secondary mb-0 d-block">{{ $order->costumer->document }} <i class="fas fa-info-circle ml-1" data-toggle="tooltip"
-                                                                                                      title="Dados ocultados por segurança"></i></span>
-                        <span class="text-secondary mb-0 d-block">{{ $order->costumer->phone->formatted }}</span>
+                        <span class="d-block">{{ $order->customer->name }}</span>
+                        <span class="text-secondary mb-0 d-block">{{ $order->customer->email }}</span>
+                        <span class="text-secondary mb-0 d-block">{{ $order->customer->document }}
+                            <i class="fas fa-info-circle ml-1" data-toggle="tooltip" title="Dados ocultados por segurança"></i></span>
+                        <span class="text-secondary mb-0 d-block">{{ $order->customer->phone->formatted }}</span>
                     </div>
 
-                    <div class="col-md-5 col-lg-4 mt-4 mt-sm-0">
+                    <div class="col-md-6 mt-4 mt-sm-0">
                         <h3 class="h5">Forma de pagamento:</h3>
-                        @if(NULL !== $order->card)
+                        @if($order->type === 'credit_card' && NULL !== $order->card)
                             <span class="d-block text-uppercase">@include('user.components.credit-card', ['card' => $order->card]) CC {{ $order->card->brand }}</span>
                             <span class="d-block text-uppercase">**** **** **** {{ $order->card->number }}</span>
                             <span class="text-secondary mb-0 d-block">{{ $order->card->holder->name }}</span>
                             <span class="text-primary font-weight-bold mb-0 d-block">{{ $order->card->installments }}x de {{ money($order->card->parcel, 'BRL') }}</span>
+                        @endif
+
+                        @if($order->type === 'boleto' && NULL !== $order->boleto)
+                            <span class="d-block text-uppercase">Boleto</span>
+                            <span class="d-block text-uppercase">Linha digitável: {{ $order->boleto->barcode }}</span>
+                            <span class="text-secondary mb-0 d-block">Vencimento: {{ $order->boleto->due_at }}</span>
+                            @if(!$order->boleto->expired)
+                                <span class="text-primary font-weight-bold mb-0 d-block"><a href="{{ $order->boleto->url }}">Abrir boleto</a></span>
+                            @endif
                         @endif
                     </div>
                 </div>
@@ -96,13 +105,27 @@
                             <td colspan="3" class="text-right">{{ money($order->discount, 'BRL') }}</td>
                         @endif
                     </tr>
+
                     <tr>
                         <td>Subtotal</td>
                         <td colspan="3" class="text-right">{{ money($order->price, 'BRL') }}</td>
                     </tr>
+
+                    @if($order->type === 'credit_card' && $order->card->installments > 1)
+                        <tr>
+                            <td>Acréscimos (Parcelamento: R$ 2,99% a/m)</td>
+                            <td colspan="2">{{ $order->card->installments }} parcelas</td>
+                            <td class="text-right">{{ money($order->card->taxes, 'BRL') }}</td>
+                        </tr>
+                    @endif
+
                     <tr class="h6 text-primary">
                         <td>Total</td>
-                        <td colspan="3" class="text-right">{{ money(($order->card->parcel * $order->card->installments), 'BRL') }}</td>
+                        @if($order->type === 'credit_card')
+                            <td colspan="3" class="text-right">{{ money(($order->card->parcel * $order->card->installments), 'BRL') }}</td>
+                        @else
+                            <td colspan="3" class="text-right">{{ money($order->price, 'BRL') }}</td>
+                        @endif
                     </tr>
                     </tfoot>
                 </table>

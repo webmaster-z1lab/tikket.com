@@ -89,7 +89,7 @@
         computed: {
             ...mapState({
                 cart: state => state.cart
-            })
+            }),
         },
         methods: {
             ...mapActions(['changeCart', 'changeLoading']),

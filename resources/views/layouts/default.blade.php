@@ -18,6 +18,7 @@
 
     <script defer src="{{ config('theme.cdn_url') }}vendor/pace/1.0.2/pace.min.js"></script>
     <link href="{{ config('theme.cdn_url') }}vendor/pace/1.0.2/pace-theme-flash.css" rel="stylesheet">
+    <link href="{{ config('theme.cdn_url') }}vendor/payment-font/1.2.5/css/paymentfont.min.css" rel="stylesheet">
 
     <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
 
@@ -26,6 +27,14 @@
     @foreach(config('theme.css') as $item)
         <link rel="stylesheet" href="{{ config('theme.cdn_url') . config('theme.prod.namespace') . config('theme.prod.version') . "/$item" }}">
     @endforeach
+
+    <style>
+        .payment-methods.payment-methods-o>li>i {
+            border: 1px solid #555;
+            border-radius: 3px;
+            padding: 4px;
+        }
+    </style>
 
     @stack('stylesheet')
 

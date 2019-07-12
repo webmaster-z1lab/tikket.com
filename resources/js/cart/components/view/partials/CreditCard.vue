@@ -39,12 +39,14 @@
                             </option>
                         </select>
 
-                        <div v-else-if="this.loading_cc">
-                            <input type="text" value="Carregando opções de pagamento..." class="form-control disabled" disabled>
-                            <span class="loading"></span>
+                        <div class="input-group mb-3" v-else-if="this.loading_cc">
+                            <input type="text" class="form-control disabled" placeholder="Carregando opções de pagamento" aria-label="Carregando opções de pagamento" aria-describedby="basic-addon2" disabled>
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2"><i class="fas fa-circle-notch fa-spin text-primary"></i></span>
+                            </div>
                         </div>
 
-                        <input type="text" value="Forneça o número do cartão de crédito" class="form-control disabled" :class="{'loading' : loading_cc}" v-else disabled>
+                        <input type="text" value="Forneça o número do cartão" class="form-control disabled" v-else disabled>
 
                         <div v-show="errors.has('installment')" class="invalid-feedback" style="display: block">
                             {{ errors.first('installment') }}

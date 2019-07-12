@@ -8,7 +8,13 @@
 
                 <div class="font-size-1">
                     <span class="mr-4">
-                        <i class="fab fa-cc-{{ $order->card->brand }} mr-1"></i> <span class="text-uppercase">{{ $order->card->brand }}</span> **** {{ $order->card->number }}
+                        @if($order->type === 'boleto' && !$order->boleto->expired)
+                            <i class="fas fa-barcode mr-1"></i> <span class="text-uppercase"><a href="{{ $order->boleto->url }}" target="_blank">Imprimir boleto</a></span>
+                        @endif
+
+                        @if($order->type === 'credit_card')
+                            <i class="fab fa-cc-{{ $order->card->brand }} mr-1"></i> <span class="text-uppercase">{{ $order->card->brand }}</span> **** {{ $order->card->number }}
+                        @endif
                     </span>
 
                     <span>

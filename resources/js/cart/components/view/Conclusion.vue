@@ -13,45 +13,119 @@
             </div>
         </div>
 
-        <div class="row justify-content-md-between mb-4">
-            <h4>Obrigado por comprar seu ingresso no Tikket!</h4>
-            <p class="lead text-dark">
-                O seu pedido está sendo processado pela operadora de cartão e em breve você receberá e-mails com as informações de acompanhamento e atualizações da sua compra.
-            </p>
+        <div v-if="this.order.attributes.type === 'boleto'">
+            <div v-if="loading_boleto">
+                <div class="row align-content-center ">
+                    <div class="text-center">
+                        <h4>Aguarde enquanto geramos o seu boleto</h4>
 
-            <p class="lead text-dark">
-                Você também pode acompanhar suas compras acessando o link
-                <a :href="formattedRoute('orders')" class="link-muted text-uppercase text-primary">Meus pedidos</a>.
-            </p>
+                        <p><strong>Mantenha essa página aberta</strong> enquanto o seu pedido é processado. Ela será atualizada automaticamente quando o seu <strong>BOLETO</strong>
+                            estiver pronto para impressão.</p>
 
-            <p class="lead text-dark">
-                Caso tenha alguma dúvida ou precise de suporte é só entrar em contato com a gente utilizando um de nossos
-                <a :href="formattedRoute('contact')" class="link-muted text-uppercase text-primary">canais de atendimento</a>.
-            </p>
-        </div>
-
-        <div class="row justify-content-md-between mb-7">
-            <div class="col-md-5 col-lg-4">
-                <h3 class="h5">Comprador:</h3>
-                <span class="d-block">{{order.attributes.customer.name}}</span>
-                <span class="text-secondary mb-0">{{order.attributes.customer.document}}</span>
-                <span class="text-secondary text-truncate mb-0">{{order.attributes.customer.email}}</span>
-                <span class="text-secondary mb-0">{{order.attributes.customer.phone.formatted}}</span>
+                        <p>
+                            <i class="fas fa-circle-notch fa-spin fa-7x text-primary"></i>
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <!--<div class="col-md-5 col-lg-4 mt-4 mt-sm-0">-->
-                <!--<h3 class="h5">Forma de pagamento:</h3>-->
+            <div v-else>
+                <div class="row justify-content-md-between mb-4">
+                    <h4>Obrigado por comprar seu ingresso no Tikket!</h4>
 
-                <!--<span class="d-block text-uppercase">CC {{ order.attributes.card.brand }}</span>-->
-                <!--<span class="d-block text-uppercase">**** **** **** {{ order.attributes.card.number }}</span>-->
-                <!--<span class="text-secondary mb-0 d-block">{{ order.attributes.card.holder.name }}</span>-->
-                <!--<span class="text-secondary mb-0 d-block">{{ order.attributes.card.installments }}x de {{(order.attributes.card.parcel / 100) | currency }}</span>-->
-            <!--</div>-->
+                    <p>
+                        Os nossos boletos são gerados pelo <strong>PagSeguro</strong> e por isso você verá o no campo "Beneficiário" do documento gerado a informação <strong>PAGSEGURO
+                        INTERNET S.A.</strong>.
+                        Os dados referentes a sua compra estão disponíveis no campo "Instruções" localizado no final do documento, próximo ao código de barras.
+                    </p>
+
+                    <p>
+                        Para realizar o pagamento você pode utilizar a linha digitável "<strong>{{ boleto.barcode }}</strong>" ou se preferir, <strong><a
+                        class="text-primary" :href="boleto.url" target="_blank"><i class="fas fa-print"></i> imprima o seu boleto</a>.</strong> Lembre-se de conferir os dados presentes na guia de pagamento.
+                    </p>
+
+                    <p>
+                        A confirmação do pedido ocorre em até 3 dias úteis após o pagamento do boleto que deve ser efetuado até o vencimento que ocorre no dia <strong>{{
+                        boleto.due_at }}.</strong>, após isso o seu pedido será automaticamente cancelado e os ingressos serão disponibilizados para novas compras.
+                    </p>
+
+                    <p>Novas informações e atualizações referentes ao seu pedido serão enviadas por e-mail e também estão disponíveis no link <a :href="formattedRoute('orders')"
+                                                                                                                                                 class="link-muted text-uppercase text-primary">Meus
+                        pedidos</a>.</p>
+
+                    <p class="lead text-dark">
+                        Caso tenha alguma dúvida ou precise de suporte é só entrar em contato com a gente utilizando um de nossos
+                        <a :href="formattedRoute('contact')" class="link-muted text-uppercase text-primary">canais de atendimento</a>.
+                    </p>
+                </div>
+
+                <div class="row justify-content-md-between mb-7">
+                    <div class="col-md-6 col-lg-4">
+                        <h3 class="h5">Comprador:</h3>
+                        <span class="d-block">{{order.attributes.customer.name}}</span>
+                        <span class="text-secondary mb-0">{{order.attributes.customer.document}}</span>
+                        <span class="text-secondary text-truncate mb-0">{{order.attributes.customer.email}}</span>
+                        <span class="text-secondary mb-0">{{order.attributes.customer.phone.formatted}}</span>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 mt-4 mt-sm-0">
+                        <h3 class="h5">Forma de pagamento:</h3>
+
+                        <span class="d-block text-uppercase">Boleto</span>
+                        <span class="text-secondary mb-0 d-block">Vencimento: {{ boleto.due_at }}</span>
+                        <span class="text-secondary mb-0 d-block">Linha digitável: {{ boleto.barcode }}</span>
+                    </div>
+                </div>
+
+                <div class="text-center mb-4">
+                    <a :href="boleto.url" class="btn btn-primary btn-wide btn-lg">Imprimir boleto</a>
+                </div>
+            </div>
         </div>
 
-        <div class="text-center mb-4">
-            <a :href="formattedRoute('orders.show', order.id)" class="btn btn-primary btn-wide btn-lg">Acompanhar Pedido</a>
+        <div v-else>
+            <div class="row justify-content-md-between mb-4">
+                <h4>Obrigado por comprar seu ingresso no Tikket!</h4>
+
+                <p class="lead text-dark">
+                    O seu pedido está sendo processado pela operadora de cartão e em breve você receberá e-mails com as informações de acompanhamento e atualizações da sua compra.
+                </p>
+
+                <p class="lead text-dark">
+                    Você também pode acompanhar suas compras acessando o link
+                    <a :href="formattedRoute('orders')" class="link-muted text-uppercase text-primary">Meus pedidos</a>.
+                </p>
+
+                <p class="lead text-dark">
+                    Caso tenha alguma dúvida ou precise de suporte é só entrar em contato com a gente utilizando um de nossos
+                    <a :href="formattedRoute('contact')" class="link-muted text-uppercase text-primary">canais de atendimento</a>.
+                </p>
+            </div>
+
+            <div class="row justify-content-md-between mb-7" v-if="this.order.attributes.type === 'credit_card'">
+                <div class="col-md-5 col-lg-4">
+                    <h3 class="h5">Comprador:</h3>
+                    <span class="d-block">{{order.attributes.customer.name}}</span>
+                    <span class="text-secondary mb-0">{{order.attributes.customer.document}}</span>
+                    <span class="text-secondary text-truncate mb-0">{{order.attributes.customer.email}}</span>
+                    <span class="text-secondary mb-0">{{order.attributes.customer.phone.formatted}}</span>
+                </div>
+
+                <div class="col-md-5 col-lg-4 mt-4 mt-sm-0">
+                    <h3 class="h5">Forma de pagamento:</h3>
+
+                    <span class="d-block text-uppercase">CC {{ order.attributes.card.brand }}</span>
+                    <span class="d-block text-uppercase">**** **** **** {{ order.attributes.card.number }}</span>
+                    <span class="text-secondary mb-0 d-block">{{ order.attributes.card.holder.name }}</span>
+                    <span class="text-secondary mb-0 d-block">{{ order.attributes.card.installments }}x de {{(order.attributes.card.parcel / 100) | currency }}</span>
+                </div>
+            </div>
+
+            <div class="text-center mb-4">
+                <a :href="formattedRoute('orders.show', order.id)" class="btn btn-primary btn-wide btn-lg">Acompanhar Pedido</a>
+            </div>
         </div>
+
 
         <div class="row justify-content-lg-between">
             <div class="col-md-12">
@@ -112,7 +186,9 @@
                     card: {}
                 },
                 relationships: []
-            }
+            },
+            loading_boleto: true,
+            boleto: {}
         }),
         computed: {
             now() {
@@ -144,11 +220,25 @@
         mounted() {
             this.changeLoading(false)
 
+            new LocalStorage('cart__').setItem('user', new LocalStorage('cart__').getItem('user'))
+
             this.order = new LocalStorage('order__').getItem('user')
 
+            if (this.order.attributes.type === 'boleto') {
+                let boleto = new LocalStorage('order__').getItem('boleto')
+
+                if (boleto) {
+                    this.boleto = boleto
+                    this.loading_boleto = false
+                }
+            }
+
             Echo.private(`orders.${this.order.id}`)
-                .listen('.Modules\\Order\\Events\\ReadyBoleto', ($order) => {
-                    console.log($order)
+                .listen('.Modules\\Order\\Events\\ReadyBoleto', (boleto) => {
+                    new LocalStorage('order__').setItem('boleto', boleto)
+
+                    this.boleto = boleto
+                    this.loading_boleto = false
                 });
         }
     }

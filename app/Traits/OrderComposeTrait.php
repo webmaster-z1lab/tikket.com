@@ -20,7 +20,7 @@ trait OrderComposeTrait
         $aux->id = $order->id;
         $aux->code = $order->attributes->code;
         $aux->status = $order->attributes->status;
-        $aux->price = $order->attributes->amount + $order->attributes->fee;
+        $aux->price = $order->attributes->amount;
         $aux->discount = $order->attributes->discount;
         $aux->channel = $order->attributes->channel;
         $aux->created_at = Carbon::createFromFormat('d/m/Y H:i', $order->attributes->created_at);
@@ -34,11 +34,21 @@ trait OrderComposeTrait
 
         if (NULL !== $order->attributes->ip) $aux->ip = $order->attributes->ip;
         if (NULL !== $order->attributes->type) $aux->type = $order->attributes->type;
-        if (NULL !== $order->attributes->card) $aux->card = $order->attributes->card;
         if (NULL !== $order->attributes->tickets) $aux->bag = $order->attributes->tickets;
-        if (NULL !== $order->attributes->costumer) $aux->costumer = $order->attributes->costumer;
+        if (NULL !== $order->attributes->customer) $aux->customer = $order->attributes->customer;
         if (isset($order->relationships->coupon)) $aux->coupon = $order->relationships->coupon;
         if (isset($order->relationships->actual_tickets)) $aux->tickets = $order->relationships->actual_tickets;
+
+        if ($aux->type === 'credit_card' && NULL !== $order->attributes->card) {
+            $aux->card = $order->attributes->card;
+            $aux->card->amount = $aux->card->parcel * $aux->card->installments;
+            $aux->card->taxes = $aux->card->amount - $aux->price;
+        }
+
+        if ($aux->type === 'boleto' && NULL !== $order->attributes->boleto) {
+            $aux->boleto = $order->attributes->boleto;
+            $aux->boleto->expired = now()->startOfDay()->greaterThan(Carbon::createFromFormat('d/m/Y', $aux->boleto->due_at));
+        }
 
         $aux->pdf417 = $this->getPdf417Data($aux);
 
@@ -82,13 +92,14 @@ trait OrderComposeTrait
     private function getPdf417Data($order)
     {
         $string = "CODE: ".$order->code.PHP_EOL;
-        $string .= "COMPRADOR: ".$order->costumer->name.PHP_EOL;
-        $string .= "DOCUMENTO: ".$order->costumer->document.PHP_EOL;
+        $string .= "COMPRADOR: ".$order->customer->name.PHP_EOL;
+        $string .= "DOCUMENTO: ".$order->customer->document.PHP_EOL;
         $string .= "DESCONTOS: ".\Akaunting\Money\Money::BRL($order->discount).PHP_EOL;
         $string .= "TOTAL: ".\Akaunting\Money\Money::BRL($order->price).PHP_EOL;
         $string .= "CANAL: ".$order->channel.PHP_EOL;
         $string .= "EMISSÃO: ".$order->created_at->format('d/m/Y H\hi').PHP_EOL;
         $string .= "EVENTO: ".$order->event->name.PHP_EOL;
+        $string .= "TIPO: ".$order->type.PHP_EOL;
         $string .= "STATUS: ".__('status.order.'.$order->status).PHP_EOL;
         $string .= "REF: ".$order->id.PHP_EOL;
         $string .= "REF EVENTO: ".$order->event->id.PHP_EOL;

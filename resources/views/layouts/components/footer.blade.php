@@ -50,6 +50,19 @@
     </div>
 
     <div class="row justify-content-sm-between align-items-md-center py-7">
+        <div class="col-12">
+            <ul class="list-inline payment-methods payment-methods-o" style="font-size: 16px;">
+                <li class="list-inline-item"><i title="Pagseguro" class="pf pf-pagseguro"></i></li>
+                <li class="list-inline-item"><i title="Mastercard" class="pf pf-mastercard-alt"></i></li>
+                <li class="list-inline-item"><i title="Elo" class="pf pf-elo"></i></li>
+                <li class="list-inline-item"><i title="Visa" class="pf pf-visa"></i></li>
+                <li class="list-inline-item"><i title="Diners" class="pf pf-diners"></i></li>
+                <li class="list-inline-item"><i title="American Express" class="pf pf-american-express"></i></li>
+                <li class="list-inline-item"><i title="Hypercard" class="pf pf-hipercard"></i></li>
+                <li class="list-inline-item"><i title="Boleto" class="fas fa-barcode px-2"></i></li>
+            </ul>
+        </div>
+
         <div class="col-sm-8 mb-4 mb-sm-0">
             <ul class="list-inline list-group-flush list-group-borderless font-size-1 mb-0">
                 <li class="list-inline-item pl-0">

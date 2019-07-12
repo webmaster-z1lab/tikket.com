@@ -40,6 +40,12 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+    if(to.meta.title) {
+        let rootTitle = document.title.split(' - ')
+        rootTitle = rootTitle[rootTitle.length - 1]
+        document.title = `${to.meta.title} - ${rootTitle}`
+    }
+
     if (to.matched.some(record => record.meta.conclusionCart)) {
         let cartLS = new LocalStorage('cart__').getItem('user'),
             orderLS = new LocalStorage('order__').getItem('user')
