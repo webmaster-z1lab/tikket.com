@@ -67,7 +67,7 @@
 <div id="vue-sidebar"></div>
 
 <a class="js-go-to u-go-to" href="#"
-   data-position='{"bottom": 15, "right": 15 }'
+   data-position='{"bottom": 75, "right": 25 }'
    data-type="fixed"
    data-offset-top="400"
    data-compensation="#header"
@@ -82,6 +82,7 @@
 
 @routes()
 
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=582787bd-9023-4d08-9ba5-d4995607a633"> </script>
 <script src="{{ mix('js/manifest.js') }}"></script>
 <script src="{{ mix('js/vendor.js') }}"></script>
 
