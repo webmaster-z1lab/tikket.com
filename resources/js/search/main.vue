@@ -9,10 +9,10 @@
                         <div class="card-body p-7">
                             <form method="POST">
                                 <div class="row align-items-md-center">
-                                    <div class="col-lg-4 mb-4 mb-lg-0">
+                                    <div class="col-lg-8 mb-4 mb-lg-0">
                                         <div class="input-group">
-                                            <input type="text" class="form-control u-form__input" id="keyword" placeholder="Nome, categoria, ..."
-                                                   aria-label="Nome, categoria, ..." aria-describedby="Nome, categoria, ..."
+                                            <input type="text" class="form-control u-form__input" id="keyword" placeholder="Nome, categoria,cidade, estado ..."
+                                                   aria-label="Nome, categoria, cidade, estado..." aria-describedby="Nome, categoria, cidade, estado..."
                                                    v-model="search_params.keyword" name="keyword" @keydown.enter="search">
 
                                             <div class="input-group-append u-form__append">
@@ -23,9 +23,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
+                                    <!--<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
                                         <typeahead placeholder="Viçosa, MG" @value="setTypeahead" :value="typeahead_initial" @keydown.enter="search"></typeahead>
-                                    </div>
+                                    </div>-->
 
                                     <div class="col-sm-6 col-lg-2 mb-4 mb-lg-0">
                                         <label for="period" class="sr-only">Período</label>
@@ -43,6 +43,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-12 mt-4">
                     <div class="container u-space-2" v-if="!checkEmpty(events)">
                         <div class="row justify-content-between align-items-center mb-4">
@@ -55,13 +56,13 @@
                             <div class="card-deck card-sm-gutters-1 d-block d-sm-flex">
                                 <div class="row">
                                     <div class="col-12 col-md-6 col-lg-4" v-for="(event, key) in events">
-                                        <div class="card mb-3">
+                                        <a :href="urlFormat(event.attributes.url)" class="card mb-3">
                                             <img class="card-img-top" :src="event.relationships.image.attributes.cover" alt="Card image cap">
 
                                             <div class="card-footer text-center py-0">
                                                 <div class="text-center">
                                                     <div class="my-2">
-                                                        <a :href="urlFormat(event.attributes.url)" class="mb-0 h6">{{event.attributes.name}}</a>
+                                                        <h4 class="mb-0 h6">{{event.attributes.name}}</h4>
                                                     </div>
                                                 </div>
                                                 <hr class="mt-0 mb-2">
@@ -79,7 +80,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -125,6 +126,7 @@
 <script>
     import LoadingComponent from '../components/loadingComponent'
     import Typeahead from '../components/typeaheadComponent'
+    import LocalStorage from "../vendor/storage"
 
     import moment from 'moment'
     import {toSeek} from "../vendor/common"
@@ -142,18 +144,12 @@
             isLoading: true,
             typeahead_initial: '',
             search_params: {
-                city: '',
+                //city: '',
                 keyword: '',
                 period: '',
             },
             events: [],
             next: null,
-            cities: {
-                'Vicosa': 'Viçosa'
-            },
-            states: {
-                'Minas Gerais': 'MG'
-            }
         }),
         filters: {
             upperCase(value) {
@@ -223,11 +219,6 @@
 
                 return translate[status]
             },
-            keySubmit(key) {
-                if (key.which === 13 || key.keyCode === 13) this.search()
-
-                return false
-            },
             formatCarbon(date) {
                 return moment(date, "YYYY-MM-DD'T'HH:mm:ssZ").format('DD/MM/YYYY HH:mm');
             },
@@ -254,17 +245,29 @@
 
                 return collection.forPage(n, 3).all()
             },
-            setTypeahead(value) {
-                this.search_params.city = null !== this.cities[value] ? this.cities[value] : value
+            setUrlParams() {
+                let url = new URL(window.location.href)
+                let query_string = url.search;
+                let search = new URLSearchParams(query_string);
+
+                //search.set('city', this.search_params.city)
+                search.set('period', this.search_params.period)
+                search.set('keyword', this.search_params.keyword)
+
+                window.history.replaceState({}, '', decodeURIComponent(`${location.pathname}?${search}`))
             },
+/*            setTypeahead(value) {
+                let city = (undefined !== this.cities[value]) ? this.cities[value] : value
+
+                this.search_params.city = city
+                new LocalStorage('search__').setItem('region', city)
+            },*/
             search() {
                 this.setLoading(true)
 
-                let url = new URL(window.location.href)
+                console.log(this.search_params.city)
 
-                url.searchParams.set('keyword', this.search_params.keyword)
-                url.searchParams.set('city', this.search_params.city)
-                url.searchParams.set('period', this.search_params.period)
+                this.setUrlParams()
 
                 toSeek(`${process.env.MIX_API_VERSION_ENDPOINT}/events/search`, this.search_params).then(
                     response => {
@@ -286,28 +289,37 @@
             setLoading(value) {
                 this.isLoading = value
             },
-            openDropdown(id) {
-                $(id).dropdown('toggle')
-            },
-            closeDropdown(id) {
-                $(id).removeClass('show')
-            }
         },
         async mounted() {
             let url = new URL(window.location.href)
+            let query_string = url.search
+            let search = new URLSearchParams(query_string)
 
-            this.search_params.keyword = url.searchParams.get('keyword')
-            this.search_params.typeahead = url.searchParams.get('city')
-            this.search_params.period = url.searchParams.get('period')
+            this.search_params.keyword = search.get('keyword')
+            this.search_params.period = search.get('period')
+            //this.search_params.city = search.get('city')
 
-            if (this.search_params.typeahead === '') {
-                await getGeoIP().then(response => {
-                    let state = null !== this.states[response.data.region] ? this.states[response.data.region] : response.data.region
-                    let city = null !== this.cities[response.data.city] ? this.cities[response.data.city] : response.data.city
+            /*if (this.search_params.city === '') {
+                let region = new LocalStorage('search__').getItem('region')
 
-                    this.typeahead_initial = `${city} - ${state}`
-                })
-            }
+                if (!region || region === '') {
+                    await getGeoIP().then(response => {
+                        let state = null !== this.states[response.data.region] ? this.states[response.data.region] : response.data.region
+                        let city = null !== this.cities[response.data.city] ? this.cities[response.data.city] : response.data.city
+
+                        region = `${city} - ${state}`
+
+                        new LocalStorage('search__').setItem('region', region)
+                    })
+                }
+
+                this.typeahead_initial = region
+                this.search_params.city = region
+
+                this.setUrlParams()
+            } else {
+                this.typeahead_initial = this.search_params.city
+            }*/
 
             toSeek(`${process.env.MIX_API_VERSION_ENDPOINT}/events/search`, this.search_params).then(
                 response => {
