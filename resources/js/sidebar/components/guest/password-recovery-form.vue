@@ -70,7 +70,6 @@
                 this.$validator.validateAll().then(
                     async res => {
                         if (res) {
-                            Pace.start()
                             this.isLoading = true
                             this.alert.active = false
 
@@ -90,10 +89,7 @@
                                         console.dir(error)
                                     }
                                 }
-                            ).finally( () => {
-                                Pace.stop()
-                                this.isLoading = false
-                            })
+                            ).finally( () => this.isLoading = false)
                         }
                     }
                 )

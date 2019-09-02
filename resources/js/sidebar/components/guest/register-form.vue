@@ -123,7 +123,6 @@
                 this.$validator.validateAll().then(
                     async res => {
                         if (res) {
-                            Pace.start()
                             this.isLoading = true
                             this.alert.active = false
 
@@ -138,7 +137,6 @@
                             ).catch(
                                 error => {
                                     this.isLoading = false
-                                    Pace.stop()
 
                                     if (_.isObject(error.response.data)) {
                                         this.alert.active = true

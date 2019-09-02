@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="Updated cart payment information; &#10;Fixed bug in cart amount display; &#10;Added loading to installments credit card form input;&#10;Added payments brands to layout footer;">
+    <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="Removed location component from search;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/seo/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/seo/robots.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/components/hero.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/components/hero.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/auth/account-recovery.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/account-recovery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/auth/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/auth/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/sidebar/components/auth/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/sidebar/components/auth/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/sidebar/components/guest/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/sidebar/components/guest/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/sidebar/components/guest/login-form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/sidebar/components/guest/login-form.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/sidebar/components/guest/password-recovery-form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/sidebar/components/guest/password-recovery-form.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/sidebar/components/guest/register-form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/sidebar/components/guest/register-form.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/sidebar/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/sidebar/main.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -383,7 +389,7 @@
       <workItem from="1563912976459" duration="527000" />
       <workItem from="1564490643048" duration="888000" />
       <workItem from="1567167874149" duration="12170000" />
-      <workItem from="1567431478035" duration="802000" />
+      <workItem from="1567431478035" duration="16029000" />
     </task>
     <task id="LOCAL-00001" summary="update cart functions like coupons and ux of the parcilamento">
       <created>1552500338580</created>
@@ -546,7 +552,35 @@
       <option name="project" value="LOCAL" />
       <updated>1567197475241</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Fixed link 'criar seu próprio evento' in Home; Removed PACE;">
+      <created>1567432392526</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1567432392526</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Updated search form rules;">
+      <created>1567445366064</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1567445366064</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Location typeahead temporally removed from search;">
+      <created>1567451241868</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1567451241868</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Removed location component from search;">
+      <created>1567453649393</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1567453649393</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -590,10 +624,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added error pages;" />
-    <MESSAGE value="Ignore files;" />
-    <MESSAGE value="starting shopping cart" />
-    <MESSAGE value="continuing in the cart" />
     <MESSAGE value="correcting visual bugs and adding time to the cart" />
     <MESSAGE value="auth site/admin" />
     <MESSAGE value="Changed entrance logic to View\Composer\Event;" />
@@ -615,6 +645,10 @@
     <MESSAGE value="Updated cart payment information; Fixed bug in cart amount display; Added loading to installments credit card form input;" />
     <MESSAGE value="Updated cart payment information; &#10;Fixed bug in cart amount display; &#10;Added loading to installments credit card form input;&#10;Added payments brands to layout footer;" />
     <MESSAGE value="Added support by chat;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added support by chat;" />
+    <MESSAGE value="Fixed link 'criar seu próprio evento' in Home; Removed PACE;" />
+    <MESSAGE value="Updated search form rules;" />
+    <MESSAGE value="Location typeahead temporally removed from search;" />
+    <MESSAGE value="Removed location component from search;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed location component from search;" />
   </component>
 </project>

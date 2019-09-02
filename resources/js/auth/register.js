@@ -34,7 +34,6 @@ new Vue({
             this.$validator.validateAll().then(
                 res => {
                     if (res) {
-                        Pace.start()
                         this.isLoading = true
                         this.error = null
 
@@ -48,7 +47,6 @@ new Vue({
                             }
                         ).catch(
                             error => {
-                                Pace.stop()
                                 this.isLoading = false
 
                                 if (_.isObject(error.response.data)) {

@@ -90,10 +90,9 @@
 </template>
 
 <script>
-    import {sendCommon} from "../../../vendor/common";
-
     import LoadingComponent from '../../../components/loadingComponent'
 
+    import {sendCommon} from "../../../vendor/common";
     import {getCookie} from "../../../bootstrap"
 
     export default {
@@ -113,19 +112,13 @@
         }),
         methods: {
             async logoutSubmit() {
-                Pace.start()
                 this.isLoading = true
-
                 this.logout = true
 
                 await sendCommon(route('logout'), {}, 'POST').then(
                     response => setTimeout(() => window.location.reload(), 1000)
                 ).catch(
-                    error => {
-                        Pace.stop()
-                        this.isLoading = false
-                        console.dir(error)
-                    }
+                    error => this.isLoading = false
                 )
             },
             link(route = '/evento/meus-eventos/') {
