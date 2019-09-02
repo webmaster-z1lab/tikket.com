@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="Removed location component from search;">
+    <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="Created featured events list on home;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/auth/account-recovery.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/account-recovery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/auth/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/auth/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/auth/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/sidebar/components/auth/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/sidebar/components/auth/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/sidebar/components/guest/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/sidebar/components/guest/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/sidebar/components/guest/login-form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/sidebar/components/guest/login-form.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/sidebar/components/guest/password-recovery-form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/sidebar/components/guest/password-recovery-form.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/sidebar/components/guest/register-form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/sidebar/components/guest/register-form.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/sidebar/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/sidebar/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +32,11 @@
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Blade Template" />
+      </list>
+    </option>
     <option name="SCHEME" value="Project" />
   </component>
   <component name="FindInProjectRecents">
@@ -389,7 +386,7 @@
       <workItem from="1563912976459" duration="527000" />
       <workItem from="1564490643048" duration="888000" />
       <workItem from="1567167874149" duration="12170000" />
-      <workItem from="1567431478035" duration="16029000" />
+      <workItem from="1567431478035" duration="22735000" />
     </task>
     <task id="LOCAL-00001" summary="update cart functions like coupons and ux of the parcilamento">
       <created>1552500338580</created>
@@ -580,7 +577,21 @@
       <option name="project" value="LOCAL" />
       <updated>1567453649393</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Removed Pace() from javascript files;">
+      <created>1567454151721</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1567454151722</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Created featured events list on home;">
+      <created>1567459927534</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1567459927534</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,8 +635,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="correcting visual bugs and adding time to the cart" />
-    <MESSAGE value="auth site/admin" />
     <MESSAGE value="Changed entrance logic to View\Composer\Event;" />
     <MESSAGE value="update cart functions like coupons and ux of the parcilamento" />
     <MESSAGE value="Dependence update;" />
@@ -649,6 +658,8 @@
     <MESSAGE value="Updated search form rules;" />
     <MESSAGE value="Location typeahead temporally removed from search;" />
     <MESSAGE value="Removed location component from search;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed location component from search;" />
+    <MESSAGE value="Removed Pace() from javascript files;" />
+    <MESSAGE value="Created featured events list on home;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created featured events list on home;" />
   </component>
 </project>
