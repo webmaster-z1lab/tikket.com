@@ -11,9 +11,8 @@
                     <label class="sr-only" for="signupSrEmail">Evento, cidade, estado...</label>
 
                     <div class="input-group">
-                        <input type="text" class="form-control" name="keyword" placeholder="Evento, cidade, estado..." aria-label="Evento, cidade, estado...">
+                        <input type="text" class="form-control" name="keyword" placeholder="Nome do evento, cidade, estado..." aria-label="Nome do evento, cidade, estado...">
                         <input type="hidden" name="period" value="">
-                        <input type="hidden" name="city" value="">
 
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-primary btn-wide">Pesquisar</button>

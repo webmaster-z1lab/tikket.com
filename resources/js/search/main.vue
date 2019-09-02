@@ -7,27 +7,23 @@
                 <div class="col-12">
                     <div class="card border-0">
                         <div class="card-body p-7">
-                            <form method="POST">
+                            <div>
                                 <div class="row align-items-md-center">
-                                    <div class="col-lg-8 mb-4 mb-lg-0">
+                                    <div class="col-md-7 mb-4 mb-lg-0">
                                         <div class="input-group">
-                                            <input type="text" class="form-control u-form__input" id="keyword" placeholder="Nome, categoria,cidade, estado ..."
-                                                   aria-label="Nome, categoria, cidade, estado..." aria-describedby="Nome, categoria, cidade, estado..."
+                                            <input type="text" class="form-control" id="keyword" placeholder="Nome do evento, cidade, estado ..."
+                                                   aria-label="Nome do evento, cidade, estado..." aria-describedby="Nome do evento, cidade, estado..."
                                                    v-model="search_params.keyword" name="keyword" @keydown.enter="search">
 
-                                            <div class="input-group-append u-form__append">
-                                                <span class="input-group-text u-form__text">
-                                                    <span class="fa fa-search u-form__text-inner"></span>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <span class="fa fa-search"></span>
                                                 </span>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <!--<div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
-                                        <typeahead placeholder="Viçosa, MG" @value="setTypeahead" :value="typeahead_initial" @keydown.enter="search"></typeahead>
-                                    </div>-->
-
-                                    <div class="col-sm-6 col-lg-2 mb-4 mb-lg-0">
+                                    <div class="col-md-5 col-lg-3 mb-4 mb-lg-0">
                                         <label for="period" class="sr-only">Período</label>
 
                                         <select class="custom-select" name="period" id="period" v-model="search_params.period">
@@ -39,7 +35,7 @@
                                         <button type="button" class="btn btn-block btn-primary transition-3d-hover" @click="search">Buscar</button>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -125,26 +121,20 @@
 
 <script>
     import LoadingComponent from '../components/loadingComponent'
-    import Typeahead from '../components/typeaheadComponent'
-    import LocalStorage from "../vendor/storage"
-
     import moment from 'moment'
     import {toSeek} from "../vendor/common"
-    import {getGeoIP} from "../vendor/api"
 
     moment.locale('pt_br')
 
     export default {
         name: "Search",
         components: {
-            LoadingComponent,
-            Typeahead
+            LoadingComponent
         },
         data: () => ({
             isLoading: true,
             typeahead_initial: '',
             search_params: {
-                //city: '',
                 keyword: '',
                 period: '',
             },
@@ -249,19 +239,14 @@
                 let url = new URL(window.location.href)
                 let query_string = url.search;
                 let search = new URLSearchParams(query_string);
+                let title = `Eventos com a palavra-chave '${this.search_params.keyword}' | Tikket`
 
-                //search.set('city', this.search_params.city)
                 search.set('period', this.search_params.period)
                 search.set('keyword', this.search_params.keyword)
 
-                window.history.replaceState({}, '', decodeURIComponent(`${location.pathname}?${search}`))
+                window.history.replaceState({}, title, decodeURIComponent(`${location.pathname}?${search}`))
             },
-/*            setTypeahead(value) {
-                let city = (undefined !== this.cities[value]) ? this.cities[value] : value
 
-                this.search_params.city = city
-                new LocalStorage('search__').setItem('region', city)
-            },*/
             search() {
                 this.setLoading(true)
 
@@ -297,29 +282,6 @@
 
             this.search_params.keyword = search.get('keyword')
             this.search_params.period = search.get('period')
-            //this.search_params.city = search.get('city')
-
-            /*if (this.search_params.city === '') {
-                let region = new LocalStorage('search__').getItem('region')
-
-                if (!region || region === '') {
-                    await getGeoIP().then(response => {
-                        let state = null !== this.states[response.data.region] ? this.states[response.data.region] : response.data.region
-                        let city = null !== this.cities[response.data.city] ? this.cities[response.data.city] : response.data.city
-
-                        region = `${city} - ${state}`
-
-                        new LocalStorage('search__').setItem('region', region)
-                    })
-                }
-
-                this.typeahead_initial = region
-                this.search_params.city = region
-
-                this.setUrlParams()
-            } else {
-                this.typeahead_initial = this.search_params.city
-            }*/
 
             toSeek(`${process.env.MIX_API_VERSION_ENDPOINT}/events/search`, this.search_params).then(
                 response => {

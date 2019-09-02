@@ -12,13 +12,17 @@ class EventController extends Controller
      */
     public function index(): View
     {
-        \Meta::set('title', 'Eventos');
+        $keyword = \Request::query()['keyword'];
+
+        (NULL === $keyword)
+            ? \Meta::set('title', "Próximos eventos na sua região")
+            : \Meta::set('title', "Eventos com a palavra-chave '$keyword'");
 
         return View('event.index');
     }
 
     /**
-     * @param string $url
+     * @param  string  $url
      *
      * @return \Illuminate\View\View
      */
