@@ -68,7 +68,7 @@
                                                         <span class="align-middle">{{month(event.attributes.starts_at) | upperCase}}</span>
                                                     </div>
                                                     <div class="col-9 text-left">
-                                                        <h5 class="small mb-0">Parthenon</h5>
+                                                        <h5 class="small mb-0">{{event.relationships.producer.attributes.name}}</h5>
                                                         <small class="far fa-clock text-secondary align-middle mr-1"></small>
                                                         <span class="small align-middle mr-1" style="font-size: 75%">{{hours(event.attributes.starts_at)}}</span>
                                                         <small class="fas fa-map-marker-alt text-secondary align-middle mr-1"></small>

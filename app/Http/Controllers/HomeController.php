@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\ApiService;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -11,9 +12,11 @@ class HomeController extends Controller
      */
     public function index(): View
     {
-        \Meta::set('title', 'A sua plataforma de eventos, inscrições e ingressos');
+        $featured = (new ApiService('events', 'GET'))->find('featured')->collect();
 
-        return View('home.index');
+        \Meta::set('title', 'A sua plataforma de eventos, inscrições e ingressos online');
+
+        return View('home.index')->with('featured', $featured);
     }
 
     /**

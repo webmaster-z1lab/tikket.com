@@ -1,4 +1,4 @@
-<div class="container space-lg-3 space-2">
+<div class="container">
     <div class="row">
         <div class="col-12">
             <h3 class="text-center border-bottom">Principais categorias</h3>

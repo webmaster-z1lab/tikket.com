@@ -47,5 +47,5 @@
         }
     </script>
     <script src="{{ config('theme.cdn_url') }}template/front/2.0.2/vendor/gmaps/gmaps.min.js"></script>
-    <script src="//maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_API_KEY') }}&callback=initMap" async defer></script>
+    <script src="//maps.googleapis.com/maps/api/js?key={{ config('app.google_api_key') }}&callback=initMap" async defer></script>
 @endpush

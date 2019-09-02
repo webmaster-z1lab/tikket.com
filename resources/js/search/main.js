@@ -1,12 +1,5 @@
 import Vue from 'vue'
 
-// /* Validate */
-import VeeValidate from 'vee-validate'
-Vue.use(VeeValidate, { inject: false })
-
-require('../forms/config/validator')
-
-/* Components */
 import MainVue from './main.vue'
 
 /* Filter */
