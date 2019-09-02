@@ -7,13 +7,14 @@
                 <div class="col-12">
                     <div class="card border-0">
                         <div class="card-body p-7">
-                            <form method="post" class="js-validate">
+                            <form method="POST">
                                 <div class="row align-items-md-center">
-                                    <div class="col-lg-4 mb-4 mb-lg-0" :class="errors.has('keyword') ? 'u-has-error' : ''">
-                                        <div class="js-focus-state input-group">
+                                    <div class="col-lg-4 mb-4 mb-lg-0">
+                                        <div class="input-group">
                                             <input type="text" class="form-control u-form__input" id="keyword" placeholder="Nome, categoria, ..."
                                                    aria-label="Nome, categoria, ..." aria-describedby="Nome, categoria, ..."
-                                                   v-model="keyword" v-validate="'required'" name="keyword">
+                                                   v-model="search_params.keyword" name="keyword" @keydown.enter="search">
+
                                             <div class="input-group-append u-form__append">
                                                 <span class="input-group-text u-form__text">
                                                     <span class="fa fa-search u-form__text-inner"></span>
@@ -22,12 +23,14 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0" :class="errors.has('typeahead') ? 'u-has-error' : ''">
-                                        <typeahead placeholder="Viçosa, MG" validate="required" @value="setTypeahead" :value="typeahead_initial"></typeahead>
+                                    <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
+                                        <typeahead placeholder="Viçosa, MG" @value="setTypeahead" :value="typeahead_initial" @keydown.enter="search"></typeahead>
                                     </div>
 
                                     <div class="col-sm-6 col-lg-2 mb-4 mb-lg-0">
-                                        <select class="custom-select" name="period" v-model="period">
+                                        <label for="period" class="sr-only">Período</label>
+
+                                        <select class="custom-select" name="period" id="period" v-model="search_params.period">
                                             <option :value="item.value" v-for="item in periods">{{item.name}}</option>
                                         </select>
                                     </div>
@@ -54,32 +57,6 @@
                                     <div class="col-12 col-md-6 col-lg-4" v-for="(event, key) in events">
                                         <div class="card mb-3">
                                             <img class="card-img-top" :src="event.relationships.image.attributes.cover" alt="Card image cap">
-
-                                            <div class="card-body" style="position: absolute">
-                                                <div class="d-flex align-items-center mb-5">
-                                                    <div class="position-relative">
-                                                        <a :id="`rating1DropdownInvoker-${key}`" class="btn btn-xs btn-soft-warning btn-pill"
-                                                           @blur="closeDropdown(`#rating1Dropdown-${key}`)"
-                                                           @focus="openDropdown(`#rating1DropdownInvoker-${key}`)"
-                                                           href="javascript:;" role="button"
-                                                           :aria-controls="`rating1Dropdown-${key}`"
-                                                           aria-haspopup="true"
-                                                           aria-expanded="false">
-                                                            <i class="fas fa-ticket-alt"></i>
-                                                        </a>
-
-                                                        <div :id="`rating1Dropdown-${key}`" class="dropdown-menu dropdown-unfold p-3"
-                                                             :aria-labelledby="`rating1DropdownInvoker-${key}`" style="width: 190px;">
-                                                            <p class="text-dark mb-0">Status</p>
-                                                            <p class="mb-0" :class="statusFormat(event.attributes.status).color">
-                                                                {{statusFormat(event.attributes.status).name}}
-                                                            </p>
-                                                            <p class="text-dark mb-0">Fim do Lote</p>
-                                                            <p class="mb-0">{{formatCarbon(event.relationships.entrances[0].attributes.lot.finishes_at)}}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
 
                                             <div class="card-footer text-center py-0">
                                                 <div class="text-center">
@@ -108,7 +85,6 @@
                             </div>
                         </div>
 
-                        <!-- Load More Button -->
                         <div id="cubeLoadMore" class="text-center p-3 pb-5">
                             <a href="javascript:;" class="cbp-l-loadMore-link link" rel="nofollow" v-if="!checkNull(next)" @click="searchMore">
                                 <span class="text-primary">
@@ -122,7 +98,6 @@
                                 <span class="text-secondary">Não há mais resultados</span>
                             </a>
                         </div>
-                        <!-- End Load More Button -->
                     </div>
 
                     <div class="container u-space-2" v-else>
@@ -150,19 +125,15 @@
 <script>
     import LoadingComponent from '../components/loadingComponent'
     import Typeahead from '../components/typeaheadComponent'
-    import LocalStorage from "../vendor/storage"
+
     import moment from 'moment'
+    import {toSeek} from "../vendor/common"
+    import {getGeoIP} from "../vendor/api"
 
     moment.locale('pt_br')
 
-    import {toSeek} from "../vendor/common"
-    import {getGeoIP} from "../vendor/api";
-
     export default {
         name: "Search",
-        $_veeValidate: {
-            validator: 'new'
-        },
         components: {
             LoadingComponent,
             Typeahead
@@ -170,11 +141,19 @@
         data: () => ({
             isLoading: true,
             typeahead_initial: '',
-            typeahead: '',
-            keyword: '',
-            period: '',
+            search_params: {
+                city: '',
+                keyword: '',
+                period: '',
+            },
             events: [],
-            next: null
+            next: null,
+            cities: {
+                'Vicosa': 'Viçosa'
+            },
+            states: {
+                'Minas Gerais': 'MG'
+            }
         }),
         filters: {
             upperCase(value) {
@@ -184,7 +163,7 @@
                 return value.toUpperCase()
             }
         },
-        computed:{
+        computed: {
             forList() {
                 return Math.ceil(this.places.length / 3)
             },
@@ -244,6 +223,11 @@
 
                 return translate[status]
             },
+            keySubmit(key) {
+                if (key.which === 13 || key.keyCode === 13) this.search()
+
+                return false
+            },
             formatCarbon(date) {
                 return moment(date, "YYYY-MM-DD'T'HH:mm:ssZ").format('DD/MM/YYYY HH:mm');
             },
@@ -259,40 +243,35 @@
             urlFormat(ext) {
                 return `${process.env.MIX_APP_URL}/evento/${ext}`
             },
-            checkEmpty(item){
+            checkEmpty(item) {
                 return _.isEmpty(item)
             },
-            checkNull(item){
+            checkNull(item) {
                 return _.isNull(item)
             },
             forPage(places, n) {
-                let collection =  collect(places)
+                let collection = collect(places)
 
                 return collection.forPage(n, 3).all()
             },
             setTypeahead(value) {
-                this.typeahead = value
+                this.search_params.city = null !== this.cities[value] ? this.cities[value] : value
             },
             search() {
-                this.$validator.validateAll().then(
-                    res => {
-                        if (res) {
-                            this.setLoading(true)
-                            new LocalStorage('search__').setItem('params', {keyword: this.keyword, city: this.typeahead, period: this.period})
+                this.setLoading(true)
 
-                            toSeek(`${process.env.MIX_API_VERSION_ENDPOINT}/events/search`, {
-                                keyword: this.keyword,
-                                city: this.typeahead,
-                                period: this.period
-                            }).then(
-                                response => {
-                                    this.events = response.data
-                                    this.next = response.links.next
-                                }
-                            ).finally(() => this.setLoading(false))
-                        }
+                let url = new URL(window.location.href)
+
+                url.searchParams.set('keyword', this.search_params.keyword)
+                url.searchParams.set('city', this.search_params.city)
+                url.searchParams.set('period', this.search_params.period)
+
+                toSeek(`${process.env.MIX_API_VERSION_ENDPOINT}/events/search`, this.search_params).then(
+                    response => {
+                        this.events = response.data
+                        this.next = response.links.next
                     }
-                )
+                ).finally(() => this.setLoading(false))
             },
             searchMore() {
                 this.setLoading(true)
@@ -315,38 +294,27 @@
             }
         },
         async mounted() {
-            let searchQuery = new LocalStorage('search__').getItem('params')
+            let url = new URL(window.location.href)
 
-            if (!_.isEmpty(searchQuery)) {
-                this.keyword = searchQuery.keyword || searchQuery.category || ''
-                this.period = searchQuery.period || ''
+            this.search_params.keyword = url.searchParams.get('keyword')
+            this.search_params.typeahead = url.searchParams.get('city')
+            this.search_params.period = url.searchParams.get('period')
 
-                if (searchQuery.city)  {
-                    this.typeahead_initial = searchQuery.city
-                } else {
-                    await getGeoIP().then(response => {
-                        this.typeahead_initial = `${response.data.city} - ${response.data.region}`
-                    })
-                }
-
-                toSeek(`${process.env.MIX_API_VERSION_ENDPOINT}/events/search`, {
-                    category: searchQuery.category,
-                    keyword: searchQuery.keyword,
-                    city: this.typeahead,
-                    period: this.period
-                }).then(
-                    response => {
-                        this.events = response.data
-                        this.next = response.links.next
-                    }
-                ).finally(() => this.setLoading(false))
-            } else {
+            if (this.search_params.typeahead === '') {
                 await getGeoIP().then(response => {
-                    this.typeahead_initial = `${response.data.city} - ${response.data.region}`
-                })
+                    let state = null !== this.states[response.data.region] ? this.states[response.data.region] : response.data.region
+                    let city = null !== this.cities[response.data.city] ? this.cities[response.data.city] : response.data.city
 
-                this.setLoading(false)
+                    this.typeahead_initial = `${city} - ${state}`
+                })
             }
+
+            toSeek(`${process.env.MIX_API_VERSION_ENDPOINT}/events/search`, this.search_params).then(
+                response => {
+                    this.events = response.data
+                    this.next = response.links.next
+                }
+            ).finally(() => this.setLoading(false))
         }
     }
 </script>

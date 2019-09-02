@@ -11,5 +11,5 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ mix('js/home/main.js') }}"></script>
+    {{--<script src="{{ mix('js/home/main.js') }}"></script>--}}
 @endpush

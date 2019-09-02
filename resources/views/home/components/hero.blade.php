@@ -6,14 +6,17 @@
                 <p>O Tikket é uma plataforma digital completa para <strong class="text-primary">festas, shows e workshops.</strong></p>
             </div>
 
-            <form method="post" class="js-validate">
-                <div class="w-md-75 w-xl-60 mx-md-auto mb-4" :class="errors.has('search') ? 'u-has-error' : ''">
+            <form method="GET" action="{{ route('events') }}">
+                <div class="w-md-75 w-xl-60 mx-md-auto mb-4">
                     <label class="sr-only" for="signupSrEmail">Evento, cidade, estado...</label>
+
                     <div class="input-group">
-                        <input type="text" class="form-control" name="search" placeholder="Evento, cidade, estado..."
-                               aria-label="Evento, cidade, estado..." v-model="keyword" v-validate="'required'">
+                        <input type="text" class="form-control" name="keyword" placeholder="Evento, cidade, estado..." aria-label="Evento, cidade, estado...">
+                        <input type="hidden" name="period" value="">
+                        <input type="hidden" name="city" value="">
+
                         <div class="input-group-append">
-                            <button type="button" class="btn btn-primary btn-wide" @click="search">Pesquisar</button>
+                            <button type="submit" class="btn btn-primary btn-wide">Pesquisar</button>
                         </div>
                     </div>
                 </div>
@@ -39,9 +42,7 @@
             <img src="{{ config('theme.cdn_url') }}template/front/2.0.1/svg/components/abstract-shapes-9.svg" alt="Image Description">
         </figure>
     </div>
-    <!-- End SVG Component -->
 
-    <!-- SVG Component -->
     <div class="d-none d-lg-block content-centered-y right-0 w-100 max-width-35 z-index-n1">
         <figure class="ie-abstract-shapes-10">
             <img src="{{ config('theme.cdn_url') }}template/front/2.0.1/svg/components/abstract-shapes-10.svg" alt="Image Description">
