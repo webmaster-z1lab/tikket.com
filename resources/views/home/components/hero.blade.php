@@ -21,9 +21,15 @@
 
             <div class="small">
                 <span class="font-weight-medium">Você também pode:</span>
-                <a class="link-muted mx-2" href="{{ config('app.domains.admin') }}/evento/novo-evento">
-                    <i class="fas fa-rocket text-primary mr-1"></i>criar seu próprio evento
-                </a>
+                @if(auth()->user())
+                    <a class="link-muted mx-2" href="{{ config('app.domains.admin') }}/evento/novo-evento">
+                        <i class="fas fa-rocket text-primary mr-1"></i>criar seu próprio evento
+                    </a>
+                @else
+                    <a class="link-muted mx-2" href="{{ route('login') }}">
+                        <i class="fas fa-rocket text-primary mr-1"></i>criar seu próprio evento
+                    </a>
+                @endif
             </div>
         </div>
     </div>

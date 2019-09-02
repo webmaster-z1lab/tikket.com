@@ -1,5 +1,4 @@
 User-Agent: *
 Disallow:
-Disallow: /user
 Disallow: /sign
 Disallow: /openid

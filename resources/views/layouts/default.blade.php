@@ -15,9 +15,6 @@
     {!! \Meta::tag('csrf-token', csrf_token()) !!}
 
     <link rel="shortcut icon" href="{{ config('theme.cdn_url') }}images/tikket/icon-xs.png">
-
-    <script defer src="{{ config('theme.cdn_url') }}vendor/pace/1.0.2/pace.min.js"></script>
-    <link href="{{ config('theme.cdn_url') }}vendor/pace/1.0.2/pace-theme-flash.css" rel="stylesheet">
     <link href="{{ config('theme.cdn_url') }}vendor/payment-font/1.2.5/css/paymentfont.min.css" rel="stylesheet">
 
     <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
@@ -110,7 +107,6 @@
     $(document).on('ready', function () {
         $.HSCore.components.HSHeader.init($('#header'));
         $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
-        //$.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
         $.HSCore.components.HSGoTo.init('.js-go-to');
         $.HSCore.components.HSShowAnimation.init('.js-animation-link');
 
