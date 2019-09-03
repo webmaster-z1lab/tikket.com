@@ -25,9 +25,3 @@ Route::middleware('auth')
         Route::get('/', 'OrderController@index')->name('orders');
         Route::get('{event}', 'OrderController@show')->name('orders.show');
     });
-
-Route::get('test', function () {
-    return view('test');
-});
-
-

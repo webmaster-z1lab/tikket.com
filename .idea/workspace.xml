@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="Created featured events list on home;">
+    <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -254,7 +254,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.watch">
+  <component name="RunManager" selected="PHP Built-in Web Server.payment.tikket.com.br">
     <configuration name="site" type="LaravelStorm_run_conf_serve" factoryName="Laravel">
       <option name="host" value="127.0.0.1" />
       <option name="port" value="8000" />
@@ -386,7 +386,7 @@
       <workItem from="1563912976459" duration="527000" />
       <workItem from="1564490643048" duration="888000" />
       <workItem from="1567167874149" duration="12170000" />
-      <workItem from="1567431478035" duration="22735000" />
+      <workItem from="1567431478035" duration="24895000" />
     </task>
     <task id="LOCAL-00001" summary="update cart functions like coupons and ux of the parcilamento">
       <created>1552500338580</created>
@@ -591,7 +591,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567459927534</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Removed Pace from auth template;">
+      <created>1567467161043</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1567467161043</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -635,7 +642,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed entrance logic to View\Composer\Event;" />
     <MESSAGE value="update cart functions like coupons and ux of the parcilamento" />
     <MESSAGE value="Dependence update;" />
     <MESSAGE value="Finalized event page;" />
@@ -660,6 +666,7 @@
     <MESSAGE value="Removed location component from search;" />
     <MESSAGE value="Removed Pace() from javascript files;" />
     <MESSAGE value="Created featured events list on home;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created featured events list on home;" />
+    <MESSAGE value="Removed Pace from auth template;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed Pace from auth template;" />
   </component>
 </project>
