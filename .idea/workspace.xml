@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="">
+    <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="Fixed whitespace in index categories">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/sidebar/main.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/sidebar/main.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cart/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/components/featured.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/components/featured.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,10 +93,16 @@
       </map>
     </option>
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.1">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
@@ -205,6 +214,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/symfony/contracts" />
     </include_path>
   </component>
   <component name="ProjectId" id="1OjUkNwYxFyiIdl6umxSgQrLXcV" />
@@ -216,16 +226,17 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.env" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../api.tikket" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="nodejs_interpreter_path" value="$PROJECT_DIR$/../../bin/nodejs/node-v12/node" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2018.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
@@ -254,32 +265,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHP Built-in Web Server.payment.tikket.com.br">
-    <configuration name="site" type="LaravelStorm_run_conf_serve" factoryName="Laravel">
+  <component name="RunManager" selected="Laravel.Site">
+    <configuration name="Site" type="LaravelStorm_run_conf_serve" factoryName="Laravel">
       <option name="host" value="127.0.0.1" />
       <option name="port" value="8000" />
       <option name="route" value="/" />
       <option name="browser" value="" />
-      <option name="interpreterName" value="" />
+      <option name="interpreterName" value="PHP" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
-    <configuration name="admin.tikket.com.br" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/../admin.tikket.com/public" host="127.0.0.5" port="8000">
+    <configuration name="Admin" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/../admin.tikket/public" host="127.0.0.5" port="8000">
       <method v="2" />
     </configuration>
-    <configuration name="api.tikket.com.br" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/../api.tikket.com/public" host="127.0.0.2" port="8000">
+    <configuration name="Api" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/../api.tikket/public" host="127.0.0.2" port="8000">
       <method v="2" />
     </configuration>
-    <configuration name="oauth.tikket.com.br" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" activateToolWindowBeforeRun="false" document_root="$PROJECT_DIR$/../oauth.tikket.com/public" host="127.0.0.3" port="8000">
+    <configuration name="Oauth" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/../oauth.tikket/public" host="127.0.0.3" port="8000">
       <method v="2" />
     </configuration>
-    <configuration name="payment.tikket.com.br" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/../payment.tikket.com/public" host="127.0.0.4" port="8000">
-      <method v="2" />
-    </configuration>
-    <configuration name="tikket.com.br" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/public" host="127.0.0.1" port="8000">
+    <configuration name="Payment" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/../payment.tikket/public" host="127.0.0.4" port="8000">
       <method v="2" />
     </configuration>
     <configuration name="watch" type="js.build_tools.npm" nameIsGenerated="true">
@@ -293,13 +301,12 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Laravel.site" />
+      <item itemvalue="Laravel.Site" />
       <item itemvalue="npm.watch" />
-      <item itemvalue="PHP Built-in Web Server.admin.tikket.com.br" />
-      <item itemvalue="PHP Built-in Web Server.api.tikket.com.br" />
-      <item itemvalue="PHP Built-in Web Server.oauth.tikket.com.br" />
-      <item itemvalue="PHP Built-in Web Server.payment.tikket.com.br" />
-      <item itemvalue="PHP Built-in Web Server.tikket.com.br" />
+      <item itemvalue="PHP Built-in Web Server.Admin" />
+      <item itemvalue="PHP Built-in Web Server.Api" />
+      <item itemvalue="PHP Built-in Web Server.Oauth" />
+      <item itemvalue="PHP Built-in Web Server.Payment" />
       <item itemvalue="PHPUnit.phpunit.xml" />
     </list>
   </component>
@@ -387,6 +394,12 @@
       <workItem from="1564490643048" duration="888000" />
       <workItem from="1567167874149" duration="12170000" />
       <workItem from="1567431478035" duration="24895000" />
+      <workItem from="1567479406829" duration="1866000" />
+      <workItem from="1567520552511" duration="1121000" />
+      <workItem from="1567624989063" duration="49000" />
+      <workItem from="1567625082487" duration="1185000" />
+      <workItem from="1567687480096" duration="18000" />
+      <workItem from="1567687879657" duration="3038000" />
     </task>
     <task id="LOCAL-00001" summary="update cart functions like coupons and ux of the parcilamento">
       <created>1552500338580</created>

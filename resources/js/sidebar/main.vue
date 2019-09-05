@@ -27,7 +27,7 @@
                     <guest-panel v-else></guest-panel>
                 </div>
 
-                <footer class="u-sidebar__footer u-sidebar__footer--account bg-primary">
+                <footer class="u-sidebar__footer u-sidebar__footer--account bg-primary d-none d-lg-block">
                     <div class="position-absolute right-0 bottom-0 left-0">
                         <img :src="'template/front/2.0.1/svg/components/wave-bottom-with-dots.svg' | aws_url" alt="Sidebar footer">
                     </div>

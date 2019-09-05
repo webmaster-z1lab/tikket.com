@@ -5,6 +5,9 @@
 
     @if(!empty($featured))
         @include('home.components.featured')
+
+    @else
+        <div class="container space-2"></div>
     @endif
 
     @include('home.components.categories')

@@ -18,7 +18,7 @@
                             <div class="row align-items-center mb-2">
                                 <div class="col-3 u-ver-divider text-center">
                                     <h5 class="text-primary mb-0">{{ $event->attributes->day }}</h5>
-                                    <span class="align-middle">{{ $event->attributes->month }}</span>
+                                    <span class="align-middle text-uppercase">{{ $event->attributes->month }}</span>
                                 </div>
                                 <div class="col-9 text-left">
                                     <h5 class="small mb-0">{{ $event->attributes->producer }}</h5>

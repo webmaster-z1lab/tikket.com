@@ -5,7 +5,7 @@
 @endsection
 
 @push('scripts')
-    @if(getenv('APP_ENV') === 'production')
+    @if(config('app.env') === 'production')
         <script src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
     @else
         <script src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
