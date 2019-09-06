@@ -59,7 +59,7 @@
             <div class="form-group mb-5">
                 <div class="d-flex align-items-center text-muted">
                     <small>
-                        Escolher Avançar significa que você concorda com os nossos <a href="{{ route('terms') }}" class="js-animation-link link-muted">termos de uso</a> e a nossa <a href="{{ route('privacy') }}" class="js-animation-link link-muted">política de privacidade e cookies</a>.
+                        Escolher Registrar significa que você concorda com os nossos <a href="{{ route('terms') }}" class="js-animation-link link-muted">termos de uso</a> e a nossa <a href="{{ route('privacy') }}" class="js-animation-link link-muted">política de privacidade e cookies</a>.
                     </small>
                 </div>
             </div>

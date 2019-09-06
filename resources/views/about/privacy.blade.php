@@ -7,7 +7,7 @@
 
                 <div class="card-header position-relative bg-primary space-top-2 space-bottom-3 rounded-top-pseudo px-7 px-md-9">
                     <h1 class="text-white font-weight-semi-bold">Política de privacidade segurança e cookies</h1>
-                    <p class="text-white-70">Última modificação: 28 de fevereiro de 2019</p>
+                    <p class="text-white-70">Última modificação: 06 de setembro de 2019</p>
 
                     <figure class="position-absolute right-0 bottom-0 left-0">
                         <img src="{{ config('theme.cdn_url') }}template/front/2.0.1/svg/components/wave-1-bottom-sm.svg" alt="Image Description" width="100%" height="140px">
@@ -21,7 +21,7 @@
                         </div>
 
                         <p>
-                            Obrigado por usar nossos produtos e serviços. Os serviços são fornecidos pela <strong>Z1Lab Soluções Digitais LTDA</strong>, localizada na cidade de Viçosa, Minas Gerais, Brasil.
+                            Obrigado por usar nossos produtos e serviços. O Tikket é uma plataforma desenvolvida e mantida pela <strong>Z1Lab Soluções Digitais LTDA</strong>, CNPJ 31.565.855/0001-93, localizada na cidade de Viçosa, Minas Gerais, Brasil.
                         </p>
 
                         <p>

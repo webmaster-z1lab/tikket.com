@@ -7,7 +7,7 @@
                 </a>
 
                 <div>
-                    <button class="btn btn-xs btn-primary ml-0 d-inline d-sm-none mr-2 mr-sm-2"
+                    <button type="button" class="btn btn-xs btn-primary ml-0 d-inline d-md-none mr-2 mr-sm-2"
                             aria-controls="sidebarContent"
                             aria-haspopup="true"
                             aria-expanded="false"
@@ -54,7 +54,8 @@
                             data-animation-in="slideInUp"
                             data-animation-out="fadeOut"
                             data-position="left">
-                            <a id="aboutMegaMenu" class="nav-link u-header__nav-link u-header__nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="aboutSubMenu">O Tikket</a>
+                            <a id="aboutMegaMenu" class="nav-link u-header__nav-link u-header__nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false"
+                               aria-labelledby="aboutSubMenu">O Tikket</a>
 
                             <ul id="aboutSubMenu" class="hs-sub-menu u-header__sub-menu u-header__sub-menu--spacer" aria-labelledby="aboutMegaMenu" style="min-width: 230px;">
                                 <li><a class="nav-link u-header__sub-menu-nav-link" href="{{ route('about') }}">A empresa</a></li>

@@ -2,7 +2,7 @@
     USUÁRIOS, e qual a responsabilidade deste sobre a guarda, proteção e divulgação de tais informações.</p>
 
 <p>O SITE coleta informações pessoais, capazes de identificar os USUÁRIOS, quando: a) cadastram-se no Tikket, b) participam de nossas promoções ou concursos, e; c) quando
-    entram em contato conosco pelos canais de atendimento ao USUÁRIOS.</p>
+    entram em contato conosco pelos canais de atendimento aos USUÁRIOS.</p>
 
 <p>Para cada uma das modalidades de coleta de dados poderão ser solicitadas diferentes informações, de acordo com a finalidade da sua coleta. Assim, os USUÁRIOS serão sempre
     informados sobre os dados que estão sendo coletados, ficando a seu critério fornecê-los ou não, e, em cada caso, serão avisados também sobre as consequências de sua
@@ -38,10 +38,6 @@
     qualquer modo, o acesso para áreas de nosso portal em que os “cookies” não sejam estritamente necessários é permitido, caso o USUÁRIO opte por não aceitar o recebimento dos
     “cookies”. </p>
 
-<p>ANÚNCIOS: As páginas do Tikket contêm anúncios de empresas e pessoas físicas que podem eventualmente colocar “cookies” no seu computador para servir de referência para
-    os ANUNCIANTES. O Tikket não tem acesso a essas informações e não se responsabiliza pelo uso que o ANUNCIANTE fará das informações coletadas pelo uso destes
-    “cookies”.</p>
-
 <p>REGISTRO: Para ter acesso a algumas seções do Tikket, o USUÁRIO deve preencher um formulário, no qual ele deverá fornecer algumas informações, como por exemplo, forma de
     contato, entre outras. Este registro é armazenado em um banco de dados protegido e sigiloso. Quanto mais informações você fornecer, melhor será a personalização da sua
     experiência. O SITE poderá confirmar os dados pessoais informados pelo USUÁRIO consultando órgãos públicos, empresas especializadas ou centrais de risco – neste caso, o USUÁRIO
@@ -52,11 +48,10 @@
 
 <ul>
     <li>
-        O endereço de correio eletrônico. Sem prejuízo das mudanças que efetue, o Tikket conservará os dados pessoais originais por motivos de segurança e controle de
-        fraudes;
+        O endereço de e-mail. Sem prejuízo das mudanças que efetue, o Tikket conservará os dados pessoais originais por motivos de segurança e controle de fraudes;
     </li>
     <li>
-        A informação do cadastro, como: nome, número de telefone, CEP, etc.
+        A informação do cadastro, como: nome, número de telefone, Endereço, CPF, data de nascimento entre outros.
     </li>
     <li>
         A senha.
@@ -102,5 +97,5 @@
 <p>Em nenhuma hipótese o Tikket vai divulgar estes dados de forma individualizada, ou seja, não haverá identificação do USUÁRIO ou de seus hábitos de acesso e leitura de
     e-mails. Ainda que coletivamente, os dados só podem ser utilizados para os fins previstos nesta Política de Privacidade.</p>
 
-<p>Perguntas ou dúvidas sobre a utilização da base de e-mails e outros dados cadastrados podem ser enviadas para o <a
-        href="mailto:suporte@z1lab.com.br">suporte@z1lab.com.br</a>.</p>
+<p>Perguntas ou dúvidas sobre a utilização da base de e-mails e outros dados cadastrados podem ser enviadas para o <a href="mailto:suporte@tikket.com.br">suporte@tikket.com.br</a>.
+</p>

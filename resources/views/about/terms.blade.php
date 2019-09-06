@@ -37,7 +37,10 @@
                          data-offset-bottom="24">
                         <ul class="js-scroll-nav list-group list-group-transparent list-group-white list-group-flush list-group-borderless py-3 px-5">
                             <li>
-                                <a class="list-group-item list-group-item-action py-3" href="#publicity">Publicidade</a>
+                                <a class="list-group-item list-group-item-action py-3" href="#intro">Introdução</a>
+                            </li>
+                            <li>
+                                <a class="list-group-item list-group-item-action py-3" href="#registry">Cadastro de usuários</a>
                             </li>
                             <li>
                                 <a class="list-group-item list-group-item-action py-3" href="#limitations-of-use">Limitação de Uso</a>
@@ -49,10 +52,22 @@
                                 <a class="list-group-item list-group-item-action py-3" href="#technological-risks">Riscos Tecnológicos</a>
                             </li>
                             <li>
-                                <a class="list-group-item list-group-item-action py-3" href="#third-party-sites">Links para sites de Terceiros</a>
+                                <a class="list-group-item list-group-item-action py-3" href="#sell">Venda de Ingressos</a>
                             </li>
                             <li>
-                                <a class="list-group-item list-group-item-action py-3" href="#changes">Mudanças no portal</a>
+                                <a class="list-group-item list-group-item-action py-3" href="#delivery-and-use-of-tickets">Entrega e Utilização <br>dos Ingressos</a>
+                            </li>
+                            <li>
+                                <a class="list-group-item list-group-item-action py-3" href="#transfer">Transferência de <br>Titularidade de Ingressos</a>
+                            </li>
+                            <li>
+                                <a class="list-group-item list-group-item-action py-3" href="#refund">Cancelamento e <br>Reembolso de Transações</a>
+                            </li>
+                            <li>
+                                <a class="list-group-item list-group-item-action py-3" href="#chargeback">Contestações e Extornos</a>
+                            </li>
+                            <li>
+                                <a class="list-group-item list-group-item-action py-3" href="#tax-and-invoice">Taxa de Serviço <br> e emissão de Nota Fiscal</a>
                             </li>
                             <li>
                                 <a class="list-group-item list-group-item-action py-3" href="#terms-update">Alteração dos termos de uso</a>
@@ -68,23 +83,35 @@
                 </div>
 
                 <article class="col-md-8 col-lg-9">
-                    @include('about.components.terms.publicity')
-                    {{--<hr class="my-0">
+                    @include('about.components.terms.intro')
+                    <hr class="my-0">
+                    @include('about.components.terms.registry')
+                    <hr class="my-0">
                     @include('about.components.terms.limitations-of-use')
                     <hr class="my-0">
                     @include('about.components.terms.copyright')
                     <hr class="my-0">
                     @include('about.components.terms.technological-risks')
                     <hr class="my-0">
-                    @include('about.components.terms.third-party-sites')
+                    @include('about.components.terms.sell')
                     <hr class="my-0">
-                    @include('about.components.terms.changes')
+                    @include('about.components.terms.delivery-and-use-of-tickets')
+                    <hr class="my-0">
+                    @include('about.components.terms.transfer')
+                    <hr class="my-0">
+                    @include('about.components.terms.refund')
+                    <hr class="my-0">
+                    @include('about.components.terms.chargeback')
+                    <hr class="my-0">
+                    @include('about.components.terms.tax-and-invoice')
+                    <hr class="my-0">
+                    @include('about.components.terms.third-party-sites')
                     <hr class="my-0">
                     @include('about.components.terms.terms-update')
                     <hr class="my-0">
                     @include('about.components.terms.indenization')
                     <hr class="my-0">
-                    @include('about.components.terms.forum')--}}
+                    @include('about.components.terms.forum')
                 </article>
             </div>
         </div>

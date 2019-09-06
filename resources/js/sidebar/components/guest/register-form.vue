@@ -73,12 +73,20 @@
                         </span>
                     </div>
 
-                    <input type="password" class="form-control" name="password_confirm" placeholder="Confirme a senha" data-vv-validate-on="change" id="signUpPasswordConfirmation" v-model="password_confirm" data-vv-as="'Confirme a Senha'" v-validate="'required|confirmed:password'" @keyup.enter="registerSubmit">
+                    <input type="password" class="form-control" name="password_confirm" placeholder="Confirme a senha" data-vv-validate-on="change" id="signUpPasswordConfirmation"
+                           v-model="password_confirm" data-vv-as="'Confirme a Senha'" v-validate="'required|confirmed:password'" @keyup.enter="registerSubmit">
                 </div>
 
                 <div v-show="errors.has('password_confirm')" class="invalid-feedback" style="display: block">
                     {{ errors.first('password_confirm') }}
                 </div>
+            </div>
+
+            <div class="mb-4">
+                <small>
+                    Ao criar sua conta você aceita os nossos <a href="/termos-de-uso" class="js-animation-link link-muted">termos de uso</a> e <a
+                    href="/privacidade-e-cookies" class="js-animation-link link-muted">política de privacidade e cookies</a>.
+                </small>
             </div>
 
             <div class="mb-2">
@@ -89,7 +97,7 @@
 
             <div class="text-center mb-4">
                 <span class="small text-muted">Já possui uma conta?</span>
-                <a class="js-animation-link small" href="javascript:;"  @click="$emit('exchange', 'login-form')">Acesse</a>
+                <a class="js-animation-link small" href="javascript:;" @click="$emit('exchange', 'login-form')">Acesse</a>
             </div>
         </form>
     </div>
