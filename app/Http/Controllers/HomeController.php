@@ -52,6 +52,16 @@ class HomeController extends Controller
     /**
      * @return \Illuminate\View\View
      */
+    public function termsOrganizer(): View
+    {
+        \Meta::set('title', 'Termos de uso do organizador');
+
+        return view('about.terms-organizer');
+    }
+
+    /**
+     * @return \Illuminate\View\View
+     */
     public function privacy(): View
     {
         \Meta::set('title', 'Privacidade e cookies');

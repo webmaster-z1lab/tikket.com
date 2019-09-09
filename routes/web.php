@@ -4,6 +4,7 @@ Route::get('', 'HomeController@index')->name('home')->middleware('cors');
 Route::get('quem-somos', 'HomeController@about')->name('about');
 Route::get('facilidades', 'HomeController@features')->name('features');
 Route::get('termos-de-uso', 'HomeController@terms')->name('terms');
+Route::get('termos-de-uso-organizador', 'HomeController@termsOrganizer')->name('terms.organizer');
 Route::get('privacidade-e-cookies', 'HomeController@privacy')->name('privacy');
 Route::get('contato', 'HomeController@contact')->name('contact');
 Route::get('eventos', 'EventController@index')->name('events');
@@ -14,14 +15,14 @@ Route::view('usuario/{vue?}', 'user.index')->name('user')->where('vue', '.*')->m
 
 Route::middleware('auth')
     ->prefix('meus-ingressos')
-    ->group(function () {
+    ->group(static function () {
         Route::get('/', 'TicketController@index')->name('tickets');
         Route::get('{ticket}', 'TicketController@show')->name('tickets.show');
     });
 
 Route::middleware('auth')
     ->prefix('meus-pedidos')
-    ->group(function () {
+    ->group(static function () {
         Route::get('/', 'OrderController@index')->name('orders');
         Route::get('{event}', 'OrderController@show')->name('orders.show');
     });

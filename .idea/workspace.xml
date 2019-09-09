@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="Fixed whitespace in index categories">
+    <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/sidebar/main.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/sidebar/main.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/components/featured.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/components/featured.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/about/terms-organizer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about/terms-organizer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,56 +41,15 @@
     </option>
     <option name="SCHEME" value="Project" />
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>install</find>
-      <find>groupTickets</find>
-      <find>setError</find>
-      <find>loading</find>
-      <find>$emit</find>
-      <find>Opções</find>
-      <find>installment</find>
-      <find>icon</find>
-      <find>validate</find>
-      <find>YYYY</find>
-      <find>local</find>
-      <find>4445645656</find>
-      <find>fs</find>
-      <find>httpBuildQuery</find>
-      <find>city</find>
-      <find>cd.</find>
-      <find>cdn</find>
-      <find>getGe</find>
-      <find>{{ getenv('AWS_CDN_ENDPOINT') }}</find>
-      <find>{{ config('app.cdn') }}</find>
-      <find>{{ getenv('AWS_CDN_ENDPOINT') }}/</find>
-      <find>getenv(</find>
-      <find>getenv('AWS_CDN_ENDPOINT')</find>
-      <find>ca</find>
-      <find>Echo</find>
-      <find>acr</find>
-      <find>costomer</find>
-      <find>costumer</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>{{ config('theme.cdn_url') }}</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>C:\Developer\www\tikket.com\resources\views</dir>
-      <dir>C:\Developer\www\tikket.com\app</dir>
-      <dir>C:\Developer\www\tikket.com\vendor</dir>
-      <dir>C:\Developer\www\tikket.com\resources\js</dir>
-      <dir>C:\Developer\www\tikket.com\resources</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="MERGE" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -102,7 +60,7 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.2">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
@@ -226,7 +184,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.env" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../api.tikket" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../IntelliJ pt-br/portuguese-brazil_without-accents.dic" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -236,21 +194,21 @@
     <property name="nodejs_interpreter_path" value="$PROJECT_DIR$/../../bin/nodejs/node-v12/node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2018.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\www\tikket\tikket.com\resources\js\home" />
-      <recent name="C:\Developer\www\tikket.com\resources\views\user\components\empty" />
-      <recent name="C:\www\tikket\tikket.com\resources\js\cart\components" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Developer\www\tikket.com\public" />
       <recent name="C:\Developer\www\tikket.com\public\css" />
       <recent name="C:\www\tikket\tikket.com\resources\js\search" />
       <recent name="C:\www\tikket\tikket.com\resources\js" />
       <recent name="C:\Developer\www\tikket.com\app\Http\View\Composers\Ticket" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\www\tikket\tikket.com\resources\js\home" />
+      <recent name="C:\Developer\www\tikket.com\resources\views\user\components\empty" />
+      <recent name="C:\www\tikket\tikket.com\resources\js\cart\components" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -271,7 +229,7 @@
       <option name="port" value="8000" />
       <option name="route" value="/" />
       <option name="browser" value="" />
-      <option name="interpreterName" value="PHP" />
+      <option name="interpreterName" value="PHP 7.2" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -310,6 +268,7 @@
       <item itemvalue="PHPUnit.phpunit.xml" />
     </list>
   </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="4" Folder0="C:\laragon\IntelliJ pt-br" Folder1="C:\laragon\IntelliJ pt-br" Folder2="C:\laragon\IntelliJ pt-br" Folder3="C:\laragon\IntelliJ pt-br" CustomDictionaries="4" CustomDictionary0="C:\laragon\IntelliJ pt-br\portuguese-brazil.dic" CustomDictionary1="C:\laragon\IntelliJ pt-br\portuguese-brazil_technical-terms.dic" CustomDictionary2="C:\laragon\IntelliJ pt-br\portuguese-brazil_technical-terms_without-accents.dic" CustomDictionary3="C:\laragon\IntelliJ pt-br\portuguese-brazil_without-accents.dic" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="project-level" UseSingleDictionary="true" />
   <component name="StructuralSearchPlugin">
     <searchConfiguration name="user defined" created="1557867552418" text="{{ getenv('AWS_CDN_ENDPOINT') }}" recursive="true" caseInsensitive="true" type="PHP" scope_type="PROJECT" scope_descriptor="" history="1">
       <constraint name="__context__" within="" contains="" />
@@ -400,6 +359,11 @@
       <workItem from="1567625082487" duration="1185000" />
       <workItem from="1567687480096" duration="18000" />
       <workItem from="1567687879657" duration="3038000" />
+      <workItem from="1567712612525" duration="148000" />
+      <workItem from="1567713853958" duration="1084000" />
+      <workItem from="1567773059702" duration="13972000" />
+      <workItem from="1568030850453" duration="367000" />
+      <workItem from="1568031229481" duration="12256000" />
     </task>
     <task id="LOCAL-00001" summary="update cart functions like coupons and ux of the parcilamento">
       <created>1552500338580</created>
@@ -611,7 +575,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567467161043</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Created commons terms of use; Init organizer terms of use;">
+      <created>1567795049375</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1567795049376</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,7 +626,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update cart functions like coupons and ux of the parcilamento" />
     <MESSAGE value="Dependence update;" />
     <MESSAGE value="Finalized event page;" />
     <MESSAGE value="Revert: Dependence update;" />
@@ -680,6 +650,7 @@
     <MESSAGE value="Removed Pace() from javascript files;" />
     <MESSAGE value="Created featured events list on home;" />
     <MESSAGE value="Removed Pace from auth template;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed Pace from auth template;" />
+    <MESSAGE value="Created commons terms of use; Init organizer terms of use;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created commons terms of use; Init organizer terms of use;" />
   </component>
 </project>
