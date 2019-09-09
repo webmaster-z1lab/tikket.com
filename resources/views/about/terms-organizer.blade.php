@@ -4,7 +4,10 @@
     <div class="position-relative">
         <div class="container space-2 space-top-md-5 space-bottom-md-3">
             <div class="w-md-80 w-lg-60">
-                <h1 class="text-primary"><span class="font-weight-semi-bold">Tikket</span> Termos e condições de uso do ORGANIZADOR</h1>
+                <h1 class="text-primary"><span class="font-weight-semi-bold">Tikket</span> Termos e condições de uso do Organizador</h1>
+                <p>
+                    <small class="text-secondary mb-2">Atualizado em 09 de setembro de 2019</small>
+                </p>
 
                 <p>
                     Olá e bem vindo ao Tikket. Por favor, leia nossos Termos e condições de uso do ORGANIZADOR com calma, porque eles afetam seus direitos legais, incluindo um

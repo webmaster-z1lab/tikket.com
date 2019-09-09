@@ -5,6 +5,9 @@
         <div class="container space-2 space-top-md-5 space-bottom-md-3">
             <div class="w-md-80 w-lg-60">
                 <h1 class="text-primary"><span class="font-weight-semi-bold">Tikket</span> Termos e condições</h1>
+                <p>
+                    <small class="text-secondary mb-2">Atualizado em 09 de setembro de 2019</small>
+                </p>
 
                 <p>
                     Olá e bem vindo ao Tikket. Por favor, leia nossos Termos e Condições de Uso e <a href="{{ route('privacy') }}">Política de Privacidade</a>

@@ -6,7 +6,7 @@ Route::get('facilidades', 'HomeController@features')->name('features');
 Route::get('termos-de-uso', 'HomeController@terms')->name('terms');
 Route::get('termos-de-uso-organizador', 'HomeController@termsOrganizer')->name('terms.organizer');
 Route::get('privacidade-e-cookies', 'HomeController@privacy')->name('privacy');
-Route::get('contato', 'HomeController@contact')->name('contact');
+Route::get('contato-e-suporte', 'HomeController@contact')->name('contact');
 Route::get('eventos', 'EventController@index')->name('events');
 Route::get('evento/{url}', 'EventController@show')->name('event');
 Route::get('cart/{vue?}', 'HomeController@cart')->name('cart')->where('vue', '.*')->middleware('auth');

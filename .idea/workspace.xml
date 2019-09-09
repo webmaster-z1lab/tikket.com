@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/about/privacy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about/privacy.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/about/terms-organizer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about/terms-organizer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/about/terms.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about/terms.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -198,17 +199,17 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2018.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\www\tikket\tikket.com\resources\js\home" />
+      <recent name="C:\Developer\www\tikket.com\resources\views\user\components\empty" />
+      <recent name="C:\www\tikket\tikket.com\resources\js\cart\components" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Developer\www\tikket.com\public" />
       <recent name="C:\Developer\www\tikket.com\public\css" />
       <recent name="C:\www\tikket\tikket.com\resources\js\search" />
       <recent name="C:\www\tikket\tikket.com\resources\js" />
       <recent name="C:\Developer\www\tikket.com\app\Http\View\Composers\Ticket" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\www\tikket\tikket.com\resources\js\home" />
-      <recent name="C:\Developer\www\tikket.com\resources\views\user\components\empty" />
-      <recent name="C:\www\tikket\tikket.com\resources\js\cart\components" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -363,7 +364,7 @@
       <workItem from="1567713853958" duration="1084000" />
       <workItem from="1567773059702" duration="13972000" />
       <workItem from="1568030850453" duration="367000" />
-      <workItem from="1568031229481" duration="12256000" />
+      <workItem from="1568031229481" duration="13962000" />
     </task>
     <task id="LOCAL-00001" summary="update cart functions like coupons and ux of the parcilamento">
       <created>1552500338580</created>
@@ -582,7 +583,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567795049376</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Finalized organizer terms of use;">
+      <created>1568052354270</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1568052354270</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -626,7 +634,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Dependence update;" />
     <MESSAGE value="Finalized event page;" />
     <MESSAGE value="Revert: Dependence update;" />
     <MESSAGE value="bug fixes" />
@@ -651,6 +658,7 @@
     <MESSAGE value="Created featured events list on home;" />
     <MESSAGE value="Removed Pace from auth template;" />
     <MESSAGE value="Created commons terms of use; Init organizer terms of use;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created commons terms of use; Init organizer terms of use;" />
+    <MESSAGE value="Finalized organizer terms of use;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalized organizer terms of use;" />
   </component>
 </project>

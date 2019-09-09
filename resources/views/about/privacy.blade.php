@@ -6,7 +6,7 @@
             <div class="card shadow-sm">
 
                 <div class="card-header position-relative bg-primary space-top-2 space-bottom-3 rounded-top-pseudo px-7 px-md-9">
-                    <h1 class="text-white font-weight-semi-bold">Política de privacidade segurança e cookies</h1>
+                    <h1 class="text-white font-weight-semi-bold">Política de privacidade e cookies</h1>
                     <p class="text-white-70">Última modificação: 06 de setembro de 2019</p>
 
                     <figure class="position-absolute right-0 bottom-0 left-0">
