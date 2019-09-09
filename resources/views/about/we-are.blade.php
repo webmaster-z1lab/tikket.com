@@ -10,35 +10,43 @@
 
         <div class="row">
             <div class="col-12">
-                <p>
-                    O Tikket é uma plataforma moderna focada na experiência de venda de ingressos online.
-                </p>
+                <div class="space-bottom-2">
+                    <p>
+                        O Tikket é uma plataforma moderna desenvolvida para entregar a melhor experiência de compra e venda de ingressos online.
+                    </p>
 
-                <p>
-                    Oferecemos uma base dinâmica e confiável, onde cada um pode comprar seus ingressos, além de ter contato direto com os organizadores assim como os
-                    organizadores podem atender com mais velocidade e qualidade a todos os seus clientes.
-                </p>
+                    <p>
+                        Oferecemos um ambiente dinâmico e confiável, onde cada um pode vender e comprar ingressos, além de ter contato direto com os organizadores assim como os
+                        organizadores podem atender com mais velocidade e qualidade a todos os seus clientes.
+                    </p>
 
-                <p>
-                    O Tikket.com.br é uma marca registrada cujo os direitos são detidos pela <a href="https://z1lab.com.br">Z1lab Soluções Digitais LTDA.</a>
-                </p>
+                    <p>
+                        O Tikket é uma marca registrada cujo os direitos são detidos pela <a href="https://z1lab.com.br">Z1lab Soluções Digitais LTDA, pessoa jurídica de direito
+                            privado, inscrita no CNPJ sob o nº 31.565.855/0001-93.</a>
+                    </p>
+                </div>
 
-                <h2 class="text-primary"><strong class="font-weight-semi-bold">Fácil</strong> de usar</h2>
+                <div class="space-bottom-2">
+                    <h2 class="text-primary"><strong class="font-weight-semi-bold">Fácil</strong> de usar</h2>
 
-                <p>
-                    O nosso site é uma ferramenta em constante desenvolvimento buscando melhorias nos processos, agilizando o processo de compra e venda de ingressos, além de toda a gestão de pedidos e seus respectivos ingressos.
-                </p>
+                    <p>
+                        O nosso site é uma ferramenta em constante desenvolvimento buscando melhorias nos processos, agilizando o processo de compra e venda de ingressos, a gestão de
+                        pedidos e seus respectivos ingressos além do atendimento e conexão entre participantes e organizadores.
+                    </p>
+                </div>
 
-                <h2 class="text-primary"><strong class="font-weight-semi-bold">Visibilidade</strong> e agilidade para nossos anunciantes</h2>
+                <div class="space-bottom-2">
+                    <h2 class="text-primary"><strong class="font-weight-semi-bold">Visibilidade</strong> e agilidade para nossos organizadores</h2>
 
-                <p>
-                    Oferecemos para os nossos organizadores uma melhor visibilidade do seus eventos através de ferramentas de publicação que os posicionam perto de quem realmente
-                    interessa além da facilidade de contato com o cliente e integração às redes sociais.
-                </p>
+                    <p>
+                        Oferecemos para os nossos organizadores uma melhor visibilidade do seus eventos através de ferramentas de publicação que os posicionam perto de quem realmente
+                        interessa além da facilidade de contato com o cliente e integração às redes sociais.
+                    </p>
 
-                <p>
-                    Cadastrar o seu evento e vender ingressos é simples e rápido através de qualquer dispositivo conectado à internet.
-                </p>
+                    <p>
+                        Cadastrar o seu evento e vender ingressos é simples e rápido através de qualquer dispositivo conectado à internet.
+                    </p>
+                </div>
             </div>
         </div>
     </article>
