@@ -49,6 +49,10 @@
                             @endif
                         </li>
 
+                        <li class="nav-item u-header__nav-item @if(starts_with('contact', Route::currentRouteName())) active @endif">
+                            <a class="nav-link u-header__nav-link" href="{{ route('contact') }}">Contato</a>
+                        </li>
+
                         <li class="nav-item hs-has-sub-menu u-header__nav-item"
                             data-event="hover"
                             data-animation-in="slideInUp"
