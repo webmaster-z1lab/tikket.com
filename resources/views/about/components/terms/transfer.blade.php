@@ -24,7 +24,7 @@
 
     <p>
         Ao receber o ingresso via troca de titularidade, o USUÁRIO declara-se ciente de que o titular da compra poderá, a qualquer momento, e desde que autorizado pelo ORGANIZADOR,
-        cancelar a compra ou efetuar uma nova troca de titularidade, inviabilizando, assim, seu acesso ao evento. O Tikket não se responsabiliza por compras efetuadas fora do site
-        Tikket ou em seus pontos de venda oficiais.
+        cancelar a compra, inviabilizando, assim, seu acesso ao evento. O Tikket não se responsabiliza por compras efetuadas fora do site Tikket ou em seus pontos de venda
+        oficiais.
     </p>
 </div>

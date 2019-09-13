@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about/privacy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about/privacy.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about/terms-organizer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about/terms-organizer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about/terms.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about/terms.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/cart/components/view/Conclusion.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/cart/components/view/Conclusion.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/event/shop.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/event/shop.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/about/components/terms/intro.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about/components/terms/intro.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/about/components/terms/sell.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about/components/terms/sell.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/about/components/terms/transfer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about/components/terms/transfer.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -224,7 +225,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Laravel.Site">
+  <component name="RunManager" selected="npm.watch">
     <configuration name="Site" type="LaravelStorm_run_conf_serve" factoryName="Laravel">
       <option name="host" value="127.0.0.1" />
       <option name="port" value="8000" />
@@ -365,6 +366,10 @@
       <workItem from="1567773059702" duration="13972000" />
       <workItem from="1568030850453" duration="367000" />
       <workItem from="1568031229481" duration="13962000" />
+      <workItem from="1568118491678" duration="3063000" />
+      <workItem from="1568306138901" duration="3157000" />
+      <workItem from="1568314442448" duration="663000" />
+      <workItem from="1568373398019" duration="1137000" />
     </task>
     <task id="LOCAL-00001" summary="update cart functions like coupons and ux of the parcilamento">
       <created>1552500338580</created>

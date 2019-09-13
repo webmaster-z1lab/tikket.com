@@ -9,7 +9,7 @@
         assim
         como aos demais documentos incorporados ao mesmo por referência. Portanto, o uso do portal significa a total concordância com tais termos, condições e informações.</p>
 
-    <p>O Tikket atua como facilitador da divulgação, compra e venda de ingressos anúncios advindos de diversos organizadores e, portanto, não atua como prestador de serviços
+    <p>O Tikket atua como facilitador da divulgação, compra e venda de ingressos, anúncios advindos de diversos organizadores e, portanto, não atua como prestador de serviços
         de organização de eventos ou ainda intermediário ou participante em nenhum negócio realizado fora da plataforma entre o USUÁRIO e o ORGANIZADOR.</p>
 
     <p>Dessa forma, o Tikket não assume responsabilidade por nenhuma consequência que possa advir de qualquer relação entre o USUÁRIO e os ORGANIZADORRES, seja ela direta ou

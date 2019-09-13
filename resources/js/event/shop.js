@@ -116,9 +116,6 @@ function init() {
 
                 errorAlert.classList.remove('d-none')
             }
-        ).finally(() => {
-                Pace.stop()
-            }
         )
     })
 }

@@ -131,7 +131,7 @@
             <div class="col-md-12">
                 <span class="d-block">
                     <small class="font-weight-medium">Email:</small>
-                    <small class="text-muted">contato@z1lab.com.br</small>
+                    <small class="text-muted">contato@tikket.com.br</small>
                 </span>
 
                 <small class="font-weight-medium">Telefone e WhatsApp:</small>
@@ -139,7 +139,7 @@
             </div>
 
             <div class="col-md-12">
-                <p class="small text-muted mb-0">© tikket.com. Z1lab {{year}}</p>
+                <p class="small text-muted mb-0">© tikket.com.br. Z1lab {{year}}</p>
             </div>
         </div>
     </div>
