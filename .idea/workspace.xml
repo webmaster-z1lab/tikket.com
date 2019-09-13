@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/cart/components/view/Conclusion.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/cart/components/view/Conclusion.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/event/shop.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/event/shop.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about/components/terms/intro.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about/components/terms/intro.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about/components/terms/sell.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about/components/terms/sell.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about/components/terms/transfer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about/components/terms/transfer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/components/order-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/components/order-card.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/order/show.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -369,7 +366,7 @@
       <workItem from="1568118491678" duration="3063000" />
       <workItem from="1568306138901" duration="3157000" />
       <workItem from="1568314442448" duration="663000" />
-      <workItem from="1568373398019" duration="1137000" />
+      <workItem from="1568373398019" duration="3019000" />
     </task>
     <task id="LOCAL-00001" summary="update cart functions like coupons and ux of the parcilamento">
       <created>1552500338580</created>
@@ -595,7 +592,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568052354270</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Typo fixes in terms template;">
+      <created>1568395754841</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1568395754841</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +643,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finalized event page;" />
     <MESSAGE value="Revert: Dependence update;" />
     <MESSAGE value="bug fixes" />
     <MESSAGE value="Created user tickets pages; Added barcode php library;" />
@@ -664,6 +667,7 @@
     <MESSAGE value="Removed Pace from auth template;" />
     <MESSAGE value="Created commons terms of use; Init organizer terms of use;" />
     <MESSAGE value="Finalized organizer terms of use;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalized organizer terms of use;" />
+    <MESSAGE value="Typo fixes in terms template;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Typo fixes in terms template;" />
   </component>
 </project>

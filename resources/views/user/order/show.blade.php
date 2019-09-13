@@ -52,9 +52,13 @@
                             <span class="d-block text-uppercase">Boleto</span>
                             <span class="d-block text-uppercase">Linha digitável: {{ $order->boleto->barcode }}</span>
                             <span class="text-secondary mb-0 d-block">Vencimento: {{ $order->boleto->due_at }}</span>
-                            @if(!$order->boleto->expired)
-                                <span class="text-primary font-weight-bold mb-0 d-block"><a href="{{ $order->boleto->url }}">Abrir boleto</a></span>
-                            @endif
+                            <span class="text-primary font-weight-bold mb-0 d-block"><a href="{{ $order->boleto->url }}">
+                                    @if(!$order->boleto->expired)
+                                        Abrir boleto
+                                    @else
+                                        Boleto vencido
+                                    @endif
+                                </a></span>
                         @endif
                     </div>
                 </div>

@@ -8,8 +8,16 @@
 
                 <div class="font-size-1">
                     <span class="mr-4">
-                        @if($order->type === 'boleto' && !$order->boleto->expired)
-                            <i class="fas fa-barcode mr-1"></i> <span class="text-uppercase"><a href="{{ $order->boleto->url }}" target="_blank">Imprimir boleto</a></span>
+                        @if($order->type === 'boleto')
+                            <i class="fas fa-barcode mr-1"></i> <span class="text-uppercase">
+                                <a href="{{ $order->boleto->url }}" target="_blank">
+                                    @if(!$order->boleto->expired)
+                                        Imprimir boleto
+                                    @else
+                                        Boleto vencido
+                                    @endif
+                                </a>
+                            </span>
                         @endif
 
                         @if($order->type === 'credit_card')
