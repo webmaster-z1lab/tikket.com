@@ -45,6 +45,8 @@
                 <span class="h2 font-weight-semi-bold">Fale com a gente</span>
                 <small class="d-block font-weight-medium">WhatsApp e tel: <span class="text-secondary font-weight-normal">(31) 99715-0447</span></small>
                 <small class="d-block font-weight-medium">E-mail: <a class="font-weight-normal" href="mailto:contato@z1lab.com.br">contato@tikket.com.br</a></small>
+                <hr>
+                <address>Rua Dr. Milton Bandeira, 346, Edifício Alphaville, Sala 302, Viçosa, Minas Gerais</address>
             </div>
         </div>
     </div>
