@@ -68,7 +68,7 @@
                     </figure>
 
                     <h2 class="h6 mb-0">Endereço</h2>
-                    <p class="mb-0">Av. Santa Rita, 481,<br>Centro, Viçosa, MG</p>
+                    <p class="mb-0">Rua Dr. Milton Bandeira, 346, Edifício Alphaville, Sala 302<br>Centro, Viçosa, MG</p>
                 </div>
 
             </div>
@@ -76,66 +76,6 @@
     </div>
 
     <hr class="my-0">
-
-    {{--<div class="container space-2 space-md-3">
-        <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-9">
-            <span class="u-label u-label--sm u-label--success mb-2">Deixe sua mensagem</span>
-            <h2 class="text-primary font-weight-normal">Conte-nos sobre <span class="font-weight-semi-bold">você</span></h2>
-            <p>Se você tiver dúvidas ou quiser apenas nos cumprimentar, entre em contato.</p>
-        </div>
-
-        <div class="w-lg-80 mx-auto">
-            <form id="contact">
-                <div class="row">
-                    <div class="col-sm-6 mb-6">
-                        <div class="js-form-message">
-                            <label class="form-label" for="name">Seu nome<span class="text-danger">*</span></label>
-
-                            <input class="form-control" name="name" placeholder="Seu nome" aria-label="Seu nome" id="name" required>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 mb-6">
-                        <div class="js-form-message">
-                            <label class="form-label" for="email">Seu e-mail<span class="text-danger">*</span></label>
-
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Seu e-mail" aria-label="Seu e-mail" required>
-                        </div>
-                    </div>
-
-                    <div class="w-100"></div>
-
-                    <div class="col-sm-6 mb-6">
-                        <div class="form-group">
-                            <label class="form-label" for="subject">Assunto<span class="text-danger">*</span></label>
-
-                            <input class="form-control" name="subject" id="subject" placeholder="Assunto" aria-label="Assunto" required>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 mb-6">
-                        <div class="form-group">
-                            <label class="form-label" for="phone">Seu telefone<span class="text-danger">*</span></label>
-
-                            <input class="form-control" name="phone" id="phone" placeholder="Seu telefone" aria-label="Seu telefone" required>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group mb-6">
-                    <label class="form-label" for="message">Como podemos ajudá-lo?<span class="text-danger">*</span></label>
-
-                    <textarea class="form-control" rows="4" name="text" id="message" required></textarea>
-                </div>
-
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary btn-wide transition-3d-hover mb-4">Enviar</button>
-                    <p class="small">Retornaremos o mais breve possível.</p>
-                </div>
-            </form>
-
-        </div>
-    </div>--}}
 @endsection
 
 @push('defer-scripts')

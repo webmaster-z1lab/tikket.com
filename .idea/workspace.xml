@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/components/order-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/components/order-card.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/order/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/order/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/about/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about/contact.blade.php" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,12 +176,18 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.env" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../IntelliJ pt-br/portuguese-brazil_without-accents.dic" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../z1lab.com.br" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -193,7 +197,7 @@
     <property name="nodejs_interpreter_path" value="$PROJECT_DIR$/../../bin/nodejs/node-v12/node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2018.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
@@ -209,18 +213,6 @@
       <recent name="C:\www\tikket\tikket.com\resources\js" />
       <recent name="C:\Developer\www\tikket.com\app\Http\View\Composers\Ticket" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="npm.watch">
     <configuration name="Site" type="LaravelStorm_run_conf_serve" factoryName="Laravel">
@@ -267,7 +259,19 @@
       <item itemvalue="PHPUnit.phpunit.xml" />
     </list>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="4" Folder0="C:\laragon\IntelliJ pt-br" Folder1="C:\laragon\IntelliJ pt-br" Folder2="C:\laragon\IntelliJ pt-br" Folder3="C:\laragon\IntelliJ pt-br" CustomDictionaries="4" CustomDictionary0="C:\laragon\IntelliJ pt-br\portuguese-brazil.dic" CustomDictionary1="C:\laragon\IntelliJ pt-br\portuguese-brazil_technical-terms.dic" CustomDictionary2="C:\laragon\IntelliJ pt-br\portuguese-brazil_technical-terms_without-accents.dic" CustomDictionary3="C:\laragon\IntelliJ pt-br\portuguese-brazil_without-accents.dic" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="project-level" UseSingleDictionary="true" />
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="4" Folder0="C:\laragon\IntelliJ pt-br" Folder1="C:\laragon\IntelliJ pt-br" Folder2="C:\laragon\IntelliJ pt-br" Folder3="C:\laragon\IntelliJ pt-br" CustomDictionaries="4" CustomDictionary0="C:\laragon\IntelliJ pt-br\portuguese-brazil.dic" CustomDictionary1="C:\laragon\IntelliJ pt-br\portuguese-brazil_technical-terms.dic" CustomDictionary2="C:\laragon\IntelliJ pt-br\portuguese-brazil_technical-terms_without-accents.dic" CustomDictionary3="C:\laragon\IntelliJ pt-br\portuguese-brazil_without-accents.dic" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="project-level" UseSingleDictionary="true" />
   <component name="StructuralSearchPlugin">
     <searchConfiguration name="user defined" created="1557867552418" text="{{ getenv('AWS_CDN_ENDPOINT') }}" recursive="true" caseInsensitive="true" type="PHP" scope_type="PROJECT" scope_descriptor="" history="1">
       <constraint name="__context__" within="" contains="" />
@@ -367,6 +371,15 @@
       <workItem from="1568306138901" duration="3157000" />
       <workItem from="1568314442448" duration="663000" />
       <workItem from="1568373398019" duration="3019000" />
+      <workItem from="1578504775573" duration="155000" />
+      <workItem from="1578511770544" duration="57000" />
+      <workItem from="1578514122448" duration="1146000" />
+      <workItem from="1578576987398" duration="45000" />
+      <workItem from="1578577110782" duration="43000" />
+      <workItem from="1578591353352" duration="18000" />
+      <workItem from="1578591398824" duration="309000" />
+      <workItem from="1578600997597" duration="1245000" />
+      <workItem from="1578942109565" duration="568000" />
     </task>
     <task id="LOCAL-00001" summary="update cart functions like coupons and ux of the parcilamento">
       <created>1552500338580</created>
@@ -669,5 +682,19 @@
     <MESSAGE value="Finalized organizer terms of use;" />
     <MESSAGE value="Typo fixes in terms template;" />
     <option name="LAST_COMMIT_MESSAGE" value="Typo fixes in terms template;" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1218" y="295" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1578591359547">
+      <screen x="0" y="40" width="2560" height="1040" />
+    </state>
+    <state x="1218" y="295" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.40.2560.1040/-1920.40.1920.1040@0.40.2560.1040" timestamp="1578591359547" />
+    <state x="427" y="314" key="FileChooserDialogImpl" timestamp="1578511826581">
+      <screen x="0" y="40" width="2560" height="1040" />
+    </state>
+    <state x="427" y="314" key="FileChooserDialogImpl/0.40.2560.1040/-1920.40.1920.1040@0.40.2560.1040" timestamp="1578511826581" />
+    <state x="781" y="201" key="SettingsEditor" timestamp="1578511808718">
+      <screen x="0" y="40" width="2560" height="1040" />
+    </state>
+    <state x="781" y="201" key="SettingsEditor/0.40.2560.1040/-1920.40.1920.1040@0.40.2560.1040" timestamp="1578511808718" />
   </component>
 </project>
