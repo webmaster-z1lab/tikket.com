@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37e52fd3-ad3a-430a-b4a8-6a632a2f0b08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/components/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/components/footer.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -379,7 +378,7 @@
       <workItem from="1578591353352" duration="18000" />
       <workItem from="1578591398824" duration="309000" />
       <workItem from="1578600997597" duration="1245000" />
-      <workItem from="1578942109565" duration="713000" />
+      <workItem from="1578942109565" duration="758000" />
     </task>
     <task id="LOCAL-00001" summary="update cart functions like coupons and ux of the parcilamento">
       <created>1552500338580</created>
@@ -619,7 +618,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578942711736</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Updated Address from contact page;">
+      <created>1578942829977</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1578942829977</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -695,10 +701,10 @@
       <screen x="0" y="40" width="2560" height="1040" />
     </state>
     <state x="1218" y="295" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.40.2560.1040/-1920.40.1920.1040@0.40.2560.1040" timestamp="1578591359547" />
-    <state x="554" y="158" key="CommitChangelistDialog2" timestamp="1578942711028">
+    <state x="554" y="158" key="CommitChangelistDialog2" timestamp="1578942829466">
       <screen x="0" y="40" width="2560" height="1040" />
     </state>
-    <state x="554" y="158" key="CommitChangelistDialog2/0.40.2560.1040/-1080.-580.1080.1880@0.40.2560.1040" timestamp="1578942711028" />
+    <state x="554" y="158" key="CommitChangelistDialog2/0.40.2560.1040/-1080.-580.1080.1880@0.40.2560.1040" timestamp="1578942829466" />
     <state x="427" y="314" key="FileChooserDialogImpl" timestamp="1578511826581">
       <screen x="0" y="40" width="2560" height="1040" />
     </state>
@@ -707,9 +713,9 @@
       <screen x="0" y="40" width="2560" height="1040" />
     </state>
     <state x="781" y="201" key="SettingsEditor/0.40.2560.1040/-1920.40.1920.1040@0.40.2560.1040" timestamp="1578511808718" />
-    <state x="520" y="297" key="Vcs.Push.Dialog.v2" timestamp="1578942713649">
+    <state x="520" y="297" key="Vcs.Push.Dialog.v2" timestamp="1578942832144">
       <screen x="0" y="40" width="2560" height="1040" />
     </state>
-    <state x="520" y="297" key="Vcs.Push.Dialog.v2/0.40.2560.1040/-1080.-580.1080.1880@0.40.2560.1040" timestamp="1578942713649" />
+    <state x="520" y="297" key="Vcs.Push.Dialog.v2/0.40.2560.1040/-1080.-580.1080.1880@0.40.2560.1040" timestamp="1578942832144" />
   </component>
 </project>
